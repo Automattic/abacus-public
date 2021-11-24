@@ -100,11 +100,14 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentBare[] }): J
     gridColumnApiRef.current = gridColumnApiRef.current = event.columnApi
 
     event.api.sizeColumnsToFit()
-    window.addEventListener('resize', function () {
-      setTimeout(function () {
-        event.api.sizeColumnsToFit()
-      })
-    })
+  }
+
+  const onGridResize = () => {
+    if (!gridApiRef.current) {
+      return
+    }
+
+    gridApiRef.current.sizeColumnsToFit()
   }
 
   const [searchState, setSearchState] = useState<string>('')
@@ -244,6 +247,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentBare[] }): J
           containerStyle={{ flex: 1, height: 'auto' }}
           onFirstDataRendered={onReset}
           onGridReady={onGridReady}
+          onGridSizeChanged={onGridResize}
         />
       </div>
     </div>

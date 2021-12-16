@@ -3,7 +3,7 @@
 exports[`allows adding, editing and removing a Metric Assignment 1`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -73,11 +73,11 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -86,7 +86,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -188,7 +188,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -218,31 +218,126 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -273,11 +368,11 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -302,7 +397,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -342,7 +437,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
 exports[`allows adding, editing and removing a Metric Assignment 2`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -412,11 +507,11 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -425,7 +520,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -527,7 +622,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -557,31 +652,126 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -612,11 +802,11 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -641,7 +831,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -681,7 +871,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
 exports[`allows adding, editing and removing a Metric Assignment 3`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -737,17 +927,17 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-22"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-27"
             >
               <span
-                class="makeStyles-metricName-23 makeStyles-tooltipped-24"
+                class="makeStyles-metricName-28 makeStyles-tooltipped-29"
                 title="string"
               >
                 asdf_7d_refund
               </span>
               <br />
               <span
-                class="makeStyles-root-33 makeStyles-monospaced-21"
+                class="makeStyles-root-43 makeStyles-monospaced-26"
               >
                 primary
               </span>
@@ -756,7 +946,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-20"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-25"
               >
                 <div
                   aria-haspopup="listbox"
@@ -788,11 +978,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-35"
+                    class="PrivateNotchedOutline-legend-45"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -803,7 +993,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-26"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-31"
             >
               <span
                 class="MuiSwitch-root"
@@ -811,7 +1001,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-39 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-48 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-49 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -819,7 +1009,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-41 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-51 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -842,7 +1032,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-42 makeStyles-minDifferenceField-25"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-52 makeStyles-minDifferenceField-30"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -859,7 +1049,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                     value=""
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-44 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-54 MuiInputAdornment-positionEnd"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
@@ -869,11 +1059,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-35"
+                      class="PrivateNotchedOutline-legend-45"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -921,11 +1111,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -934,7 +1124,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -1036,7 +1226,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1066,31 +1256,126 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -1121,11 +1406,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1150,7 +1435,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1192,7 +1477,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
   aria-hidden="true"
 >
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1248,17 +1533,17 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-22"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-27"
             >
               <span
-                class="makeStyles-metricName-23 makeStyles-tooltipped-24"
+                class="makeStyles-metricName-28 makeStyles-tooltipped-29"
                 title="string"
               >
                 asdf_7d_refund
               </span>
               <br />
               <span
-                class="makeStyles-root-33 makeStyles-monospaced-21"
+                class="makeStyles-root-43 makeStyles-monospaced-26"
               >
                 primary
               </span>
@@ -1267,7 +1552,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-20"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-25"
               >
                 <div
                   aria-haspopup="listbox"
@@ -1299,11 +1584,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-35"
+                    class="PrivateNotchedOutline-legend-45"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -1314,7 +1599,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-26"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-31"
             >
               <span
                 class="MuiSwitch-root"
@@ -1322,7 +1607,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-39 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-48 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-49 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -1330,7 +1615,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-41 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-51 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -1353,7 +1638,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-42 makeStyles-minDifferenceField-25"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-52 makeStyles-minDifferenceField-30"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -1370,7 +1655,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                     value="0.01"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-44 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-54 MuiInputAdornment-positionEnd"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
@@ -1380,11 +1665,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-35"
+                      class="PrivateNotchedOutline-legend-45"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -1432,11 +1717,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1445,7 +1730,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -1547,7 +1832,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1577,31 +1862,126 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -1632,11 +2012,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1661,7 +2041,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1701,7 +2081,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
 exports[`allows adding, editing and removing a Metric Assignment 5`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1757,17 +2137,17 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-22"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-27"
             >
               <span
-                class="makeStyles-metricName-23 makeStyles-tooltipped-24"
+                class="makeStyles-metricName-28 makeStyles-tooltipped-29"
                 title="string"
               >
                 asdf_7d_refund
               </span>
               <br />
               <span
-                class="makeStyles-root-33 makeStyles-monospaced-21"
+                class="makeStyles-root-43 makeStyles-monospaced-26"
               >
                 primary
               </span>
@@ -1776,7 +2156,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-20"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-25"
               >
                 <div
                   aria-haspopup="listbox"
@@ -1808,11 +2188,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-35"
+                    class="PrivateNotchedOutline-legend-45"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -1823,7 +2203,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-26"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-31"
             >
               <span
                 class="MuiSwitch-root"
@@ -1831,7 +2211,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-39 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-48 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-49 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -1839,7 +2219,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-41 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-51 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -1862,7 +2242,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-42 makeStyles-minDifferenceField-25"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-52 makeStyles-minDifferenceField-30"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -1879,7 +2259,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                     value="0.01"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-44 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-54 MuiInputAdornment-positionEnd"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
@@ -1889,11 +2269,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-34 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-44 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-35"
+                      class="PrivateNotchedOutline-legend-45"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -1941,11 +2321,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1954,7 +2334,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -2056,7 +2436,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2086,31 +2466,126 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -2141,11 +2616,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2170,7 +2645,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2210,7 +2685,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
 exports[`allows adding, editing and removing a Metric Assignment 6`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -2280,11 +2755,11 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2293,7 +2768,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -2395,7 +2870,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2425,31 +2900,126 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -2480,11 +3050,11 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2509,7 +3079,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2549,7 +3119,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
 exports[`allows adding, editing and removing a Metric Assignment 7`] = `
 <div>
   <div
-    class="makeStyles-root-17"
+    class="makeStyles-root-22"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -2605,17 +3175,17 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-22"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-27"
             >
               <span
-                class="makeStyles-metricName-23 makeStyles-tooltipped-24"
+                class="makeStyles-metricName-28 makeStyles-tooltipped-29"
                 title="string"
               >
                 registration_start
               </span>
               <br />
               <span
-                class="makeStyles-root-45 makeStyles-monospaced-21"
+                class="makeStyles-root-55 makeStyles-monospaced-26"
               >
                 primary
               </span>
@@ -2624,7 +3194,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-20"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-25"
               >
                 <div
                   aria-haspopup="listbox"
@@ -2656,11 +3226,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-46 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-56 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-47"
+                    class="PrivateNotchedOutline-legend-57"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -2671,7 +3241,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-26"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-31"
             >
               <span
                 class="MuiSwitch-root"
@@ -2679,7 +3249,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-50 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-51 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-60 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-61 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -2687,7 +3257,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-53 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-63 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -2710,7 +3280,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-54 makeStyles-minDifferenceField-25"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-64 makeStyles-minDifferenceField-30"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -2728,10 +3298,10 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                     value="0"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-56 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-66 MuiInputAdornment-positionEnd"
                   >
                     <p
-                      class="MuiTypography-root makeStyles-tooltipped-55 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      class="MuiTypography-root makeStyles-tooltipped-65 MuiTypography-body1 MuiTypography-colorTextSecondary"
                       title="Percentage Points"
                     >
                       pp
@@ -2739,11 +3309,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-46 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-56 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-47"
+                      class="PrivateNotchedOutline-legend-57"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -2791,11 +3361,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2804,7 +3374,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-19"
+        class="MuiFormControl-root makeStyles-addMetricSelect-24"
       >
         <div
           aria-expanded="false"
@@ -2906,7 +3476,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-27 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-32 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2936,31 +3506,126 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-33 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-34"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-35 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-36"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-37 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-28 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-38 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -2991,11 +3656,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-31"
+      class="makeStyles-addMetric-41"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-42"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -3020,7 +3685,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-29 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-39 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3130,11 +3795,11 @@ exports[`renders as expected 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-15"
+      class="makeStyles-addMetric-20"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-16"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-21"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -3275,31 +3940,126 @@ exports[`renders as expected 1`] = `
          
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target="_blank"
-        >
-          How do I choose a Minimum Difference?
-        </a>
-        <br />
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target="_blank"
         >
           What is Change Expected?
         </a>
-         
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-12 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target="_blank"
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </a>
+         that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div
+          class="makeStyles-attributionWindowDiagram-13"
+        >
+          <svg>
+            attribution_window.svg
+          </svg>
+          <svg>
+            refund_window.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-14 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target="_blank"
+        >
+          How do I choose a Minimum Difference?
+        </a>
+         Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+        <br />
+        <div
+          class="makeStyles-minDiffDiagram-15"
+        >
+          <svg>
+            min_diffs.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-16 MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          href="https://betterexperiments.wordpress.com/?start=metric-request"
+          target="_blank"
+        >
+          Can't find a metric? Request one!
         </a>
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-12 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-17 MuiTypography-h4"
     >
       Exposure Events (Optional)
     </h4>
@@ -3330,11 +4090,11 @@ exports[`renders as expected 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-15"
+      class="makeStyles-addMetric-20"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-16"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-21"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -3359,7 +4119,7 @@ exports[`renders as expected 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-13 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-18 MuiPaper-elevation0"
       role="alert"
     >
       <div

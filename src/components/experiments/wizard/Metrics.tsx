@@ -36,6 +36,9 @@ import { EventNew, Metric, MetricAssignment } from 'src/lib/schemas'
 import { useDataSource } from 'src/utils/data-loading'
 
 import { ExperimentFormCompletionBag } from './ExperimentForm'
+import { ReactComponent as AttributionWindowDiagram } from './img/attribution_window.svg'
+import { ReactComponent as MinDiffDiagram } from './img/min_diffs.svg'
+import { ReactComponent as RefundWindowDiagram } from './img/refund_window.svg'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -75,6 +78,25 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     metricsInfo: {
       marginTop: theme.spacing(4),
+    },
+    attributionWindowInfo: {
+      marginTop: theme.spacing(1),
+    },
+    attributionWindowDiagram: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+      marginTop: theme.spacing(1),
+    },
+    minDiffInfo: {
+      marginTop: theme.spacing(1),
+    },
+    minDiffDiagram: {
+      textAlign: 'center',
+      marginTop: theme.spacing(1),
+    },
+    requestMetricInfo: {
+      marginTop: theme.spacing(1),
     },
     exposureEventsTitle: {
       marginTop: theme.spacing(6),
@@ -488,26 +510,51 @@ const Metrics = ({
         &nbsp;
         <Link
           underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-          target='_blank'
-        >
-          How do I choose a Minimum Difference?
-        </Link>
-        <br />
-        <Link
-          underline='always'
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
           target='_blank'
         >
           What is Change Expected?
         </Link>
-        &nbsp;
+      </Alert>
+
+      <Alert severity='info' className={classes.attributionWindowInfo}>
         <Link
           underline='always'
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target='_blank'
         >
-          What is an Attribution Window?
+          An Attribution Window is the window of time after exposure to an experiment
+        </Link>
+        &nbsp;that we capture metric events for a participant (exposure can be from either assignment or specified
+        exposure events). The refund window is the window of time after a purchase event. Revenue metrics will
+        automatically deduct transactions that have been refunded within the metric’s refund window.
+        <br />
+        <div className={classes.attributionWindowDiagram}>
+          <AttributionWindowDiagram />
+          <RefundWindowDiagram />
+        </div>
+      </Alert>
+
+      <Alert severity='info' className={classes.minDiffInfo}>
+        <Link
+          underline='always'
+          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          target='_blank'
+        >
+          How do I choose a Minimum Difference?
+        </Link>
+        &nbsp;Minimum Practical Difference values are absolute differences from the baseline (not relative). For
+        example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative
+        change.
+        <br />
+        <div className={classes.minDiffDiagram}>
+          <MinDiffDiagram />
+        </div>
+      </Alert>
+
+      <Alert severity='info' className={classes.requestMetricInfo}>
+        <Link underline='always' href='https://betterexperiments.wordpress.com/?start=metric-request' target='_blank'>
+          {"Can't find a metric? Request one!"}
         </Link>
       </Alert>
 

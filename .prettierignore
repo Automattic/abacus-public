@@ -15,5 +15,6 @@ templates/
 
 /build
 
-# prettier doesn't seem to like jpgs
+# prettier doesn't seem to like jpgs or svgs
 /public/img/*.jpg
+*.svg

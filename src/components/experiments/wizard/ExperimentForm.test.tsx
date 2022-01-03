@@ -447,7 +447,7 @@ test('form submits with valid fields', async () => {
     fireEvent.click(metricAddButton)
   })
 
-  const attributionWindowField = await screen.findByLabelText(/Attribution Window/)
+  const attributionWindowField = await screen.findByLabelText('Attribution Window')
   await act(async () => {
     fireEvent.focus(attributionWindowField)
   })

@@ -27,6 +27,7 @@ import React, { useState } from 'react'
 import { getPropNameCompletions } from 'src/api/AutocompleteApi'
 import Attribute from 'src/components/general/Attribute'
 import AbacusAutocomplete, { autocompleteInputProps } from 'src/components/general/Autocomplete'
+import CollapsibleAlert from 'src/components/general/CollapsibleAlert'
 import MetricAutocomplete from 'src/components/general/MetricAutocomplete'
 import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import MoreMenu from 'src/components/general/MoreMenu'
@@ -517,40 +518,50 @@ const Metrics = ({
         </Link>
       </Alert>
 
-      <Alert severity='info' className={classes.attributionWindowInfo}>
+      <CollapsibleAlert
+        id='attr-window-panel'
+        severity='info'
+        className={classes.attributionWindowInfo}
+        summary={'What is an Attribution Window?'}
+      >
         <Link
           underline='always'
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
           target='_blank'
         >
-          An Attribution Window is the window of time after exposure to an experiment
-        </Link>
-        &nbsp;that we capture metric events for a participant (exposure can be from either assignment or specified
-        exposure events). The refund window is the window of time after a purchase event. Revenue metrics will
-        automatically deduct transactions that have been refunded within the metric’s refund window.
+          An Attribution Window
+        </Link>{' '}
+        is the window of time after exposure to an experiment that we capture metric events for a participant (exposure
+        can be from either assignment or specified exposure events). The refund window is the window of time after a
+        purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the
+        metric’s refund window.
         <br />
         <div className={classes.attributionWindowDiagram}>
           <AttributionWindowDiagram />
           <RefundWindowDiagram />
         </div>
-      </Alert>
+      </CollapsibleAlert>
 
-      <Alert severity='info' className={classes.minDiffInfo}>
+      <CollapsibleAlert
+        id='min-diff-panel'
+        severity='info'
+        className={classes.minDiffInfo}
+        summary={'How do I choose a Minimum Difference?'}
+      >
         <Link
           underline='always'
           href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
           target='_blank'
         >
-          How do I choose a Minimum Difference?
-        </Link>
-        &nbsp;Minimum Practical Difference values are absolute differences from the baseline (not relative). For
-        example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative
-        change.
+          Minimum Practical Difference values
+        </Link>{' '}
+        are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a
+        minimum difference of 0.5 pp is equivalent to a 10% relative change.
         <br />
         <div className={classes.minDiffDiagram}>
           <MinDiffDiagram />
         </div>
-      </Alert>
+      </CollapsibleAlert>
 
       <Alert severity='info' className={classes.requestMetricInfo}>
         <Link underline='always' href='https://betterexperiments.wordpress.com/?start=metric-request' target='_blank'>

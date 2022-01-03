@@ -421,10 +421,10 @@ exports[`renders as expected 1`] = `
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 1`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -711,7 +711,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -721,13 +721,13 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
-              class="makeStyles-root-85"
+              class="makeStyles-root-87"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -773,7 +773,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-p2EntryField-86"
+                class="MuiFormControl-root MuiTextField-root makeStyles-p2EntryField-88"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
@@ -797,10 +797,10 @@ exports[`sections should be browsable by the section buttons and show validation
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-88 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-90 PrivateNotchedOutline-legendNotched-91"
+                      class="PrivateNotchedOutline-legendLabelled-92 PrivateNotchedOutline-legendNotched-93"
                     >
                       <span>
                         Your Post's URL
@@ -812,7 +812,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </div>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -839,10 +839,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 2`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -1089,7 +1089,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -1099,10 +1099,10 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1138,7 +1138,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </p>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -1155,7 +1155,7 @@ exports[`sections should be browsable by the section buttons and show validation
               />
             </button>
             <div
-              class="makeStyles-root-93"
+              class="makeStyles-root-95"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary Mui-disabled Mui-disabled"
@@ -1181,10 +1181,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 3`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -1441,7 +1441,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -1451,13 +1451,13 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
-              class="makeStyles-root-95"
+              class="makeStyles-root-97"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1527,11 +1527,11 @@ exports[`sections should be browsable by the section buttons and show validation
                 </table>
               </div>
               <div
-                class="makeStyles-addMetric-114"
+                class="makeStyles-addMetric-116"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-115"
+                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-117"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -1540,7 +1540,7 @@ exports[`sections should be browsable by the section buttons and show validation
                   />
                 </svg>
                 <div
-                  class="MuiFormControl-root makeStyles-addMetricSelect-97"
+                  class="MuiFormControl-root makeStyles-addMetricSelect-99"
                 >
                   <div
                     aria-expanded="false"
@@ -1650,7 +1650,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </button>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-105 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-107 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -1688,7 +1688,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-106 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-108 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -1708,29 +1708,97 @@ exports[`sections should be browsable by the section buttons and show validation
                 <div
                   class="MuiAlert-message"
                 >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
-                    target="_blank"
-                  >
-                    An Attribution Window is the window of time after exposure to an experiment
-                  </a>
-                   that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
-                  <br />
                   <div
-                    class="makeStyles-attributionWindowDiagram-107"
+                    class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-118 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                   >
-                    <svg>
-                      attribution_window.svg
-                    </svg>
-                    <svg>
-                      refund_window.svg
-                    </svg>
+                    <div
+                      aria-controls="attr-window-panel-content"
+                      aria-disabled="false"
+                      aria-expanded="false"
+                      class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-119"
+                      id="attr-window-panel"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="MuiAccordionSummary-content"
+                      >
+                        What is an Attribution Window?
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-hidden="true"
+                        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiCollapse-container MuiCollapse-hidden"
+                      style="min-height: 0px;"
+                    >
+                      <div
+                        class="MuiCollapse-wrapper"
+                      >
+                        <div
+                          class="MuiCollapse-wrapperInner"
+                        >
+                          <div
+                            aria-labelledby="attr-window-panel"
+                            id="attr-window-panel-content"
+                            role="region"
+                          >
+                            <div
+                              class="MuiAccordionDetails-root"
+                            >
+                              <div>
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                                  href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
+                                  target="_blank"
+                                >
+                                  An Attribution Window
+                                </a>
+                                 
+                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                                <br />
+                                <div
+                                  class="makeStyles-attributionWindowDiagram-109"
+                                >
+                                  <svg>
+                                    attribution_window.svg
+                                  </svg>
+                                  <svg>
+                                    refund_window.svg
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-108 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-110 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -1750,26 +1818,94 @@ exports[`sections should be browsable by the section buttons and show validation
                 <div
                   class="MuiAlert-message"
                 >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-                    target="_blank"
-                  >
-                    How do I choose a Minimum Difference?
-                  </a>
-                   Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
-                  <br />
                   <div
-                    class="makeStyles-minDiffDiagram-109"
+                    class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-118 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                   >
-                    <svg>
-                      min_diffs.svg
-                    </svg>
+                    <div
+                      aria-controls="min-diff-panel-content"
+                      aria-disabled="false"
+                      aria-expanded="false"
+                      class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-119"
+                      id="min-diff-panel"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="MuiAccordionSummary-content"
+                      >
+                        How do I choose a Minimum Difference?
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-hidden="true"
+                        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiCollapse-container MuiCollapse-hidden"
+                      style="min-height: 0px;"
+                    >
+                      <div
+                        class="MuiCollapse-wrapper"
+                      >
+                        <div
+                          class="MuiCollapse-wrapperInner"
+                        >
+                          <div
+                            aria-labelledby="min-diff-panel"
+                            id="min-diff-panel-content"
+                            role="region"
+                          >
+                            <div
+                              class="MuiAccordionDetails-root"
+                            >
+                              <div>
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                                  href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+                                  target="_blank"
+                                >
+                                  Minimum Practical Difference values
+                                </a>
+                                 
+                                are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+                                <br />
+                                <div
+                                  class="makeStyles-minDiffDiagram-111"
+                                >
+                                  <svg>
+                                    min_diffs.svg
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-110 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-112 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -1799,7 +1935,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <h4
-                class="MuiTypography-root makeStyles-exposureEventsTitle-111 MuiTypography-h4"
+                class="MuiTypography-root makeStyles-exposureEventsTitle-113 MuiTypography-h4"
               >
                 Exposure Events (Optional)
               </h4>
@@ -1830,11 +1966,11 @@ exports[`sections should be browsable by the section buttons and show validation
                 </table>
               </div>
               <div
-                class="makeStyles-addMetric-114"
+                class="makeStyles-addMetric-116"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-115"
+                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-117"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -1859,7 +1995,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </button>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-112 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-114 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -1895,7 +2031,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </div>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -1936,10 +2072,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 4`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -2196,7 +2332,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -2206,13 +2342,13 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
-              class="makeStyles-root-128"
+              class="makeStyles-root-132"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -2220,7 +2356,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 Basic Info
               </h4>
               <div
-                class="makeStyles-row-129"
+                class="makeStyles-row-133"
               >
                 <div
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
@@ -2256,10 +2392,10 @@ exports[`sections should be browsable by the section buttons and show validation
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-119 PrivateNotchedOutline-legendNotched-120"
+                        class="PrivateNotchedOutline-legendLabelled-123 PrivateNotchedOutline-legendNotched-124"
                       >
                         <span>
                           Experiment name
@@ -2277,7 +2413,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="makeStyles-row-129"
+                class="makeStyles-row-133"
               >
                 <div
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
@@ -2312,10 +2448,10 @@ exports[`sections should be browsable by the section buttons and show validation
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-119 PrivateNotchedOutline-legendNotched-120"
+                        class="PrivateNotchedOutline-legendLabelled-123 PrivateNotchedOutline-legendNotched-124"
                       >
                         <span>
                           Experiment description
@@ -2333,10 +2469,10 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="makeStyles-row-129"
+                class="makeStyles-row-133"
               >
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-131"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-135"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error Mui-required Mui-required"
@@ -2370,10 +2506,10 @@ exports[`sections should be browsable by the section buttons and show validation
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-119 PrivateNotchedOutline-legendNotched-120"
+                        class="PrivateNotchedOutline-legendLabelled-123 PrivateNotchedOutline-legendNotched-124"
                       >
                         <span>
                           Start date (UTC)
@@ -2390,12 +2526,12 @@ exports[`sections should be browsable by the section buttons and show validation
                   </p>
                 </div>
                 <span
-                  class="makeStyles-through-130"
+                  class="makeStyles-through-134"
                 >
                    through 
                 </span>
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-131"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-135"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error Mui-required Mui-required"
@@ -2427,10 +2563,10 @@ exports[`sections should be browsable by the section buttons and show validation
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-119 PrivateNotchedOutline-legendNotched-120"
+                        class="PrivateNotchedOutline-legendLabelled-123 PrivateNotchedOutline-legendNotched-124"
                       >
                         <span>
                           End date (UTC)
@@ -2476,7 +2612,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="makeStyles-row-129"
+                class="makeStyles-row-133"
               >
                 <div
                   aria-expanded="false"
@@ -2584,10 +2720,10 @@ exports[`sections should be browsable by the section buttons and show validation
                       </div>
                       <fieldset
                         aria-hidden="true"
-                        class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                        class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                       >
                         <legend
-                          class="PrivateNotchedOutline-legendLabelled-119 PrivateNotchedOutline-legendNotched-120"
+                          class="PrivateNotchedOutline-legendLabelled-123 PrivateNotchedOutline-legendNotched-124"
                         >
                           <span>
                             Owner
@@ -2608,7 +2744,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </div>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -2649,10 +2785,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 5`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -2909,7 +3045,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -2919,13 +3055,13 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
-              class="makeStyles-root-132"
+              class="makeStyles-root-136"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -2981,17 +3117,17 @@ exports[`sections should be browsable by the section buttons and show validation
                       class="MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-137"
+                        class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-141"
                       >
                         <span
-                          class="makeStyles-metricName-138 makeStyles-tooltipped-139"
+                          class="makeStyles-metricName-142 makeStyles-tooltipped-143"
                           title="This is metric 10"
                         >
                           metric_10
                         </span>
                         <br />
                         <span
-                          class="makeStyles-root-153 makeStyles-monospaced-136"
+                          class="makeStyles-root-157 makeStyles-monospaced-140"
                         >
                           primary
                         </span>
@@ -3000,7 +3136,7 @@ exports[`sections should be browsable by the section buttons and show validation
                         class="MuiTableCell-root MuiTableCell-body"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-135 Mui-error Mui-error"
+                          class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-139 Mui-error Mui-error"
                         >
                           <div
                             aria-haspopup="listbox"
@@ -3032,11 +3168,11 @@ exports[`sections should be browsable by the section buttons and show validation
                           </svg>
                           <fieldset
                             aria-hidden="true"
-                            class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                            class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                             style="padding-left: 8px;"
                           >
                             <legend
-                              class="PrivateNotchedOutline-legend-118"
+                              class="PrivateNotchedOutline-legend-122"
                               style="width: 0.01px;"
                             >
                               <span>
@@ -3052,7 +3188,7 @@ exports[`sections should be browsable by the section buttons and show validation
                         </p>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-141"
+                        class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-145"
                       >
                         <span
                           class="MuiSwitch-root"
@@ -3060,7 +3196,7 @@ exports[`sections should be browsable by the section buttons and show validation
                           <span
                             aria-disabled="false"
                             aria-label="Change Expected"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-154 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-155 Mui-checked"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-158 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-159 Mui-checked"
                             variant="outlined"
                           >
                             <span
@@ -3068,7 +3204,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             >
                               <input
                                 checked=""
-                                class="PrivateSwitchBase-input-157 MuiSwitch-input"
+                                class="PrivateSwitchBase-input-161 MuiSwitch-input"
                                 id="experiment.metricAssignments[0].changeExpected"
                                 name="experiment.metricAssignments[0].changeExpected"
                                 type="checkbox"
@@ -3091,7 +3227,7 @@ exports[`sections should be browsable by the section buttons and show validation
                         class="MuiTableCell-root MuiTableCell-body"
                       >
                         <div
-                          class="MuiFormControl-root MuiTextField-root makeStyles-root-158 makeStyles-minDifferenceField-140"
+                          class="MuiFormControl-root MuiTextField-root makeStyles-root-162 makeStyles-minDifferenceField-144"
                         >
                           <div
                             class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -3109,7 +3245,7 @@ exports[`sections should be browsable by the section buttons and show validation
                               value=""
                             />
                             <div
-                              class="MuiInputAdornment-root makeStyles-adornment-160 MuiInputAdornment-positionEnd"
+                              class="MuiInputAdornment-root makeStyles-adornment-164 MuiInputAdornment-positionEnd"
                             >
                               <p
                                 class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
@@ -3119,11 +3255,11 @@ exports[`sections should be browsable by the section buttons and show validation
                             </div>
                             <fieldset
                               aria-hidden="true"
-                              class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                              class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                               style="padding-left: 8px;"
                             >
                               <legend
-                                class="PrivateNotchedOutline-legend-118"
+                                class="PrivateNotchedOutline-legend-122"
                                 style="width: 0.01px;"
                               >
                                 <span>
@@ -3177,11 +3313,11 @@ exports[`sections should be browsable by the section buttons and show validation
                 </table>
               </div>
               <div
-                class="makeStyles-addMetric-151"
+                class="makeStyles-addMetric-155"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-152"
+                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-156"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -3190,7 +3326,7 @@ exports[`sections should be browsable by the section buttons and show validation
                   />
                 </svg>
                 <div
-                  class="MuiFormControl-root makeStyles-addMetricSelect-134"
+                  class="MuiFormControl-root makeStyles-addMetricSelect-138"
                 >
                   <div
                     aria-expanded="false"
@@ -3292,7 +3428,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </button>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-142 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-146 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -3330,7 +3466,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-143 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-147 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -3350,29 +3486,97 @@ exports[`sections should be browsable by the section buttons and show validation
                 <div
                   class="MuiAlert-message"
                 >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
-                    target="_blank"
-                  >
-                    An Attribution Window is the window of time after exposure to an experiment
-                  </a>
-                   that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
-                  <br />
                   <div
-                    class="makeStyles-attributionWindowDiagram-144"
+                    class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-165 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                   >
-                    <svg>
-                      attribution_window.svg
-                    </svg>
-                    <svg>
-                      refund_window.svg
-                    </svg>
+                    <div
+                      aria-controls="attr-window-panel-content"
+                      aria-disabled="false"
+                      aria-expanded="false"
+                      class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-166"
+                      id="attr-window-panel"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="MuiAccordionSummary-content"
+                      >
+                        What is an Attribution Window?
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-hidden="true"
+                        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiCollapse-container MuiCollapse-hidden"
+                      style="min-height: 0px;"
+                    >
+                      <div
+                        class="MuiCollapse-wrapper"
+                      >
+                        <div
+                          class="MuiCollapse-wrapperInner"
+                        >
+                          <div
+                            aria-labelledby="attr-window-panel"
+                            id="attr-window-panel-content"
+                            role="region"
+                          >
+                            <div
+                              class="MuiAccordionDetails-root"
+                            >
+                              <div>
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                                  href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
+                                  target="_blank"
+                                >
+                                  An Attribution Window
+                                </a>
+                                 
+                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                                <br />
+                                <div
+                                  class="makeStyles-attributionWindowDiagram-148"
+                                >
+                                  <svg>
+                                    attribution_window.svg
+                                  </svg>
+                                  <svg>
+                                    refund_window.svg
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-145 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-149 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -3392,26 +3596,94 @@ exports[`sections should be browsable by the section buttons and show validation
                 <div
                   class="MuiAlert-message"
                 >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
-                    target="_blank"
-                  >
-                    How do I choose a Minimum Difference?
-                  </a>
-                   Minimum Practical Difference values are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
-                  <br />
                   <div
-                    class="makeStyles-minDiffDiagram-146"
+                    class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-165 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                   >
-                    <svg>
-                      min_diffs.svg
-                    </svg>
+                    <div
+                      aria-controls="min-diff-panel-content"
+                      aria-disabled="false"
+                      aria-expanded="false"
+                      class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-166"
+                      id="min-diff-panel"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="MuiAccordionSummary-content"
+                      >
+                        How do I choose a Minimum Difference?
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-hidden="true"
+                        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="MuiCollapse-container MuiCollapse-hidden"
+                      style="min-height: 0px;"
+                    >
+                      <div
+                        class="MuiCollapse-wrapper"
+                      >
+                        <div
+                          class="MuiCollapse-wrapperInner"
+                        >
+                          <div
+                            aria-labelledby="min-diff-panel"
+                            id="min-diff-panel-content"
+                            role="region"
+                          >
+                            <div
+                              class="MuiAccordionDetails-root"
+                            >
+                              <div>
+                                <a
+                                  class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                                  href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+                                  target="_blank"
+                                >
+                                  Minimum Practical Difference values
+                                </a>
+                                 
+                                are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
+                                <br />
+                                <div
+                                  class="makeStyles-minDiffDiagram-150"
+                                >
+                                  <svg>
+                                    min_diffs.svg
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-147 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-151 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -3441,7 +3713,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <h4
-                class="MuiTypography-root makeStyles-exposureEventsTitle-148 MuiTypography-h4"
+                class="MuiTypography-root makeStyles-exposureEventsTitle-152 MuiTypography-h4"
               >
                 Exposure Events (Optional)
               </h4>
@@ -3472,11 +3744,11 @@ exports[`sections should be browsable by the section buttons and show validation
                 </table>
               </div>
               <div
-                class="makeStyles-addMetric-151"
+                class="makeStyles-addMetric-155"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-152"
+                  class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-156"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -3501,7 +3773,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </button>
               </div>
               <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-149 MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-153 MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -3537,7 +3809,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </div>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -3578,10 +3850,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`sections should be browsable by the section buttons and show validation errors without crashing 6`] = `
 <div>
   <div
-    class="makeStyles-root-79"
+    class="makeStyles-root-81"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-80 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-82 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -3838,7 +4110,7 @@ exports[`sections should be browsable by the section buttons and show validation
     </div>
     <div>
       <form
-        class="makeStyles-form-81"
+        class="makeStyles-form-83"
         novalidate=""
       >
         <button
@@ -3848,13 +4120,13 @@ exports[`sections should be browsable by the section buttons and show validation
           type="submit"
         />
         <div
-          class="makeStyles-formPart-82"
+          class="makeStyles-formPart-84"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-84 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-86 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
-              class="makeStyles-root-161"
+              class="makeStyles-root-167"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -3862,7 +4134,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 Define Your Audience
               </h4>
               <div
-                class="makeStyles-row-162"
+                class="makeStyles-row-168"
               >
                 <fieldset
                   class="MuiFormControl-root"
@@ -3918,7 +4190,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </fieldset>
               </div>
               <div
-                class="makeStyles-row-162"
+                class="makeStyles-row-168"
               >
                 <fieldset
                   class="MuiFormControl-root"
@@ -3950,19 +4222,19 @@ exports[`sections should be browsable by the section buttons and show validation
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-154 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-158 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
-                            class="PrivateSwitchBase-input-157"
+                            class="PrivateSwitchBase-input-161"
                             name="experiment.existingUsersAllowed"
                             type="radio"
                             value="false"
                           />
                           <div
-                            class="PrivateRadioButtonIcon-root-171"
+                            class="PrivateRadioButtonIcon-root-177"
                           >
                             <svg
                               aria-hidden="true"
@@ -3976,7 +4248,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             </svg>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-172"
+                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-178"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4001,20 +4273,20 @@ exports[`sections should be browsable by the section buttons and show validation
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-154 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-155 Mui-checked MuiIconButton-colorSecondary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-158 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-159 Mui-checked MuiIconButton-colorSecondary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             checked=""
-                            class="PrivateSwitchBase-input-157"
+                            class="PrivateSwitchBase-input-161"
                             name="experiment.existingUsersAllowed"
                             type="radio"
                             value="true"
                           />
                           <div
-                            class="PrivateRadioButtonIcon-root-171 PrivateRadioButtonIcon-checked-173"
+                            class="PrivateRadioButtonIcon-root-177 PrivateRadioButtonIcon-checked-179"
                           >
                             <svg
                               aria-hidden="true"
@@ -4028,7 +4300,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             </svg>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-172"
+                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-178"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4052,10 +4324,10 @@ exports[`sections should be browsable by the section buttons and show validation
                 </fieldset>
               </div>
               <div
-                class="makeStyles-row-162"
+                class="makeStyles-row-168"
               >
                 <fieldset
-                  class="MuiFormControl-root makeStyles-segmentationFieldSet-164"
+                  class="MuiFormControl-root makeStyles-segmentationFieldSet-170"
                 >
                   <label
                     class="MuiFormLabel-root"
@@ -4064,7 +4336,7 @@ exports[`sections should be browsable by the section buttons and show validation
                     Targeting
                   </label>
                   <p
-                    class="MuiFormHelperText-root makeStyles-segmentationHelperText-163"
+                    class="MuiFormHelperText-root makeStyles-segmentationHelperText-169"
                   >
                     Who should see this experiment? 
                     <br />
@@ -4072,7 +4344,7 @@ exports[`sections should be browsable by the section buttons and show validation
                   </p>
                   <div
                     aria-label="include-or-exclude-segments"
-                    class="MuiFormGroup-root makeStyles-segmentationExclusionState-165"
+                    class="MuiFormGroup-root makeStyles-segmentationExclusionState-171"
                     role="radiogroup"
                   >
                     <label
@@ -4080,20 +4352,20 @@ exports[`sections should be browsable by the section buttons and show validation
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-154 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-155 Mui-checked MuiIconButton-colorSecondary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-158 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-159 Mui-checked MuiIconButton-colorSecondary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             checked=""
-                            class="PrivateSwitchBase-input-157"
+                            class="PrivateSwitchBase-input-161"
                             name="non-formik-segment-exclusion-state-include"
                             type="radio"
                             value="include"
                           />
                           <div
-                            class="PrivateRadioButtonIcon-root-171 PrivateRadioButtonIcon-checked-173"
+                            class="PrivateRadioButtonIcon-root-177 PrivateRadioButtonIcon-checked-179"
                           >
                             <svg
                               aria-hidden="true"
@@ -4107,7 +4379,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             </svg>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-172"
+                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-178"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4132,19 +4404,19 @@ exports[`sections should be browsable by the section buttons and show validation
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-154 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-158 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
-                            class="PrivateSwitchBase-input-157"
+                            class="PrivateSwitchBase-input-161"
                             name="non-formik-segment-exclusion-state-exclude"
                             type="radio"
                             value="exclude"
                           />
                           <div
-                            class="PrivateRadioButtonIcon-root-171"
+                            class="PrivateRadioButtonIcon-root-177"
                           >
                             <svg
                               aria-hidden="true"
@@ -4158,7 +4430,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             </svg>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-172"
+                              class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-178"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4259,11 +4531,11 @@ exports[`sections should be browsable by the section buttons and show validation
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                           style="padding-left: 8px;"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legend-118"
+                            class="PrivateNotchedOutline-legend-122"
                             style="width: 0.01px;"
                           >
                             <span>
@@ -4277,10 +4549,10 @@ exports[`sections should be browsable by the section buttons and show validation
                 </fieldset>
               </div>
               <div
-                class="makeStyles-row-162"
+                class="makeStyles-row-168"
               >
                 <fieldset
-                  class="MuiFormControl-root makeStyles-segmentationFieldSet-164"
+                  class="MuiFormControl-root makeStyles-segmentationFieldSet-170"
                 >
                   <label
                     class="MuiFormLabel-root"
@@ -4289,7 +4561,7 @@ exports[`sections should be browsable by the section buttons and show validation
                     Variations
                   </label>
                   <p
-                    class="MuiFormHelperText-root makeStyles-segmentationHelperText-163"
+                    class="MuiFormHelperText-root makeStyles-segmentationHelperText-169"
                   >
                     Set the percentage of traffic allocated to each variation. Percentages may sum to less than 100 to avoid allocating the entire userbase. 
                     <br />
@@ -4299,7 +4571,7 @@ exports[`sections should be browsable by the section buttons and show validation
                     class="MuiTableContainer-root"
                   >
                     <table
-                      class="MuiTable-root makeStyles-variants-170"
+                      class="MuiTable-root makeStyles-variants-176"
                     >
                       <thead
                         class="MuiTableHead-root"
@@ -4340,7 +4612,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             class="MuiTableCell-root MuiTableCell-body"
                           >
                             <div
-                              class="MuiFormControl-root MuiTextField-root makeStyles-variationAllocatedPercentage-169"
+                              class="MuiFormControl-root MuiTextField-root makeStyles-variationAllocatedPercentage-175"
                             >
                               <div
                                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
@@ -4367,11 +4639,11 @@ exports[`sections should be browsable by the section buttons and show validation
                                 </div>
                                 <fieldset
                                   aria-hidden="true"
-                                  class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                                  class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                                   style="padding-left: 8px;"
                                 >
                                   <legend
-                                    class="PrivateNotchedOutline-legend-118"
+                                    class="PrivateNotchedOutline-legend-122"
                                     style="width: 0.01px;"
                                   >
                                     <span>
@@ -4409,11 +4681,11 @@ exports[`sections should be browsable by the section buttons and show validation
                                 />
                                 <fieldset
                                   aria-hidden="true"
-                                  class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                                  class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                                   style="padding-left: 8px;"
                                 >
                                   <legend
-                                    class="PrivateNotchedOutline-legend-118"
+                                    class="PrivateNotchedOutline-legend-122"
                                     style="width: 0.01px;"
                                   >
                                     <span>
@@ -4428,7 +4700,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             class="MuiTableCell-root MuiTableCell-body"
                           >
                             <div
-                              class="MuiFormControl-root MuiTextField-root makeStyles-variationAllocatedPercentage-169"
+                              class="MuiFormControl-root MuiTextField-root makeStyles-variationAllocatedPercentage-175"
                             >
                               <div
                                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
@@ -4455,11 +4727,11 @@ exports[`sections should be browsable by the section buttons and show validation
                                 </div>
                                 <fieldset
                                   aria-hidden="true"
-                                  class="PrivateNotchedOutline-root-117 MuiOutlinedInput-notchedOutline"
+                                  class="PrivateNotchedOutline-root-121 MuiOutlinedInput-notchedOutline"
                                   style="padding-left: 8px;"
                                 >
                                   <legend
-                                    class="PrivateNotchedOutline-legend-118"
+                                    class="PrivateNotchedOutline-legend-122"
                                     style="width: 0.01px;"
                                   >
                                     <span>
@@ -4482,7 +4754,7 @@ exports[`sections should be browsable by the section buttons and show validation
                             colspan="3"
                           >
                             <div
-                              class="MuiPaper-root MuiAlert-root MuiAlert-standardWarning makeStyles-abnWarning-166 MuiPaper-elevation0"
+                              class="MuiPaper-root MuiAlert-root MuiAlert-standardWarning makeStyles-abnWarning-172 MuiPaper-elevation0"
                               role="alert"
                             >
                               <div
@@ -4516,11 +4788,11 @@ exports[`sections should be browsable by the section buttons and show validation
                                   Please do not set up such experiments in production without consulting the ExPlat team first.
                                 </p>
                                 <div
-                                  class="makeStyles-addVariation-167"
+                                  class="makeStyles-addVariation-173"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root makeStyles-addVariationIcon-168"
+                                    class="MuiSvgIcon-root makeStyles-addVariationIcon-174"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -4556,7 +4828,7 @@ exports[`sections should be browsable by the section buttons and show validation
             </div>
           </div>
           <div
-            class="makeStyles-formPartActions-83"
+            class="makeStyles-formPartActions-85"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -4597,10 +4869,10 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`skipping to submit should check all sections 1`] = `
 <div>
   <div
-    class="makeStyles-root-198"
+    class="makeStyles-root-204"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-199 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-205 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
@@ -4847,7 +5119,7 @@ exports[`skipping to submit should check all sections 1`] = `
     </div>
     <div>
       <form
-        class="makeStyles-form-200"
+        class="makeStyles-form-206"
         novalidate=""
       >
         <button
@@ -4857,10 +5129,10 @@ exports[`skipping to submit should check all sections 1`] = `
           type="submit"
         />
         <div
-          class="makeStyles-formPart-201"
+          class="makeStyles-formPart-207"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-203 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-209 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -4896,7 +5168,7 @@ exports[`skipping to submit should check all sections 1`] = `
             </p>
           </div>
           <div
-            class="makeStyles-formPartActions-202"
+            class="makeStyles-formPartActions-208"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -4913,7 +5185,7 @@ exports[`skipping to submit should check all sections 1`] = `
               />
             </button>
             <div
-              class="makeStyles-root-212"
+              class="makeStyles-root-218"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary Mui-disabled Mui-disabled"

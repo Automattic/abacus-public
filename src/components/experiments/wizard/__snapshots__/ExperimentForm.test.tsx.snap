@@ -1937,7 +1937,7 @@ exports[`sections should be browsable by the section buttons and show validation
               <h4
                 class="MuiTypography-root makeStyles-exposureEventsTitle-114 MuiTypography-h4"
               >
-                Exposure Events (Optional)
+                Exposure Events
               </h4>
               <div
                 class="MuiTableContainer-root"
@@ -1959,6 +1959,8 @@ exports[`sections should be browsable by the section buttons and show validation
                           class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
                         >
                           You don't have any exposure events.
+                          <br />
+                          We strongly suggest considering adding one to improve the accuracy of your metrics.
                         </p>
                       </td>
                     </tr>
@@ -3744,7 +3746,7 @@ exports[`sections should be browsable by the section buttons and show validation
               <h4
                 class="MuiTypography-root makeStyles-exposureEventsTitle-154 MuiTypography-h4"
               >
-                Exposure Events (Optional)
+                Exposure Events
               </h4>
               <div
                 class="MuiTableContainer-root"
@@ -3766,6 +3768,8 @@ exports[`sections should be browsable by the section buttons and show validation
                           class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
                         >
                           You don't have any exposure events.
+                          <br />
+                          We strongly suggest considering adding one to improve the accuracy of your metrics.
                         </p>
                       </td>
                     </tr>

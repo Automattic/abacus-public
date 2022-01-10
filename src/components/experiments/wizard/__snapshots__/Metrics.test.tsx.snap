@@ -475,7 +475,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -497,6 +497,8 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -1074,7 +1076,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -1096,6 +1098,8 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -1843,7 +1847,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -1865,6 +1869,8 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -2614,7 +2620,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -2636,6 +2642,8 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -3383,7 +3391,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -3405,6 +3413,8 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -3982,7 +3992,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -4004,6 +4014,8 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -4753,7 +4765,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-41 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -4775,6 +4787,8 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>
@@ -5352,7 +5366,7 @@ exports[`renders as expected 1`] = `
     <h4
       class="MuiTypography-root makeStyles-exposureEventsTitle-17 MuiTypography-h4"
     >
-      Exposure Events (Optional)
+      Exposure Events
     </h4>
     <div
       class="MuiTableContainer-root"
@@ -5374,6 +5388,8 @@ exports[`renders as expected 1`] = `
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
               >
                 You don't have any exposure events.
+                <br />
+                We strongly suggest considering adding one to improve the accuracy of your metrics.
               </p>
             </td>
           </tr>

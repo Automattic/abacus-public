@@ -573,7 +573,7 @@ const Metrics = ({
       </Alert>
 
       <Typography variant='h4' className={classes.exposureEventsTitle}>
-        Exposure Events (Optional)
+        Exposure Events
       </Typography>
 
       <FieldArray
@@ -602,6 +602,10 @@ const Metrics = ({
                         <TableCell colSpan={1}>
                           <Typography variant='body1' align='center'>
                             You don&apos;t have any exposure events.
+                            {}
+                            <br />
+                            {}
+                            We strongly suggest considering adding one to improve the accuracy of your metrics.
                           </Typography>
                         </TableCell>
                       </TableRow>

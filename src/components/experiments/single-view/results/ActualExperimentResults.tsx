@@ -253,7 +253,6 @@ export default function ActualExperimentResults({
   )
   const experimentHealthIndicators = [
     ...Analyses.getExperimentParticipantHealthIndicators(experimentParticipantStats),
-    ...Analyses.getExperimentAnalysesHealthIndicators(experiment, primaryMetricLatestAnalysesByStrategy, strategy),
     ...Analyses.getExperimentHealthIndicators(experiment),
   ]
 

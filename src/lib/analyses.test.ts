@@ -1,7 +1,7 @@
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Analyses from './analyses'
-import { AnalysisStrategy } from './schemas'
+import { AnalysisStrategy, Status } from './schemas'
 
 describe('getParticipantCounts', () => {
   it('should work correctly', () => {
@@ -416,125 +416,6 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
   })
 })
 
-describe('getExperimentAnalysesHealthIndicators', () => {
-  it('should work correctly', () => {
-    expect(
-      Analyses.getExperimentAnalysesHealthIndicators(
-        Fixtures.createExperimentFull({
-          variations: [
-            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
-            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
-          ],
-        }),
-        {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
-            metricEstimates: {
-              diff: {
-                top: 5,
-                estimate: 0,
-                bottom: 0,
-              },
-              ratio: {
-                top: 2,
-                estimate: 0,
-                bottom: 0.1,
-              },
-            },
-          }),
-        },
-        AnalysisStrategy.PpNaive,
-      ),
-    ).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "indication": Object {
-            "code": "very high",
-            "reason": "1.5 < x ≤ ∞",
-            "recommendation": "Very high uncertainty. Be careful about drawing conclusions. Collect more data to reduce uncertainty.",
-            "severity": "Warning",
-          },
-          "link": "https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty",
-          "name": "Kruschke uncertainty (CI to ROPE ratio)",
-          "unit": "ratio",
-          "value": 25,
-        },
-      ]
-    `)
-  })
-
-  it('should return no indicators for absent metricEstimates', () => {
-    expect(
-      Analyses.getExperimentAnalysesHealthIndicators(
-        Fixtures.createExperimentFull({
-          variations: [
-            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
-            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
-          ],
-        }),
-        {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
-            metricEstimates: null,
-          }),
-        },
-        AnalysisStrategy.PpNaive,
-      ),
-    ).toEqual([])
-  })
-
-  it('should return no indicators for absent analysis', () => {
-    expect(
-      Analyses.getExperimentAnalysesHealthIndicators(
-        Fixtures.createExperimentFull({
-          variations: [
-            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
-            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
-          ],
-        }),
-        {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.PpNaive]: undefined,
-        },
-        AnalysisStrategy.PpNaive,
-      ),
-    ).toEqual([])
-  })
-
-  it('should throw for a missing metric assignment', () => {
-    expect(() =>
-      Analyses.getExperimentAnalysesHealthIndicators(
-        Fixtures.createExperimentFull({
-          metricAssignments: [],
-          variations: [
-            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
-            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
-          ],
-        }),
-        {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({}),
-          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
-            metricEstimates: null,
-          }),
-        },
-        AnalysisStrategy.PpNaive,
-      ),
-    ).toThrowErrorMatchingInlineSnapshot(`"Missing metricAssignment"`)
-  })
-})
-
 describe('getExperimentHealthIndicators', () => {
   it('should work correctly', () => {
     expect(
@@ -559,6 +440,39 @@ describe('getExperimentHealthIndicators', () => {
           "name": "Experiment run time",
           "unit": "days",
           "value": 0,
+        },
+      ]
+    `)
+  })
+
+  it('should work for an experiment that ran too long', () => {
+    const now = new Date()
+    const experimentRunTimeDays = 50
+
+    expect(
+      Analyses.getExperimentHealthIndicators(
+        Fixtures.createExperimentFull({
+          startDatetime: new Date(now.setDate(now.getDate() - experimentRunTimeDays)),
+          status: Status.Running,
+          variations: [
+            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
+            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
+          ],
+        }),
+      ),
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "indication": Object {
+            "code": "very high",
+            "reason": "42 < x ≤ ∞",
+            "recommendation": "Experiment has been running for way too long. Stopping it now is highly recommended.",
+            "severity": "Warning",
+          },
+          "link": "https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time",
+          "name": "Experiment run time",
+          "unit": "days",
+          "value": ${experimentRunTimeDays},
         },
       ]
     `)

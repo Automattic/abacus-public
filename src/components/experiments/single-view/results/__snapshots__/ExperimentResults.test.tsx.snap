@@ -772,64 +772,6 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                    target="_blank"
-                  >
-                    Kruschke uncertainty (CI to ROPE ratio)
-                  </a>
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-391 makeStyles-deemphasized-392 makeStyles-nowrap-393"
-                  scope="row"
-                >
-                  <span>
-                    ratio
-                  </span>
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-391 makeStyles-deemphasized-392 makeStyles-nowrap-393"
-                  scope="row"
-                >
-                  0.1000
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body"
-                  scope="row"
-                >
-                  <span />
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body makeStyles-indication-394 makeStyles-indicationSeverityOk-395 makeStyles-monospace-391 makeStyles-nowrap-393"
-                  scope="row"
-                >
-                  <span>
-                    nominal
-                  </span>
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-391 makeStyles-deemphasized-392 makeStyles-nowrap-393"
-                  scope="row"
-                >
-                  −∞ &lt; x ≤ 0.8
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-392"
-                  scope="row"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1"
-                  />
-                </td>
-              </tr>
-              <tr
-                class="MuiTableRow-root"
-              >
-                <td
-                  class="MuiTableCell-root MuiTableCell-body"
-                  scope="row"
-                >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
                     href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time"
                     target="_blank"
                   >
@@ -3274,68 +3216,6 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                  target="_blank"
-                >
-                  Kruschke uncertainty (CI to ROPE ratio)
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-92 makeStyles-deemphasized-93 makeStyles-nowrap-94"
-                scope="row"
-              >
-                <span>
-                  ratio
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-92 makeStyles-deemphasized-93 makeStyles-nowrap-94"
-                scope="row"
-              >
-                10.0000
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <span>
-                  ℹ️
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-indication-95 makeStyles-indicationSeverityWarning-97 makeStyles-monospace-92 makeStyles-nowrap-94"
-                scope="row"
-              >
-                <span>
-                  very high
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-92 makeStyles-deemphasized-93 makeStyles-nowrap-94"
-                scope="row"
-              >
-                1.5 &lt; x ≤ ∞
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-93"
-                scope="row"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1"
-                >
-                  Very high uncertainty. Be careful about drawing conclusions. Collect more data to reduce uncertainty.
-                </p>
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
                   href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time"
                   target="_blank"
                 >
@@ -4870,68 +4750,6 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                  target="_blank"
-                >
-                  Kruschke uncertainty (CI to ROPE ratio)
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-152 makeStyles-deemphasized-153 makeStyles-nowrap-154"
-                scope="row"
-              >
-                <span>
-                  ratio
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-152 makeStyles-deemphasized-153 makeStyles-nowrap-154"
-                scope="row"
-              >
-                2.5000
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <span>
-                  ℹ️
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-indication-155 makeStyles-indicationSeverityWarning-157 makeStyles-monospace-152 makeStyles-nowrap-154"
-                scope="row"
-              >
-                <span>
-                  very high
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-152 makeStyles-deemphasized-153 makeStyles-nowrap-154"
-                scope="row"
-              >
-                1.5 &lt; x ≤ ∞
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-153"
-                scope="row"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1"
-                >
-                  Very high uncertainty. Be careful about drawing conclusions. Collect more data to reduce uncertainty.
-                </p>
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
                   href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time"
                   target="_blank"
                 >
@@ -6443,68 +6261,6 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                 <p
                   class="MuiTypography-root MuiTypography-body1"
                 />
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                  target="_blank"
-                >
-                  Kruschke uncertainty (CI to ROPE ratio)
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-210 makeStyles-deemphasized-211 makeStyles-nowrap-212"
-                scope="row"
-              >
-                <span>
-                  ratio
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-210 makeStyles-deemphasized-211 makeStyles-nowrap-212"
-                scope="row"
-              >
-                2.5000
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <span>
-                  ℹ️
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-indication-213 makeStyles-indicationSeverityWarning-215 makeStyles-monospace-210 makeStyles-nowrap-212"
-                scope="row"
-              >
-                <span>
-                  very high
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-210 makeStyles-deemphasized-211 makeStyles-nowrap-212"
-                scope="row"
-              >
-                1.5 &lt; x ≤ ∞
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-211"
-                scope="row"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1"
-                >
-                  Very high uncertainty. Be careful about drawing conclusions. Collect more data to reduce uncertainty.
-                </p>
               </td>
             </tr>
             <tr
@@ -8080,64 +7836,6 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 >
                   Spammers are filtered out of the displayed metrics, but high numbers may be indicative of problems.
                 </p>
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                  target="_blank"
-                >
-                  Kruschke uncertainty (CI to ROPE ratio)
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-272 makeStyles-deemphasized-273 makeStyles-nowrap-274"
-                scope="row"
-              >
-                <span>
-                  ratio
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-272 makeStyles-deemphasized-273 makeStyles-nowrap-274"
-                scope="row"
-              >
-                0.1000
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <span />
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-indication-275 makeStyles-indicationSeverityOk-276 makeStyles-monospace-272 makeStyles-nowrap-274"
-                scope="row"
-              >
-                <span>
-                  nominal
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-272 makeStyles-deemphasized-273 makeStyles-nowrap-274"
-                scope="row"
-              >
-                −∞ &lt; x ≤ 0.8
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-273"
-                scope="row"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1"
-                />
               </td>
             </tr>
             <tr
@@ -10113,64 +9811,6 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 >
                   Spammers are filtered out of the displayed metrics, but high numbers may be indicative of problems.
                 </p>
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#kruschke-uncertainty"
-                  target="_blank"
-                >
-                  Kruschke uncertainty (CI to ROPE ratio)
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-332 makeStyles-deemphasized-333 makeStyles-nowrap-334"
-                scope="row"
-              >
-                <span>
-                  ratio
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-332 makeStyles-deemphasized-333 makeStyles-nowrap-334"
-                scope="row"
-              >
-                0.1000
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-                scope="row"
-              >
-                <span />
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-indication-335 makeStyles-indicationSeverityOk-336 makeStyles-monospace-332 makeStyles-nowrap-334"
-                scope="row"
-              >
-                <span>
-                  nominal
-                </span>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-332 makeStyles-deemphasized-333 makeStyles-nowrap-334"
-                scope="row"
-              >
-                −∞ &lt; x ≤ 0.8
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-deemphasized-333"
-                scope="row"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1"
-                />
               </td>
             </tr>
             <tr

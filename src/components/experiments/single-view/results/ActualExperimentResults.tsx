@@ -610,13 +610,13 @@ export default function ActualExperimentResults({
                 {/* (Using a javasript string automatically replaces special characters with html entities.) */}
                 {`with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"${experiment.experimentId}"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select

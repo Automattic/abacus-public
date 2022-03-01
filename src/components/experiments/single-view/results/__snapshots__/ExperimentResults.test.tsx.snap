@@ -1066,13 +1066,13 @@ exports[`allows you to change analysis strategy 1`] = `
                       <code>
                         with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -2208,13 +2208,13 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                       <code>
                         with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -2356,13 +2356,13 @@ exports[`renders an appropriate message with no analyses 1`] = `
                       <code>
                         with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -3511,13 +3511,13 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                     <code>
                       with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -5045,13 +5045,13 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                     <code>
                       with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -6567,13 +6567,13 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                     <code>
                       with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -8142,13 +8142,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <code>
                       with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select
@@ -10117,13 +10117,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <code>
                       with tracks_counts as (
   select
-    cast(a8c.get_json_object(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
+    cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
   from tracks.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
-  group by experiment_variation_id
+  group by cast(json_extract(eventprops, '$.experiment_variation_id') as bigint)
 )
 
 select

@@ -1068,7 +1068,7 @@ exports[`allows you to change analysis strategy 1`] = `
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -2210,7 +2210,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -2358,7 +2358,7 @@ exports[`renders an appropriate message with no analyses 1`] = `
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -3513,7 +3513,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -5047,7 +5047,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -6569,7 +6569,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -8144,7 +8144,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'
@@ -10119,7 +10119,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"1"%'

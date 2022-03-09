@@ -612,7 +612,7 @@ export default function ActualExperimentResults({
   select
     cast(json_extract(eventprops, '$.experiment_variation_id') as bigint) as experiment_variation_id,
     count(distinct userid) as unique_users
-  from tracks.etl_events
+  from kafka_staging.etl_events
   where
     eventname = 'wpcom_experiment_variation_assigned' and
     eventprops like '%"experiment_id":"${experiment.experimentId}"%'

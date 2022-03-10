@@ -30,7 +30,7 @@ test('runs an experiment', async () => {
   mockedExperimentsApi.changeStatus.mockReset()
   mockedExperimentsApi.changeStatus.mockImplementationOnce(async () => undefined)
 
-  const firstRunButton = screen.getByRole('button', { name: /Deploy/ })
+  const firstRunButton = screen.getByRole('button', { name: /Launch/ })
 
   // First Opening - We cancel
   fireEvent.click(firstRunButton)
@@ -52,7 +52,7 @@ test('runs an experiment', async () => {
   await waitFor(() => screen.getByRole('button', { name: /Cancel/ }))
   const cancelButton2nd = screen.getByRole('button', { name: /Cancel/ })
 
-  const allRunButtons = screen.getAllByRole('button', { name: /Deploy/ })
+  const allRunButtons = screen.getAllByRole('button', { name: /Launch/ })
   allRunButtons.forEach((button) => fireEvent.click(button))
 
   await waitForElementToBeRemoved(cancelButton2nd)

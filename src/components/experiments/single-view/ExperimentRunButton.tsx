@@ -76,7 +76,7 @@ const ExperimentRunButton = ({
             disabled={!canRunExperiment}
             onClick={onAskToConfirmRunExperiment}
           >
-            Deploy
+            Launch
           </Button>
         </span>
       </Tooltip>
@@ -87,12 +87,12 @@ const ExperimentRunButton = ({
       >
         <DialogTitle>
           <Typography variant='h5' component='div'>
-            Are you sure you want to <strong>deploy</strong> this experiment?
+            Are you sure you want to <strong>launch</strong> this experiment?
           </Typography>
         </DialogTitle>
         <DialogContent>
           <Typography variant='body2' gutterBottom>
-            Deploying will <strong>release experiment code to our users.</strong> This may take up to ten minutes to
+            Launching will <strong>release experiment code to our users.</strong> This may take up to ten minutes to
             propagate to all servers due to{' '}
             <Link
               href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
@@ -104,7 +104,7 @@ const ExperimentRunButton = ({
             .
           </Typography>
           <Typography variant='body2' gutterBottom>
-            Deploying also changes the experiment&apos;s status to running, which is <strong>irreversible</strong>.
+            Launching also changes the experiment&apos;s status to running, which is <strong>irreversible</strong>.
           </Typography>
           <div className={classes.dangerImage}>
             <img src='/img/danger.gif' alt='DANGER!' />
@@ -121,7 +121,7 @@ const ExperimentRunButton = ({
               disabled={isSubmittingRunExperiment}
               onClick={onConfirmRunExperiment}
             >
-              Deploy
+              Launch
             </Button>
           </LoadingButtonContainer>
         </DialogActions>

@@ -14,7 +14,7 @@ exports[`renders as expected 1`] = `
       <span
         class="MuiButton-label"
       >
-        Deploy
+        Launch
       </span>
       <span
         class="MuiTouchRipple-root"
@@ -40,7 +40,7 @@ exports[`runs an experiment 1`] = `
       <span
         class="MuiButton-label"
       >
-        Deploy
+        Launch
       </span>
       <span
         class="MuiTouchRipple-root"

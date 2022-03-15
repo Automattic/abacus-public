@@ -1,3 +1,5 @@
+import { differenceInHours, subDays } from 'date-fns'
+
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Analyses from './analyses'
@@ -446,13 +448,14 @@ describe('getExperimentHealthIndicators', () => {
   })
 
   it('should work for an experiment that ran too long', () => {
-    const now = new Date()
     const experimentRunTimeDays = 50
+    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    const expectedExperimentRunTimeDays = differenceInHours(new Date(), startDatetime) / 24
 
     expect(
       Analyses.getExperimentHealthIndicators(
         Fixtures.createExperimentFull({
-          startDatetime: new Date(now.setDate(now.getDate() - experimentRunTimeDays)),
+          startDatetime,
           status: Status.Running,
           variations: [
             { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
@@ -472,7 +475,7 @@ describe('getExperimentHealthIndicators', () => {
           "link": "https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time",
           "name": "Experiment run time",
           "unit": "days",
-          "value": ${experimentRunTimeDays},
+          "value": ${expectedExperimentRunTimeDays},
         },
       ]
     `)

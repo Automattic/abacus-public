@@ -84,6 +84,8 @@ const theme = createMuiTheme({
         fontWeight: 700,
       },
       root: {
+        paddingLeft: baseTheme.spacing(3),
+        paddingRight: baseTheme.spacing(3),
         // Make the padding smaller at narrow window sizes.
         [baseTheme.breakpoints.down('xs')]: {
           padding: baseTheme.spacing(1),

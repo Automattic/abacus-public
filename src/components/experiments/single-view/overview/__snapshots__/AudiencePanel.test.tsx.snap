@@ -56,7 +56,7 @@ exports[`Empty array shows no exposure events 1`] = `
             <span
               class="makeStyles-monospace-87"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -367,7 +367,7 @@ exports[`Shows exposure events 1`] = `
             <span
               class="makeStyles-monospace-87"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -690,7 +690,7 @@ exports[`null shows no exposure events 1`] = `
             <span
               class="makeStyles-monospace-87"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -1001,7 +1001,7 @@ exports[`renders as expected with 5 variations 1`] = `
             <span
               class="makeStyles-monospace-19"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -1429,7 +1429,7 @@ exports[`renders as expected with all segments resolvable 1`] = `
             <span
               class="makeStyles-monospace-70"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -2161,7 +2161,7 @@ exports[`renders as expected with no exclusion groups 1`] = `
             <span
               class="makeStyles-monospace-36"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>
@@ -2482,7 +2482,7 @@ exports[`renders as expected with no segment assignments 1`] = `
             <span
               class="makeStyles-monospace-2"
             >
-              New logged-in users only
+              Newly signed up users (being also logged in)
             </span>
           </td>
         </tr>

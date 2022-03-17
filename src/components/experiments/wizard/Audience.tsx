@@ -205,14 +205,14 @@ const Audience = ({
 
           <Field component={FormikMuiRadioGroup} name='experiment.existingUsersAllowed' required>
             <FormControlLabel
-              value='false'
-              label='New logged-in users only'
+              value='true'
+              label='All users (new + existing + anonymous)'
               control={<Radio disabled={formikProps.isSubmitting} />}
               disabled={formikProps.isSubmitting}
             />
             <FormControlLabel
-              value='true'
-              label='All users (new + existing + anonymous)'
+              value='false'
+              label='Filter for newly signed up users (they must be also logged in)'
               control={<Radio disabled={formikProps.isSubmitting} />}
               disabled={formikProps.isSubmitting}
             />

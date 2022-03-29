@@ -144,7 +144,7 @@ exports[`allows you to change analysis strategy 1`] = `
                         scope="col"
                         style="font-weight: 700; box-sizing: border-box;"
                       >
-                        Recommendation
+                        Analysis
                       </th>
                     </tr>
                   </thead>
@@ -1238,7 +1238,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                         scope="col"
                         style="font-weight: 700; box-sizing: border-box;"
                       >
-                        Recommendation
+                        Analysis
                       </th>
                     </tr>
                   </thead>
@@ -2527,7 +2527,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                       scope="col"
                       style="font-weight: 700; box-sizing: border-box;"
                     >
-                      Recommendation
+                      Analysis
                     </th>
                   </tr>
                 </thead>
@@ -4059,7 +4059,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                       scope="col"
                       style="font-weight: 700; box-sizing: border-box;"
                     >
-                      Recommendation
+                      Analysis
                     </th>
                   </tr>
                 </thead>
@@ -5600,7 +5600,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                       scope="col"
                       style="font-weight: 700; box-sizing: border-box;"
                     >
-                      Recommendation
+                      Analysis
                     </th>
                   </tr>
                 </thead>
@@ -7128,7 +7128,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       scope="col"
                       style="font-weight: 700; box-sizing: border-box;"
                     >
-                      Recommendation
+                      Analysis
                     </th>
                   </tr>
                 </thead>
@@ -9103,7 +9103,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       scope="col"
                       style="font-weight: 700; box-sizing: border-box;"
                     >
-                      Recommendation
+                      Analysis
                     </th>
                   </tr>
                 </thead>

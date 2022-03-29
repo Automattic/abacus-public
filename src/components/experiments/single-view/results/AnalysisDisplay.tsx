@@ -1,7 +1,8 @@
 import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
 import React from 'react'
 
-import { Decision, Recommendation } from 'src/lib/recommendations'
+import type { Recommendation } from 'src/lib/recommendations'
+import { Decision } from 'src/lib/recommendations'
 import { ExperimentFull } from 'src/lib/schemas'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -17,15 +18,15 @@ const useStyles = makeStyles((theme: Theme) =>
 /**
  * Displays a Recommendation.
  */
-export default function RecommendationDisplay({
-  recommendation,
+export default function AnalysisDisplay({
+  analysis,
   experiment,
 }: {
-  recommendation: Recommendation
+  analysis: Recommendation
   experiment: ExperimentFull
 }): JSX.Element {
   const classes = useStyles()
-  switch (recommendation.decision) {
+  switch (analysis.decision) {
     case Decision.ManualAnalysisRequired:
       return (
         <Tooltip title='Contact @experimentation-review on #a8c-experiments'>
@@ -40,7 +41,7 @@ export default function RecommendationDisplay({
       return <>Deploy either variation</>
     case Decision.DeployChosenVariation: {
       const chosenVariation = experiment.variations.find(
-        (variation) => variation.variationId === recommendation.chosenVariationId,
+        (variation) => variation.variationId === analysis.chosenVariationId,
       )
       if (!chosenVariation) {
         throw new Error('No match for chosenVariationId among variations in experiment.')

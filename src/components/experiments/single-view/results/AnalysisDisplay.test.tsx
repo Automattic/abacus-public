@@ -5,12 +5,12 @@ import { AnalysisStrategy } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { render } from 'src/test-helpers/test-utils'
 
-import RecommendationDisplay from './RecommendationDisplay'
+import AnalysisDisplay from './AnalysisDisplay'
 
 test('renders MissingAnalysis correctly', () => {
   const { container } = render(
-    <RecommendationDisplay
-      recommendation={{
+    <AnalysisDisplay
+      analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.MissingAnalysis,
       }}
@@ -26,8 +26,8 @@ test('renders MissingAnalysis correctly', () => {
 
 test('renders ManualAnalysisRequired correctly', () => {
   const { container } = render(
-    <RecommendationDisplay
-      recommendation={{
+    <AnalysisDisplay
+      analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.ManualAnalysisRequired,
       }}
@@ -48,8 +48,8 @@ test('renders ManualAnalysisRequired correctly', () => {
 
 test('renders Inconclusive correctly', () => {
   const { container } = render(
-    <RecommendationDisplay
-      recommendation={{
+    <AnalysisDisplay
+      analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.Inconclusive,
       }}
@@ -65,8 +65,8 @@ test('renders Inconclusive correctly', () => {
 
 test('renders DeployAnyVariation correctly', () => {
   const { container } = render(
-    <RecommendationDisplay
-      recommendation={{
+    <AnalysisDisplay
+      analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.DeployAnyVariation,
       }}
@@ -82,8 +82,8 @@ test('renders DeployAnyVariation correctly', () => {
 
 test('renders DeployChosenVariation correctly', () => {
   const { container } = render(
-    <RecommendationDisplay
-      recommendation={{
+    <AnalysisDisplay
+      analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.DeployChosenVariation,
         chosenVariationId: 123,
@@ -114,8 +114,8 @@ test('throws error for missing chosenVariationId', () => {
   console.error = jest.fn()
   expect(() =>
     render(
-      <RecommendationDisplay
-        recommendation={{
+      <AnalysisDisplay
+        analysis={{
           analysisStrategy: AnalysisStrategy.PpNaive,
           decision: Decision.DeployChosenVariation,
           chosenVariationId: 123,
@@ -135,8 +135,8 @@ test('throws error for uncovered Recommendation', () => {
   console.error = jest.fn()
   expect(() =>
     render(
-      <RecommendationDisplay
-        recommendation={{
+      <AnalysisDisplay
+        analysis={{
           // @ts-ignore
           decision: 'Unknown Decision',
           chosenVariationId: 123,

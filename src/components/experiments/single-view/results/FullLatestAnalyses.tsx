@@ -3,7 +3,7 @@ import _, { last } from 'lodash'
 import MaterialTable from 'material-table'
 import React from 'react'
 
-import RecommendationDisplay from 'src/components/experiments/single-view/results/RecommendationDisplay'
+import AnalysisDisplay from 'src/components/experiments/single-view/results/AnalysisDisplay'
 import DatetimeText from 'src/components/general/DatetimeText'
 import { AnalysisStrategyToHuman, RecommendationWarningToHuman } from 'src/lib/analyses'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
@@ -51,10 +51,10 @@ export default function FullLatestAnalyses({
           : 'N/A',
     },
     {
-      title: 'Recommendation',
+      title: 'Analysis',
       render: ({ analysis, metric }: { analysis: Analysis; metric: Metric }) => (
-        <RecommendationDisplay
-          recommendation={getMetricAssignmentRecommendation(experiment, metric, analysis)}
+        <AnalysisDisplay
+          analysis={getMetricAssignmentRecommendation(experiment, metric, analysis)}
           experiment={experiment}
         />
       ),

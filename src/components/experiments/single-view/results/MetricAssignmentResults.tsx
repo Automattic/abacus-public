@@ -34,7 +34,7 @@ import {
 import * as Visualizations from 'src/lib/visualizations'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
-import RecommendationDisplay from './RecommendationDisplay'
+import AnalysisDisplay from './AnalysisDisplay'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -308,7 +308,7 @@ export default function MetricAssignmentResults({
             <TableRow>
               <TableCell>
                 <Typography variant='h5' gutterBottom className={classes.recommendation}>
-                  <RecommendationDisplay {...{ experiment, recommendation }} />
+                  <AnalysisDisplay {...{ experiment, analysis: recommendation }} />
                 </Typography>
                 {recommendation.decision === Recommendations.Decision.ManualAnalysisRequired && (
                   <Typography variant='body1' gutterBottom>

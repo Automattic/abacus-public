@@ -43,10 +43,10 @@ import { createStaticTableOptions } from 'src/utils/material-table'
 import { formatIsoDate } from 'src/utils/time'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
+import AnalysisDisplay from './AnalysisDisplay'
 import { MetricAssignmentAnalysesData } from './ExperimentResults'
 import HealthIndicatorTable from './HealthIndicatorTable'
 import MetricAssignmentResults from './MetricAssignmentResults'
-import RecommendationDisplay from './RecommendationDisplay'
 
 const indicationSeverityClassSymbol = (severity: Analyses.HealthIndicationSeverity) => `indicationSeverity${severity}`
 
@@ -370,7 +370,7 @@ export default function ActualExperimentResults({
       },
     },
     {
-      title: 'Recommendation',
+      title: 'Analysis',
       render: ({
         experiment,
         recommendation,
@@ -378,7 +378,7 @@ export default function ActualExperimentResults({
         experiment: ExperimentFull
         recommendation: Recommendations.Recommendation
       }) => {
-        return <RecommendationDisplay {...{ experiment, recommendation }} />
+        return <AnalysisDisplay {...{ experiment, analysis: recommendation }} />
       },
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
@@ -452,7 +452,7 @@ export default function ActualExperimentResults({
                     </div>
                     <div className={classes.summaryStatsPart}>
                       <Typography variant='h3' className={classes.summaryStatsStat} color='primary'>
-                        <RecommendationDisplay {...{ experiment, recommendation: primaryMetricRecommendation }} />
+                        <AnalysisDisplay {...{ experiment, analysis: primaryMetricRecommendation }} />
                       </Typography>
                       <Typography variant='subtitle1'>
                         <strong>primary metric</strong> recommendation

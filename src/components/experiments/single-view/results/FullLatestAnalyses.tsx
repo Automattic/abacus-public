@@ -8,7 +8,7 @@ import DatetimeText from 'src/components/general/DatetimeText'
 import { AnalysisStrategyToHuman, RecommendationWarningToHuman } from 'src/lib/analyses'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { getMetricAssignmentRecommendation } from 'src/lib/recommendations'
-import { Analysis, ExperimentFull, Metric } from 'src/lib/schemas'
+import { AnalysisPrevious, ExperimentFull, Metric } from 'src/lib/schemas'
 import { createStaticTableOptions } from 'src/utils/material-table'
 
 import { MetricAssignmentAnalysesData } from './ExperimentResults'
@@ -29,7 +29,7 @@ export default function FullLatestAnalyses({
         metricAssignment,
         metric,
         analysesByStrategyDateAsc,
-        latestAnalyses: Object.values(analysesByStrategyDateAsc).map(last) as Analysis[],
+        latestAnalyses: Object.values(analysesByStrategyDateAsc).map(last) as AnalysisPrevious[],
       }
     },
   )
@@ -37,22 +37,23 @@ export default function FullLatestAnalyses({
   const tableColumns = [
     {
       title: 'Strategy',
-      render: ({ analysis: { analysisStrategy } }: { analysis: Analysis }) => AnalysisStrategyToHuman[analysisStrategy],
+      render: ({ analysis: { analysisStrategy } }: { analysis: AnalysisPrevious }) =>
+        AnalysisStrategyToHuman[analysisStrategy],
     },
     {
       title: 'Participants',
-      render: ({ analysis: { participantStats } }: { analysis: Analysis }) => `${participantStats.total}`,
+      render: ({ analysis: { participantStats } }: { analysis: AnalysisPrevious }) => `${participantStats.total}`,
     },
     {
       title: 'Difference interval',
-      render: ({ analysis: { metricEstimates } }: { analysis: Analysis }) =>
+      render: ({ analysis: { metricEstimates } }: { analysis: AnalysisPrevious }) =>
         metricEstimates
           ? `[${_.round(metricEstimates.diff.bottom, 4)}, ${_.round(metricEstimates.diff.top, 4)}]`
           : 'N/A',
     },
     {
       title: 'Analysis',
-      render: ({ analysis, metric }: { analysis: Analysis; metric: Metric }) => (
+      render: ({ analysis, metric }: { analysis: AnalysisPrevious; metric: Metric }) => (
         <AnalysisDisplay
           analysis={getMetricAssignmentRecommendation(experiment, metric, analysis)}
           experiment={experiment}
@@ -61,7 +62,7 @@ export default function FullLatestAnalyses({
     },
     {
       title: 'Warnings',
-      render: ({ analysis: { recommendation } }: { analysis: Analysis }) => {
+      render: ({ analysis: { recommendation } }: { analysis: AnalysisPrevious }) => {
         if (!recommendation) {
           return ''
         }

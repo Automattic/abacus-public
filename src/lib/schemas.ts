@@ -522,7 +522,7 @@ export const recommendationSchema = yup
   .camelCase()
 export interface Recommendation extends yup.InferType<typeof recommendationSchema> {}
 
-export const metricEstimateSchema = yup
+export const metricEstimatePreviousSchema = yup
   .object({
     /**
      * @deprecated Misleading, use the CIs below.
@@ -541,7 +541,34 @@ export const metricEstimateSchema = yup
   })
   .defined()
   .camelCase()
-export interface MetricEstimate extends yup.InferType<typeof metricEstimateSchema> {}
+export interface MetricEstimatePrevious extends yup.InferType<typeof metricEstimatePreviousSchema> {}
+
+// It is a bit complicated to type this properly and we won't need it for long anyway so we take this shortcut:
+export type MetricEstimatesPrevious = Record<string | 'diff' | 'ratio', MetricEstimatePrevious>
+
+export const distributionStatsSchema = yup
+  .object({
+    mean: extendedNumberSchema.defined(),
+    top_99: extendedNumberSchema.defined().nullable(),
+    bottom_99: extendedNumberSchema.defined().nullable(),
+    top_95: extendedNumberSchema.defined(),
+    bottom_95: extendedNumberSchema.defined(),
+    top_50: extendedNumberSchema.defined().nullable(),
+    bottom_50: extendedNumberSchema.defined().nullable(),
+  })
+  .defined()
+  .camelCase()
+export interface DistributionStats extends yup.InferType<typeof distributionStatsSchema> {}
+
+export const metricEstimatesNextSchema = yup
+  .object({
+    variations: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
+    diffs: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
+    ratios: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
+  })
+  .defined()
+  .camelCase()
+export interface MetricEstimatesNext extends yup.InferType<typeof metricEstimatesNextSchema> {}
 
 export enum AnalysisStrategy {
   IttPure = 'itt_pure',
@@ -551,7 +578,55 @@ export enum AnalysisStrategy {
   PpNaive = 'pp_naive',
 }
 
-export const analysisSchema = yup
+function toDistributionStatPrevious(distributionStats: DistributionStats): MetricEstimatePrevious {
+  return {
+    estimate: distributionStats.mean,
+    top: distributionStats.top_95,
+    bottom: distributionStats.bottom_95,
+  }
+}
+
+function isMetricEstimatesNext(
+  maybeMetricEstimatesNext: MetricEstimatesPrevious | MetricEstimatesNext,
+): maybeMetricEstimatesNext is MetricEstimatesNext {
+  return Object.prototype.hasOwnProperty.call(maybeMetricEstimatesNext, 'variations')
+}
+
+function ensureMetricEstimatesPrevious(
+  metricEstimates: MetricEstimatesPrevious | MetricEstimatesNext,
+): MetricEstimatesPrevious {
+  // Check if we have a new metrics estimate object
+  if (isMetricEstimatesNext(metricEstimates)) {
+    // We can assume that the lower variation id is the default variation.
+    const [defaultVariationId, otherVariationId] = Object.keys(metricEstimates.variations)
+      .map((x) => parseInt(x, 10))
+      .sort()
+    return {
+      [`variation_${defaultVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[defaultVariationId]),
+      [`variation_${otherVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[otherVariationId]),
+      diff: toDistributionStatPrevious(metricEstimates.diffs[`${otherVariationId}_${defaultVariationId}`]),
+      ratio: toDistributionStatPrevious(metricEstimates.ratios[`${otherVariationId}_${defaultVariationId}`]),
+    }
+  }
+  return metricEstimates
+}
+
+/**
+ * Ensure a raw AnalysisPrevious. A tool for moving between AnalysisPrevious and AnalysisNext.
+ *
+ * Not fully typed as we work on the raw data and we validate immediately afterwards.
+ * Might have a non-raw version of this as we move AnalysisNext downward.
+ */
+export function ensureRawAnalysisPrevious(analysis: {
+  metric_estimates: MetricEstimatesPrevious | MetricEstimatesNext | null
+}): unknown {
+  return {
+    ...analysis,
+    metric_estimates: analysis.metric_estimates ? ensureMetricEstimatesPrevious(analysis.metric_estimates) : null,
+  }
+}
+
+export const analysisPreviousSchema = yup
   .object({
     metricAssignmentId: idSchema.defined(),
     analysisDatetime: dateSchema.defined(),
@@ -559,21 +634,36 @@ export const analysisSchema = yup
     // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
     participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
-    metricEstimates: yup.object().nullable().defined() as yup.Schema<Record<string, MetricEstimate> | null>,
+    metricEstimates: yup.object().nullable().defined() as yup.Schema<MetricEstimatesPrevious | null>,
     recommendation: recommendationSchema.nullable().defined(),
   })
   .defined()
   .camelCase()
-export interface Analysis extends yup.InferType<typeof analysisSchema> {
+export interface AnalysisPrevious extends yup.InferType<typeof analysisPreviousSchema> {
   /**
    * @deprecated Recommendations are now performed on the client-side using metricEstimates.
    */
   recommendation: yup.InferType<typeof recommendationSchema> | null
 }
 
+export const analysisNextSchema = yup
+  .object({
+    metricAssignmentId: idSchema.defined(),
+    analysisDatetime: dateSchema.defined(),
+    analysisStrategy: yup.string().oneOf(Object.values(AnalysisStrategy)).defined(),
+    // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
+    // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
+    participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
+    metricEstimates: metricEstimatesNextSchema.nullable().defined(),
+    recommendation: recommendationSchema.nullable().defined(),
+  })
+  .defined()
+  .camelCase()
+export interface AnalysisNext extends yup.InferType<typeof analysisNextSchema> {}
+
 export const analysisResponseSchema = yup
   .object({
-    analyses: yup.array(analysisSchema).defined(),
+    analyses: yup.array(analysisPreviousSchema).defined(),
   })
   .defined()
 export interface AnalysisResponse extends yup.InferType<typeof analysisResponseSchema> {}

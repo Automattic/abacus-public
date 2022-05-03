@@ -6,6 +6,12 @@ import { fetchApi } from 'src/api/utils'
 
 fetchMock.config.overwriteRoutes = true
 
+// In order to not go over API limits on swagger we wait in-between tests:
+const apiLimitWait = 500
+beforeEach(async () => {
+  return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
+})
+
 describe('utils.ts module', () => {
   describe('fetchApi errors correctly', () => {
     it('should return no error for a good request', async () => {

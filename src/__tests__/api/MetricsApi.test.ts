@@ -6,6 +6,12 @@ import { metricNewOutboundSchema, TransactionTypes } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 
+// In order to not go over API limits on swagger we wait in-between tests:
+const apiLimitWait = 500
+beforeEach(async () => {
+  return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
+})
+
 describe('MetricsApi.ts module', () => {
   describe('outbound form', () => {
     it(`should transform a metric into an outbound form`, () => {

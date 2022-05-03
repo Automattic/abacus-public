@@ -1,4 +1,4 @@
-import { Analysis, analysisResponseSchema } from 'src/lib/schemas'
+import * as Schemas from 'src/lib/schemas'
 
 import { fetchApi } from './utils'
 
@@ -9,10 +9,17 @@ import { fetchApi } from './utils'
  *
  * @throws UnauthorizedError
  */
-async function findByExperimentId(experimentId: number): Promise<Analysis[]> {
-  const { analyses } = await analysisResponseSchema.validate(await fetchApi('GET', `/analyses/${experimentId}`), {
+async function findByExperimentId(experimentId: number): Promise<Schemas.AnalysisPrevious[]> {
+  // We can be loose with the types here as we validate everything below.
+  const analysesResponse = (await fetchApi('GET', `/analyses/${experimentId}`, {
     abortEarly: false,
-  })
+  })) as { analyses: { metric_estimates: Schemas.MetricEstimatesPrevious | Schemas.MetricEstimatesNext | null }[] }
+
+  analysesResponse.analyses = (analysesResponse.analyses.map(Schemas.ensureRawAnalysisPrevious) as unknown) as {
+    metric_estimates: Schemas.MetricEstimatesPrevious | Schemas.MetricEstimatesNext | null
+  }[]
+
+  const { analyses } = await Schemas.analysisResponseSchema.validate(analysesResponse)
   return analyses
 }
 

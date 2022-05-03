@@ -390,3 +390,153 @@ describe('lib/schemas.ts module', () => {
     })
   })
 })
+
+describe('ensureAnalysisPrevious', () => {
+  it('should pass through an analysis with null metric_estimates', () => {
+    const analysisRaw = {
+      metric_assignment_id: 1,
+      analysis_strategy: 'itt_pure',
+      participant_stats: {
+        total: 180000,
+        variation_1505: 90000,
+        variation_1506: 90000,
+      },
+      metric_estimates: null,
+      recommendation: null,
+      analysis_datetime: '2022-04-25T00:00:00+00:00',
+    }
+
+    expect(Schemas.ensureRawAnalysisPrevious(analysisRaw)).toEqual(analysisRaw)
+  })
+
+  it('should pass through AnalysisPrevious', () => {
+    const analysisPreviousRaw = {
+      metric_assignment_id: 1,
+      analysis_strategy: 'itt_pure',
+      participant_stats: {
+        total: 180000,
+        variation_1505: 90000,
+        variation_1506: 90000,
+      },
+      metric_estimates: {
+        variation_1505: {
+          bottom: 0.279637201027812,
+          estimate: 0.3269372761601801,
+          top: 0.376029218386366,
+        },
+        variation_1506: {
+          bottom: 0.27793457133859284,
+          estimate: 0.32524222500973227,
+          top: 0.3735532342105776,
+        },
+        diff: {
+          bottom: -0.06869932500435805,
+          estimate: -0.0016950511504478238,
+          top: 0.06740075728476613,
+        },
+        ratio: {
+          bottom: 0.7994389420825347,
+          estimate: 0.9948153628415949,
+          top: 1.2155968046443486,
+        },
+      },
+      recommendation: null,
+      analysis_datetime: '2022-04-25T00:00:00+00:00',
+    }
+
+    expect(Schemas.ensureRawAnalysisPrevious(analysisPreviousRaw)).toEqual(analysisPreviousRaw)
+  })
+
+  it('should pass transform AnalysisNext to AnalysisPrevious', () => {
+    const analysisPreviousRaw = {
+      metric_assignment_id: 1,
+      analysis_strategy: 'itt_pure',
+      participant_stats: {
+        total: 180000,
+        variation_1505: 90000,
+        variation_1506: 90000,
+      },
+      metric_estimates: {
+        variation_1505: {
+          bottom: 0.279637201027812,
+          estimate: 0.3269372761601801,
+          top: 0.376029218386366,
+        },
+        variation_1506: {
+          bottom: 0.27793457133859284,
+          estimate: 0.32524222500973227,
+          top: 0.3735532342105776,
+        },
+        diff: {
+          bottom: -0.06869932500435805,
+          estimate: -0.0016950511504478238,
+          top: 0.06740075728476613,
+        },
+        ratio: {
+          bottom: 0.7994389420825347,
+          estimate: 0.9948153628415949,
+          top: 1.2155968046443486,
+        },
+      },
+      recommendation: null,
+      analysis_datetime: '2022-04-25T00:00:00+00:00',
+    }
+    const analysisNextRaw = {
+      metric_assignment_id: 1,
+      analysis_strategy: 'itt_pure',
+      participant_stats: {
+        total: 180000,
+        variation_1505: 90000,
+        variation_1506: 90000,
+      },
+      metric_estimates: {
+        variations: {
+          '1505': {
+            bottom_95: 0.279637201027812,
+            mean: 0.3269372761601801,
+            top_95: 0.376029218386366,
+            top_99: null,
+            bottom_99: null,
+            top_50: null,
+            bottom_50: null,
+          },
+          '1506': {
+            bottom_95: 0.27793457133859284,
+            mean: 0.32524222500973227,
+            top_95: 0.3735532342105776,
+            top_99: null,
+            bottom_99: null,
+            top_50: null,
+            bottom_50: null,
+          },
+        },
+        diffs: {
+          '1506_1505': {
+            bottom_95: -0.06869932500435805,
+            mean: -0.0016950511504478238,
+            top_95: 0.06740075728476613,
+            top_99: null,
+            bottom_99: null,
+            top_50: null,
+            bottom_50: null,
+          },
+        },
+        ratios: {
+          '1506_1505': {
+            bottom_95: 0.7994389420825347,
+            mean: 0.9948153628415949,
+            top_95: 1.2155968046443486,
+            top_99: null,
+            bottom_99: null,
+            top_50: null,
+            bottom_50: null,
+          },
+        },
+      },
+      recommendation: null,
+      analysis_datetime: '2022-04-25T00:00:00+00:00',
+    }
+
+    expect(Schemas.ensureRawAnalysisPrevious(analysisNextRaw)).toEqual(analysisPreviousRaw)
+  })
+})

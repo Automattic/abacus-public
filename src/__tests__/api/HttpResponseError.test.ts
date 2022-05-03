@@ -3,6 +3,12 @@ import { WretcherError } from 'wretch'
 
 import HttpResponseError, { serverErrorMessage, wretcherErrorToHttpResponseError } from '../../api/HttpResponseError'
 
+// In order to not go over API limits on swagger we wait in-between tests:
+const apiLimitWait = 500
+beforeEach(async () => {
+  return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
+})
+
 describe('HttpResponseError.ts module', () => {
   describe('wretcherErrorToHttpResponseError', () => {
     it('should return a correct HttpResponseError', () => {

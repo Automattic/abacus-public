@@ -24,7 +24,7 @@ import MetricValue from 'src/components/general/MetricValue'
 import * as Analyses from 'src/lib/analyses'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  Analysis,
+  AnalysisPrevious,
   AnalysisStrategy,
   ExperimentFull,
   Metric,
@@ -194,7 +194,7 @@ export default function MetricAssignmentResults({
   strategy: AnalysisStrategy
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
   experiment: ExperimentFull
   recommendation: Recommendations.Recommendation
 }): JSX.Element | null {

@@ -23,7 +23,7 @@ import ExperimentCodeSetup from 'src/components/experiments/single-view/Experime
 import ExperimentDisableButton from 'src/components/experiments/single-view/ExperimentDisableButton'
 import ExperimentDetails from 'src/components/experiments/single-view/overview/ExperimentDetails'
 import Layout from 'src/components/page-parts/Layout'
-import { Analysis, ExperimentFull, Status } from 'src/lib/schemas'
+import { AnalysisPrevious, ExperimentFull, Status } from 'src/lib/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 import { createIdSlug, createUnresolvingPromise, or } from 'src/utils/general'
 
@@ -122,7 +122,7 @@ export default function ExperimentPageView({
 
   const { isLoading: analysesIsLoading, data: analyses, error: analysesError } = useDataSource(async () => {
     if (!experimentId) {
-      return createUnresolvingPromise<Analysis[]>()
+      return createUnresolvingPromise<AnalysisPrevious[]>()
     }
     return AnalysesApi.findByExperimentId(experimentId)
   }, [experimentId])

@@ -6,6 +6,12 @@ import Fixtures from 'src/test-helpers/fixtures'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 import { formatIsoDate } from 'src/utils/time'
 
+// In order to not go over API limits on swagger we wait in-between tests:
+const apiLimitWait = 500
+beforeEach(async () => {
+  return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
+})
+
 MockDate.set('2020-08-13')
 
 const now = new Date()

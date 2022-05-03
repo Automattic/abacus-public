@@ -1,7 +1,7 @@
 import { binomialProbValue } from 'src/utils/math'
 
 import * as Experiments from './experiments'
-import { Analysis, AnalysisStrategy, ExperimentFull, RecommendationWarning } from './schemas'
+import { AnalysisPrevious, AnalysisStrategy, ExperimentFull, RecommendationWarning } from './schemas'
 
 /**
  * Mapping from AnalysisStrategy to human-friendly descriptions.
@@ -24,11 +24,11 @@ export const RecommendationWarningToHuman = {
 }
 
 interface AnalysesByStrategy {
-  [AnalysisStrategy.IttPure]?: Analysis
-  [AnalysisStrategy.MittNoCrossovers]?: Analysis
-  [AnalysisStrategy.MittNoSpammers]?: Analysis
-  [AnalysisStrategy.MittNoSpammersNoCrossovers]?: Analysis
-  [AnalysisStrategy.PpNaive]?: Analysis
+  [AnalysisStrategy.IttPure]?: AnalysisPrevious
+  [AnalysisStrategy.MittNoCrossovers]?: AnalysisPrevious
+  [AnalysisStrategy.MittNoSpammers]?: AnalysisPrevious
+  [AnalysisStrategy.MittNoSpammersNoCrossovers]?: AnalysisPrevious
+  [AnalysisStrategy.PpNaive]?: AnalysisPrevious
 }
 
 interface CountsSet {

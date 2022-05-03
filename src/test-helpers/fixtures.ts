@@ -7,7 +7,7 @@
 import _ from 'lodash'
 
 import {
-  Analysis,
+  AnalysisPrevious,
   AnalysisStrategy,
   AssignmentCacheStatus,
   AttributionWindowSeconds,
@@ -29,7 +29,7 @@ import {
 } from 'src/lib/schemas'
 
 // Note: analysis.recommendation is deprecated and doesn't match metricEstimates
-function createAnalysis(fieldOverrides: Partial<Analysis>): Analysis {
+function createAnalysis(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrevious {
   return {
     metricAssignmentId: 123,
     analysisStrategy: AnalysisStrategy.IttPure,
@@ -56,7 +56,7 @@ function createAnalysis(fieldOverrides: Partial<Analysis>): Analysis {
 }
 
 // Note: analysis.recommendation is deprecated and doesn't match metricEstimates
-function createAnalyses(): Analysis[] {
+function createAnalyses(): AnalysisPrevious[] {
   return [
     // Full set of "latest" analyses for the default metric assignment.
     createAnalysis({

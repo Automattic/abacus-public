@@ -1,4 +1,4 @@
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Variation } from './schemas'
+import { AnalysisPrevious, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Variation } from './schemas'
 
 /**
  * # Recommendations
@@ -75,7 +75,7 @@ interface DiffCredibleIntervalStats {
  * See the file-level documentation.
  */
 export function getDiffCredibleIntervalStats(
-  analysis: Analysis | null,
+  analysis: AnalysisPrevious | null,
   metricAssignment: MetricAssignment,
 ): DiffCredibleIntervalStats | null {
   if (!analysis || !analysis.metricEstimates) {
@@ -140,7 +140,7 @@ const PracticalSignificanceStatusToDecision: Record<PracticalSignificanceStatus,
 export function getMetricAssignmentRecommendation(
   experiment: ExperimentFull,
   metric: Metric,
-  analysis: Analysis,
+  analysis: AnalysisPrevious,
 ): Recommendation {
   const metricAssignment = experiment.metricAssignments.find(
     (metricAssignment) => metricAssignment.metricAssignmentId === analysis.metricAssignmentId,

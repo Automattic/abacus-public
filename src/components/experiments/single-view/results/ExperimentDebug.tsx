@@ -4,7 +4,7 @@ import React from 'react'
 import * as Experiments from 'src/lib/experiments'
 import * as MetricAssignments from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric } from 'src/lib/schemas'
+import { AnalysisPrevious, AnalysisStrategy, ExperimentFull, Metric } from 'src/lib/schemas'
 
 import { MetricAssignmentAnalysesData } from './ExperimentResults'
 import FullLatestAnalyses from './FullLatestAnalyses'
@@ -18,7 +18,7 @@ export default function ExperimentDebug({
   experiment,
   metrics,
 }: {
-  analyses: Analysis[]
+  analyses: AnalysisPrevious[]
   experiment: ExperimentFull
   metrics: Metric[]
   debugMode?: boolean
@@ -35,7 +35,7 @@ export default function ExperimentDebug({
       analysesByStrategyDateAsc: _.groupBy(
         _.orderBy(metricAssignmentAnalyses, ['analysisDatetime'], ['asc']),
         'analysisStrategy',
-      ) as Record<AnalysisStrategy, Analysis[]>,
+      ) as Record<AnalysisStrategy, AnalysisPrevious[]>,
     }
   })
 

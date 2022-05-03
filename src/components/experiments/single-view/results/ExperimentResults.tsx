@@ -3,14 +3,14 @@ import React from 'react'
 
 import * as MetricAssignments from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from 'src/lib/schemas'
+import { AnalysisPrevious, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from 'src/lib/schemas'
 
 import ActualExperimentResults from './ActualExperimentResults'
 
 export type MetricAssignmentAnalysesData = {
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
 }
 
 /**
@@ -21,7 +21,7 @@ export default function ExperimentResults({
   experiment,
   metrics,
 }: {
-  analyses: Analysis[]
+  analyses: AnalysisPrevious[]
   experiment: ExperimentFull
   metrics: Metric[]
   debugMode?: boolean
@@ -38,7 +38,7 @@ export default function ExperimentResults({
       analysesByStrategyDateAsc: _.groupBy(
         _.orderBy(metricAssignmentAnalyses, ['analysisDatetime'], ['asc']),
         'analysisStrategy',
-      ) as Record<AnalysisStrategy, Analysis[]>,
+      ) as Record<AnalysisStrategy, AnalysisPrevious[]>,
     }
   })
 

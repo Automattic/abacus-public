@@ -3,7 +3,7 @@ import MaterialTable from 'material-table'
 import React from 'react'
 
 import { AnalysisStrategyToHuman } from 'src/lib/analyses'
-import { Analysis, ExperimentFull } from 'src/lib/schemas'
+import { AnalysisPrevious, ExperimentFull } from 'src/lib/schemas'
 import * as Variations from 'src/lib/variations'
 import { createStaticTableOptions } from 'src/utils/material-table'
 
@@ -21,17 +21,20 @@ export default function ParticipantCounts({
 }): JSX.Element {
   const latestPrimaryMetricAnalyses = Object.values(primaryMetricAssignmentAnalysesData.analysesByStrategyDateAsc).map(
     last,
-  ) as Analysis[]
+  ) as AnalysisPrevious[]
 
   const tableColumns = [
-    { title: 'Strategy', render: ({ analysisStrategy }: Analysis) => AnalysisStrategyToHuman[analysisStrategy] },
-    { title: 'Total', render: ({ participantStats }: Analysis) => participantStats.total },
+    {
+      title: 'Strategy',
+      render: ({ analysisStrategy }: AnalysisPrevious) => AnalysisStrategyToHuman[analysisStrategy],
+    },
+    { title: 'Total', render: ({ participantStats }: AnalysisPrevious) => participantStats.total },
   ]
 
   Variations.sort(experiment.variations).forEach(({ variationId, name }) => {
     tableColumns.push({
       title: name,
-      render: ({ participantStats }: Analysis) => participantStats[`variation_${variationId}`] || 0,
+      render: ({ participantStats }: AnalysisPrevious) => participantStats[`variation_${variationId}`] || 0,
     })
   })
 

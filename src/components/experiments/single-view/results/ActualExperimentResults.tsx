@@ -30,7 +30,7 @@ import * as Experiments from 'src/lib/experiments'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  Analysis,
+  AnalysisPrevious,
   AnalysisStrategy,
   ExperimentFull,
   Metric,
@@ -188,7 +188,7 @@ export default function ActualExperimentResults({
           .map(_.last.bind(null))
           .filter((x) => x)
           .map((analysis) =>
-            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as Analysis),
+            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisPrevious),
           ),
         strategy,
       ),
@@ -237,7 +237,7 @@ export default function ActualExperimentResults({
         Recommendations.getMetricAssignmentRecommendation(
           experiment,
           primaryMetricAssignmentAnalysesData.metric,
-          analysis as Analysis,
+          analysis as AnalysisPrevious,
         ),
       ),
     strategy,
@@ -306,7 +306,7 @@ export default function ActualExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
@@ -342,7 +342,7 @@ export default function ActualExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
@@ -395,7 +395,7 @@ export default function ActualExperimentResults({
       recommendation,
     }: {
       strategy: AnalysisStrategy
-      analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
       metricAssignment: MetricAssignment
       metric: Metric
       recommendation: Recommendations.Recommendation

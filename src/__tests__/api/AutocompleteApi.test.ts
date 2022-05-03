@@ -5,6 +5,12 @@ import { getEventNameCompletions, getPropNameCompletions, getUserCompletions } f
 import HttpResponseError from 'src/api/HttpResponseError'
 import * as Utils from 'src/api/utils'
 
+// In order to not go over API limits on swagger we wait in-between tests:
+const apiLimitWait = 500
+beforeEach(async () => {
+  return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
+})
+
 jest.mock('src/api/utils')
 const mockedUtils = Utils as jest.Mocked<typeof Utils>
 

@@ -1,20 +1,10 @@
-import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
+import { Tooltip } from '@material-ui/core'
 import clsx from 'clsx'
 import React from 'react'
 
 import MetricValue, { getMetricValueFormatData } from 'src/components/general/MetricValue'
 import { MetricParameterType } from 'src/lib/schemas'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {},
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
-    },
-  }),
-)
+import { useDecorationStyles } from 'src/styles/styles'
 
 /**
  * Displays a metric value interval.
@@ -36,7 +26,7 @@ export default function MetricValueInterval({
   displayTooltipHint?: boolean
   displayPositiveSign?: boolean
 }): JSX.Element {
-  const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
   const metricValueFormat = getMetricValueFormatData({ metricParameterType, isDifference })
   return (
     <Tooltip
@@ -62,7 +52,7 @@ export default function MetricValueInterval({
         </>
       }
     >
-      <span className={clsx(displayTooltipHint && classes.tooltipped)}>
+      <span className={clsx(displayTooltipHint && decorationClasses.tooltipped)}>
         <MetricValue
           value={bottomValue}
           metricParameterType={metricParameterType}

@@ -39,7 +39,7 @@ test('renders metric values', () => {
       
       100
       <span
-        class="makeStyles-root-1"
+        class="makeStyles-tooltipped-1"
         title="Percentage points."
       >
         pp
@@ -54,7 +54,7 @@ test('renders metric values', () => {
       
       1
       <span
-        class="makeStyles-root-1"
+        class="makeStyles-tooltipped-1"
         title="Percentage points."
       >
         pp
@@ -69,7 +69,7 @@ test('renders metric values', () => {
       
       12.35
       <span
-        class="makeStyles-root-1"
+        class="makeStyles-tooltipped-1"
         title="Percentage points."
       >
         pp

@@ -1,33 +1,15 @@
-import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
+import { Tooltip } from '@material-ui/core'
 import { capitalize } from 'lodash'
 import React from 'react'
 
+import { getChosenVariation } from 'src/lib/experiments'
 import type { Recommendation } from 'src/lib/recommendations'
 import { Decision } from 'src/lib/recommendations'
-import { ExperimentFull, Variation } from 'src/lib/schemas'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
-    },
-  }),
-)
-
-export function getChosenVariation(experiment: ExperimentFull, analysis: Recommendation): Variation {
-  const chosenVariation = experiment.variations.find(
-    (variation) => variation.variationId === analysis.chosenVariationId,
-  )
-  if (!chosenVariation) {
-    throw new Error('No match for chosenVariationId among variations in experiment.')
-  }
-  return chosenVariation
-}
+import type { ExperimentFull } from 'src/lib/schemas'
+import { useDecorationStyles } from 'src/styles/styles'
 
 /**
- * Displays a Recommendation.
+ * Displays the Analysis decision.
  */
 export default function AnalysisDisplay({
   analysis,
@@ -36,12 +18,12 @@ export default function AnalysisDisplay({
   analysis: Recommendation
   experiment: ExperimentFull
 }): JSX.Element {
-  const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
   switch (analysis.decision) {
     case Decision.ManualAnalysisRequired:
       return (
         <Tooltip title='Contact @experimentation-review on #a8c-experiments'>
-          <span className={classes.tooltipped}>Manual analysis required</span>
+          <span className={decorationClasses.tooltipped}>Manual analysis required</span>
         </Tooltip>
       )
     case Decision.MissingAnalysis:

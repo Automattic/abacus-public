@@ -10,6 +10,7 @@ import React from 'react'
 import Attribute from 'src/components/general/Attribute'
 import { ExperimentFull, nameSchema } from 'src/lib/schemas'
 import * as Variations from 'src/lib/variations'
+import { useDecorationStyles } from 'src/styles/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,12 +21,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     default: {
       color: theme.palette.grey[500],
-    },
-    defaultLabel: {},
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
     },
     tooltip: {
       maxWidth: '500px',
@@ -122,6 +117,7 @@ function VariationsTable({
   experiment: ExperimentFull
 }): JSX.Element {
   const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
   return (
     <Table className={classes.root}>
       <TableHead>
@@ -195,7 +191,7 @@ function VariationsTable({
                     </>
                   }
                 >
-                  <span className={classes.tooltipped}>Bookmarklet</span>
+                  <span className={decorationClasses.tooltipped}>Bookmarklet</span>
                 </Tooltip>{' '}
               </TableCell>
             </TableRow>

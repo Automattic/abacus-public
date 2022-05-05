@@ -1,23 +1,14 @@
-import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
+import { Tooltip } from '@material-ui/core'
 import clsx from 'clsx'
 import _, { identity } from 'lodash'
 import React from 'react'
 
 import { MetricParameterType } from 'src/lib/schemas'
-
-const useDashedTooltipStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
-    },
-  }),
-)
+import { useDecorationStyles } from 'src/styles/styles'
 
 function DashedTooltip(props: Parameters<typeof Tooltip>[0]) {
-  const classes = useDashedTooltipStyles()
-  return <Tooltip className={clsx(classes.root, props.className)} {...props} />
+  const decorationClasses = useDecorationStyles()
+  return <Tooltip className={clsx(decorationClasses.tooltipped, props.className)} {...props} />
 }
 
 /**

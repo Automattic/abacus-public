@@ -1,10 +1,11 @@
-import { createStyles, InputAdornment, makeStyles, Theme, Tooltip, Typography } from '@material-ui/core'
+import { createStyles, InputAdornment, makeStyles, Tooltip, Typography } from '@material-ui/core'
 import clsx from 'clsx'
 import { Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import React from 'react'
 
 import { MetricParameterType } from 'src/lib/schemas'
+import { useDecorationStyles } from 'src/styles/styles'
 import { formikFieldTransformer } from 'src/utils/formik'
 
 const ConversionMetricTextField = formikFieldTransformer(
@@ -13,18 +14,13 @@ const ConversionMetricTextField = formikFieldTransformer(
   (inner: string) => String((Number(inner) || 0) / 100),
 )
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       minWidth: '7rem',
       '& input': {
         textAlign: 'right',
       },
-    },
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
     },
     adornment: {
       width: '3rem',
@@ -39,6 +35,7 @@ export default function MetricDifferenceField(props: {
   className?: string
 }): JSX.Element {
   const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
 
   // istanbul ignore else; shouldn't occur
   if (props.metricParameterType === MetricParameterType.Conversion) {
@@ -60,7 +57,7 @@ export default function MetricDifferenceField(props: {
           endAdornment: (
             <InputAdornment position='end' className={classes.adornment}>
               <Tooltip title='Percentage Points'>
-                <Typography variant='body1' color='textSecondary' className={classes.tooltipped}>
+                <Typography variant='body1' color='textSecondary' className={decorationClasses.tooltipped}>
                   pp
                 </Typography>
               </Tooltip>

@@ -17,6 +17,7 @@ import _ from 'lodash'
 import React from 'react'
 
 import { HealthIndicationSeverity, HealthIndicator, HealthIndicatorUnit } from 'src/lib/analyses'
+import { useDecorationStyles } from 'src/styles/styles'
 
 const indicationSeverityClassSymbol = (severity: HealthIndicationSeverity) => `indicationSeverity${severity}`
 
@@ -44,11 +45,6 @@ const useStyles = makeStyles((theme: Theme) =>
     [indicationSeverityClassSymbol(HealthIndicationSeverity.Error)]: {
       background: '#ff868661',
     },
-    tooltip: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
-    },
   }),
 )
 
@@ -66,6 +62,7 @@ export default function HealthIndicatorTable({
   indicators: HealthIndicator[]
 }): JSX.Element {
   const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
   return (
     <TableContainer className={className}>
       <Table className={classes.table} aria-label='simple table'>
@@ -91,7 +88,7 @@ export default function HealthIndicatorTable({
               <TableCell scope='row' className={clsx(classes.monospace, classes.deemphasized, classes.nowrap)}>
                 {indicator.unit === HealthIndicatorUnit.Pvalue ? (
                   <Tooltip title='The smaller the p-value the more likely there is an issue.'>
-                    <span className={classes.tooltip}>p-value</span>
+                    <span className={decorationClasses.tooltipped}>p-value</span>
                   </Tooltip>
                 ) : (
                   <span>{indicator.unit}</span>

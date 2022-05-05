@@ -1,6 +1,7 @@
 import React from 'react'
 import Plot from 'react-plotly.js'
 
+import { Decision } from 'src/lib/recommendations'
 import { AnalysisStrategy } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { render } from 'src/test-helpers/test-utils'
@@ -30,6 +31,10 @@ test('renders an appropriate message with no analyses', () => {
         [AnalysisStrategy.IttPure]: [],
       }}
       experiment={experiment}
+      recommendation={{
+        analysisStrategy: AnalysisStrategy.PpNaive,
+        decision: Decision.NoDifference,
+      }}
     />,
   )
   expect(container).toMatchSnapshot()

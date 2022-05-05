@@ -1,7 +1,7 @@
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Recommendations from './recommendations'
-import { AnalysisStrategy, RecommendationReason } from './schemas'
+import { AnalysisStrategy, RecommendationReason, Status } from './schemas'
 
 describe('getDiffCredibleIntervalStats', () => {
   it('should return null for missing analysis', () => {
@@ -263,6 +263,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.Inconclusive,
+      strongEnoughForDeployment: false,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
       statisticallySignificant: false,
     })
@@ -291,9 +292,39 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.VariantAhead,
+      strongEnoughForDeployment: false,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
       statisticallySignificant: true,
+    })
+
+    expect(
+      Recommendations.getMetricAssignmentRecommendation(
+        Fixtures.createExperimentFull({ status: Status.Completed }),
+        Fixtures.createMetric(123),
+        Fixtures.createAnalysis({
+          analysisStrategy: AnalysisStrategy.PpNaive,
+          recommendation: {
+            endExperiment: true,
+            chosenVariationId: null,
+            reason: RecommendationReason.CiInRope,
+            warnings: [],
+          },
+          metricEstimates: {
+            diff: {
+              top: 0,
+              bottom: 0,
+              estimate: 0,
+            },
+          },
+        }),
+      ),
+    ).toEqual({
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      decision: Recommendations.Decision.NoDifference,
+      strongEnoughForDeployment: true,
+      practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
+      statisticallySignificant: false,
     })
 
     expect(
@@ -320,8 +351,39 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.NoDifference,
+      strongEnoughForDeployment: false,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: false,
+    })
+
+    expect(
+      Recommendations.getMetricAssignmentRecommendation(
+        Fixtures.createExperimentFull({ status: Status.Completed }),
+        Fixtures.createMetric(123),
+        Fixtures.createAnalysis({
+          analysisStrategy: AnalysisStrategy.PpNaive,
+          recommendation: {
+            endExperiment: true,
+            chosenVariationId: 2,
+            reason: RecommendationReason.CiInRope,
+            warnings: [],
+          },
+          metricEstimates: {
+            diff: {
+              top: 0.009,
+              bottom: 0.001,
+              estimate: 0,
+            },
+          },
+        }),
+      ),
+    ).toEqual({
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      decision: Recommendations.Decision.VariantBarelyAhead,
+      strongEnoughForDeployment: true,
+      chosenVariationId: 2,
+      practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
+      statisticallySignificant: true,
     })
 
     expect(
@@ -351,6 +413,7 @@ describe('getMetricAssignmentRecommendation', () => {
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: true,
+      strongEnoughForDeployment: false,
     })
 
     expect(
@@ -377,6 +440,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.VariantWins,
+      strongEnoughForDeployment: false,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
@@ -386,6 +450,27 @@ describe('getMetricAssignmentRecommendation', () => {
   expect(
     Recommendations.getMetricAssignmentRecommendation(
       Fixtures.createExperimentFull(),
+      Fixtures.createMetric(123),
+      Fixtures.createAnalysis({
+        analysisStrategy: AnalysisStrategy.PpNaive,
+        recommendation: {
+          endExperiment: false,
+          chosenVariationId: null,
+          reason: RecommendationReason.CiRopePartlyOverlap,
+          warnings: [],
+        },
+        metricEstimates: null,
+      }),
+    ),
+  ).toEqual({
+    analysisStrategy: AnalysisStrategy.PpNaive,
+    decision: Recommendations.Decision.MissingAnalysis,
+    strongEnoughForDeployment: false,
+  })
+
+  expect(
+    Recommendations.getMetricAssignmentRecommendation(
+      Fixtures.createExperimentFull({ status: Status.Completed }),
       Fixtures.createMetric(123, { higherIsBetter: false }),
       Fixtures.createAnalysis({
         analysisStrategy: AnalysisStrategy.PpNaive,
@@ -407,6 +492,7 @@ describe('getMetricAssignmentRecommendation', () => {
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
     decision: Recommendations.Decision.VariantWins,
+    strongEnoughForDeployment: true,
     chosenVariationId: 1,
     practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
     statisticallySignificant: true,
@@ -418,13 +504,16 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     expect(Recommendations.getAggregateMetricAssignmentRecommendation([], AnalysisStrategy.PpNaive)).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
+      strongEnoughForDeployment: false,
     })
+
     expect(
       Recommendations.getAggregateMetricAssignmentRecommendation(
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
             decision: Recommendations.Decision.MissingAnalysis,
+            strongEnoughForDeployment: false,
           },
         ],
         AnalysisStrategy.PpNaive,
@@ -432,7 +521,9 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
+      strongEnoughForDeployment: false,
     })
+
     expect(
       Recommendations.getAggregateMetricAssignmentRecommendation(
         [
@@ -446,6 +537,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
+      strongEnoughForDeployment: false,
     })
   })
 
@@ -662,5 +754,18 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
     })
+  })
+})
+
+describe('isDataStrongEnough', () => {
+  it('should work correctly for missing metricEstimates', () => {
+    expect(
+      Recommendations.isDataStrongEnough(
+        Fixtures.createAnalysis({ metricEstimates: null }),
+        Recommendations.Decision.MissingAnalysis,
+        Fixtures.createExperimentFull(),
+        Fixtures.createMetricAssignment({}),
+      ),
+    ).toEqual(false)
   })
 })

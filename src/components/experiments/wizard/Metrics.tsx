@@ -34,6 +34,7 @@ import MoreMenu from 'src/components/general/MoreMenu'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { EventNew, Metric, MetricAssignment } from 'src/lib/schemas'
+import { useDecorationStyles } from 'src/styles/styles'
 import { useDataSource } from 'src/utils/data-loading'
 
 import { ExperimentFormCompletionBag } from './ExperimentForm'
@@ -65,11 +66,6 @@ const useStyles = makeStyles((theme: Theme) =>
     metricName: {
       fontFamily: theme.custom.fonts.monospace,
       fontWeight: theme.custom.fontWeights.monospaceBold,
-    },
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
     },
     minDifferenceField: {
       maxWidth: '14rem',
@@ -323,6 +319,7 @@ const Metrics = ({
 }): JSX.Element => {
   const classes = useStyles()
   const metricEditorClasses = useMetricEditorStyles()
+  const decorationClasses = useDecorationStyles()
 
   // Metric Assignments
   const [metricAssignmentsField, _metricAssignmentsFieldMetaProps, metricAssignmentsFieldHelperProps] = useField<
@@ -408,7 +405,7 @@ const Metrics = ({
                         <TableRow key={index}>
                           <TableCell className={classes.metricNameCell}>
                             <Tooltip arrow title={indexedMetrics[metricAssignment.metricId].description}>
-                              <span className={clsx(classes.metricName, classes.tooltipped)}>
+                              <span className={clsx(classes.metricName, decorationClasses.tooltipped)}>
                                 {indexedMetrics[metricAssignment.metricId].name}
                               </span>
                             </Tooltip>

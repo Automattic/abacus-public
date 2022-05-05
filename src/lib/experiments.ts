@@ -1,5 +1,6 @@
 import { differenceInHours } from 'date-fns'
 
+import type { Recommendation } from './recommendations'
 import { AnalysisStrategy, AssignmentCacheStatus, ExperimentFull, Platform, Status, Variation } from './schemas'
 
 /**
@@ -71,4 +72,14 @@ export function getExperimentRunHours(experiment: ExperimentFull): number {
 
   const maybeEndDate = experiment.status === Status.Running ? new Date() : experiment.endDatetime
   return differenceInHours(maybeEndDate, experiment.startDatetime)
+}
+
+export function getChosenVariation(experiment: ExperimentFull, recommendation: Recommendation): Variation {
+  const chosenVariation = experiment.variations.find(
+    (variation) => variation.variationId === recommendation.chosenVariationId,
+  )
+  if (!chosenVariation) {
+    throw new Error('No match for chosenVariationId among variations in experiment.')
+  }
+  return chosenVariation
 }

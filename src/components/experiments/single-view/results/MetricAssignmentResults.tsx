@@ -22,6 +22,7 @@ import Plot from 'react-plotly.js'
 import DatetimeText from 'src/components/general/DatetimeText'
 import MetricValue from 'src/components/general/MetricValue'
 import * as Analyses from 'src/lib/analyses'
+import { getChosenVariation } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
   AnalysisPrevious,
@@ -34,7 +35,7 @@ import {
 import * as Visualizations from 'src/lib/visualizations'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
-import AnalysisDisplay, { getChosenVariation } from './AnalysisDisplay'
+import AnalysisDisplay from './AnalysisDisplay'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,28 +60,12 @@ const useStyles = makeStyles((theme: Theme) =>
       width: `calc(50% - ${theme.spacing(1)}px)`,
       height: 400,
     },
-    participantsPlot: {
-      height: 400,
-      marginBottom: theme.spacing(6),
-      width: '100%',
-    },
     noPlotMessage: {
       margin: theme.spacing(0, 0, 0, 2),
       color: theme.palette.grey[600],
     },
-    tableHeader: {
-      margin: theme.spacing(3, 0, 1, 2),
-    },
     rowHeader: {
       verticalAlign: 'top',
-    },
-    tooltipped: {
-      borderBottomWidth: 1,
-      borderBottomStyle: 'dashed',
-      borderBottomColor: theme.palette.grey[500],
-    },
-    metricDescription: {
-      opacity: 0.7,
     },
     analysisFinePrint: {
       fontSize: '.7rem',

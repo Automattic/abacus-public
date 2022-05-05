@@ -18,3 +18,13 @@ export const useDangerStyles = makeStyles((theme: Theme) =>
     },
   }),
 )
+
+export const useDecorationStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    tooltipped: {
+      borderBottomWidth: 1,
+      borderBottomStyle: 'dashed',
+      borderBottomColor: theme.palette.grey[500],
+    },
+  }),
+)

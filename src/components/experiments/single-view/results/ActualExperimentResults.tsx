@@ -44,6 +44,7 @@ import { formatIsoDate } from 'src/utils/time'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
 import AnalysisDisplay from './AnalysisDisplay'
+import DeploymentRecommendation from './DeploymentRecommendation'
 import { MetricAssignmentAnalysesData } from './ExperimentResults'
 import HealthIndicatorTable from './HealthIndicatorTable'
 import MetricAssignmentResults from './MetricAssignmentResults'
@@ -71,6 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
     summaryColumn: {
       display: 'flex',
       flexDirection: 'column',
+      maxWidth: '40%',
     },
     summaryStatsPaper: {
       padding: theme.spacing(4),
@@ -87,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(6),
     },
     summaryStatsStat: {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       fontWeight: 500,
     },
     summaryHealthPaper: {
@@ -452,7 +454,7 @@ export default function ActualExperimentResults({
                     </div>
                     <div className={classes.summaryStatsPart}>
                       <Typography variant='h3' className={classes.summaryStatsStat} color='primary'>
-                        <AnalysisDisplay {...{ experiment, analysis: primaryMetricRecommendation }} />
+                        <DeploymentRecommendation {...{ experiment, analysis: primaryMetricRecommendation }} />
                       </Typography>
                       <Typography variant='subtitle1'>
                         <strong>primary metric</strong> recommendation

@@ -1,4 +1,13 @@
-import { AnalysisPrevious, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Variation } from './schemas'
+import { getExperimentRunHours } from './experiments'
+import {
+  AnalysisPrevious,
+  AnalysisStrategy,
+  ExperimentFull,
+  Metric,
+  MetricAssignment,
+  Platform,
+  Variation,
+} from './schemas'
 
 /**
  * # Recommendations
@@ -127,6 +136,7 @@ export interface Recommendation {
   chosenVariationId?: number
   statisticallySignificant?: boolean
   practicallySignificant?: PracticalSignificanceStatus
+  strongEnoughForDeployment?: boolean
 }
 
 function getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats: DiffCredibleIntervalStats): Decision {
@@ -139,6 +149,54 @@ function getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats: Dif
 
     case PracticalSignificanceStatus.Yes:
       return Decision.VariantWins
+  }
+}
+
+const maxSafeKruschke = {
+  [Decision.NoDifference]: 0.9,
+  [Decision.VariantBarelyAhead]: 0.45,
+  [Decision.VariantAhead]: 1.5,
+}
+
+const minSafeRuntimeInDays = 7
+export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe]
+
+/**
+ * Returns deployment recommendation
+ *
+ * See the flowchart in https://github.com/Automattic/abacus/issues/660
+ */
+
+export function isDataStrongEnough(
+  analysis: AnalysisPrevious | null,
+  decision: Decision,
+  experiment: ExperimentFull,
+  metricAssignment: MetricAssignment,
+): boolean {
+  if (!analysis || !analysis.metricEstimates) {
+    return false
+  }
+
+  // See Kruschke's Precision as a goal for data collection: https://www.youtube.com/playlist?list=PL_mlm7M63Y7j641Y7QJG3TfSxeZMGOsQ4
+  const diffCiWidth = Math.abs(analysis.metricEstimates.diff.top - analysis.metricEstimates.diff.bottom)
+  const ropeWidth = metricAssignment.minDifference * 2
+  const kruschkeUncertainty = diffCiWidth / ropeWidth
+
+  const runtimeInDays = getExperimentRunHours(experiment) / 24
+  const hasEnoughRuntime =
+    runtimeWhitelistedPlatforms.includes(experiment.platform) || runtimeInDays > minSafeRuntimeInDays
+
+  switch (decision) {
+    case Decision.VariantAhead:
+    case Decision.VariantBarelyAhead:
+    case Decision.NoDifference:
+      return kruschkeUncertainty < maxSafeKruschke[decision] && hasEnoughRuntime
+
+    case Decision.VariantWins:
+      return runtimeInDays > minSafeRuntimeInDays
+
+    default:
+      return false
   }
 }
 
@@ -161,6 +219,7 @@ export function getMetricAssignmentRecommendation(
     return {
       analysisStrategy,
       decision: Decision.MissingAnalysis,
+      strongEnoughForDeployment: false,
     }
   }
 
@@ -174,12 +233,15 @@ export function getMetricAssignmentRecommendation(
       isPositive === metric.higherIsBetter ? nonDefaultVariation.variationId : defaultVariation.variationId
   }
 
+  const strongEnoughForDeployment = isDataStrongEnough(analysis, decision, experiment, metricAssignment)
+
   return {
     analysisStrategy,
     decision,
     chosenVariationId,
     statisticallySignificant,
     practicallySignificant,
+    strongEnoughForDeployment,
   }
 }
 
@@ -198,6 +260,7 @@ export function getAggregateMetricAssignmentRecommendation(
     return {
       analysisStrategy: targetAnalysisStrategy,
       decision: Decision.MissingAnalysis,
+      strongEnoughForDeployment: false,
     }
   }
 

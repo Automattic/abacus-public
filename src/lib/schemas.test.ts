@@ -391,34 +391,41 @@ describe('lib/schemas.ts module', () => {
   })
 })
 
+describe('isRawMetricEstimatesNext', () => {
+  it('should work correctly', () => {
+    expect(Schemas.isRawMetricEstimatesNext({ diff: {} })).toEqual(false)
+    expect(Schemas.isRawMetricEstimatesNext({ variations: {} })).toEqual(true)
+  })
+})
+
 describe('ensureAnalysisPrevious', () => {
   it('should pass through an analysis with null metric_estimates', () => {
-    const analysisRaw = {
-      metric_assignment_id: 1,
-      analysis_strategy: 'itt_pure',
-      participant_stats: {
+    const analysis: Schemas.AnalysisPrevious = {
+      metricAssignmentId: 1,
+      analysisStrategy: Schemas.AnalysisStrategy.IttPure,
+      participantStats: {
         total: 180000,
         variation_1505: 90000,
         variation_1506: 90000,
       },
-      metric_estimates: null,
+      metricEstimates: null,
       recommendation: null,
-      analysis_datetime: '2022-04-25T00:00:00+00:00',
+      analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureRawAnalysisPrevious(analysisRaw)).toEqual(analysisRaw)
+    expect(Schemas.ensureAnalysisPrevious(analysis, 1506, 1505)).toEqual(analysis)
   })
 
   it('should pass through AnalysisPrevious', () => {
-    const analysisPreviousRaw = {
-      metric_assignment_id: 1,
-      analysis_strategy: 'itt_pure',
-      participant_stats: {
+    const analysisPrevious: Schemas.AnalysisPrevious = {
+      metricAssignmentId: 1,
+      analysisStrategy: Schemas.AnalysisStrategy.IttPure,
+      participantStats: {
         total: 180000,
         variation_1505: 90000,
         variation_1506: 90000,
       },
-      metric_estimates: {
+      metricEstimates: {
         variation_1505: {
           bottom: 0.279637201027812,
           estimate: 0.3269372761601801,
@@ -441,22 +448,22 @@ describe('ensureAnalysisPrevious', () => {
         },
       },
       recommendation: null,
-      analysis_datetime: '2022-04-25T00:00:00+00:00',
+      analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureRawAnalysisPrevious(analysisPreviousRaw)).toEqual(analysisPreviousRaw)
+    expect(Schemas.ensureAnalysisPrevious(analysisPrevious, 1506, 1505)).toEqual(analysisPrevious)
   })
 
   it('should pass transform AnalysisNext to AnalysisPrevious', () => {
-    const analysisPreviousRaw = {
-      metric_assignment_id: 1,
-      analysis_strategy: 'itt_pure',
-      participant_stats: {
+    const analysisPrevious: Schemas.AnalysisPrevious = {
+      metricAssignmentId: 1,
+      analysisStrategy: Schemas.AnalysisStrategy.IttPure,
+      participantStats: {
         total: 180000,
         variation_1505: 90000,
         variation_1506: 90000,
       },
-      metric_estimates: {
+      metricEstimates: {
         variation_1505: {
           bottom: 0.279637201027812,
           estimate: 0.3269372761601801,
@@ -479,17 +486,17 @@ describe('ensureAnalysisPrevious', () => {
         },
       },
       recommendation: null,
-      analysis_datetime: '2022-04-25T00:00:00+00:00',
+      analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
-    const analysisNextRaw = {
-      metric_assignment_id: 1,
-      analysis_strategy: 'itt_pure',
-      participant_stats: {
+    const analysisNext: Schemas.AnalysisNext = {
+      metricAssignmentId: 1,
+      analysisStrategy: Schemas.AnalysisStrategy.IttPure,
+      participantStats: {
         total: 180000,
         variation_1505: 90000,
         variation_1506: 90000,
       },
-      metric_estimates: {
+      metricEstimates: {
         variations: {
           '1505': {
             bottom_95: 0.279637201027812,
@@ -534,9 +541,9 @@ describe('ensureAnalysisPrevious', () => {
         },
       },
       recommendation: null,
-      analysis_datetime: '2022-04-25T00:00:00+00:00',
+      analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureRawAnalysisPrevious(analysisNextRaw)).toEqual(analysisPreviousRaw)
+    expect(Schemas.ensureAnalysisPrevious(analysisNext, 1506, 1505)).toEqual(analysisPrevious)
   })
 })

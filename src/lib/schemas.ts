@@ -586,21 +586,26 @@ function toDistributionStatPrevious(distributionStats: DistributionStats): Metri
   }
 }
 
+export function isRawMetricEstimatesNext(maybeMetricEstimatesNext: unknown): boolean {
+  return Object.prototype.hasOwnProperty.call(maybeMetricEstimatesNext, 'variations')
+}
+
 function isMetricEstimatesNext(
   maybeMetricEstimatesNext: MetricEstimatesPrevious | MetricEstimatesNext,
 ): maybeMetricEstimatesNext is MetricEstimatesNext {
   return Object.prototype.hasOwnProperty.call(maybeMetricEstimatesNext, 'variations')
 }
 
-function ensureMetricEstimatesPrevious(
+/**
+ * Ensure a MetricsEstimatesPrevious.
+ */
+export function ensureMetricEstimatesPrevious(
   metricEstimates: MetricEstimatesPrevious | MetricEstimatesNext,
+  defaultVariationId: number,
+  otherVariationId: number,
 ): MetricEstimatesPrevious {
   // Check if we have a new metrics estimate object
   if (isMetricEstimatesNext(metricEstimates)) {
-    // We can assume that the higher variation id is the default variation?
-    const [otherVariationId, defaultVariationId] = Object.keys(metricEstimates.variations)
-      .map((x) => parseInt(x, 10))
-      .sort()
     return {
       [`variation_${defaultVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[defaultVariationId]),
       [`variation_${otherVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[otherVariationId]),
@@ -609,21 +614,6 @@ function ensureMetricEstimatesPrevious(
     }
   }
   return metricEstimates
-}
-
-/**
- * Ensure a raw AnalysisPrevious. A tool for moving between AnalysisPrevious and AnalysisNext.
- *
- * Not fully typed as we work on the raw data and we validate immediately afterwards.
- * Might have a non-raw version of this as we move AnalysisNext downward.
- */
-export function ensureRawAnalysisPrevious(analysis: {
-  metric_estimates: MetricEstimatesPrevious | MetricEstimatesNext | null
-}): unknown {
-  return {
-    ...analysis,
-    metric_estimates: analysis.metric_estimates ? ensureMetricEstimatesPrevious(analysis.metric_estimates) : null,
-  }
 }
 
 export const analysisPreviousSchema = yup
@@ -660,6 +650,22 @@ export const analysisNextSchema = yup
   .defined()
   .camelCase()
 export interface AnalysisNext extends yup.InferType<typeof analysisNextSchema> {}
+
+/**
+ * Ensure an AnalysisPrevious. A tool for moving between AnalysisPrevious and AnalysisNext.
+ */
+export function ensureAnalysisPrevious(
+  analysis: AnalysisNext | AnalysisPrevious,
+  defaultVariationId: number,
+  otherVariationId: number,
+): AnalysisPrevious {
+  return {
+    ...analysis,
+    metricEstimates: analysis.metricEstimates
+      ? ensureMetricEstimatesPrevious(analysis.metricEstimates, defaultVariationId, otherVariationId)
+      : null,
+  }
+}
 
 export const analysisResponseSchema = yup
   .object({

@@ -9,17 +9,21 @@ import { fetchApi } from './utils'
  *
  * @throws UnauthorizedError
  */
-async function findByExperimentId(experimentId: number): Promise<Schemas.AnalysisPrevious[]> {
+async function findByExperimentId(experimentId: number): Promise<(Schemas.AnalysisNext | Schemas.AnalysisPrevious)[]> {
   // We can be loose with the types here as we validate everything below.
   const analysesResponse = (await fetchApi('GET', `/analyses/${experimentId}`, {
     abortEarly: false,
-  })) as { analyses: { metric_estimates: Schemas.MetricEstimatesPrevious | Schemas.MetricEstimatesNext | null }[] }
+  })) as { analyses: { metric_estimates: unknown }[] }
 
-  analysesResponse.analyses = (analysesResponse.analyses.map(Schemas.ensureRawAnalysisPrevious) as unknown) as {
-    metric_estimates: Schemas.MetricEstimatesPrevious | Schemas.MetricEstimatesNext | null
-  }[]
+  const analyses = analysesResponse.analyses.map((maybeAnalysis) =>
+    // istanbul ignore next; Transitional
+    Object.hasOwnProperty.call(maybeAnalysis, 'metric_estimates') &&
+    !!maybeAnalysis?.metric_estimates &&
+    Schemas.isRawMetricEstimatesNext(maybeAnalysis?.metric_estimates)
+      ? Schemas.analysisNextSchema.validateSync(maybeAnalysis)
+      : Schemas.analysisPreviousSchema.validateSync(maybeAnalysis),
+  )
 
-  const { analyses } = await Schemas.analysisResponseSchema.validate(analysesResponse)
   return analyses
 }
 

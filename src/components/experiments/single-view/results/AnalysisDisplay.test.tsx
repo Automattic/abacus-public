@@ -63,29 +63,29 @@ test('renders Inconclusive correctly', () => {
   `)
 })
 
-test('renders DeployAnyVariation correctly', () => {
+test('renders NoDifference correctly', () => {
   const { container } = render(
     <AnalysisDisplay
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
-        decision: Decision.DeployAnyVariation,
+        decision: Decision.NoDifference,
       }}
       experiment={Fixtures.createExperimentFull()}
     />,
   )
   expect(container).toMatchInlineSnapshot(`
     <div>
-      Deploy either variation
+      No difference
     </div>
   `)
 })
 
-test('renders DeployChosenVariation correctly', () => {
+test('renders VariantBarelyAhead correctly', () => {
   const { container } = render(
     <AnalysisDisplay
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
-        decision: Decision.DeployChosenVariation,
+        decision: Decision.VariantBarelyAhead,
         chosenVariationId: 123,
       }}
       experiment={Fixtures.createExperimentFull({
@@ -102,8 +102,64 @@ test('renders DeployChosenVariation correctly', () => {
   )
   expect(container).toMatchInlineSnapshot(`
     <div>
-      Deploy 
-      variation_name_123
+      Variation_name_123
+       barely ahead
+    </div>
+  `)
+})
+
+test('renders VariantAhead correctly', () => {
+  const { container } = render(
+    <AnalysisDisplay
+      analysis={{
+        analysisStrategy: AnalysisStrategy.PpNaive,
+        decision: Decision.VariantAhead,
+        chosenVariationId: 123,
+      }}
+      experiment={Fixtures.createExperimentFull({
+        variations: [
+          {
+            variationId: 123,
+            name: 'variation_name_123',
+            allocatedPercentage: 1,
+            isDefault: false,
+          },
+        ],
+      })}
+    />,
+  )
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      Variation_name_123
+       ahead
+    </div>
+  `)
+})
+
+test('renders VariantWins correctly', () => {
+  const { container } = render(
+    <AnalysisDisplay
+      analysis={{
+        analysisStrategy: AnalysisStrategy.PpNaive,
+        decision: Decision.VariantWins,
+        chosenVariationId: 123,
+      }}
+      experiment={Fixtures.createExperimentFull({
+        variations: [
+          {
+            variationId: 123,
+            name: 'variation_name_123',
+            allocatedPercentage: 1,
+            isDefault: false,
+          },
+        ],
+      })}
+    />,
+  )
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      Variation_name_123
+       wins
     </div>
   `)
 })
@@ -117,7 +173,7 @@ test('throws error for missing chosenVariationId', () => {
       <AnalysisDisplay
         analysis={{
           analysisStrategy: AnalysisStrategy.PpNaive,
-          decision: Decision.DeployChosenVariation,
+          decision: Decision.VariantWins,
           chosenVariationId: 123,
         }}
         experiment={Fixtures.createExperimentFull({

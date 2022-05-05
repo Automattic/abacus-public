@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 import { ChevronRight, ExpandMore } from '@material-ui/icons'
 import clsx from 'clsx'
-import _, { identity } from 'lodash'
+import _, { capitalize, identity } from 'lodash'
 import { PlotData } from 'plotly.js'
 import React, { useState } from 'react'
 import Plot from 'react-plotly.js'
@@ -34,7 +34,7 @@ import {
 import * as Visualizations from 'src/lib/visualizations'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
-import AnalysisDisplay from './AnalysisDisplay'
+import AnalysisDisplay, { getChosenVariation } from './AnalysisDisplay'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -131,22 +131,45 @@ const useStyles = makeStyles((theme: Theme) =>
 type StringifiedStatisticalDifference = 'true' | 'false'
 
 // Practical Difference Status -> (string) Statistical Difference -> string
+// {{ }} delimited variables are going to be replaced using Lodash: https://lodash.com/docs/4.17.15#template
 const differenceOverviewMessages: Record<
   Recommendations.PracticalSignificanceStatus,
   Record<StringifiedStatisticalDifference, string>
 > = {
   [Recommendations.PracticalSignificanceStatus.Yes]: {
-    true: `There is high certainty that the change is practically significant.`,
-    false: `There is high certainty that the change is practically significant.`,
+    true:
+      'Deploy {{ variation }} with confidence. {{ Variation }} wins and there is high certainty that the change is statistically and practically significant.',
+    false: 'There is high certainty that the change is practically significant.',
   },
   [Recommendations.PracticalSignificanceStatus.Uncertain]: {
-    true: `There is not enough certainty to draw a conclusion at this time, but the change is statistically different from zero.`,
-    false: `There is not enough certainty to draw a conclusion at this time.`,
+    true:
+      'Deploy {{ variation }}  cautiously. {{ Variation }} is ahead and is statistically different, but there is not enough certainty to say the change is practically significant.',
+    false: 'There is not enough certainty to draw a conclusion at this time.',
   },
   [Recommendations.PracticalSignificanceStatus.No]: {
-    true: `There is high certainty that the change isn't practically significant, but the change is statistically different from zero.`,
-    false: `There is high certainty that the change isn't practically significant.`,
+    true:
+      "Deploy {{ variation }}  cautiously. {{ Variation }} is barely ahead and is statistically different, but there is high certainty that the change isn't practically significant.",
+    false:
+      'Deploy either variation. There is high certainty that difference in performance is not practically significant',
   },
+}
+
+function getOverviewMessage(experiment: ExperimentFull, recommendation: Recommendations.Recommendation) {
+  const message =
+    differenceOverviewMessages[recommendation.practicallySignificant as Recommendations.PracticalSignificanceStatus][
+      String(recommendation.statisticallySignificant) as StringifiedStatisticalDifference
+    ]
+  const variationName = recommendation.chosenVariationId
+    ? getChosenVariation(experiment, recommendation).name
+    : 'variant'
+
+  const mapReplaceObject: Record<string, string> = {
+    variation: variationName,
+    Variation: capitalize(variationName),
+  }
+
+  _.templateSettings.interpolate = /{{([\s\S]+?)}}/g
+  return _.template(message)(mapReplaceObject)
 }
 
 const explanationLine2: Record<Recommendations.PracticalSignificanceStatus, string> = {
@@ -316,11 +339,7 @@ export default function MetricAssignmentResults({
                   </Typography>
                 )}
                 <Typography variant='body1'>
-                  {
-                    differenceOverviewMessages[
-                      recommendation.practicallySignificant as Recommendations.PracticalSignificanceStatus
-                    ][String(recommendation.statisticallySignificant) as StringifiedStatisticalDifference]
-                  }{' '}
+                  {getOverviewMessage(experiment, recommendation)}{' '}
                   <Link
                     href={`https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#reading-the-data`}
                     target='_blank'

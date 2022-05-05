@@ -86,6 +86,7 @@ export function getDiffCredibleIntervalStats(
     throw new Error('Invalid metricEstimates: bottom greater than top.')
   }
 
+  // CI is entirely included in the interval of the experimenter set minDifference:
   let practicallySignificant = PracticalSignificanceStatus.No
   if (
     // CI is entirely above or below the experimenter set minDifference:
@@ -113,9 +114,11 @@ export function getDiffCredibleIntervalStats(
 export enum Decision {
   ManualAnalysisRequired = 'ManualAnalysisRequired',
   MissingAnalysis = 'MissingAnalysis',
+  NoDifference = 'NoDifference',
+  VariantBarelyAhead = 'VariantBarelyAhead',
   Inconclusive = 'Inconclusive',
-  DeployAnyVariation = 'DeployAnyVariation',
-  DeployChosenVariation = 'DeployChosenVariation',
+  VariantAhead = 'VariantAhead',
+  VariantWins = 'VariantWins',
 }
 
 export interface Recommendation {
@@ -126,10 +129,17 @@ export interface Recommendation {
   practicallySignificant?: PracticalSignificanceStatus
 }
 
-const PracticalSignificanceStatusToDecision: Record<PracticalSignificanceStatus, Decision> = {
-  [PracticalSignificanceStatus.No]: Decision.DeployAnyVariation,
-  [PracticalSignificanceStatus.Uncertain]: Decision.Inconclusive,
-  [PracticalSignificanceStatus.Yes]: Decision.DeployChosenVariation,
+function getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats: DiffCredibleIntervalStats): Decision {
+  switch (diffCredibleIntervalStats.practicallySignificant) {
+    case PracticalSignificanceStatus.No:
+      return diffCredibleIntervalStats.statisticallySignificant ? Decision.VariantBarelyAhead : Decision.NoDifference
+
+    case PracticalSignificanceStatus.Uncertain:
+      return diffCredibleIntervalStats.statisticallySignificant ? Decision.VariantAhead : Decision.Inconclusive
+
+    case PracticalSignificanceStatus.Yes:
+      return Decision.VariantWins
+  }
 }
 
 /**
@@ -155,11 +165,11 @@ export function getMetricAssignmentRecommendation(
   }
 
   const { practicallySignificant, statisticallySignificant, isPositive } = diffCredibleIntervalStats
-  const decision = PracticalSignificanceStatusToDecision[practicallySignificant]
+  const decision = getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats)
   const defaultVariation = experiment.variations.find((variation) => variation.isDefault) as Variation
   const nonDefaultVariation = experiment.variations.find((variation) => !variation.isDefault) as Variation
   let chosenVariationId = undefined
-  if (decision === Decision.DeployChosenVariation) {
+  if ([Decision.VariantBarelyAhead, Decision.VariantAhead, Decision.VariantWins].includes(decision)) {
     chosenVariationId =
       isPositive === metric.higherIsBetter ? nonDefaultVariation.variationId : defaultVariation.variationId
   }

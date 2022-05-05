@@ -1,9 +1,10 @@
 import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
+import { capitalize } from 'lodash'
 import React from 'react'
 
 import type { Recommendation } from 'src/lib/recommendations'
 import { Decision } from 'src/lib/recommendations'
-import { ExperimentFull } from 'src/lib/schemas'
+import { ExperimentFull, Variation } from 'src/lib/schemas'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,6 +15,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 )
+
+export function getChosenVariation(experiment: ExperimentFull, analysis: Recommendation): Variation {
+  const chosenVariation = experiment.variations.find(
+    (variation) => variation.variationId === analysis.chosenVariationId,
+  )
+  if (!chosenVariation) {
+    throw new Error('No match for chosenVariationId among variations in experiment.')
+  }
+  return chosenVariation
+}
 
 /**
  * Displays a Recommendation.
@@ -37,17 +48,16 @@ export default function AnalysisDisplay({
       return <>Not analyzed yet</>
     case Decision.Inconclusive:
       return <>Inconclusive</>
-    case Decision.DeployAnyVariation:
-      return <>Deploy either variation</>
-    case Decision.DeployChosenVariation: {
-      const chosenVariation = experiment.variations.find(
-        (variation) => variation.variationId === analysis.chosenVariationId,
-      )
-      if (!chosenVariation) {
-        throw new Error('No match for chosenVariationId among variations in experiment.')
-      }
-
-      return <>Deploy {chosenVariation.name}</>
+    case Decision.NoDifference:
+      return <>No difference</>
+    case Decision.VariantBarelyAhead: {
+      return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} barely ahead</>
+    }
+    case Decision.VariantAhead: {
+      return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} ahead</>
+    }
+    case Decision.VariantWins: {
+      return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} wins</>
     }
     default:
       throw new Error('Missing Decision.')

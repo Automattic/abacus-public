@@ -51,7 +51,7 @@ exports[`allows you to change analysis strategy 1`] = `
               <h3
                 class="MuiTypography-root makeStyles-summaryStatsStat-366 MuiTypography-h3 MuiTypography-colorPrimary"
               >
-                Deploy either variation
+                No difference
               </h3>
               <h6
                 class="MuiTypography-root MuiTypography-subtitle1"
@@ -244,7 +244,7 @@ exports[`allows you to change analysis strategy 1`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                         style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                       >
-                        Deploy either variation
+                        No difference
                       </td>
                     </tr>
                     <tr
@@ -3965,8 +3965,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-127 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Deploy 
-              control
+              Control
+               wins
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -4160,8 +4160,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
-                      Deploy 
-                      control
+                      Control
+                       wins
                     </td>
                   </tr>
                   <tr
@@ -5099,13 +5099,13 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
             <h5
               class="MuiTypography-root makeStyles-recommendation-173 MuiTypography-h5 MuiTypography-gutterBottom"
             >
-              Deploy 
-              control
+              Control
+               wins
             </h5>
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              There is high certainty that the change is practically significant.
+              Deploy control with confidence. Control wins and there is high certainty that the change is statistically and practically significant.
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -6638,7 +6638,7 @@ exports[`renders correctly for conflicting analysis data 2`] = `
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              There is high certainty that the change is practically significant.
+              Deploy variant with confidence. Variant wins and there is high certainty that the change is statistically and practically significant.
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -7035,7 +7035,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-247 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Deploy either variation
+              No difference
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -7228,7 +7228,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
-                      Deploy either variation
+                      No difference
                     </td>
                   </tr>
                   <tr
@@ -7454,7 +7454,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
-                      Deploy either variation
+                      No difference
                     </td>
                   </tr>
                 </tbody>
@@ -8196,12 +8196,12 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h5
               class="MuiTypography-root makeStyles-recommendation-293 MuiTypography-h5 MuiTypography-gutterBottom"
             >
-              Deploy either variation
+              No difference
             </h5>
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              There is high certainty that the change isn't practically significant.
+              Deploy either variation. There is high certainty that difference in performance is not practically significant
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -9010,7 +9010,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-307 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Deploy either variation
+              No difference
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -9203,7 +9203,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
-                      Deploy either variation
+                      No difference
                     </td>
                   </tr>
                   <tr
@@ -9429,7 +9429,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
-                      Deploy either variation
+                      No difference
                     </td>
                   </tr>
                 </tbody>
@@ -10171,12 +10171,12 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h5
               class="MuiTypography-root makeStyles-recommendation-353 MuiTypography-h5 MuiTypography-gutterBottom"
             >
-              Deploy either variation
+              No difference
             </h5>
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              There is high certainty that the change isn't practically significant.
+              Deploy either variation. There is high certainty that difference in performance is not practically significant
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"

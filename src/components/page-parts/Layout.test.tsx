@@ -41,7 +41,7 @@ test('renders layout with declared title and children', () => {
           <span
             class="makeStyles-appName-23"
           >
-            Abacus
+            ExPlat: Abacus
           </span>
         </a>
       </div>

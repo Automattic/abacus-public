@@ -111,7 +111,7 @@ const Layout = ({
   }
 
   useEffect(() => {
-    document.title = `${title ?? headTitle ?? 'Abacus'} | Abacus`
+    document.title = `${title ?? headTitle ?? 'ExPlat: Abacus'} | ExPlat: Abacus`
   }, [title, headTitle])
 
   return (
@@ -136,7 +136,7 @@ const Layout = ({
         <div className={classes.appBarTop}>
           <Container component='a' className={classes.appLogotype} href='/'>
             <img alt='logo' className={classes.appLogo} src='/img/logo.png' />
-            <span className={classes.appName}>Abacus</span>
+            <span className={classes.appName}>ExPlat: Abacus</span>
           </Container>
         </div>
         <div className={classes.appBarBottom}>

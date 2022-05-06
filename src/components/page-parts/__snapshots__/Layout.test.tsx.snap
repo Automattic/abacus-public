@@ -23,7 +23,7 @@ exports[`renders layout with declared title and children, using a flexblox 1`] =
           <span
             class="makeStyles-appName-37"
           >
-            Abacus
+            ExPlat: Abacus
           </span>
         </a>
       </div>
@@ -112,7 +112,7 @@ exports[`renders layout without title with children 1`] = `
           <span
             class="makeStyles-appName-9"
           >
-            Abacus
+            ExPlat: Abacus
           </span>
         </a>
       </div>

@@ -504,66 +504,74 @@ export default function MetricAssignmentResults({
         ) : (
           <ChevronRight className={classes.expandCollapseIcon} />
         )}
-        Observed data
+        &quot;Observed&quot; data
       </Typography>
       {isShowObservedData && (
-        <TableContainer component={Paper}>
-          <Table className={classes.coolTable}>
-            <TableHead>
-              <TableRow>
-                <TableCell>Variant</TableCell>
-                <TableCell align='right'>Users</TableCell>
-                <TableCell align='right'>
-                  {metric.parameterType === MetricParameterType.Revenue ? 'Revenue' : 'Conversions'}
-                </TableCell>
-                <TableCell align='right'>
-                  {metric.parameterType === MetricParameterType.Revenue
-                    ? 'Average revenue per user (ARPU)'
-                    : 'Conversion rate'}
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {experiment.variations.map((variation) => (
-                <React.Fragment key={variation.variationId}>
-                  <TableRow>
-                    <TableCell
-                      component='th'
-                      scope='row'
-                      variant='head'
-                      valign='top'
-                      className={clsx(classes.rowHeader, classes.headerCell, classes.credibleIntervalHeader)}
-                    >
-                      <span className={classes.monospace}>{variation.name}</span>
-                    </TableCell>
-                    <TableCell className={classes.monospace} align='right'>
-                      {latestAnalysis.participantStats[`variation_${variation.variationId}`].toLocaleString()}
-                    </TableCell>
-                    <TableCell className={classes.monospace} align='right'>
-                      <MetricValue
-                        value={
-                          latestAnalysis.participantStats[`variation_${variation.variationId}`] *
-                          latestEstimates[`variation_${variation.variationId}`].estimate
-                        }
-                        metricParameterType={
-                          metric.parameterType === MetricParameterType.Conversion
-                            ? MetricParameterType.Count
-                            : metric.parameterType
-                        }
-                      />
-                    </TableCell>
-                    <TableCell className={classes.monospace} align='right'>
-                      <MetricValue
-                        value={latestEstimates[`variation_${variation.variationId}`].estimate}
-                        metricParameterType={metric.parameterType}
-                      />
-                    </TableCell>
-                  </TableRow>
-                </React.Fragment>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <>
+          <TableContainer component={Paper}>
+            <Table className={classes.coolTable}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Variant</TableCell>
+                  <TableCell align='right'>Users</TableCell>
+                  <TableCell align='right'>
+                    {metric.parameterType === MetricParameterType.Revenue ? 'Revenue' : 'Conversions'}
+                  </TableCell>
+                  <TableCell align='right'>
+                    {metric.parameterType === MetricParameterType.Revenue
+                      ? 'Average revenue per user (ARPU)'
+                      : 'Conversion rate'}
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {experiment.variations.map((variation) => (
+                  <React.Fragment key={variation.variationId}>
+                    <TableRow>
+                      <TableCell
+                        component='th'
+                        scope='row'
+                        variant='head'
+                        valign='top'
+                        className={clsx(classes.rowHeader, classes.headerCell, classes.credibleIntervalHeader)}
+                      >
+                        <span className={classes.monospace}>{variation.name}</span>
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        {latestAnalysis.participantStats[`variation_${variation.variationId}`].toLocaleString()}
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        <MetricValue
+                          value={
+                            latestAnalysis.participantStats[`variation_${variation.variationId}`] *
+                            latestEstimates[`variation_${variation.variationId}`].estimate
+                          }
+                          metricParameterType={
+                            metric.parameterType === MetricParameterType.Conversion
+                              ? MetricParameterType.Count
+                              : metric.parameterType
+                          }
+                        />
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        <MetricValue
+                          value={latestEstimates[`variation_${variation.variationId}`].estimate}
+                          metricParameterType={metric.parameterType}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </React.Fragment>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Typography variant='caption' gutterBottom>
+            <Link href='https://href.li/?https://wp.me/pbmo2S-1fH' target='_blank'>
+              &quot;Observed&quot; data as produced from our model, not raw observed data.
+            </Link>{' '}
+            For illustrative purposes only.
+          </Typography>
+        </>
       )}
     </div>
   )

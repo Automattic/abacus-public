@@ -3842,7 +3842,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
         d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
       />
     </svg>
-    Observed data
+    "Observed" data
   </p>
 </div>
 `;
@@ -5378,7 +5378,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
         d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
       />
     </svg>
-    Observed data
+    "Observed" data
   </p>
 </div>
 `;
@@ -6911,7 +6911,7 @@ exports[`renders correctly for conflicting analysis data 2`] = `
         d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
       />
     </svg>
-    Observed data
+    "Observed" data
   </p>
 </div>
 `;
@@ -8470,7 +8470,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
         d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
       />
     </svg>
-    Observed data
+    "Observed" data
   </p>
 </div>
 `;
@@ -10430,7 +10430,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
         d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
       />
     </svg>
-    Observed data
+    "Observed" data
   </p>
 </div>
 `;

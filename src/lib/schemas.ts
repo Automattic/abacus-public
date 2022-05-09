@@ -651,14 +651,18 @@ export const analysisNextSchema = yup
   .camelCase()
 export interface AnalysisNext extends yup.InferType<typeof analysisNextSchema> {}
 
+export type AnalysisMixed = AnalysisNext | AnalysisPrevious
+
 /**
  * Ensure an AnalysisPrevious. A tool for moving between AnalysisPrevious and AnalysisNext.
  */
-export function ensureAnalysisPrevious(
-  analysis: AnalysisNext | AnalysisPrevious,
-  defaultVariationId: number,
-  otherVariationId: number,
-): AnalysisPrevious {
+export function ensureAnalysisPrevious(analysis: AnalysisMixed, experiment: ExperimentFull): AnalysisPrevious {
+  const defaultVariationId = experiment && experiment.variations.find((v) => v.isDefault)?.variationId
+  const otherVariationId = experiment && experiment.variations.find((v) => !v.isDefault)?.variationId
+  // istanbul ignore next; Shouldn't occur
+  if (!defaultVariationId || !otherVariationId) {
+    throw new Error('Missing variationIds')
+  }
   return {
     ...analysis,
     metricEstimates: analysis.metricEstimates

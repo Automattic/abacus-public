@@ -400,6 +400,12 @@ describe('isRawMetricEstimatesNext', () => {
 
 describe('ensureAnalysisPrevious', () => {
   it('should pass through an analysis with null metric_estimates', () => {
+    const experiment = ({
+      variations: [
+        { variationId: 1506, isDefault: true },
+        { variationId: 1505, isDefault: false },
+      ],
+    } as unknown) as Schemas.ExperimentFull
     const analysis: Schemas.AnalysisPrevious = {
       metricAssignmentId: 1,
       analysisStrategy: Schemas.AnalysisStrategy.IttPure,
@@ -413,10 +419,16 @@ describe('ensureAnalysisPrevious', () => {
       analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureAnalysisPrevious(analysis, 1506, 1505)).toEqual(analysis)
+    expect(Schemas.ensureAnalysisPrevious(analysis, experiment)).toEqual(analysis)
   })
 
   it('should pass through AnalysisPrevious', () => {
+    const experiment = ({
+      variations: [
+        { variationId: 1506, isDefault: true },
+        { variationId: 1505, isDefault: false },
+      ],
+    } as unknown) as Schemas.ExperimentFull
     const analysisPrevious: Schemas.AnalysisPrevious = {
       metricAssignmentId: 1,
       analysisStrategy: Schemas.AnalysisStrategy.IttPure,
@@ -451,10 +463,16 @@ describe('ensureAnalysisPrevious', () => {
       analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureAnalysisPrevious(analysisPrevious, 1506, 1505)).toEqual(analysisPrevious)
+    expect(Schemas.ensureAnalysisPrevious(analysisPrevious, experiment)).toEqual(analysisPrevious)
   })
 
   it('should pass transform AnalysisNext to AnalysisPrevious', () => {
+    const experiment = ({
+      variations: [
+        { variationId: 1506, isDefault: true },
+        { variationId: 1505, isDefault: false },
+      ],
+    } as unknown) as Schemas.ExperimentFull
     const analysisPrevious: Schemas.AnalysisPrevious = {
       metricAssignmentId: 1,
       analysisStrategy: Schemas.AnalysisStrategy.IttPure,
@@ -544,6 +562,6 @@ describe('ensureAnalysisPrevious', () => {
       analysisDatetime: new Date('2022-04-25T00:00:00+00:00'),
     }
 
-    expect(Schemas.ensureAnalysisPrevious(analysisNext, 1506, 1505)).toEqual(analysisPrevious)
+    expect(Schemas.ensureAnalysisPrevious(analysisNext, experiment)).toEqual(analysisPrevious)
   })
 })

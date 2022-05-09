@@ -23,7 +23,6 @@ import ExperimentCodeSetup from 'src/components/experiments/single-view/Experime
 import ExperimentDisableButton from 'src/components/experiments/single-view/ExperimentDisableButton'
 import ExperimentDetails from 'src/components/experiments/single-view/overview/ExperimentDetails'
 import Layout from 'src/components/page-parts/Layout'
-import { AnalysisPrevious, ExperimentFull, Status } from 'src/lib/schemas'
 import * as Schemas from 'src/lib/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 import { createIdSlug, createUnresolvingPromise, or } from 'src/utils/general'
@@ -101,7 +100,7 @@ export default function ExperimentPageView({
     error: experimentError,
     reloadRef: experimentReloadRef,
   } = useDataSource(
-    () => (experimentId ? ExperimentsApi.findById(experimentId) : createUnresolvingPromise<ExperimentFull>()),
+    () => (experimentId ? ExperimentsApi.findById(experimentId) : createUnresolvingPromise<Schemas.ExperimentFull>()),
     [experimentId],
   )
   useDataLoadingError(experimentError, 'Experiment')
@@ -121,31 +120,22 @@ export default function ExperimentPageView({
   const { isLoading: tagsIsLoading, data: tags, error: tagsError } = useDataSource(() => TagsApi.findAll(), [])
   useDataLoadingError(tagsError, 'Tags')
 
-  const {
-    isLoading: analysesIsLoading,
-    data: analysesNextPreviousMixed,
-    error: analysesError,
-  } = useDataSource(async () => {
+  const { isLoading: analysesIsLoading, data: analysesMixed, error: analysesError } = useDataSource(async () => {
     if (!experimentId) {
-      return createUnresolvingPromise<AnalysisPrevious[]>()
+      return createUnresolvingPromise<Schemas.AnalysisMixed[]>()
     }
     return AnalysesApi.findByExperimentId(experimentId)
   }, [experimentId])
   useDataLoadingError(analysesError, 'Analyses')
 
-  const defaultVariationId = experiment && experiment.variations.find((v) => v.isDefault)?.variationId
-  const otherVariationId = experiment && experiment.variations.find((v) => !v.isDefault)?.variationId
   const analyses =
-    // instanbul ignore next; Transitional
-    experiment && analysesNextPreviousMixed && defaultVariationId && otherVariationId
-      ? analysesNextPreviousMixed.map((analysis) =>
-          Schemas.ensureAnalysisPrevious(analysis, defaultVariationId, otherVariationId),
-        )
+    experiment && analysesMixed
+      ? analysesMixed.map((analysis) => Schemas.ensureAnalysisPrevious(analysis, experiment))
       : null
 
   const isLoading = or(experimentIsLoading, metricsIsLoading, segmentsIsLoading, tagsIsLoading, analysesIsLoading)
 
-  const canEditInWizard = experiment && experiment.status === Status.Staging
+  const canEditInWizard = experiment && experiment.status === Schemas.Status.Staging
 
   const experimentIdSlug = createIdSlug(experimentId, experiment?.name || '')
 

@@ -146,7 +146,7 @@ export default function ExperimentPageView({
           <Typography className={classes.titleHeader} variant='h2'>
             Experiment:{' '}
             {experiment ? (
-              <Tooltip title={experiment.name}>
+              <Tooltip title={experiment.name ?? ''}>
                 <span className={classes.titleName}>{experiment.name}</span>
               </Tooltip>
             ) : (

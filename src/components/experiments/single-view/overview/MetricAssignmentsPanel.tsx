@@ -261,7 +261,7 @@ function MetricAssignmentsPanel({
                       </FormLabel>
                       <MetricAutocomplete
                         id={`metricAssignment.metricId`}
-                        value={indexedMetrics[Number(formikProps.values.metricAssignment.metricId)]}
+                        value={indexedMetrics[Number(formikProps.values.metricAssignment.metricId)] ?? null}
                         onChange={onMetricChange}
                         options={Object.values(indexedMetrics)}
                         error={metricAssignmentsError}

@@ -54,7 +54,7 @@ export default function MetricAutocomplete<
           }}
         />
       )}
-      {..._.omit(props, 'options')}
+      {..._.omit(props, ['options', 'error'])}
     />
   )
 }

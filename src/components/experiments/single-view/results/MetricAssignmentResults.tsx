@@ -25,8 +25,9 @@ import * as Analyses from 'src/lib/analyses'
 import { getChosenVariation } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisPrevious,
+  AnalysisMixed,
   AnalysisStrategy,
+  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -202,7 +203,7 @@ export default function MetricAssignmentResults({
   strategy: AnalysisStrategy
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
   experiment: ExperimentFull
   recommendation: Recommendations.Recommendation
 }): JSX.Element | null {
@@ -217,7 +218,7 @@ export default function MetricAssignmentResults({
   const estimateTransform: (estimate: number | null) => number | null = isConversion
     ? (estimate: number | null) => estimate && estimate * 100
     : identity
-  const analyses = analysesByStrategyDateAsc[strategy]
+  const analyses = analysesByStrategyDateAsc[strategy]?.map((analysis) => ensureAnalysisPrevious(analysis, experiment))
   const latestAnalysis = _.last(analyses)
   const latestEstimates = latestAnalysis?.metricEstimates
   if (!latestAnalysis || !latestEstimates) {

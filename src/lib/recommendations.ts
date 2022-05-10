@@ -1,7 +1,9 @@
 import { getExperimentRunHours } from './experiments'
 import {
+  AnalysisMixed,
   AnalysisPrevious,
   AnalysisStrategy,
+  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -168,11 +170,14 @@ export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe]
  */
 
 export function isDataStrongEnough(
-  analysis: AnalysisPrevious | null,
+  analysisMixed: AnalysisMixed | null,
   decision: Decision,
   experiment: ExperimentFull,
   metricAssignment: MetricAssignment,
 ): boolean {
+  // istanbul ignore next; transitional
+  const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : null
+
   if (!analysis || !analysis.metricEstimates) {
     return false
   }
@@ -208,8 +213,9 @@ export function isDataStrongEnough(
 export function getMetricAssignmentRecommendation(
   experiment: ExperimentFull,
   metric: Metric,
-  analysis: AnalysisPrevious,
+  analysisMixed: AnalysisMixed,
 ): Recommendation {
+  const analysis = ensureAnalysisPrevious(analysisMixed, experiment)
   const metricAssignment = experiment.metricAssignments.find(
     (metricAssignment) => metricAssignment.metricAssignmentId === analysis.metricAssignmentId,
   )

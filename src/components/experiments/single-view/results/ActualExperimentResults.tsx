@@ -30,8 +30,9 @@ import * as Experiments from 'src/lib/experiments'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisPrevious,
+  AnalysisMixed,
   AnalysisStrategy,
+  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -190,7 +191,7 @@ export default function ActualExperimentResults({
           .map(_.last.bind(null))
           .filter((x) => x)
           .map((analysis) =>
-            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisPrevious),
+            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisMixed),
           ),
         strategy,
       ),
@@ -239,7 +240,7 @@ export default function ActualExperimentResults({
         Recommendations.getMetricAssignmentRecommendation(
           experiment,
           primaryMetricAssignmentAnalysesData.metric,
-          analysis as AnalysisPrevious,
+          analysis as AnalysisMixed,
         ),
       ),
     strategy,
@@ -308,10 +309,12 @@ export default function ActualExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
         recommendation: Recommendations.Recommendation
       }) => {
-        const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
+        const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
+        const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : undefined
+        const latestEstimates = analysis?.metricEstimates
         if (
           !latestEstimates ||
           recommendation.decision === Recommendations.Decision.ManualAnalysisRequired ||
@@ -344,10 +347,12 @@ export default function ActualExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
         recommendation: Recommendations.Recommendation
       }) => {
-        const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
+        const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
+        const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : undefined
+        const latestEstimates = analysis?.metricEstimates
         if (
           !latestEstimates ||
           !latestEstimates.ratio?.top ||
@@ -397,7 +402,7 @@ export default function ActualExperimentResults({
       recommendation,
     }: {
       strategy: AnalysisStrategy
-      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisPrevious[]>
+      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
       metricAssignment: MetricAssignment
       metric: Metric
       recommendation: Recommendations.Recommendation

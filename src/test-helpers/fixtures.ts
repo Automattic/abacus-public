@@ -17,8 +17,6 @@ import {
   MetricAssignment,
   MetricParameterType,
   Platform,
-  RecommendationReason,
-  RecommendationWarning,
   Segment,
   SegmentAssignment,
   SegmentType,
@@ -28,7 +26,6 @@ import {
   Variation,
 } from 'src/lib/schemas'
 
-// Note: analysis.recommendation is deprecated and doesn't match metricEstimates
 function createAnalysis(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrevious {
   return {
     metricAssignmentId: 123,
@@ -44,18 +41,11 @@ function createAnalysis(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrev
       variation_1: { estimate: 0.12, bottom: 0, top: 10.0 },
       variation_2: { estimate: -0.12, bottom: -1.123, top: 1.0 },
     },
-    recommendation: {
-      endExperiment: true,
-      chosenVariationId: 2,
-      reason: RecommendationReason.CiInRope,
-      warnings: [RecommendationWarning.ShortPeriod, RecommendationWarning.WideCi],
-    },
     analysisDatetime: new Date(Date.UTC(2020, 4, 10)),
     ...fieldOverrides,
   }
 }
 
-// Note: analysis.recommendation is deprecated and doesn't match metricEstimates
 function createAnalyses(): AnalysisPrevious[] {
   return [
     // Full set of "latest" analyses for the default metric assignment.
@@ -74,12 +64,6 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_1: 540,
         variation_2: 360,
       },
-      recommendation: {
-        endExperiment: false,
-        chosenVariationId: null,
-        reason: RecommendationReason.RopeInCi,
-        warnings: [],
-      },
     }),
     createAnalysis({
       analysisStrategy: AnalysisStrategy.MittNoSpammers,
@@ -87,12 +71,6 @@ function createAnalyses(): AnalysisPrevious[] {
         total: 850,
         variation_1: 510,
         variation_2: 340,
-      },
-      recommendation: {
-        endExperiment: true,
-        chosenVariationId: null,
-        reason: RecommendationReason.CiInRope,
-        warnings: [],
       },
     }),
     createAnalysis({
@@ -129,12 +107,6 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_1: 54,
         variation_2: 36,
       },
-      recommendation: {
-        endExperiment: false,
-        chosenVariationId: null,
-        reason: RecommendationReason.RopeInCi,
-        warnings: [],
-      },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
     createAnalysis({
@@ -143,12 +115,6 @@ function createAnalyses(): AnalysisPrevious[] {
         total: 85,
         variation_1: 51,
         variation_2: 34,
-      },
-      recommendation: {
-        endExperiment: true,
-        chosenVariationId: null,
-        reason: RecommendationReason.CiInRope,
-        warnings: [],
       },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
@@ -180,7 +146,6 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_1: 10,
       },
       metricEstimates: null,
-      recommendation: null,
     }),
 
     // Similar to the set of "latest" analyses for the default metric assignment, but with consistent recommendations.

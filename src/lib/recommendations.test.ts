@@ -1,7 +1,7 @@
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Recommendations from './recommendations'
-import { AnalysisStrategy, RecommendationReason, Status } from './schemas'
+import { AnalysisStrategy, Status } from './schemas'
 
 describe('getDiffCredibleIntervalStats', () => {
   it('should return null for missing analysis', () => {
@@ -245,12 +245,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: false,
-            chosenVariationId: null,
-            reason: RecommendationReason.CiRopePartlyOverlap,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 1,
@@ -274,12 +268,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: false,
-            chosenVariationId: 2,
-            reason: RecommendationReason.CiRopePartlyOverlap,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 1,
@@ -304,12 +292,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: true,
-            chosenVariationId: null,
-            reason: RecommendationReason.CiInRope,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 0,
@@ -333,12 +315,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: true,
-            chosenVariationId: null,
-            reason: RecommendationReason.CiInRope,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 0,
@@ -362,12 +338,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: true,
-            chosenVariationId: 2,
-            reason: RecommendationReason.CiInRope,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 0.009,
@@ -392,12 +362,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: true,
-            chosenVariationId: 2,
-            reason: RecommendationReason.CiInRope,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 0.009,
@@ -422,12 +386,6 @@ describe('getMetricAssignmentRecommendation', () => {
         Fixtures.createMetric(123),
         Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          recommendation: {
-            endExperiment: true,
-            chosenVariationId: 2,
-            reason: RecommendationReason.CiGreaterThanRope,
-            warnings: [],
-          },
           metricEstimates: {
             diff: {
               top: 2,
@@ -453,12 +411,6 @@ describe('getMetricAssignmentRecommendation', () => {
       Fixtures.createMetric(123),
       Fixtures.createAnalysis({
         analysisStrategy: AnalysisStrategy.PpNaive,
-        recommendation: {
-          endExperiment: false,
-          chosenVariationId: null,
-          reason: RecommendationReason.CiRopePartlyOverlap,
-          warnings: [],
-        },
         metricEstimates: null,
       }),
     ),
@@ -474,12 +426,6 @@ describe('getMetricAssignmentRecommendation', () => {
       Fixtures.createMetric(123, { higherIsBetter: false }),
       Fixtures.createAnalysis({
         analysisStrategy: AnalysisStrategy.PpNaive,
-        recommendation: {
-          endExperiment: true,
-          chosenVariationId: 1,
-          reason: RecommendationReason.CiGreaterThanRope,
-          warnings: [],
-        },
         metricEstimates: {
           diff: {
             top: 2,

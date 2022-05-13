@@ -356,31 +356,6 @@ export enum AssignmentCacheStatus {
   Stale = 'stale',
 }
 
-export enum RecommendationReason {
-  CiInRope = 'ci_in_rope',
-  CiGreaterThanRope = 'ci_greater_than_rope',
-  CiLessThanRope = 'ci_less_than_rope',
-  CiRopePartlyOverlap = 'ci_rope_partly_overlap',
-  RopeInCi = 'rope_in_ci',
-}
-
-export enum RecommendationWarning {
-  ShortPeriod = 'short_period',
-  LongPeriod = 'long_period',
-  WideCi = 'wide_ci',
-}
-
-export const recommendationSchema = yup
-  .object({
-    endExperiment: yup.boolean().defined(),
-    chosenVariationId: yup.number().nullable().defined(),
-    reason: yup.string().oneOf(Object.values(RecommendationReason)).defined(),
-    warnings: yup.array(yup.string().oneOf(Object.values(RecommendationWarning)).defined()).defined(),
-  })
-  .defined()
-  .camelCase()
-export interface Recommendation extends yup.InferType<typeof recommendationSchema> {}
-
 export const metricEstimatePreviousSchema = yup
   .object({
     /**
@@ -484,16 +459,10 @@ export const analysisPreviousSchema = yup
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
     participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
     metricEstimates: yup.object().nullable().defined() as yup.Schema<MetricEstimatesPrevious | null>,
-    recommendation: recommendationSchema.nullable().defined(),
   })
   .defined()
   .camelCase()
-export interface AnalysisPrevious extends yup.InferType<typeof analysisPreviousSchema> {
-  /**
-   * @deprecated Recommendations are now performed on the client-side using metricEstimates.
-   */
-  recommendation: yup.InferType<typeof recommendationSchema> | null
-}
+export interface AnalysisPrevious extends yup.InferType<typeof analysisPreviousSchema> {}
 
 export const analysisNextSchema = yup
   .object({
@@ -504,7 +473,6 @@ export const analysisNextSchema = yup
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
     participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
     metricEstimates: metricEstimatesNextSchema.nullable().defined(),
-    recommendation: recommendationSchema.nullable().defined(),
   })
   .defined()
   .camelCase()

@@ -567,7 +567,7 @@ export default function MetricAssignmentResults({
             </Table>
           </TableContainer>
           <Typography variant='caption' gutterBottom>
-            <Link href='https://href.li/?https://wp.me/pbmo2S-1fH' target='_blank'>
+            <Link href='https://wp.me/PCYsg-Fqg/#observed-data-uses-posterior-means' target='_blank'>
               &quot;Observed&quot; data as produced from our model, not raw observed data.
             </Link>{' '}
             For illustrative purposes only.

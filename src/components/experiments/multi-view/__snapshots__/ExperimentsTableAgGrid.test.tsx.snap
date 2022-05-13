@@ -87,7 +87,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     
             <!--AG-GRID-COMP-->
             <div
-              aria-colcount="7"
+              aria-colcount="8"
               aria-rowcount="2"
               class="ag-root ag-unselectable ag-layout-normal"
               ref="gridPanel"
@@ -132,13 +132,13 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     class="ag-header-container"
                     ref="eHeaderContainer"
                     role="rowgroup"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                   >
                     <div
                       aria-rowindex="1"
                       class="ag-header-row ag-header-row-column"
                       role="row"
-                      style="top: 0px; height: 48px; width: 1520px;"
+                      style="top: 0px; height: 48px; width: 1720px;"
                     >
                       <div
                         aria-colindex="1"
@@ -184,7 +184,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-36-input"
+                              id="ag-39-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -341,7 +341,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-39-input"
+                              id="ag-42-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -498,7 +498,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-42-input"
+                              id="ag-45-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -655,7 +655,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-45-input"
+                              id="ag-48-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -812,7 +812,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-48-input"
+                              id="ag-51-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -969,7 +969,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-51-input"
+                              id="ag-54-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -1015,6 +1015,163 @@ exports[`should render a table with experiments, allow searching and resetting 1
                               unselectable="on"
                             >
                               End
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
+                              ref="eFilter"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-order ag-hidden"
+                              ref="eSortOrder"
+                            />
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-ascending-icon ag-hidden"
+                              ref="eSortAsc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-asc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-descending-icon ag-hidden"
+                              ref="eSortDesc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-desc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-none-icon ag-hidden"
+                              ref="eSortNone"
+                            >
+                              <span
+                                class="ag-icon ag-icon-none"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                      </div>
+                      <div
+                        aria-colindex="8"
+                        aria-sort="none"
+                        class="ag-header-cell ag-focus-managed ag-header-cell-sortable ag-right-aligned-header"
+                        col-id="0"
+                        role="columnheader"
+                        style="width: 200px; left: 1520px;"
+                        tabindex="-1"
+                        unselectable="on"
+                      >
+                        
+            
+                        <div
+                          class="ag-header-cell-resize"
+                          ref="eResize"
+                          role="presentation"
+                        />
+                        
+            
+                        <!--AG-CHECKBOX-->
+                        <div
+                          class="ag-header-select-all ag-labeled ag-label-align-right ag-checkbox ag-input-field ag-hidden"
+                          ref="cbSelectAll"
+                          role="presentation"
+                        >
+                          
+                
+                          <div
+                            class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            ref="eLabel"
+                            role="presentation"
+                          />
+                          
+                
+                          <div
+                            class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
+                            ref="eWrapper"
+                            role="presentation"
+                          >
+                            
+                    
+                            <input
+                              aria-label="Press Space to toggle all rows selection (unchecked)"
+                              class="ag-input-field-input ag-checkbox-input"
+                              id="ag-57-input"
+                              ref="eInput"
+                              tabindex="-1"
+                              type="checkbox"
+                            />
+                            
+                
+                          </div>
+                          
+            
+                        </div>
+                        
+        
+                        <div
+                          class="ag-cell-label-container ag-header-cell-sorted-none"
+                          role="presentation"
+                        >
+                          
+            
+                          <span
+                            aria-hidden="true"
+                            class="ag-header-icon ag-header-cell-menu-button"
+                            ref="eMenu"
+                          >
+                            <span
+                              class="ag-icon ag-icon-menu"
+                              role="presentation"
+                              unselectable="on"
+                            />
+                          </span>
+                          
+            
+                          <div
+                            class="ag-header-cell-label"
+                            ref="eLabel"
+                            role="presentation"
+                            unselectable="on"
+                          >
+                            
+                
+                            <span
+                              class="ag-header-cell-text"
+                              ref="eText"
+                              unselectable="on"
+                            >
+                              Participants
                             </span>
                             
                 
@@ -1136,7 +1293,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     class="ag-floating-top-container"
                     ref="eTopContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -1181,7 +1338,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -1211,14 +1368,14 @@ exports[`should render a table with experiments, allow searching and resetting 1
                       class="ag-center-cols-container"
                       ref="eCenterContainer"
                       role="rowgroup"
-                      style="width: 1520px; height: 42px;"
+                      style="width: 1720px; height: 42px;"
                       unselectable="on"
                     >
                       <div
                         aria-label="Press SPACE to select this row."
                         aria-rowindex="2"
                         class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                        comp-id="53"
+                        comp-id="59"
                         role="row"
                         row-id="0"
                         row-index="0"
@@ -1228,7 +1385,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="1"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="name"
-                          comp-id="54"
+                          comp-id="60"
                           role="gridcell"
                           style="width: 520px; left: 0px; font-family: 'Roboto Mono', monospace; font-weight: 600; "
                           tabindex="-1"
@@ -1238,7 +1395,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="2"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="status"
-                          comp-id="55"
+                          comp-id="61"
                           role="gridcell"
                           style="width: 200px; left: 520px;  "
                           tabindex="-1"
@@ -1248,7 +1405,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="3"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="platform"
-                          comp-id="56"
+                          comp-id="62"
                           role="gridcell"
                           style="width: 200px; left: 720px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -1260,7 +1417,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="4"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="ownerLogin"
-                          comp-id="57"
+                          comp-id="63"
                           role="gridcell"
                           style="width: 200px; left: 920px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -1272,7 +1429,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="5"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="startDatetime"
-                          comp-id="58"
+                          comp-id="64"
                           role="gridcell"
                           style="width: 200px; left: 1120px;  "
                           tabindex="-1"
@@ -1282,9 +1439,19 @@ exports[`should render a table with experiments, allow searching and resetting 1
                           aria-colindex="6"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="endDatetime"
-                          comp-id="59"
+                          comp-id="65"
                           role="gridcell"
                           style="width: 200px; left: 1320px;  "
+                          tabindex="-1"
+                          unselectable="on"
+                        />
+                        <div
+                          aria-colindex="8"
+                          class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-right-aligned-cell ag-cell-value"
+                          col-id="0"
+                          comp-id="66"
+                          role="gridcell"
+                          style="width: 200px; left: 1520px;  "
                           tabindex="-1"
                           unselectable="on"
                         />
@@ -1309,7 +1476,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -1359,7 +1526,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     class="ag-floating-bottom-container"
                     ref="eBottomContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -1411,7 +1578,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                   <div
                     class="ag-body-horizontal-scroll-container"
                     ref="eBodyHorizontalScrollContainer"
-                    style="width: 1520px; height: 0px; max-height: 0px; min-height: 0px;"
+                    style="width: 1720px; height: 0px; max-height: 0px; min-height: 0px;"
                   />
                   
             
@@ -1468,10 +1635,10 @@ exports[`should render a table with experiments, allow searching and resetting 1
                 
           <!--AG-PAGINATION-->
           <div
-            aria-describedby="ag-31-start-page ag-31-start-page-number ag-31-of-page ag-31-of-page-number ag-31-first-row ag-31-to ag-31-last-row ag-31-of ag-31-row-count"
+            aria-describedby="ag-34-start-page ag-34-start-page-number ag-34-of-page ag-34-of-page-number ag-34-first-row ag-34-to ag-34-last-row ag-34-of ag-34-row-count"
             aria-live="polite"
             class="ag-paging-panel ag-unselectable ag-hidden"
-            id="ag-31"
+            id="ag-34"
           >
             
                 
@@ -1483,13 +1650,13 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-first-row"
+                id="ag-34-first-row"
                 ref="lbFirstRowOnPage"
               />
               
                     
               <span
-                id="ag-31-to"
+                id="ag-34-to"
               >
                 to
               </span>
@@ -1497,13 +1664,13 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-last-row"
+                id="ag-34-last-row"
                 ref="lbLastRowOnPage"
               />
               
                     
               <span
-                id="ag-31-of"
+                id="ag-34-of"
               >
                 of
               </span>
@@ -1511,7 +1678,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-row-count"
+                id="ag-34-row-count"
                 ref="lbRecordCount"
               />
               
@@ -1562,7 +1729,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                 
                         
                 <span
-                  id="ag-31-start-page"
+                  id="ag-34-start-page"
                 >
                   Page
                 </span>
@@ -1570,13 +1737,13 @@ exports[`should render a table with experiments, allow searching and resetting 1
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-start-page-number"
+                  id="ag-34-start-page-number"
                   ref="lbCurrent"
                 />
                 
                         
                 <span
-                  id="ag-31-of-page"
+                  id="ag-34-of-page"
                 >
                   of
                 </span>
@@ -1584,7 +1751,7 @@ exports[`should render a table with experiments, allow searching and resetting 1
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-of-page-number"
+                  id="ag-34-of-page-number"
                   ref="lbTotal"
                 />
                 
@@ -1723,7 +1890,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     
             <!--AG-GRID-COMP-->
             <div
-              aria-colcount="7"
+              aria-colcount="8"
               aria-rowcount="2"
               class="ag-root ag-unselectable ag-layout-normal"
               ref="gridPanel"
@@ -1768,13 +1935,13 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     class="ag-header-container"
                     ref="eHeaderContainer"
                     role="rowgroup"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                   >
                     <div
                       aria-rowindex="1"
                       class="ag-header-row ag-header-row-column"
                       role="row"
-                      style="top: 0px; height: 48px; width: 1520px;"
+                      style="top: 0px; height: 48px; width: 1720px;"
                     >
                       <div
                         aria-colindex="1"
@@ -1820,7 +1987,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-36-input"
+                              id="ag-39-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -1977,7 +2144,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-39-input"
+                              id="ag-42-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -2134,7 +2301,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-42-input"
+                              id="ag-45-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -2291,7 +2458,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-45-input"
+                              id="ag-48-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -2448,7 +2615,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-48-input"
+                              id="ag-51-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -2605,7 +2772,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-51-input"
+                              id="ag-54-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -2651,6 +2818,163 @@ exports[`should render a table with experiments, allow searching and resetting 2
                               unselectable="on"
                             >
                               End
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
+                              ref="eFilter"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-order ag-hidden"
+                              ref="eSortOrder"
+                            />
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-ascending-icon ag-hidden"
+                              ref="eSortAsc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-asc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-descending-icon ag-hidden"
+                              ref="eSortDesc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-desc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-none-icon ag-hidden"
+                              ref="eSortNone"
+                            >
+                              <span
+                                class="ag-icon ag-icon-none"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                      </div>
+                      <div
+                        aria-colindex="8"
+                        aria-sort="none"
+                        class="ag-header-cell ag-focus-managed ag-header-cell-sortable ag-right-aligned-header"
+                        col-id="0"
+                        role="columnheader"
+                        style="width: 200px; left: 1520px;"
+                        tabindex="-1"
+                        unselectable="on"
+                      >
+                        
+            
+                        <div
+                          class="ag-header-cell-resize"
+                          ref="eResize"
+                          role="presentation"
+                        />
+                        
+            
+                        <!--AG-CHECKBOX-->
+                        <div
+                          class="ag-header-select-all ag-labeled ag-label-align-right ag-checkbox ag-input-field ag-hidden"
+                          ref="cbSelectAll"
+                          role="presentation"
+                        >
+                          
+                
+                          <div
+                            class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            ref="eLabel"
+                            role="presentation"
+                          />
+                          
+                
+                          <div
+                            class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
+                            ref="eWrapper"
+                            role="presentation"
+                          >
+                            
+                    
+                            <input
+                              aria-label="Press Space to toggle all rows selection (unchecked)"
+                              class="ag-input-field-input ag-checkbox-input"
+                              id="ag-57-input"
+                              ref="eInput"
+                              tabindex="-1"
+                              type="checkbox"
+                            />
+                            
+                
+                          </div>
+                          
+            
+                        </div>
+                        
+        
+                        <div
+                          class="ag-cell-label-container ag-header-cell-sorted-none"
+                          role="presentation"
+                        >
+                          
+            
+                          <span
+                            aria-hidden="true"
+                            class="ag-header-icon ag-header-cell-menu-button"
+                            ref="eMenu"
+                          >
+                            <span
+                              class="ag-icon ag-icon-menu"
+                              role="presentation"
+                              unselectable="on"
+                            />
+                          </span>
+                          
+            
+                          <div
+                            class="ag-header-cell-label"
+                            ref="eLabel"
+                            role="presentation"
+                            unselectable="on"
+                          >
+                            
+                
+                            <span
+                              class="ag-header-cell-text"
+                              ref="eText"
+                              unselectable="on"
+                            >
+                              Participants
                             </span>
                             
                 
@@ -2772,7 +3096,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     class="ag-floating-top-container"
                     ref="eTopContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -2817,7 +3141,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -2847,14 +3171,14 @@ exports[`should render a table with experiments, allow searching and resetting 2
                       class="ag-center-cols-container"
                       ref="eCenterContainer"
                       role="rowgroup"
-                      style="width: 1520px; height: 42px;"
+                      style="width: 1720px; height: 42px;"
                       unselectable="on"
                     >
                       <div
                         aria-label="Press SPACE to select this row."
                         aria-rowindex="2"
                         class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                        comp-id="53"
+                        comp-id="59"
                         role="row"
                         row-id="0"
                         row-index="0"
@@ -2864,7 +3188,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="1"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="name"
-                          comp-id="54"
+                          comp-id="60"
                           role="gridcell"
                           style="width: 520px; left: 0px; font-family: 'Roboto Mono', monospace; font-weight: 600; "
                           tabindex="-1"
@@ -2874,7 +3198,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="2"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="status"
-                          comp-id="55"
+                          comp-id="61"
                           role="gridcell"
                           style="width: 200px; left: 520px;  "
                           tabindex="-1"
@@ -2884,7 +3208,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="3"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="platform"
-                          comp-id="56"
+                          comp-id="62"
                           role="gridcell"
                           style="width: 200px; left: 720px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -2896,7 +3220,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="4"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="ownerLogin"
-                          comp-id="57"
+                          comp-id="63"
                           role="gridcell"
                           style="width: 200px; left: 920px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -2908,7 +3232,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="5"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="startDatetime"
-                          comp-id="58"
+                          comp-id="64"
                           role="gridcell"
                           style="width: 200px; left: 1120px;  "
                           tabindex="-1"
@@ -2918,9 +3242,19 @@ exports[`should render a table with experiments, allow searching and resetting 2
                           aria-colindex="6"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="endDatetime"
-                          comp-id="59"
+                          comp-id="65"
                           role="gridcell"
                           style="width: 200px; left: 1320px;  "
+                          tabindex="-1"
+                          unselectable="on"
+                        />
+                        <div
+                          aria-colindex="8"
+                          class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-right-aligned-cell ag-cell-value"
+                          col-id="0"
+                          comp-id="66"
+                          role="gridcell"
+                          style="width: 200px; left: 1520px;  "
                           tabindex="-1"
                           unselectable="on"
                         />
@@ -2945,7 +3279,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -2995,7 +3329,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     class="ag-floating-bottom-container"
                     ref="eBottomContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -3047,7 +3381,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                   <div
                     class="ag-body-horizontal-scroll-container"
                     ref="eBodyHorizontalScrollContainer"
-                    style="width: 1520px; height: 0px; max-height: 0px; min-height: 0px;"
+                    style="width: 1720px; height: 0px; max-height: 0px; min-height: 0px;"
                   />
                   
             
@@ -3104,10 +3438,10 @@ exports[`should render a table with experiments, allow searching and resetting 2
                 
           <!--AG-PAGINATION-->
           <div
-            aria-describedby="ag-31-start-page ag-31-start-page-number ag-31-of-page ag-31-of-page-number ag-31-first-row ag-31-to ag-31-last-row ag-31-of ag-31-row-count"
+            aria-describedby="ag-34-start-page ag-34-start-page-number ag-34-of-page ag-34-of-page-number ag-34-first-row ag-34-to ag-34-last-row ag-34-of ag-34-row-count"
             aria-live="polite"
             class="ag-paging-panel ag-unselectable ag-hidden"
-            id="ag-31"
+            id="ag-34"
           >
             
                 
@@ -3119,13 +3453,13 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-first-row"
+                id="ag-34-first-row"
                 ref="lbFirstRowOnPage"
               />
               
                     
               <span
-                id="ag-31-to"
+                id="ag-34-to"
               >
                 to
               </span>
@@ -3133,13 +3467,13 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-last-row"
+                id="ag-34-last-row"
                 ref="lbLastRowOnPage"
               />
               
                     
               <span
-                id="ag-31-of"
+                id="ag-34-of"
               >
                 of
               </span>
@@ -3147,7 +3481,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-row-count"
+                id="ag-34-row-count"
                 ref="lbRecordCount"
               />
               
@@ -3198,7 +3532,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                 
                         
                 <span
-                  id="ag-31-start-page"
+                  id="ag-34-start-page"
                 >
                   Page
                 </span>
@@ -3206,13 +3540,13 @@ exports[`should render a table with experiments, allow searching and resetting 2
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-start-page-number"
+                  id="ag-34-start-page-number"
                   ref="lbCurrent"
                 />
                 
                         
                 <span
-                  id="ag-31-of-page"
+                  id="ag-34-of-page"
                 >
                   of
                 </span>
@@ -3220,7 +3554,7 @@ exports[`should render a table with experiments, allow searching and resetting 2
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-of-page-number"
+                  id="ag-34-of-page-number"
                   ref="lbTotal"
                 />
                 
@@ -3359,7 +3693,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     
             <!--AG-GRID-COMP-->
             <div
-              aria-colcount="7"
+              aria-colcount="8"
               aria-rowcount="2"
               class="ag-root ag-unselectable ag-layout-normal"
               ref="gridPanel"
@@ -3404,13 +3738,13 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     class="ag-header-container"
                     ref="eHeaderContainer"
                     role="rowgroup"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                   >
                     <div
                       aria-rowindex="1"
                       class="ag-header-row ag-header-row-column"
                       role="row"
-                      style="top: 0px; height: 48px; width: 1520px;"
+                      style="top: 0px; height: 48px; width: 1720px;"
                     >
                       <div
                         aria-colindex="1"
@@ -3456,7 +3790,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-36-input"
+                              id="ag-39-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -3613,7 +3947,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-39-input"
+                              id="ag-42-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -3770,7 +4104,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-42-input"
+                              id="ag-45-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -3927,7 +4261,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-45-input"
+                              id="ag-48-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -4084,7 +4418,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-48-input"
+                              id="ag-51-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -4241,7 +4575,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                             <input
                               aria-label="Press Space to toggle all rows selection (unchecked)"
                               class="ag-input-field-input ag-checkbox-input"
-                              id="ag-51-input"
+                              id="ag-54-input"
                               ref="eInput"
                               tabindex="-1"
                               type="checkbox"
@@ -4287,6 +4621,163 @@ exports[`should render a table with experiments, allow searching and resetting 3
                               unselectable="on"
                             >
                               End
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
+                              ref="eFilter"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-order ag-hidden"
+                              ref="eSortOrder"
+                            />
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-ascending-icon ag-hidden"
+                              ref="eSortAsc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-asc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-descending-icon ag-hidden"
+                              ref="eSortDesc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-desc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-none-icon ag-hidden"
+                              ref="eSortNone"
+                            >
+                              <span
+                                class="ag-icon ag-icon-none"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                      </div>
+                      <div
+                        aria-colindex="8"
+                        aria-sort="none"
+                        class="ag-header-cell ag-focus-managed ag-header-cell-sortable ag-right-aligned-header"
+                        col-id="0"
+                        role="columnheader"
+                        style="width: 200px; left: 1520px;"
+                        tabindex="-1"
+                        unselectable="on"
+                      >
+                        
+            
+                        <div
+                          class="ag-header-cell-resize"
+                          ref="eResize"
+                          role="presentation"
+                        />
+                        
+            
+                        <!--AG-CHECKBOX-->
+                        <div
+                          class="ag-header-select-all ag-labeled ag-label-align-right ag-checkbox ag-input-field ag-hidden"
+                          ref="cbSelectAll"
+                          role="presentation"
+                        >
+                          
+                
+                          <div
+                            class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            ref="eLabel"
+                            role="presentation"
+                          />
+                          
+                
+                          <div
+                            class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
+                            ref="eWrapper"
+                            role="presentation"
+                          >
+                            
+                    
+                            <input
+                              aria-label="Press Space to toggle all rows selection (unchecked)"
+                              class="ag-input-field-input ag-checkbox-input"
+                              id="ag-57-input"
+                              ref="eInput"
+                              tabindex="-1"
+                              type="checkbox"
+                            />
+                            
+                
+                          </div>
+                          
+            
+                        </div>
+                        
+        
+                        <div
+                          class="ag-cell-label-container ag-header-cell-sorted-none"
+                          role="presentation"
+                        >
+                          
+            
+                          <span
+                            aria-hidden="true"
+                            class="ag-header-icon ag-header-cell-menu-button"
+                            ref="eMenu"
+                          >
+                            <span
+                              class="ag-icon ag-icon-menu"
+                              role="presentation"
+                              unselectable="on"
+                            />
+                          </span>
+                          
+            
+                          <div
+                            class="ag-header-cell-label"
+                            ref="eLabel"
+                            role="presentation"
+                            unselectable="on"
+                          >
+                            
+                
+                            <span
+                              class="ag-header-cell-text"
+                              ref="eText"
+                              unselectable="on"
+                            >
+                              Participants
                             </span>
                             
                 
@@ -4408,7 +4899,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     class="ag-floating-top-container"
                     ref="eTopContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -4453,7 +4944,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -4483,14 +4974,14 @@ exports[`should render a table with experiments, allow searching and resetting 3
                       class="ag-center-cols-container"
                       ref="eCenterContainer"
                       role="rowgroup"
-                      style="width: 1520px; height: 42px;"
+                      style="width: 1720px; height: 42px;"
                       unselectable="on"
                     >
                       <div
                         aria-label="Press SPACE to select this row."
                         aria-rowindex="2"
                         class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                        comp-id="53"
+                        comp-id="59"
                         role="row"
                         row-id="0"
                         row-index="0"
@@ -4500,7 +4991,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="1"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="name"
-                          comp-id="54"
+                          comp-id="60"
                           role="gridcell"
                           style="width: 520px; left: 0px; font-family: 'Roboto Mono', monospace; font-weight: 600; "
                           tabindex="-1"
@@ -4510,7 +5001,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="2"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="status"
-                          comp-id="55"
+                          comp-id="61"
                           role="gridcell"
                           style="width: 200px; left: 520px;  "
                           tabindex="-1"
@@ -4520,7 +5011,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="3"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="platform"
-                          comp-id="56"
+                          comp-id="62"
                           role="gridcell"
                           style="width: 200px; left: 720px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -4532,7 +5023,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="4"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="ownerLogin"
-                          comp-id="57"
+                          comp-id="63"
                           role="gridcell"
                           style="width: 200px; left: 920px; font-family: 'Roboto Mono', monospace; "
                           tabindex="-1"
@@ -4544,7 +5035,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="5"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="startDatetime"
-                          comp-id="58"
+                          comp-id="64"
                           role="gridcell"
                           style="width: 200px; left: 1120px;  "
                           tabindex="-1"
@@ -4554,9 +5045,19 @@ exports[`should render a table with experiments, allow searching and resetting 3
                           aria-colindex="6"
                           class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-cell-value"
                           col-id="endDatetime"
-                          comp-id="59"
+                          comp-id="65"
                           role="gridcell"
                           style="width: 200px; left: 1320px;  "
+                          tabindex="-1"
+                          unselectable="on"
+                        />
+                        <div
+                          aria-colindex="8"
+                          class="ag-cell ag-cell-not-inline-editing ag-cell-auto-height ag-right-aligned-cell ag-cell-value"
+                          col-id="0"
+                          comp-id="66"
+                          role="gridcell"
+                          style="width: 200px; left: 1520px;  "
                           tabindex="-1"
                           unselectable="on"
                         />
@@ -4581,7 +5082,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     aria-label="Press SPACE to select this row."
                     aria-rowindex="2"
                     class="ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first ag-row-last"
-                    comp-id="53"
+                    comp-id="59"
                     role="row"
                     row-id="0"
                     row-index="0"
@@ -4631,7 +5132,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     class="ag-floating-bottom-container"
                     ref="eBottomContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -4683,7 +5184,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                   <div
                     class="ag-body-horizontal-scroll-container"
                     ref="eBodyHorizontalScrollContainer"
-                    style="width: 1520px; height: 0px; max-height: 0px; min-height: 0px;"
+                    style="width: 1720px; height: 0px; max-height: 0px; min-height: 0px;"
                   />
                   
             
@@ -4740,10 +5241,10 @@ exports[`should render a table with experiments, allow searching and resetting 3
                 
           <!--AG-PAGINATION-->
           <div
-            aria-describedby="ag-31-start-page ag-31-start-page-number ag-31-of-page ag-31-of-page-number ag-31-first-row ag-31-to ag-31-last-row ag-31-of ag-31-row-count"
+            aria-describedby="ag-34-start-page ag-34-start-page-number ag-34-of-page ag-34-of-page-number ag-34-first-row ag-34-to ag-34-last-row ag-34-of ag-34-row-count"
             aria-live="polite"
             class="ag-paging-panel ag-unselectable ag-hidden"
-            id="ag-31"
+            id="ag-34"
           >
             
                 
@@ -4755,13 +5256,13 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-first-row"
+                id="ag-34-first-row"
                 ref="lbFirstRowOnPage"
               />
               
                     
               <span
-                id="ag-31-to"
+                id="ag-34-to"
               >
                 to
               </span>
@@ -4769,13 +5270,13 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-last-row"
+                id="ag-34-last-row"
                 ref="lbLastRowOnPage"
               />
               
                     
               <span
-                id="ag-31-of"
+                id="ag-34-of"
               >
                 of
               </span>
@@ -4783,7 +5284,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                     
               <span
                 class="ag-paging-row-summary-panel-number"
-                id="ag-31-row-count"
+                id="ag-34-row-count"
                 ref="lbRecordCount"
               />
               
@@ -4834,7 +5335,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                 
                         
                 <span
-                  id="ag-31-start-page"
+                  id="ag-34-start-page"
                 >
                   Page
                 </span>
@@ -4842,13 +5343,13 @@ exports[`should render a table with experiments, allow searching and resetting 3
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-start-page-number"
+                  id="ag-34-start-page-number"
                   ref="lbCurrent"
                 />
                 
                         
                 <span
-                  id="ag-31-of-page"
+                  id="ag-34-of-page"
                 >
                   of
                 </span>
@@ -4856,7 +5357,7 @@ exports[`should render a table with experiments, allow searching and resetting 3
                         
                 <span
                   class="ag-paging-number"
-                  id="ag-31-of-page-number"
+                  id="ag-34-of-page-number"
                   ref="lbTotal"
                 />
                 
@@ -4995,7 +5496,7 @@ exports[`should render an empty table 1`] = `
                     
             <!--AG-GRID-COMP-->
             <div
-              aria-colcount="7"
+              aria-colcount="8"
               aria-rowcount="1"
               class="ag-root ag-unselectable ag-layout-normal"
               ref="gridPanel"
@@ -5040,13 +5541,13 @@ exports[`should render an empty table 1`] = `
                     class="ag-header-container"
                     ref="eHeaderContainer"
                     role="rowgroup"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                   >
                     <div
                       aria-rowindex="1"
                       class="ag-header-row ag-header-row-column"
                       role="row"
-                      style="top: 0px; height: 48px; width: 1520px;"
+                      style="top: 0px; height: 48px; width: 1720px;"
                     >
                       <div
                         aria-colindex="1"
@@ -5990,6 +6491,163 @@ exports[`should render an empty table 1`] = `
         
                         </div>
                       </div>
+                      <div
+                        aria-colindex="8"
+                        aria-sort="none"
+                        class="ag-header-cell ag-focus-managed ag-header-cell-sortable ag-right-aligned-header"
+                        col-id="0"
+                        role="columnheader"
+                        style="width: 200px; left: 1520px;"
+                        tabindex="-1"
+                        unselectable="on"
+                      >
+                        
+            
+                        <div
+                          class="ag-header-cell-resize"
+                          ref="eResize"
+                          role="presentation"
+                        />
+                        
+            
+                        <!--AG-CHECKBOX-->
+                        <div
+                          class="ag-header-select-all ag-labeled ag-label-align-right ag-checkbox ag-input-field ag-hidden"
+                          ref="cbSelectAll"
+                          role="presentation"
+                        >
+                          
+                
+                          <div
+                            class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
+                            ref="eLabel"
+                            role="presentation"
+                          />
+                          
+                
+                          <div
+                            class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
+                            ref="eWrapper"
+                            role="presentation"
+                          >
+                            
+                    
+                            <input
+                              aria-label="Press Space to toggle all rows selection (unchecked)"
+                              class="ag-input-field-input ag-checkbox-input"
+                              id="ag-27-input"
+                              ref="eInput"
+                              tabindex="-1"
+                              type="checkbox"
+                            />
+                            
+                
+                          </div>
+                          
+            
+                        </div>
+                        
+        
+                        <div
+                          class="ag-cell-label-container ag-header-cell-sorted-none"
+                          role="presentation"
+                        >
+                          
+            
+                          <span
+                            aria-hidden="true"
+                            class="ag-header-icon ag-header-cell-menu-button"
+                            ref="eMenu"
+                          >
+                            <span
+                              class="ag-icon ag-icon-menu"
+                              role="presentation"
+                              unselectable="on"
+                            />
+                          </span>
+                          
+            
+                          <div
+                            class="ag-header-cell-label"
+                            ref="eLabel"
+                            role="presentation"
+                            unselectable="on"
+                          >
+                            
+                
+                            <span
+                              class="ag-header-cell-text"
+                              ref="eText"
+                              unselectable="on"
+                            >
+                              Participants
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
+                              ref="eFilter"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-order ag-hidden"
+                              ref="eSortOrder"
+                            />
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-ascending-icon ag-hidden"
+                              ref="eSortAsc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-asc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-descending-icon ag-hidden"
+                              ref="eSortDesc"
+                            >
+                              <span
+                                class="ag-icon ag-icon-desc"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+                
+                            <span
+                              aria-hidden="true"
+                              class="ag-header-icon ag-header-label-icon ag-sort-none-icon ag-hidden"
+                              ref="eSortNone"
+                            >
+                              <span
+                                class="ag-icon ag-icon-none"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </span>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
@@ -6044,7 +6702,7 @@ exports[`should render an empty table 1`] = `
                     class="ag-floating-top-container"
                     ref="eTopContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -6108,7 +6766,7 @@ exports[`should render an empty table 1`] = `
                       class="ag-center-cols-container"
                       ref="eCenterContainer"
                       role="rowgroup"
-                      style="width: 1520px; height: 1px;"
+                      style="width: 1720px; height: 1px;"
                       unselectable="on"
                     />
                     
@@ -6169,7 +6827,7 @@ exports[`should render an empty table 1`] = `
                     class="ag-floating-bottom-container"
                     ref="eBottomContainer"
                     role="presentation"
-                    style="width: 1520px;"
+                    style="width: 1720px;"
                     unselectable="on"
                   />
                   
@@ -6221,7 +6879,7 @@ exports[`should render an empty table 1`] = `
                   <div
                     class="ag-body-horizontal-scroll-container"
                     ref="eBodyHorizontalScrollContainer"
-                    style="width: 1520px; height: 0px; max-height: 0px; min-height: 0px;"
+                    style="width: 1720px; height: 0px; max-height: 0px; min-height: 0px;"
                   />
                   
             

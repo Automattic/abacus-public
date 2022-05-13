@@ -11,7 +11,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import DatetimeText from 'src/components/general/DatetimeText'
-import { ExperimentBare, Status } from 'src/lib/schemas'
+import MetricValue from 'src/components/general/MetricValue'
+import { AnalysisPrevious, ExperimentSummary, MetricParameterType, Status } from 'src/lib/schemas'
 import { createIdSlug } from 'src/utils/general'
 
 import ExperimentStatus from '../ExperimentStatus'
@@ -88,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
 /**
  * Renders a table of "bare" experiment information.
  */
-const ExperimentsTable = ({ experiments }: { experiments: ExperimentBare[] }): JSX.Element => {
+const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] }): JSX.Element => {
   const theme = useTheme()
   const classes = useStyles()
 
@@ -183,7 +184,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentBare[] }): J
                 fontFamily: theme.custom.fonts.monospace,
                 fontWeight: 600,
               },
-              cellRendererFramework: ({ value: name, data }: { value: Status; data: ExperimentBare }) => (
+              cellRendererFramework: ({ value: name, data }: { value: Status; data: ExperimentSummary }) => (
                 <Link component={RouterLink} to={`/experiments/${createIdSlug(data.experimentId, data.name)}`}>
                   {name}
                 </Link>
@@ -245,6 +246,18 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentBare[] }): J
             {
               field: 'description',
               hide: true,
+            },
+            {
+              headerName: 'Participants',
+              valueGetter: (params: { data: { analyses: AnalysisPrevious[] } }) =>
+                params.data.analyses[0]?.participantStats.total || 0,
+              cellRendererFramework: ({ value: participants }: { value: number }) => {
+                return <MetricValue value={participants} metricParameterType={MetricParameterType.Count} />
+              },
+              sortable: true,
+              filter: 'agNumberColumnFilter',
+              resizable: true,
+              type: 'rightAligned',
             },
           ]}
           rowData={experiments}

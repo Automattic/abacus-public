@@ -2,12 +2,12 @@ import _ from 'lodash'
 import * as yup from 'yup'
 
 import {
-  ExperimentBare,
   ExperimentFull,
   ExperimentFullNew,
   experimentFullNewOutboundSchema,
   experimentFullNewSchema,
   experimentFullSchema,
+  ExperimentSummary,
   experimentSummaryResponse,
   MetricAssignmentNew,
   metricAssignmentNewOutboundSchema,
@@ -109,7 +109,7 @@ async function assignMetric(
  *
  * @throws UnauthorizedError
  */
-async function findAll(): Promise<ExperimentBare[]> {
+async function findAll(): Promise<ExperimentSummary[]> {
   // istanbul ignore next; debug only
   const { experiments } = await experimentSummaryResponse.validate(
     await fetchApi('GET', isDebugMode() ? '/experiments?debug=true' : '/experiments'),

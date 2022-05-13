@@ -356,147 +356,6 @@ export enum AssignmentCacheStatus {
   Stale = 'stale',
 }
 
-export const MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS = 12
-export const MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS = 12
-export const experimentBareSchema = yup
-  .object({
-    experimentId: idSchema.defined(),
-    name: nameSchema.defined(),
-    startDatetime: dateSchema.defined(),
-    endDatetime: dateSchema
-      .defined()
-      .when(
-        'startDatetime',
-        (startDatetime: Date, schema: yup.DateSchema) =>
-          startDatetime &&
-          schema
-            .min(startDatetime, 'End date must be after start date.')
-            .max(
-              dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
-              `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
-            ),
-      ),
-    status: yup.string().oneOf(Object.values(Status)).defined(),
-    platform: yup.string().oneOf(Object.values(Platform)).defined(),
-    ownerLogin: yup.string().defined(),
-    description: yup.string().defined(),
-  })
-  .defined()
-  .camelCase()
-export interface ExperimentBare extends yup.InferType<typeof experimentBareSchema> {}
-export const experimentSummaryResponse = yup
-  .object({
-    experiments: yup.array(experimentBareSchema).defined(),
-  })
-  .defined()
-
-export const experimentFullSchema = experimentBareSchema
-  .shape({
-    existingUsersAllowed: yup.boolean().defined(),
-    p2Url: yup.string().url().defined(),
-    endReason: yup.string().nullable(),
-    conclusionUrl: yup.string().url().nullable(),
-    deployedVariationId: idSchema.nullable().notRequired(),
-    exposureEvents: yup.array<Event>(eventSchema).nullable(),
-    metricAssignments: yup.array(metricAssignmentSchema).defined().min(1),
-    segmentAssignments: yup.array(segmentAssignmentSchema).defined(),
-    variations: yup.array<Variation>(variationSchema).defined().min(2),
-    exclusionGroupTagIds: yup.array(idSchema.defined()),
-    assignmentCacheStatus: yup.string().oneOf(Object.values(AssignmentCacheStatus)).defined(),
-  })
-  .defined()
-  .camelCase()
-export interface ExperimentFull extends yup.InferType<typeof experimentFullSchema> {}
-
-const now = new Date()
-// The following definition is a bit hacky, but it effectively undefines a field from the parent schema.
-const yupUndefined = yup.mixed().oneOf([]).notRequired()
-export const experimentFullNewSchema = experimentFullSchema.shape({
-  experimentId: idSchema.nullable(),
-  status: yupUndefined,
-  assignmentCacheStatus: yupUndefined,
-  startDatetime: dateSchema
-    .defined()
-    .test(
-      'future-start-date',
-      'Start date (UTC) must be in the future.',
-      // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-      (date) => dateFns.isBefore(new Date(), date),
-    )
-    .test(
-      'bounded-start-date',
-      `Start date must be within ${MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS} months from now.`,
-      // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-      (date) => dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
-    ),
-  exposureEvents: yup.array(eventNewSchema).notRequired(),
-  metricAssignments: yup
-    .array(metricAssignmentNewSchema)
-    .defined()
-    .min(1, 'At least one metric assignment is required.'),
-  segmentAssignments: yup.array(segmentAssignmentNewSchema).defined(),
-  variations: yup
-    .array<VariationNew>(variationNewSchema)
-    .defined()
-    .min(2)
-    .test(
-      'default-variation-exists',
-      'A default variation is required.',
-      (variations: VariationNew[]) => variations && variations.some((variation) => variation.isDefault),
-    )
-    .test(
-      'max-total',
-      'The sum of allocated percentages must be less than or equal to 100.',
-      (variations: VariationNew[]) =>
-        variations && variations.reduce((acc, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
-    )
-    .test(
-      'unique-names',
-      'Variation names must be unique.',
-      (variations: VariationNew[]) => variations && new Set(variations.map((x) => x.name)).size === variations.length,
-    ),
-})
-export interface ExperimentFullNew extends yup.InferType<typeof experimentFullNewSchema> {}
-/**
- * For casting use only.
- */
-export const experimentFullNewOutboundSchema = experimentFullNewSchema
-  .shape({
-    // Seems to work here but not below?
-    variations: yup.array<VariationNew>(variationNewOutboundSchema).defined(),
-  })
-  .snakeCase()
-  .transform(
-    // istanbul ignore next; Tested by integration
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    (currentValue) => ({
-      ...currentValue,
-      // The P2 field gets incorrectly snake_cased so we fix it here
-      p_2_url: undefined,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
-      p2_url: currentValue.p_2_url,
-      // These two only seem to work down here rather then above?
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined().cast(currentValue.metric_assignments),
-      segment_assignments: yup
-        .array(segmentAssignmentNewOutboundSchema)
-        .defined()
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        .cast(currentValue.segment_assignments),
-      // Converting EventNew to Event
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
-      exposure_events: currentValue.exposure_events.map(
-        (event: EventNew): Event => ({
-          event: event.event,
-          props:
-            event.props && event.props.length > 0
-              ? _.fromPairs(event.props.map(({ key, value }) => [key, value]))
-              : undefined,
-        }),
-      ),
-    }),
-  )
-
 export enum RecommendationReason {
   CiInRope = 'ci_in_rope',
   CiGreaterThanRope = 'ci_greater_than_rope',
@@ -677,6 +536,155 @@ export const analysisResponseSchema = yup
   })
   .defined()
 export interface AnalysisResponse extends yup.InferType<typeof analysisResponseSchema> {}
+
+export const MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS = 12
+export const MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS = 12
+export const experimentBareSchema = yup
+  .object({
+    experimentId: idSchema.defined(),
+    name: nameSchema.defined(),
+    startDatetime: dateSchema.defined(),
+    endDatetime: dateSchema
+      .defined()
+      .when(
+        'startDatetime',
+        (startDatetime: Date, schema: yup.DateSchema) =>
+          startDatetime &&
+          schema
+            .min(startDatetime, 'End date must be after start date.')
+            .max(
+              dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
+              `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
+            ),
+      ),
+    status: yup.string().oneOf(Object.values(Status)).defined(),
+    platform: yup.string().oneOf(Object.values(Platform)).defined(),
+    ownerLogin: yup.string().defined(),
+  })
+  .defined()
+  .camelCase()
+export interface ExperimentBare extends yup.InferType<typeof experimentBareSchema> {}
+
+export const experimentSummarySchema = experimentBareSchema.shape({
+  analyses: yup.array(analysisPreviousSchema).defined(),
+  description: yup.string().defined(),
+})
+export interface ExperimentSummary extends yup.InferType<typeof experimentSummarySchema> {}
+
+export const experimentSummaryResponse = yup
+  .object({
+    experiments: yup.array(experimentSummarySchema).defined(),
+  })
+  .defined()
+// The following definition is a bit hacky, but it effectively undefines some fields from the parent schema.
+const yupUndefined = yup.mixed().oneOf([]).notRequired()
+export const experimentFullSchema = experimentBareSchema
+  .shape({
+    analyses: yupUndefined,
+    description: yup.string().defined(),
+    existingUsersAllowed: yup.boolean().defined(),
+    p2Url: yup.string().url().defined(),
+    endReason: yup.string().nullable(),
+    conclusionUrl: yup.string().url().nullable(),
+    deployedVariationId: idSchema.nullable().notRequired(),
+    exposureEvents: yup.array<Event>(eventSchema).nullable(),
+    metricAssignments: yup.array(metricAssignmentSchema).defined().min(1),
+    segmentAssignments: yup.array(segmentAssignmentSchema).defined(),
+    variations: yup.array<Variation>(variationSchema).defined().min(2),
+    exclusionGroupTagIds: yup.array(idSchema.defined()),
+    assignmentCacheStatus: yup.string().oneOf(Object.values(AssignmentCacheStatus)).defined(),
+  })
+  .defined()
+  .camelCase()
+export interface ExperimentFull extends yup.InferType<typeof experimentFullSchema> {}
+
+const now = new Date()
+
+export const experimentFullNewSchema = experimentFullSchema.shape({
+  experimentId: idSchema.nullable(),
+  status: yupUndefined,
+  assignmentCacheStatus: yupUndefined,
+  startDatetime: dateSchema
+    .defined()
+    .test(
+      'future-start-date',
+      'Start date (UTC) must be in the future.',
+      // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
+      (date) => dateFns.isBefore(new Date(), date),
+    )
+    .test(
+      'bounded-start-date',
+      `Start date must be within ${MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS} months from now.`,
+      // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
+      (date) => dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
+    ),
+  exposureEvents: yup.array(eventNewSchema).notRequired(),
+  metricAssignments: yup
+    .array(metricAssignmentNewSchema)
+    .defined()
+    .min(1, 'At least one metric assignment is required.'),
+  segmentAssignments: yup.array(segmentAssignmentNewSchema).defined(),
+  variations: yup
+    .array<VariationNew>(variationNewSchema)
+    .defined()
+    .min(2)
+    .test(
+      'default-variation-exists',
+      'A default variation is required.',
+      (variations: VariationNew[]) => variations && variations.some((variation) => variation.isDefault),
+    )
+    .test(
+      'max-total',
+      'The sum of allocated percentages must be less than or equal to 100.',
+      (variations: VariationNew[]) =>
+        variations && variations.reduce((acc, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
+    )
+    .test(
+      'unique-names',
+      'Variation names must be unique.',
+      (variations: VariationNew[]) => variations && new Set(variations.map((x) => x.name)).size === variations.length,
+    ),
+})
+export interface ExperimentFullNew extends yup.InferType<typeof experimentFullNewSchema> {}
+/**
+ * For casting use only.
+ */
+export const experimentFullNewOutboundSchema = experimentFullNewSchema
+  .shape({
+    // Seems to work here but not below?
+    variations: yup.array<VariationNew>(variationNewOutboundSchema).defined(),
+  })
+  .snakeCase()
+  .transform(
+    // istanbul ignore next; Tested by integration
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    (currentValue) => ({
+      ...currentValue,
+      // The P2 field gets incorrectly snake_cased so we fix it here
+      p_2_url: undefined,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
+      p2_url: currentValue.p_2_url,
+      // These two only seem to work down here rather then above?
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined().cast(currentValue.metric_assignments),
+      segment_assignments: yup
+        .array(segmentAssignmentNewOutboundSchema)
+        .defined()
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        .cast(currentValue.segment_assignments),
+      // Converting EventNew to Event
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+      exposure_events: currentValue.exposure_events.map(
+        (event: EventNew): Event => ({
+          event: event.event,
+          props:
+            event.props && event.props.length > 0
+              ? _.fromPairs(event.props.map(({ key, value }) => [key, value]))
+              : undefined,
+        }),
+      ),
+    }),
+  )
 
 export const autocompleteItemSchema = yup
   .object({

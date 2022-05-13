@@ -2,7 +2,7 @@ import { fireEvent, screen } from '@testing-library/react'
 import addToDate from 'date-fns/add'
 import React from 'react'
 
-import { ExperimentBare, Platform, Status } from 'src/lib/schemas'
+import { ExperimentSummary, Platform, Status } from 'src/lib/schemas'
 import { changeFieldByRole, render } from 'src/test-helpers/test-utils'
 
 import ExperimentsTableAgGrid from './ExperimentsTableAgGrid'
@@ -14,7 +14,7 @@ it('should render an empty table', () => {
 })
 
 it('should render a table with experiments, allow searching and resetting', async () => {
-  const experiments: ExperimentBare[] = [
+  const experiments: ExperimentSummary[] = [
     {
       experimentId: 1,
       name: 'First',
@@ -24,6 +24,7 @@ it('should render a table with experiments, allow searching and resetting', asyn
       startDatetime: new Date(),
       status: Status.Staging,
       description: 'hidden description text',
+      analyses: [],
     },
   ]
   const { container } = render(<ExperimentsTableAgGrid experiments={experiments} />)

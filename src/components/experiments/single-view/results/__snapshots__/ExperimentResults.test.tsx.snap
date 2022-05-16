@@ -51,7 +51,7 @@ exports[`allows you to change analysis strategy 1`] = `
               <h3
                 class="MuiTypography-root makeStyles-summaryStatsStat-326 MuiTypography-h3 MuiTypography-colorPrimary"
               >
-                Not enough data to make a recommendation at this time
+                Not enough certainty
               </h3>
               <h6
                 class="MuiTypography-root MuiTypography-subtitle1"
@@ -2434,7 +2434,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-66 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Not enough data to make a recommendation at this time
+              Not enough certainty
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -3965,7 +3965,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-118 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Not enough data to make a recommendation at this time
+              Not enough certainty
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -5104,7 +5104,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              Deploy control with confidence. Control wins and there is high certainty that the change is statistically and practically significant.
+              Deploy control with confidence. Control is winning and there is high certainty that the change is statistically and practically significant.
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -6637,7 +6637,7 @@ exports[`renders correctly for conflicting analysis data 2`] = `
             <p
               class="MuiTypography-root MuiTypography-body1"
             >
-              Deploy variant with confidence. Variant wins and there is high certainty that the change is statistically and practically significant.
+              Deploy variant with confidence. Variant is winning and there is high certainty that the change is statistically and practically significant.
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -7034,7 +7034,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-222 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Not enough data to make a recommendation at this time
+              Not enough certainty
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"
@@ -9009,7 +9009,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <h3
               class="MuiTypography-root makeStyles-summaryStatsStat-274 MuiTypography-h3 MuiTypography-colorPrimary"
             >
-              Not enough data to make a recommendation at this time
+              Not enough certainty
             </h3>
             <h6
               class="MuiTypography-root MuiTypography-subtitle1"

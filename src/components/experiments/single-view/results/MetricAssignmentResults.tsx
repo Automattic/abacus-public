@@ -124,7 +124,7 @@ const differenceOverviewMessages: Record<
 > = {
   [Recommendations.PracticalSignificanceStatus.Yes]: {
     true:
-      'Deploy {{ variation }} with confidence. {{ Variation }} wins and there is high certainty that the change is statistically and practically significant.',
+      'Deploy {{ variation }} with confidence. {{ Variation }} is winning and there is high certainty that the change is statistically and practically significant.',
     false: 'There is high certainty that the change is practically significant.',
   },
   [Recommendations.PracticalSignificanceStatus.Uncertain]: {

@@ -46,5 +46,5 @@ export default function DeploymentRecommendation({
     }
   }
 
-  return <>Not enough data to make a recommendation at this time</>
+  return <>Not enough certainty</>
 }

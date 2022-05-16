@@ -77,7 +77,7 @@ test('renders recommendation correctly when data is not strong enough', () => {
   )
   expect(container).toMatchInlineSnapshot(`
     <div>
-      Not enough data to make a recommendation at this time
+      Not enough certainty
     </div>
   `)
 })

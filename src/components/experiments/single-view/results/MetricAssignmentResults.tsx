@@ -25,9 +25,8 @@ import * as Analyses from 'src/lib/analyses'
 import { getChosenVariation } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisMixed,
+  AnalysisNext,
   AnalysisStrategy,
-  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -199,13 +198,15 @@ export default function MetricAssignmentResults({
   analysesByStrategyDateAsc,
   experiment,
   recommendation,
+  variationDiffKey,
 }: {
   strategy: AnalysisStrategy
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
   experiment: ExperimentFull
   recommendation: Recommendations.Recommendation
+  variationDiffKey: string
 }): JSX.Element | null {
   const classes = useStyles()
 
@@ -218,24 +219,27 @@ export default function MetricAssignmentResults({
   const estimateTransform: (estimate: number | null) => number | null = isConversion
     ? (estimate: number | null) => estimate && estimate * 100
     : identity
-  const analyses = analysesByStrategyDateAsc[strategy]?.map((analysis) => ensureAnalysisPrevious(analysis, experiment))
+  const analyses = analysesByStrategyDateAsc[strategy]
   const latestAnalysis = _.last(analyses)
   const latestEstimates = latestAnalysis?.metricEstimates
   if (!latestAnalysis || !latestEstimates) {
     return <MissingAnalysisMessage />
   }
 
+  const [_changeVariationId, baseVariationId] = variationDiffKey.split('_')
+
   const dates = analyses.map(({ analysisDatetime }) => analysisDatetime.toISOString())
 
   const plotlyDataVariationGraph: Array<Partial<PlotData>> = [
     ..._.flatMap(experiment.variations, (variation, index) => {
-      const variationKey = `variation_${variation.variationId}`
       return [
         {
           name: `${variation.name}: lower bound`,
           x: dates,
           y: analyses
-            .map(({ metricEstimates }) => metricEstimates && metricEstimates[variationKey].bottom)
+            .map(
+              ({ metricEstimates }) => metricEstimates && metricEstimates.variations[variation.variationId].bottom_95,
+            )
             .map(estimateTransform),
           line: {
             color: Visualizations.variantColors[index],
@@ -247,7 +251,7 @@ export default function MetricAssignmentResults({
           name: `${variation.name}: upper bound`,
           x: dates,
           y: analyses
-            .map(({ metricEstimates }) => metricEstimates && metricEstimates[variationKey].top)
+            .map(({ metricEstimates }) => metricEstimates && metricEstimates.variations[variation.variationId].top_95)
             .map(estimateTransform),
           line: {
             color: Visualizations.variantColors[index],
@@ -266,7 +270,7 @@ export default function MetricAssignmentResults({
       name: `difference: lower bound`,
       x: dates,
       y: analyses
-        .map(({ metricEstimates }) => metricEstimates && metricEstimates['diff'].bottom)
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].bottom_95)
         .map(estimateTransform),
       line: { width: 0 },
       marker: { color: '444' },
@@ -276,7 +280,9 @@ export default function MetricAssignmentResults({
     {
       name: `difference: upper bound`,
       x: dates,
-      y: analyses.map(({ metricEstimates }) => metricEstimates && metricEstimates['diff'].top).map(estimateTransform),
+      y: analyses
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].top_95)
+        .map(estimateTransform),
       fill: 'tonexty',
       fillcolor: 'rgba(0,0,0,.2)',
       line: { width: 0 },
@@ -342,7 +348,7 @@ export default function MetricAssignmentResults({
                   <MetricValue
                     metricParameterType={metric.parameterType}
                     isDifference={true}
-                    value={latestEstimates.diff.bottom}
+                    value={latestEstimates.diffs[variationDiffKey].bottom_95}
                     displayPositiveSign
                     displayUnit={false}
                   />{' '}
@@ -350,7 +356,7 @@ export default function MetricAssignmentResults({
                   <MetricValue
                     metricParameterType={metric.parameterType}
                     isDifference={true}
-                    value={latestEstimates.diff.top}
+                    value={latestEstimates.diffs[variationDiffKey].top_95}
                     displayPositiveSign
                   />{' '}
                   is {recommendation.statisticallySignificant ? '' : ' not '}
@@ -422,8 +428,8 @@ export default function MetricAssignmentResults({
                     <MetricValueInterval
                       intervalName={'the metric value'}
                       metricParameterType={metric.parameterType}
-                      bottomValue={latestEstimates[`variation_${variation.variationId}`].bottom}
-                      topValue={latestEstimates[`variation_${variation.variationId}`].top}
+                      bottomValue={latestEstimates.variations[variation.variationId].bottom_95}
+                      topValue={latestEstimates.variations[variation.variationId].top_95}
                       displayPositiveSign={false}
                     />
                   </TableCell>
@@ -435,8 +441,8 @@ export default function MetricAssignmentResults({
                         intervalName={'the absolute change between variations'}
                         metricParameterType={metric.parameterType}
                         isDifference={true}
-                        bottomValue={latestEstimates.diff.bottom}
-                        topValue={latestEstimates.diff.top}
+                        bottomValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].bottom_95}
+                        topValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].top_95}
                       />
                     )}
                   </TableCell>
@@ -447,8 +453,12 @@ export default function MetricAssignmentResults({
                       <MetricValueInterval
                         intervalName={'the relative change between variations'}
                         metricParameterType={MetricParameterType.Conversion}
-                        bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratio.bottom)}
-                        topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratio.top)}
+                        bottomValue={Analyses.ratioToDifferenceRatio(
+                          latestEstimates.ratios[`${variation.variationId}_${baseVariationId}`].bottom_95,
+                        )}
+                        topValue={Analyses.ratioToDifferenceRatio(
+                          latestEstimates.ratios[`${variation.variationId}_${baseVariationId}`].top_95,
+                        )}
                       />
                     )}
                   </TableCell>
@@ -545,7 +555,7 @@ export default function MetricAssignmentResults({
                         <MetricValue
                           value={
                             latestAnalysis.participantStats[`variation_${variation.variationId}`] *
-                            latestEstimates[`variation_${variation.variationId}`].estimate
+                            latestEstimates.variations[variation.variationId].mean
                           }
                           metricParameterType={
                             metric.parameterType === MetricParameterType.Conversion
@@ -556,7 +566,7 @@ export default function MetricAssignmentResults({
                       </TableCell>
                       <TableCell className={classes.monospace} align='right'>
                         <MetricValue
-                          value={latestEstimates[`variation_${variation.variationId}`].estimate}
+                          value={latestEstimates.variations[variation.variationId].mean}
                           metricParameterType={metric.parameterType}
                         />
                       </TableCell>

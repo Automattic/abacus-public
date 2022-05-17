@@ -1,9 +1,7 @@
 import { getExperimentRunHours } from './experiments'
 import {
-  AnalysisMixed,
-  AnalysisPrevious,
+  AnalysisNext,
   AnalysisStrategy,
-  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -86,14 +84,17 @@ interface DiffCredibleIntervalStats {
  * See the file-level documentation.
  */
 export function getDiffCredibleIntervalStats(
-  analysis: AnalysisPrevious | null,
+  analysis: AnalysisNext | null,
   metricAssignment: MetricAssignment,
+  variationDiffKey: string,
 ): DiffCredibleIntervalStats | null {
   if (!analysis || !analysis.metricEstimates) {
     return null
   }
 
-  if (analysis.metricEstimates.diff.top < analysis.metricEstimates.diff.bottom) {
+  if (
+    analysis.metricEstimates.diffs[variationDiffKey].top_95 < analysis.metricEstimates.diffs[variationDiffKey].bottom_95
+  ) {
     throw new Error('Invalid metricEstimates: bottom greater than top.')
   }
 
@@ -101,19 +102,21 @@ export function getDiffCredibleIntervalStats(
   let practicallySignificant = PracticalSignificanceStatus.No
   if (
     // CI is entirely above or below the experimenter set minDifference:
-    metricAssignment.minDifference <= analysis.metricEstimates.diff.bottom ||
-    analysis.metricEstimates.diff.top <= -metricAssignment.minDifference
+    metricAssignment.minDifference <= analysis.metricEstimates.diffs[variationDiffKey].bottom_95 ||
+    analysis.metricEstimates.diffs[variationDiffKey].top_95 <= -metricAssignment.minDifference
   ) {
     practicallySignificant = PracticalSignificanceStatus.Yes
   } else if (
     // CI is partially above or below the experimenter set minDifference:
-    metricAssignment.minDifference < analysis.metricEstimates.diff.top ||
-    analysis.metricEstimates.diff.bottom < -metricAssignment.minDifference
+    metricAssignment.minDifference < analysis.metricEstimates.diffs[variationDiffKey].top_95 ||
+    analysis.metricEstimates.diffs[variationDiffKey].bottom_95 < -metricAssignment.minDifference
   ) {
     practicallySignificant = PracticalSignificanceStatus.Uncertain
   }
-  const statisticallySignificant = 0 < analysis.metricEstimates.diff.bottom || analysis.metricEstimates.diff.top < 0
-  const isPositive = 0 < analysis.metricEstimates.diff.bottom
+  const statisticallySignificant =
+    0 < analysis.metricEstimates.diffs[variationDiffKey].bottom_95 ||
+    analysis.metricEstimates.diffs[variationDiffKey].top_95 < 0
+  const isPositive = 0 < analysis.metricEstimates.diffs[variationDiffKey].bottom_95
 
   return {
     statisticallySignificant,
@@ -170,20 +173,21 @@ export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe]
  */
 
 export function isDataStrongEnough(
-  analysisMixed: AnalysisMixed | null,
+  analysis: AnalysisNext | null,
   decision: Decision,
   experiment: ExperimentFull,
   metricAssignment: MetricAssignment,
+  variationDiffKey: string,
 ): boolean {
-  // istanbul ignore next; transitional
-  const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : null
-
   if (!analysis || !analysis.metricEstimates) {
     return false
   }
 
   // See Kruschke's Precision as a goal for data collection: https://www.youtube.com/playlist?list=PL_mlm7M63Y7j641Y7QJG3TfSxeZMGOsQ4
-  const diffCiWidth = Math.abs(analysis.metricEstimates.diff.top - analysis.metricEstimates.diff.bottom)
+  const diffCiWidth = Math.abs(
+    analysis.metricEstimates.diffs[variationDiffKey].top_95 -
+      analysis.metricEstimates.diffs[variationDiffKey].bottom_95,
+  )
   const ropeWidth = metricAssignment.minDifference * 2
   const kruschkeUncertainty = diffCiWidth / ropeWidth
 
@@ -213,13 +217,14 @@ export function isDataStrongEnough(
 export function getMetricAssignmentRecommendation(
   experiment: ExperimentFull,
   metric: Metric,
-  analysisMixed: AnalysisMixed,
+  analysis: AnalysisNext,
+  variationDiffKey: string,
 ): Recommendation {
-  const analysis = ensureAnalysisPrevious(analysisMixed, experiment)
   const metricAssignment = experiment.metricAssignments.find(
     (metricAssignment) => metricAssignment.metricAssignmentId === analysis.metricAssignmentId,
   )
-  const diffCredibleIntervalStats = metricAssignment && getDiffCredibleIntervalStats(analysis, metricAssignment)
+  const diffCredibleIntervalStats =
+    metricAssignment && getDiffCredibleIntervalStats(analysis, metricAssignment, variationDiffKey)
   const analysisStrategy = analysis.analysisStrategy
   if (!analysis.metricEstimates || !metricAssignment || !diffCredibleIntervalStats) {
     return {
@@ -239,7 +244,13 @@ export function getMetricAssignmentRecommendation(
       isPositive === metric.higherIsBetter ? nonDefaultVariation.variationId : defaultVariation.variationId
   }
 
-  const strongEnoughForDeployment = isDataStrongEnough(analysis, decision, experiment, metricAssignment)
+  const strongEnoughForDeployment = isDataStrongEnough(
+    analysis,
+    decision,
+    experiment,
+    metricAssignment,
+    variationDiffKey,
+  )
 
   return {
     analysisStrategy,

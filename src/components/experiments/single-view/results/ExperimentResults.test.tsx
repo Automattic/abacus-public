@@ -111,6 +111,141 @@ test('renders correctly for 1 analysis datapoint, not statistically significant'
   expect(mockedPlot).toMatchSnapshot()
 })
 
+test('A/B/n: renders correctly for 1 analysis datapoint, not statistically significant', async () => {
+  const experiment = Fixtures.createExperimentFull({
+    variations: [
+      Fixtures.createVariation({
+        variationId: 1,
+        name: 'control',
+        isDefault: true,
+        allocatedPercentage: 40,
+      }),
+      Fixtures.createVariation({
+        variationId: 2,
+        name: 'treatment1',
+        isDefault: false,
+        allocatedPercentage: 40,
+      }),
+      Fixtures.createVariation({
+        variationId: 3,
+        name: 'treatment2',
+        isDefault: false,
+        allocatedPercentage: 20,
+      }),
+    ],
+  })
+  const metricEstimates = {
+    variations: {
+      '1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
+      '2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
+      '3': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
+    },
+    diffs: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: -1,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+      '3_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: -1,
+        mean: 0,
+      }),
+      '1_3': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+      '3_2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: -1,
+        mean: 0,
+      }),
+      '2_3': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+    },
+    ratios: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+      '3_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_3': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+      '3_2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '2_3': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
+    },
+  }
+  const { container } = render(
+    <ExperimentResults
+      analyses={[
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysisNext({
+          analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+          metricEstimates,
+        }),
+      ]}
+      experiment={experiment}
+      metrics={metrics}
+    />,
+  )
+
+  // Check the table snapshot before expanding any metric.
+  expect(container.querySelector('.analysis-latest-results')).toMatchSnapshot()
+
+  // Clicking on metric_1 or metric_2 should have no effect on anything, but metric_3 should render the details.
+  fireEvent.click(getByText(container, /metric_1/))
+  fireEvent.click(getAllByText(container, /metric_2/)[0])
+  fireEvent.click(getByText(container, /metric_3/))
+  await waitFor(() => getByText(container, /Last analyzed/), { container })
+  expect(container.querySelector('.analysis-latest-results .analysis-detail-panel')).toMatchSnapshot()
+
+  expect(mockedPlot).toMatchSnapshot()
+})
 test('renders correctly for 1 analysis datapoint, statistically significant', async () => {
   const metricEstimates = {
     variations: {

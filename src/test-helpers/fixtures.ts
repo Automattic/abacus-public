@@ -698,6 +698,7 @@ const Fixtures = {
   createTagFull,
   createSegmentAssignment,
   createSegments,
+  createVariation,
   createVariations,
 }
 

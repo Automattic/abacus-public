@@ -6,7 +6,7 @@ import HttpResponseError from 'src/api/HttpResponseError'
 import * as Utils from 'src/api/utils'
 
 // In order to not go over API limits on swagger we wait in-between tests:
-const apiLimitWait = 500
+const apiLimitWait = 1000
 beforeEach(async () => {
   return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
 })

@@ -35,6 +35,7 @@ test('renders an appropriate message with no analyses', () => {
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.NoDifference,
       }}
+      variationDiffKey='2_1'
     />,
   )
   expect(container).toMatchSnapshot()

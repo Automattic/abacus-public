@@ -17,6 +17,7 @@ import {
   useTheme,
 } from '@material-ui/core'
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
+import { Alert } from '@material-ui/lab'
 import clsx from 'clsx'
 import _ from 'lodash'
 import MaterialTable from 'material-table'
@@ -27,14 +28,13 @@ import Plot from 'react-plotly.js'
 import Attribute from 'src/components/general/Attribute'
 import * as Analyses from 'src/lib/analyses'
 import * as Experiments from 'src/lib/experiments'
-import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import * as MetricAssignments from 'src/lib/metric-assignments'
+import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
 import * as Recommendations from 'src/lib/recommendations'
 import {
   AnalysisNext,
   AnalysisStrategy,
-  ensureAnalysisPrevious,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -187,6 +187,14 @@ export default function ExperimentResults({
     setStrategy(event.target.value as AnalysisStrategy)
   }
 
+  const baseVariationId = experiment.variations.find((v) => v.isDefault)?.variationId
+  const changeVariationId = experiment.variations.find((v) => !v.isDefault)?.variationId
+  // istanbul ignore next; Shouldn't occur.
+  if (!baseVariationId || !changeVariationId) {
+    throw new Error('Missing base or change variations.')
+  }
+  const variationDiffKey = `${changeVariationId}_${baseVariationId}`
+
   const indexedMetrics = indexMetrics(metrics)
   const analysesByMetricAssignmentId = _.groupBy(analyses, 'metricAssignmentId')
   const allMetricAssignmentAnalysesData: MetricAssignmentAnalysesData[] = MetricAssignments.sort(
@@ -215,7 +223,12 @@ export default function ExperimentResults({
           .map(_.last.bind(null))
           .filter((x) => x)
           .map((analysis) =>
-            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisNext),
+            Recommendations.getMetricAssignmentRecommendation(
+              experiment,
+              metric,
+              analysis as AnalysisNext,
+              variationDiffKey,
+            ),
           ),
         strategy,
       ),
@@ -265,6 +278,7 @@ export default function ExperimentResults({
           experiment,
           primaryMetricAssignmentAnalysesData.metric,
           analysis as AnalysisNext,
+          variationDiffKey,
         ),
       ),
     strategy,
@@ -336,9 +350,7 @@ export default function ExperimentResults({
         analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
         recommendation: Recommendations.Recommendation
       }) => {
-        const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
-        const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : undefined
-        const latestEstimates = analysis?.metricEstimates
+        const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
         if (
           !latestEstimates ||
           recommendation.decision === Recommendations.Decision.ManualAnalysisRequired ||
@@ -352,8 +364,8 @@ export default function ExperimentResults({
             intervalName={'the absolute change between variations'}
             isDifference={true}
             metricParameterType={metric.parameterType}
-            bottomValue={latestEstimates.diff.bottom}
-            topValue={latestEstimates.diff.top}
+            bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95}
+            topValue={latestEstimates.diffs[variationDiffKey].top_95}
             displayTooltipHint={false}
           />
         )
@@ -374,12 +386,9 @@ export default function ExperimentResults({
         analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
         recommendation: Recommendations.Recommendation
       }) => {
-        const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
-        const analysis = analysisMixed ? ensureAnalysisPrevious(analysisMixed, experiment) : undefined
-        const latestEstimates = analysis?.metricEstimates
+        const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
         if (
-          !latestEstimates ||
-          !latestEstimates.ratio?.top ||
+          !latestEstimates?.ratios[variationDiffKey]?.top_95 ||
           recommendation.decision === Recommendations.Decision.ManualAnalysisRequired ||
           recommendation.decision === Recommendations.Decision.MissingAnalysis
         ) {
@@ -390,8 +399,8 @@ export default function ExperimentResults({
           <MetricValueInterval
             intervalName={'the relative change between variations'}
             metricParameterType={MetricParameterType.Conversion}
-            bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratio.bottom)}
-            topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratio.top)}
+            bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
+            topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
             displayTooltipHint={false}
           />
         )
@@ -437,7 +446,15 @@ export default function ExperimentResults({
       return {
         render: () => (
           <MetricAssignmentResults
-            {...{ strategy, analysesByStrategyDateAsc, metricAssignment, metric, experiment, recommendation }}
+            {...{
+              strategy,
+              analysesByStrategyDateAsc,
+              metricAssignment,
+              metric,
+              experiment,
+              recommendation,
+              variationDiffKey,
+            }}
           />
         ),
         disabled,
@@ -450,6 +467,31 @@ export default function ExperimentResults({
       <div className={classes.root}>
         {hasAnalyses ? (
           <>
+            {experiment.variations.length > 2 && (
+              <>
+                <Alert severity='error'>
+                  <strong>A/B/n analysis is an ALPHA quality feature.</strong>
+                  <br />
+                  <br />
+                  <strong>What&apos;s not working:</strong>
+                  <ul>
+                    <li> Metric Assignment Table (Absolute/Relative Change, Analysis.) </li>
+                    <li> Summary text. </li>
+                    <li> Recommendations. </li>
+                    <li> Difference charts. </li>
+                    <li> The health report. </li>
+                  </ul>
+                  <strong>What&apos;s working:</strong>
+                  <ul>
+                    <li> Participation stats and charts. </li>
+                    <li> Analysis tables (when you open a metric assignment.)</li>
+                    <li> Variation value charts. </li>
+                    <li> Observed data. </li>
+                  </ul>
+                </Alert>
+                <br />
+              </>
+            )}
             <div className={classes.summary}>
               <Paper className={classes.participantsPlotPaper}>
                 <Typography variant='h3' gutterBottom>

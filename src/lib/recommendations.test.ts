@@ -5,11 +5,12 @@ import { AnalysisStrategy, Status } from './schemas'
 
 describe('getDiffCredibleIntervalStats', () => {
   it('should return null for missing analysis', () => {
-    expect(Recommendations.getDiffCredibleIntervalStats(null, Fixtures.createMetricAssignment({}))).toBe(null)
+    expect(Recommendations.getDiffCredibleIntervalStats(null, Fixtures.createMetricAssignment({}), '2_1')).toBe(null)
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({ metricEstimates: null }),
+        Fixtures.createAnalysisNext({ metricEstimates: null }),
         Fixtures.createMetricAssignment({}),
+        '2_1',
       ),
     ).toBe(null)
   })
@@ -17,18 +18,21 @@ describe('getDiffCredibleIntervalStats', () => {
   it('should throw for bottom greater than top', () => {
     expect(() =>
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 0,
-              bottom: 10,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 0,
+                bottom_95: 10,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toThrowErrorMatchingInlineSnapshot(`"Invalid metricEstimates: bottom greater than top."`)
   })
@@ -36,18 +40,21 @@ describe('getDiffCredibleIntervalStats', () => {
   it('should return correct stats', () => {
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 0,
-              bottom: 0,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 0,
+                bottom_95: 0,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
@@ -56,18 +63,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 10,
-              bottom: 0,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 10,
+                bottom_95: 0,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
@@ -76,18 +86,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 1,
-              bottom: -1,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 1,
+                bottom_95: -1,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
@@ -96,18 +109,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: -1,
-              bottom: -2,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: -1,
+                bottom_95: -2,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
@@ -116,18 +132,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 2,
-              bottom: 1,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 2,
+                bottom_95: 1,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
@@ -136,18 +155,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: -1,
-              bottom: -20,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: -1,
+                bottom_95: -20,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
@@ -156,18 +178,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 20,
-              bottom: 1,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 20,
+                bottom_95: 1,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
@@ -176,18 +201,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: -10,
-              bottom: -20,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: -10,
+                bottom_95: -20,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
@@ -196,18 +224,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 20,
-              bottom: 10,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 20,
+                bottom_95: 10,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
@@ -216,18 +247,21 @@ describe('getDiffCredibleIntervalStats', () => {
     })
     expect(
       Recommendations.getDiffCredibleIntervalStats(
-        Fixtures.createAnalysisPrevious({
-          metricEstimates: {
-            diff: {
-              estimate: 0,
-              top: 15,
-              bottom: -15,
+        Fixtures.createAnalysisNext({
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                mean: 0,
+                top_95: 15,
+                bottom_95: -15,
+              }),
             },
-          },
+          }),
         }),
         Fixtures.createMetricAssignment({
           minDifference: 10,
         }),
+        '2_1',
       ),
     ).toEqual({
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
@@ -243,16 +277,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull(),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 1,
-              bottom: 0,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 1,
+                bottom_95: 0,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -266,16 +303,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull(),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 1,
-              bottom: 0.001,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 1,
+                bottom_95: 0.001,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -290,16 +330,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull({ status: Status.Completed }),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 0,
-              bottom: 0,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 0,
+                bottom_95: 0,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -313,16 +356,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull(),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 0,
-              bottom: 0,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 0,
+                bottom_95: 0,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -336,16 +382,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull({ status: Status.Completed }),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 0.009,
-              bottom: 0.001,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 0.009,
+                bottom_95: 0.001,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -360,16 +409,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull(),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 0.009,
-              bottom: 0.001,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 0.009,
+                bottom_95: 0.001,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -384,16 +436,19 @@ describe('getMetricAssignmentRecommendation', () => {
       Recommendations.getMetricAssignmentRecommendation(
         Fixtures.createExperimentFull(),
         Fixtures.createMetric(123),
-        Fixtures.createAnalysisPrevious({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
-          metricEstimates: {
-            diff: {
-              top: 2,
-              bottom: 1,
-              estimate: 0,
+          metricEstimates: Fixtures.createMetricEstimatesNext({
+            diffs: {
+              '2_1': Fixtures.createDistributionStats({
+                top_95: 2,
+                bottom_95: 1,
+                mean: 0,
+              }),
             },
-          },
+          }),
         }),
+        '2_1',
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
@@ -409,10 +464,11 @@ describe('getMetricAssignmentRecommendation', () => {
     Recommendations.getMetricAssignmentRecommendation(
       Fixtures.createExperimentFull(),
       Fixtures.createMetric(123),
-      Fixtures.createAnalysisPrevious({
+      Fixtures.createAnalysisNext({
         analysisStrategy: AnalysisStrategy.PpNaive,
         metricEstimates: null,
       }),
+      '2_1',
     ),
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
@@ -424,16 +480,19 @@ describe('getMetricAssignmentRecommendation', () => {
     Recommendations.getMetricAssignmentRecommendation(
       Fixtures.createExperimentFull({ status: Status.Completed }),
       Fixtures.createMetric(123, { higherIsBetter: false }),
-      Fixtures.createAnalysisPrevious({
+      Fixtures.createAnalysisNext({
         analysisStrategy: AnalysisStrategy.PpNaive,
-        metricEstimates: {
-          diff: {
-            top: 2,
-            bottom: 1,
-            estimate: 0,
+        metricEstimates: Fixtures.createMetricEstimatesNext({
+          diffs: {
+            '2_1': Fixtures.createDistributionStats({
+              top_95: 2,
+              bottom_95: 1,
+              mean: 0,
+            }),
           },
-        },
+        }),
       }),
+      '2_1',
     ),
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
@@ -707,10 +766,11 @@ describe('isDataStrongEnough', () => {
   it('should work correctly for missing metricEstimates', () => {
     expect(
       Recommendations.isDataStrongEnough(
-        Fixtures.createAnalysisPrevious({ metricEstimates: null }),
+        Fixtures.createAnalysisNext({ metricEstimates: null }),
         Recommendations.Decision.MissingAnalysis,
         Fixtures.createExperimentFull(),
         Fixtures.createMetricAssignment({}),
+        '2_1',
       ),
     ).toEqual(false)
   })

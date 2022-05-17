@@ -2,7 +2,7 @@ import AnalysesApi from 'src/api/AnalysesApi'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 
 // In order to not go over API limits on swagger we wait in-between tests:
-const apiLimitWait = 500
+const apiLimitWait = 1000
 beforeEach(async () => {
   return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
 })

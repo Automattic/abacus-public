@@ -32,7 +32,7 @@ import * as MetricAssignments from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisMixed,
+  AnalysisNext,
   AnalysisStrategy,
   ensureAnalysisPrevious,
   ExperimentFull,
@@ -54,7 +54,7 @@ import MetricAssignmentResults from './MetricAssignmentResults'
 type MetricAssignmentAnalysesData = {
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
 }
 
 const indicationSeverityClassSymbol = (severity: Analyses.HealthIndicationSeverity) => `indicationSeverity${severity}`
@@ -165,7 +165,7 @@ export default function ExperimentResults({
   experiment,
   metrics,
 }: {
-  analyses: AnalysisMixed[]
+  analyses: AnalysisNext[]
   experiment: ExperimentFull
   metrics: Metric[]
   debugMode?: boolean
@@ -199,7 +199,7 @@ export default function ExperimentResults({
       analysesByStrategyDateAsc: _.groupBy(
         _.orderBy(metricAssignmentAnalyses, ['analysisDatetime'], ['asc']),
         'analysisStrategy',
-      ) as Record<AnalysisStrategy, AnalysisMixed[]>,
+      ) as Record<AnalysisStrategy, AnalysisNext[]>,
     }
   })
 
@@ -215,7 +215,7 @@ export default function ExperimentResults({
           .map(_.last.bind(null))
           .filter((x) => x)
           .map((analysis) =>
-            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisMixed),
+            Recommendations.getMetricAssignmentRecommendation(experiment, metric, analysis as AnalysisNext),
           ),
         strategy,
       ),
@@ -264,7 +264,7 @@ export default function ExperimentResults({
         Recommendations.getMetricAssignmentRecommendation(
           experiment,
           primaryMetricAssignmentAnalysesData.metric,
-          analysis as AnalysisMixed,
+          analysis as AnalysisNext,
         ),
       ),
     strategy,
@@ -333,7 +333,7 @@ export default function ExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
@@ -371,7 +371,7 @@ export default function ExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const analysisMixed = _.last(analysesByStrategyDateAsc[strategy])
@@ -426,7 +426,7 @@ export default function ExperimentResults({
       recommendation,
     }: {
       strategy: AnalysisStrategy
-      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisMixed[]>
+      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
       metricAssignment: MetricAssignment
       metric: Metric
       recommendation: Recommendations.Recommendation

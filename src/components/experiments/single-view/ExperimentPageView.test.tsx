@@ -41,7 +41,7 @@ const renderExperimentPageView = async ({ experiment: experimentOverrides = {} }
   const segments = Fixtures.createSegments(10)
   mockedSegmentsApi.findAll.mockImplementationOnce(async () => segments)
 
-  const analyses = Fixtures.createAnalyses()
+  const analyses = Fixtures.createAnalysesNext()
   mockedAnalysesApi.findByExperimentId.mockImplementationOnce(async () => analyses)
 
   const tags = Fixtures.createTagBares(5)

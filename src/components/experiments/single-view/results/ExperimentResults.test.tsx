@@ -17,7 +17,7 @@ beforeEach(() => {
 
 const experiment = Fixtures.createExperimentFull()
 const metrics = Fixtures.createMetrics()
-const analyses = Fixtures.createAnalyses()
+const analyses = Fixtures.createAnalysesNext()
 
 test('renders an appropriate message with no analyses', async () => {
   const { container } = render(<ExperimentResults analyses={[]} experiment={experiment} metrics={metrics} />)
@@ -29,10 +29,9 @@ test('renders an appropriate message for analyses missing analysis data due to a
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.PpNaive,
           metricEstimates: null,
-          recommendation: null,
         }),
       ]}
       experiment={experiment}
@@ -45,35 +44,54 @@ test('renders an appropriate message for analyses missing analysis data due to a
 
 test('renders correctly for 1 analysis datapoint, not statistically significant', async () => {
   const metricEstimates = {
-    variation_1: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 1,
+    variations: {
+      '1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
+      '2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
     },
-    variation_2: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 1,
+    diffs: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: -1,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
-    diff: {
-      top: 1,
-      bottom: -1,
-      estimate: 0,
-    },
-    ratio: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
+    ratios: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
   }
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysisNext({
+          analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+          metricEstimates,
+        }),
       ]}
       experiment={experiment}
       metrics={metrics}
@@ -95,35 +113,54 @@ test('renders correctly for 1 analysis datapoint, not statistically significant'
 
 test('renders correctly for 1 analysis datapoint, statistically significant', async () => {
   const metricEstimates = {
-    variation_1: {
-      top: 2,
-      bottom: 1,
-      estimate: 1,
+    variations: {
+      '1': Fixtures.createDistributionStats({
+        top_95: 2,
+        bottom_95: 1,
+        mean: 1,
+      }),
+      '2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
     },
-    variation_2: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 1,
+    diffs: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
-    diff: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
-    },
-    ratio: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
+    ratios: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
   }
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysisNext({
+          analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+          metricEstimates,
+        }),
       ]}
       experiment={experiment}
       metrics={metrics}
@@ -147,64 +184,102 @@ test('renders correctly for conflicting analysis data', async () => {
   toggleDebugMode()
 
   const metricEstimates1 = {
-    variation_1: {
-      top: 2,
-      bottom: 1,
-      estimate: 1,
+    variations: {
+      '1': Fixtures.createDistributionStats({
+        top_95: 2,
+        bottom_95: 1,
+        mean: 1,
+      }),
+      '2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
     },
-    variation_2: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 1,
+    diffs: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
-    diff: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
-    },
-    ratio: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
+    ratios: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
   }
   const metricEstimates2 = {
-    variation_1: {
-      top: 2,
-      bottom: 1,
-      estimate: 1,
+    variations: {
+      '1': Fixtures.createDistributionStats({
+        top_95: 2,
+        bottom_95: 1,
+        mean: 1,
+      }),
+      '2': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 1,
+      }),
     },
-    variation_2: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 1,
+    diffs: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: -1,
+        bottom_95: -2,
+        mean: -1.4,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
-    diff: {
-      top: -1,
-      bottom: -2,
-      estimate: -1.4,
-    },
-    ratio: {
-      top: 1,
-      bottom: 0.5,
-      estimate: 0,
+    ratios: {
+      '2_1': Fixtures.createDistributionStats({
+        top_95: 1,
+        bottom_95: 0.5,
+        mean: 0,
+      }),
+      '1_2': Fixtures.createDistributionStats({
+        top_95: 0,
+        bottom_95: 0,
+        mean: 0,
+      }),
     },
   }
 
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates: metricEstimates1 }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates: metricEstimates2 }),
-        Fixtures.createAnalysis({
+        Fixtures.createAnalysisNext({
+          analysisStrategy: AnalysisStrategy.PpNaive,
+          metricEstimates: metricEstimates1,
+        }),
+        Fixtures.createAnalysisNext({
+          analysisStrategy: AnalysisStrategy.IttPure,
+          metricEstimates: metricEstimates2,
+        }),
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.MittNoCrossovers,
           metricEstimates: metricEstimates2,
         }),
-        Fixtures.createAnalysis({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.MittNoSpammers,
           metricEstimates: metricEstimates2,
         }),
-        Fixtures.createAnalysis({
+        Fixtures.createAnalysisNext({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
           metricEstimates: metricEstimates2,
         }),
@@ -278,10 +353,10 @@ test('allows you to change analysis strategy', async () => {
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
+        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
       ]}
       experiment={{ ...experiment, exposureEvents: undefined }}
       metrics={metrics}

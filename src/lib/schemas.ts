@@ -500,7 +500,7 @@ export function ensureAnalysisPrevious(analysis: AnalysisMixed, experiment: Expe
 
 export const analysisResponseSchema = yup
   .object({
-    analyses: yup.array(analysisPreviousSchema).defined(),
+    analyses: yup.array(analysisNextSchema).defined(),
   })
   .defined()
 export interface AnalysisResponse extends yup.InferType<typeof analysisResponseSchema> {}

@@ -119,18 +119,13 @@ export default function ExperimentPageView({
   const { isLoading: tagsIsLoading, data: tags, error: tagsError } = useDataSource(() => TagsApi.findAll(), [])
   useDataLoadingError(tagsError, 'Tags')
 
-  const { isLoading: analysesIsLoading, data: analysesMixed, error: analysesError } = useDataSource(async () => {
+  const { isLoading: analysesIsLoading, data: analyses, error: analysesError } = useDataSource(async () => {
     if (!experimentId) {
-      return createUnresolvingPromise<Schemas.AnalysisMixed[]>()
+      return createUnresolvingPromise<Schemas.AnalysisNext[]>()
     }
     return AnalysesApi.findByExperimentId(experimentId)
   }, [experimentId])
   useDataLoadingError(analysesError, 'Analyses')
-
-  const analyses =
-    experiment && analysesMixed
-      ? analysesMixed.map((analysis) => Schemas.ensureAnalysisPrevious(analysis, experiment))
-      : null
 
   const isLoading = or(experimentIsLoading, metricsIsLoading, segmentsIsLoading, tagsIsLoading, analysesIsLoading)
 

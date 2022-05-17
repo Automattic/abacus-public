@@ -7,14 +7,17 @@
 import _ from 'lodash'
 
 import {
+  AnalysisNext,
   AnalysisPrevious,
   AnalysisStrategy,
   AssignmentCacheStatus,
   AttributionWindowSeconds,
+  DistributionStats,
   ExperimentFull,
   ExperimentFullNew,
   Metric,
   MetricAssignment,
+  MetricEstimatesNext,
   MetricParameterType,
   Platform,
   Segment,
@@ -26,7 +29,214 @@ import {
   Variation,
 } from 'src/lib/schemas'
 
-function createAnalysis(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrevious {
+function createDistributionStats(fieldOverrides?: Partial<DistributionStats>): DistributionStats {
+  return {
+    mean: 0,
+    top_95: 0,
+    bottom_95: 0,
+    top_99: 0,
+    bottom_99: 0,
+    top_50: 0,
+    bottom_50: 0,
+    ...fieldOverrides,
+  }
+}
+
+function createMetricEstimatesNext(fieldOverrides?: Partial<MetricEstimatesNext>): MetricEstimatesNext {
+  return {
+    variations: {
+      '1': createDistributionStats(),
+      '2': createDistributionStats(),
+    },
+    diffs: {
+      '1_2': createDistributionStats(),
+      '2_1': createDistributionStats(),
+    },
+    ratios: {
+      '1_2': createDistributionStats(),
+      '2_1': createDistributionStats(),
+    },
+    ...fieldOverrides,
+  }
+}
+
+function createAnalysisNext(fieldOverrides: Partial<AnalysisNext>): AnalysisNext {
+  return {
+    metricAssignmentId: 123,
+    analysisStrategy: AnalysisStrategy.IttPure,
+    participantStats: {
+      total: 1000,
+      variation_1: 600,
+      variation_2: 400,
+    },
+    metricEstimates: createMetricEstimatesNext(),
+    analysisDatetime: new Date(Date.UTC(2020, 4, 10)),
+    ...fieldOverrides,
+  }
+}
+
+function createAnalysesNext(): AnalysisNext[] {
+  return [
+    // Full set of "latest" analyses for the default metric assignment.
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.IttPure,
+      participantStats: {
+        total: 1000,
+        variation_1: 600,
+        variation_2: 400,
+      },
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoCrossovers,
+      participantStats: {
+        total: 900,
+        variation_1: 540,
+        variation_2: 360,
+      },
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoSpammers,
+      participantStats: {
+        total: 850,
+        variation_1: 510,
+        variation_2: 340,
+      },
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+      participantStats: {
+        total: 800,
+        variation_1: 480,
+        variation_2: 320,
+      },
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      participantStats: {
+        total: 700,
+        variation_1: 420,
+        variation_2: 280,
+      },
+    }),
+
+    // Another set of analyses for the default metric assignment with an earlier date.
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.IttPure,
+      participantStats: {
+        total: 100,
+        variation_1: 60,
+        variation_2: 40,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoCrossovers,
+      participantStats: {
+        total: 90,
+        variation_1: 54,
+        variation_2: 36,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoSpammers,
+      participantStats: {
+        total: 85,
+        variation_1: 51,
+        variation_2: 34,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+      participantStats: {
+        total: 80,
+        variation_1: 48,
+        variation_2: 32,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
+    }),
+    createAnalysisNext({
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      participantStats: {
+        total: 70,
+        variation_1: 42,
+        variation_2: 28,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
+    }),
+
+    // One example of a metric assignment with no data on one variation.
+    createAnalysisNext({
+      metricAssignmentId: 124,
+      analysisStrategy: AnalysisStrategy.IttPure,
+      participantStats: {
+        total: 10,
+        variation_1: 10,
+      },
+      metricEstimates: null,
+    }),
+
+    // Similar to the set of "latest" analyses for the default metric assignment, but with consistent recommendations.
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.IttPure,
+      participantStats: {
+        total: 2000,
+        variation_1: 1200,
+        variation_2: 800,
+      },
+    }),
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.MittNoCrossovers,
+      participantStats: {
+        total: 1800,
+        variation_1: 1080,
+        variation_2: 720,
+      },
+    }),
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.MittNoSpammers,
+      participantStats: {
+        total: 1700,
+        variation_1: 920,
+        variation_2: 780,
+      },
+    }),
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
+      participantStats: {
+        total: 1600,
+        variation_1: 960,
+        variation_2: 640,
+      },
+    }),
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      participantStats: {
+        total: 1400,
+        variation_1: 840,
+        variation_2: 560,
+      },
+    }),
+    createAnalysisNext({
+      metricAssignmentId: 126,
+      analysisStrategy: AnalysisStrategy.PpNaive,
+      participantStats: {
+        total: 1200,
+        variation_1: 940,
+        variation_2: 660,
+      },
+      analysisDatetime: new Date(Date.UTC(2020, 5, 11)),
+    }),
+  ]
+}
+
+function createAnalysisPrevious(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrevious {
   return {
     metricAssignmentId: 123,
     analysisStrategy: AnalysisStrategy.IttPure,
@@ -46,10 +256,10 @@ function createAnalysis(fieldOverrides: Partial<AnalysisPrevious>): AnalysisPrev
   }
 }
 
-function createAnalyses(): AnalysisPrevious[] {
+function createAnalysesPrevious(): AnalysisPrevious[] {
   return [
     // Full set of "latest" analyses for the default metric assignment.
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.IttPure,
       participantStats: {
         total: 1000,
@@ -57,7 +267,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 400,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoCrossovers,
       participantStats: {
         total: 900,
@@ -65,7 +275,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 360,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoSpammers,
       participantStats: {
         total: 850,
@@ -73,7 +283,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 340,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
       participantStats: {
         total: 800,
@@ -81,7 +291,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 320,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.PpNaive,
       participantStats: {
         total: 700,
@@ -91,7 +301,7 @@ function createAnalyses(): AnalysisPrevious[] {
     }),
 
     // Another set of analyses for the default metric assignment with an earlier date.
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.IttPure,
       participantStats: {
         total: 100,
@@ -100,7 +310,7 @@ function createAnalyses(): AnalysisPrevious[] {
       },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoCrossovers,
       participantStats: {
         total: 90,
@@ -109,7 +319,7 @@ function createAnalyses(): AnalysisPrevious[] {
       },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoSpammers,
       participantStats: {
         total: 85,
@@ -118,7 +328,7 @@ function createAnalyses(): AnalysisPrevious[] {
       },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
       participantStats: {
         total: 80,
@@ -127,7 +337,7 @@ function createAnalyses(): AnalysisPrevious[] {
       },
       analysisDatetime: new Date(Date.UTC(2020, 4, 9)),
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       analysisStrategy: AnalysisStrategy.PpNaive,
       participantStats: {
         total: 70,
@@ -138,7 +348,7 @@ function createAnalyses(): AnalysisPrevious[] {
     }),
 
     // One example of a metric assignment with no data on one variation.
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 124,
       analysisStrategy: AnalysisStrategy.IttPure,
       participantStats: {
@@ -149,7 +359,7 @@ function createAnalyses(): AnalysisPrevious[] {
     }),
 
     // Similar to the set of "latest" analyses for the default metric assignment, but with consistent recommendations.
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.IttPure,
       participantStats: {
@@ -158,7 +368,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 800,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.MittNoCrossovers,
       participantStats: {
@@ -167,7 +377,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 720,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.MittNoSpammers,
       participantStats: {
@@ -176,7 +386,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 780,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
       participantStats: {
@@ -185,7 +395,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 640,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.PpNaive,
       participantStats: {
@@ -194,7 +404,7 @@ function createAnalyses(): AnalysisPrevious[] {
         variation_2: 560,
       },
     }),
-    createAnalysis({
+    createAnalysisPrevious({
       metricAssignmentId: 126,
       analysisStrategy: AnalysisStrategy.PpNaive,
       participantStats: {
@@ -473,11 +683,15 @@ function createSegmentAssignment(fieldOverrides: Partial<SegmentAssignment>): Se
 }
 
 const Fixtures = {
-  createAnalyses,
-  createAnalysis,
+  createAnalysesNext,
+  createAnalysisNext,
+  createAnalysesPrevious,
+  createAnalysisPrevious,
+  createDistributionStats,
   createExperimentFull,
   createExperimentFullNew,
   createMetricAssignment,
+  createMetricEstimatesNext,
   createMetric,
   createMetrics,
   createTagBares,

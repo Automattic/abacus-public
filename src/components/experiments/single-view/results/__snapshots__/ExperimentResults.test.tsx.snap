@@ -217,10 +217,11 @@ exports[`allows you to change analysis strategy 1`] = `
                         <span
                           class=""
                         >
-                          -1
+                          +
+                          0
                            to 
                           +
-                          1
+                          0
                            
                           pp
                         </span>
@@ -228,18 +229,7 @@ exports[`allows you to change analysis strategy 1`] = `
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                         style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
-                      >
-                        <span
-                          class=""
-                        >
-                          -50
-                           to 
-                          +
-                          50
-                           
-                          %
-                        </span>
-                      </td>
+                      />
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                         style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
@@ -7200,10 +7190,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       <span
                         class=""
                       >
-                        -1
+                        +
+                        0
                          to 
                         +
-                        1
+                        0
                          
                         pp
                       </span>
@@ -7211,18 +7202,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
-                    >
-                      <span
-                        class=""
-                      >
-                        -50
-                         to 
-                        +
-                        50
-                         
-                        %
-                      </span>
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
@@ -7426,10 +7406,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       <span
                         class=""
                       >
-                        -1
+                        +
+                        0
                          to 
                         +
-                        1
+                        0
                          
                         pp
                       </span>
@@ -7437,18 +7418,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
-                    >
-                      <span
-                        class=""
-                      >
-                        -50
-                         to 
-                        +
-                        50
-                         
-                        %
-                      </span>
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
@@ -8225,13 +8195,14 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               conversion rate
                of
                
-              -1
+              +
+              0
                
               to
                
               +
               
-              1
+              0
               <span
                 class="makeStyles-tooltipped-236"
                 title="Percentage points."
@@ -8357,9 +8328,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-236"
             >
-              -112.3
+              0
                to 
-              100
+              0
                
               %
             </span>
@@ -8370,10 +8341,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-236"
             >
-              -1
+              +
+              0
                to 
               +
-              1
+              0
                
               pp
             </span>
@@ -8384,10 +8356,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-236"
             >
-              -50
+              -100
                to 
-              +
-              50
+              -100
                
               %
             </span>
@@ -8416,7 +8387,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             >
               0
                to 
-              1000
+              0
                
               %
             </span>
@@ -8553,8 +8524,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              -112.3,
-              -112.3,
+              0,
+              0,
             ],
           },
           Object {
@@ -8571,8 +8542,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              100,
-              100,
+              0,
+              0,
             ],
           },
           Object {
@@ -8605,8 +8576,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              1000,
-              1000,
+              0,
+              0,
             ],
           },
         ],
@@ -8652,8 +8623,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              -1,
-              -1,
+              0,
+              0,
             ],
           },
           Object {
@@ -8673,8 +8644,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              1,
-              1,
+              0,
+              0,
             ],
           },
           Object {
@@ -8751,8 +8722,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              -112.3,
-              -112.3,
+              0,
+              0,
             ],
           },
           Object {
@@ -8769,8 +8740,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              100,
-              100,
+              0,
+              0,
             ],
           },
           Object {
@@ -8803,8 +8774,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              1000,
-              1000,
+              0,
+              0,
             ],
           },
         ],
@@ -8850,8 +8821,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              -1,
-              -1,
+              0,
+              0,
             ],
           },
           Object {
@@ -8871,8 +8842,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              1,
-              1,
+              0,
+              0,
             ],
           },
           Object {
@@ -9175,10 +9146,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       <span
                         class=""
                       >
-                        -0.01
+                        +
+                        0.00
                          to 
                         +
-                        0.01
+                        0.00
                          
                         USD
                       </span>
@@ -9186,18 +9158,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
-                    >
-                      <span
-                        class=""
-                      >
-                        -50
-                         to 
-                        +
-                        50
-                         
-                        %
-                      </span>
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
@@ -9401,10 +9362,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                       <span
                         class=""
                       >
-                        -0.01
+                        +
+                        0.00
                          to 
                         +
-                        0.01
+                        0.00
                          
                         USD
                       </span>
@@ -9412,18 +9374,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
-                    >
-                      <span
-                        class=""
-                      >
-                        -50
-                         to 
-                        +
-                        50
-                         
-                        %
-                      </span>
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
@@ -10200,13 +10151,14 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               ARPU
                of
                
-              -0.01
+              +
+              0.00
                
               to
                
               +
               
-              0.01
+              0.00
                USD
                
               is 
@@ -10322,9 +10274,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-288"
             >
-              -1.12
+              0.00
                to 
-              1.00
+              0.00
                
               USD
             </span>
@@ -10335,10 +10287,11 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-288"
             >
-              -0.01
+              +
+              0.00
                to 
               +
-              0.01
+              0.00
                
               USD
             </span>
@@ -10349,10 +10302,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             <span
               class="makeStyles-tooltipped-288"
             >
-              -50
+              -100
                to 
-              +
-              50
+              -100
                
               %
             </span>
@@ -10381,7 +10333,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             >
               0.00
                to 
-              10.00
+              0.00
                
               USD
             </span>
@@ -10513,8 +10465,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              -1.123,
-              -1.123,
+              0,
+              0,
             ],
           },
           Object {
@@ -10531,8 +10483,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              1,
-              1,
+              0,
+              0,
             ],
           },
           Object {
@@ -10565,8 +10517,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              10,
-              10,
+              0,
+              0,
             ],
           },
         ],
@@ -10612,8 +10564,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              -0.01,
-              -0.01,
+              0,
+              0,
             ],
           },
           Object {
@@ -10633,8 +10585,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-05-10T00:00:00.000Z",
             ],
             "y": Array [
-              0.01,
-              0.01,
+              0,
+              0,
             ],
           },
           Object {
@@ -10711,8 +10663,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              -1.123,
-              -1.123,
+              0,
+              0,
             ],
           },
           Object {
@@ -10729,8 +10681,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              1,
-              1,
+              0,
+              0,
             ],
           },
           Object {
@@ -10763,8 +10715,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              10,
-              10,
+              0,
+              0,
             ],
           },
         ],
@@ -10810,8 +10762,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              -0.01,
-              -0.01,
+              0,
+              0,
             ],
           },
           Object {
@@ -10831,8 +10783,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "2020-06-11T00:00:00.000Z",
             ],
             "y": Array [
-              0.01,
-              0.01,
+              0,
+              0,
             ],
           },
           Object {

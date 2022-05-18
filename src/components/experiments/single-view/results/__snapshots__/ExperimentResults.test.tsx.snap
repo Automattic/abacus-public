@@ -10296,7 +10296,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: lower bound",
+            "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
@@ -10317,7 +10317,87 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: upper bound",
+            "name": "difference: 99% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
@@ -10494,7 +10574,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: lower bound",
+            "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
               "2020-05-10T00:00:00.000Z",
@@ -10515,7 +10595,87 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: upper bound",
+            "name": "difference: 99% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
               "2020-05-10T00:00:00.000Z",
@@ -12237,7 +12397,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: lower bound",
+            "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
@@ -12258,7 +12418,87 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: upper bound",
+            "name": "difference: 99% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-09T00:00:00.000Z",
+              "2020-05-10T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
@@ -12435,7 +12675,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: lower bound",
+            "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
               "2020-05-10T00:00:00.000Z",
@@ -12456,7 +12696,87 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               "color": "444",
             },
             "mode": "lines",
-            "name": "difference: upper bound",
+            "name": "difference: 99% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 95% upper bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% lower bound",
+            "type": "scatter",
+            "x": Array [
+              "2020-05-10T00:00:00.000Z",
+              "2020-06-11T00:00:00.000Z",
+            ],
+            "y": Array [
+              0,
+              0,
+            ],
+          },
+          Object {
+            "fill": "tonexty",
+            "fillcolor": "rgba(0,0,0,.2)",
+            "line": Object {
+              "width": 0,
+            },
+            "marker": Object {
+              "color": "444",
+            },
+            "mode": "lines",
+            "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
               "2020-05-10T00:00:00.000Z",

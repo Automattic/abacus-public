@@ -267,7 +267,31 @@ export default function MetricAssignmentResults({
 
   const plotlyDataDifferenceGraph: Array<Partial<PlotData>> = [
     {
-      name: `difference: lower bound`,
+      name: `difference: 99% lower bound`,
+      x: dates,
+      y: analyses
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].bottom_99)
+        .map(estimateTransform),
+      line: { width: 0 },
+      marker: { color: '444' },
+      mode: 'lines' as const,
+      type: 'scatter' as const,
+    },
+    {
+      name: `difference: 99% upper bound`,
+      x: dates,
+      y: analyses
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].top_99)
+        .map(estimateTransform),
+      fill: 'tonexty',
+      fillcolor: 'rgba(0,0,0,.2)',
+      line: { width: 0 },
+      marker: { color: '444' },
+      mode: 'lines' as const,
+      type: 'scatter' as const,
+    },
+    {
+      name: `difference: 95% lower bound`,
       x: dates,
       y: analyses
         .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].bottom_95)
@@ -278,10 +302,34 @@ export default function MetricAssignmentResults({
       type: 'scatter' as const,
     },
     {
-      name: `difference: upper bound`,
+      name: `difference: 95% upper bound`,
       x: dates,
       y: analyses
         .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].top_95)
+        .map(estimateTransform),
+      fill: 'tonexty',
+      fillcolor: 'rgba(0,0,0,.2)',
+      line: { width: 0 },
+      marker: { color: '444' },
+      mode: 'lines' as const,
+      type: 'scatter' as const,
+    },
+    {
+      name: `difference: 50% lower bound`,
+      x: dates,
+      y: analyses
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].bottom_50)
+        .map(estimateTransform),
+      line: { width: 0 },
+      marker: { color: '444' },
+      mode: 'lines' as const,
+      type: 'scatter' as const,
+    },
+    {
+      name: `difference: 50% upper bound`,
+      x: dates,
+      y: analyses
+        .map(({ metricEstimates }) => metricEstimates && metricEstimates.diffs[variationDiffKey].top_50)
         .map(estimateTransform),
       fill: 'tonexty',
       fillcolor: 'rgba(0,0,0,.2)',

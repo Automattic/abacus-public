@@ -12,7 +12,7 @@ import { Link as RouterLink } from 'react-router-dom'
 
 import DatetimeText from 'src/components/general/DatetimeText'
 import MetricValue from 'src/components/general/MetricValue'
-import { AnalysisPrevious, ExperimentSummary, MetricParameterType, Status } from 'src/lib/schemas'
+import { Analysis, ExperimentSummary, MetricParameterType, Status } from 'src/lib/schemas'
 import { createIdSlug } from 'src/utils/general'
 
 import ExperimentStatus from '../ExperimentStatus'
@@ -249,7 +249,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
             },
             {
               headerName: 'Participants',
-              valueGetter: (params: { data: { analyses: AnalysisPrevious[] } }) =>
+              valueGetter: (params: { data: { analyses: Analysis[] } }) =>
                 params.data.analyses[0]?.participantStats.total || 0,
               cellRendererFramework: ({ value: participants }: { value: number }) => {
                 return <MetricValue value={participants} metricParameterType={MetricParameterType.Count} />

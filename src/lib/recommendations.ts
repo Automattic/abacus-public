@@ -1,13 +1,5 @@
 import { getExperimentRunHours } from './experiments'
-import {
-  AnalysisNext,
-  AnalysisStrategy,
-  ExperimentFull,
-  Metric,
-  MetricAssignment,
-  Platform,
-  Variation,
-} from './schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Platform, Variation } from './schemas'
 
 /**
  * # Recommendations
@@ -84,7 +76,7 @@ interface DiffCredibleIntervalStats {
  * See the file-level documentation.
  */
 export function getDiffCredibleIntervalStats(
-  analysis: AnalysisNext | null,
+  analysis: Analysis | null,
   metricAssignment: MetricAssignment,
   variationDiffKey: string,
 ): DiffCredibleIntervalStats | null {
@@ -173,7 +165,7 @@ export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe]
  */
 
 export function isDataStrongEnough(
-  analysis: AnalysisNext | null,
+  analysis: Analysis | null,
   decision: Decision,
   experiment: ExperimentFull,
   metricAssignment: MetricAssignment,
@@ -217,7 +209,7 @@ export function isDataStrongEnough(
 export function getMetricAssignmentRecommendation(
   experiment: ExperimentFull,
   metric: Metric,
-  analysis: AnalysisNext,
+  analysis: Analysis,
   variationDiffKey: string,
 ): Recommendation {
   const metricAssignment = experiment.metricAssignments.find(

@@ -5,7 +5,7 @@ import Fixtures from 'src/test-helpers/fixtures'
 
 export default { title: 'Experiment results' }
 
-const analyses = Fixtures.createAnalysesNext()
+const analyses = Fixtures.createAnalyses()
 const experiment = Fixtures.createExperimentFull()
 const metrics = Fixtures.createMetrics()
 

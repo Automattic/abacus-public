@@ -121,7 +121,7 @@ export default function ExperimentPageView({
 
   const { isLoading: analysesIsLoading, data: analyses, error: analysesError } = useDataSource(async () => {
     if (!experimentId) {
-      return createUnresolvingPromise<Schemas.AnalysisNext[]>()
+      return createUnresolvingPromise<Schemas.Analysis[]>()
     }
     return AnalysesApi.findByExperimentId(experimentId)
   }, [experimentId])

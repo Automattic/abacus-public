@@ -9,7 +9,7 @@ import { fetchApi } from './utils'
  *
  * @throws UnauthorizedError
  */
-async function findByExperimentId(experimentId: number): Promise<Schemas.AnalysisNext[]> {
+async function findByExperimentId(experimentId: number): Promise<Schemas.Analysis[]> {
   return (
     await Schemas.analysisResponseSchema.validate(
       await fetchApi('GET', `/analyses/${experimentId}`, {

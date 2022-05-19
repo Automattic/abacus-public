@@ -25,7 +25,7 @@ import * as Analyses from 'src/lib/analyses'
 import { getChosenVariation } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisNext,
+  Analysis,
   AnalysisStrategy,
   ExperimentFull,
   Metric,
@@ -203,7 +203,7 @@ export default function MetricAssignmentResults({
   strategy: AnalysisStrategy
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
   experiment: ExperimentFull
   recommendation: Recommendations.Recommendation
   variationDiffKey: string

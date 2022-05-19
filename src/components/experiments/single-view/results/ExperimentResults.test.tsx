@@ -17,7 +17,7 @@ beforeEach(() => {
 
 const experiment = Fixtures.createExperimentFull()
 const metrics = Fixtures.createMetrics()
-const analyses = Fixtures.createAnalysesNext()
+const analyses = Fixtures.createAnalyses()
 
 test('renders an appropriate message with no analyses', async () => {
   const { container } = render(<ExperimentResults analyses={[]} experiment={experiment} metrics={metrics} />)
@@ -29,7 +29,7 @@ test('renders an appropriate message for analyses missing analysis data due to a
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
           metricEstimates: null,
         }),
@@ -84,11 +84,11 @@ test('renders correctly for 1 analysis datapoint, not statistically significant'
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
           metricEstimates,
         }),
@@ -220,11 +220,11 @@ test('A/B/n: renders correctly for 1 analysis datapoint, not statistically signi
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
           metricEstimates,
         }),
@@ -288,11 +288,11 @@ test('renders correctly for 1 analysis datapoint, statistically significant', as
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
           metricEstimates,
         }),
@@ -398,23 +398,23 @@ test('renders correctly for conflicting analysis data', async () => {
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.PpNaive,
           metricEstimates: metricEstimates1,
         }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.IttPure,
           metricEstimates: metricEstimates2,
         }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoCrossovers,
           metricEstimates: metricEstimates2,
         }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammers,
           metricEstimates: metricEstimates2,
         }),
-        Fixtures.createAnalysisNext({
+        Fixtures.createAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
           metricEstimates: metricEstimates2,
         }),
@@ -488,10 +488,10 @@ test('allows you to change analysis strategy', async () => {
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.IttPure }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
-        Fixtures.createAnalysisNext({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
+        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
       ]}
       experiment={{ ...experiment, exposureEvents: undefined }}
       metrics={metrics}

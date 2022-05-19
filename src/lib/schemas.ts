@@ -356,30 +356,6 @@ export enum AssignmentCacheStatus {
   Stale = 'stale',
 }
 
-export const metricEstimatePreviousSchema = yup
-  .object({
-    /**
-     * @deprecated Misleading, use the CIs below.
-     */
-    estimate: extendedNumberSchema.defined(),
-    // These are for 95% CI, and should become deprecated when top_95 and bottom_95 are used
-    top: extendedNumberSchema.defined(),
-    bottom: extendedNumberSchema.defined(),
-    // For future use:
-    top_99: extendedNumberSchema,
-    bottom_99: extendedNumberSchema,
-    top_95: extendedNumberSchema,
-    bottom_95: extendedNumberSchema,
-    top_50: extendedNumberSchema,
-    bottom_50: extendedNumberSchema,
-  })
-  .defined()
-  .camelCase()
-export interface MetricEstimatePrevious extends yup.InferType<typeof metricEstimatePreviousSchema> {}
-
-// It is a bit complicated to type this properly and we won't need it for long anyway so we take this shortcut:
-export type MetricEstimatesPrevious = Record<string | 'diff' | 'ratio', MetricEstimatePrevious>
-
 export const distributionStatsSchema = yup
   .object({
     mean: extendedNumberSchema.defined(),
@@ -394,7 +370,7 @@ export const distributionStatsSchema = yup
   .camelCase()
 export interface DistributionStats extends yup.InferType<typeof distributionStatsSchema> {}
 
-export const metricEstimatesNextSchema = yup
+export const metricEstimatesSchema = yup
   .object({
     variations: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
     diffs: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
@@ -402,7 +378,7 @@ export const metricEstimatesNextSchema = yup
   })
   .defined()
   .camelCase()
-export interface MetricEstimatesNext extends yup.InferType<typeof metricEstimatesNextSchema> {}
+export interface MetricEstimates extends yup.InferType<typeof metricEstimatesSchema> {}
 
 export enum AnalysisStrategy {
   IttPure = 'itt_pure',
@@ -412,45 +388,7 @@ export enum AnalysisStrategy {
   PpNaive = 'pp_naive',
 }
 
-function toDistributionStatPrevious(distributionStats: DistributionStats): MetricEstimatePrevious {
-  return {
-    estimate: distributionStats.mean,
-    top: distributionStats.top_95,
-    bottom: distributionStats.bottom_95,
-  }
-}
-
-export function isRawMetricEstimatesNext(maybeMetricEstimatesNext: unknown): boolean {
-  return Object.prototype.hasOwnProperty.call(maybeMetricEstimatesNext, 'variations')
-}
-
-function isMetricEstimatesNext(
-  maybeMetricEstimatesNext: MetricEstimatesPrevious | MetricEstimatesNext,
-): maybeMetricEstimatesNext is MetricEstimatesNext {
-  return Object.prototype.hasOwnProperty.call(maybeMetricEstimatesNext, 'variations')
-}
-
-/**
- * Ensure a MetricsEstimatesPrevious.
- */
-export function ensureMetricEstimatesPrevious(
-  metricEstimates: MetricEstimatesPrevious | MetricEstimatesNext,
-  defaultVariationId: number,
-  otherVariationId: number,
-): MetricEstimatesPrevious {
-  // Check if we have a new metrics estimate object
-  if (isMetricEstimatesNext(metricEstimates)) {
-    return {
-      [`variation_${defaultVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[defaultVariationId]),
-      [`variation_${otherVariationId}`]: toDistributionStatPrevious(metricEstimates.variations[otherVariationId]),
-      diff: toDistributionStatPrevious(metricEstimates.diffs[`${otherVariationId}_${defaultVariationId}`]),
-      ratio: toDistributionStatPrevious(metricEstimates.ratios[`${otherVariationId}_${defaultVariationId}`]),
-    }
-  }
-  return metricEstimates
-}
-
-export const analysisPreviousSchema = yup
+export const analysisSchema = yup
   .object({
     metricAssignmentId: idSchema.defined(),
     analysisDatetime: dateSchema.defined(),
@@ -458,49 +396,15 @@ export const analysisPreviousSchema = yup
     // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
     participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
-    metricEstimates: yup.object().nullable().defined() as yup.Schema<MetricEstimatesPrevious | null>,
+    metricEstimates: metricEstimatesSchema.nullable().defined(),
   })
   .defined()
   .camelCase()
-export interface AnalysisPrevious extends yup.InferType<typeof analysisPreviousSchema> {}
-
-export const analysisNextSchema = yup
-  .object({
-    metricAssignmentId: idSchema.defined(),
-    analysisDatetime: dateSchema.defined(),
-    analysisStrategy: yup.string().oneOf(Object.values(AnalysisStrategy)).defined(),
-    // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
-    // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
-    participantStats: yup.object().defined() as yup.Schema<Record<string, number>>,
-    metricEstimates: metricEstimatesNextSchema.nullable().defined(),
-  })
-  .defined()
-  .camelCase()
-export interface AnalysisNext extends yup.InferType<typeof analysisNextSchema> {}
-
-export type AnalysisMixed = AnalysisNext | AnalysisPrevious
-
-/**
- * Ensure an AnalysisPrevious. A tool for moving between AnalysisPrevious and AnalysisNext.
- */
-export function ensureAnalysisPrevious(analysis: AnalysisMixed, experiment: ExperimentFull): AnalysisPrevious {
-  const defaultVariationId = experiment && experiment.variations.find((v) => v.isDefault)?.variationId
-  const otherVariationId = experiment && experiment.variations.find((v) => !v.isDefault)?.variationId
-  // istanbul ignore next; Shouldn't occur
-  if (!defaultVariationId || !otherVariationId) {
-    throw new Error('Missing variationIds')
-  }
-  return {
-    ...analysis,
-    metricEstimates: analysis.metricEstimates
-      ? ensureMetricEstimatesPrevious(analysis.metricEstimates, defaultVariationId, otherVariationId)
-      : null,
-  }
-}
+export interface Analysis extends yup.InferType<typeof analysisSchema> {}
 
 export const analysisResponseSchema = yup
   .object({
-    analyses: yup.array(analysisNextSchema).defined(),
+    analyses: yup.array(analysisSchema).defined(),
   })
   .defined()
 export interface AnalysisResponse extends yup.InferType<typeof analysisResponseSchema> {}
@@ -534,7 +438,7 @@ export const experimentBareSchema = yup
 export interface ExperimentBare extends yup.InferType<typeof experimentBareSchema> {}
 
 export const experimentSummarySchema = experimentBareSchema.shape({
-  analyses: yup.array(analysisPreviousSchema).defined(),
+  analyses: yup.array(analysisSchema).defined(),
   description: yup.string().defined(),
 })
 export interface ExperimentSummary extends yup.InferType<typeof experimentSummarySchema> {}

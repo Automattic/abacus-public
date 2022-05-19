@@ -33,7 +33,7 @@ import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
 import * as Recommendations from 'src/lib/recommendations'
 import {
-  AnalysisNext,
+  Analysis,
   AnalysisStrategy,
   ExperimentFull,
   Metric,
@@ -54,7 +54,7 @@ import MetricAssignmentResults from './MetricAssignmentResults'
 type MetricAssignmentAnalysesData = {
   metricAssignment: MetricAssignment
   metric: Metric
-  analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
+  analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
 }
 
 const indicationSeverityClassSymbol = (severity: Analyses.HealthIndicationSeverity) => `indicationSeverity${severity}`
@@ -165,7 +165,7 @@ export default function ExperimentResults({
   experiment,
   metrics,
 }: {
-  analyses: AnalysisNext[]
+  analyses: Analysis[]
   experiment: ExperimentFull
   metrics: Metric[]
   debugMode?: boolean
@@ -207,7 +207,7 @@ export default function ExperimentResults({
       analysesByStrategyDateAsc: _.groupBy(
         _.orderBy(metricAssignmentAnalyses, ['analysisDatetime'], ['asc']),
         'analysisStrategy',
-      ) as Record<AnalysisStrategy, AnalysisNext[]>,
+      ) as Record<AnalysisStrategy, Analysis[]>,
     }
   })
 
@@ -226,7 +226,7 @@ export default function ExperimentResults({
             Recommendations.getMetricAssignmentRecommendation(
               experiment,
               metric,
-              analysis as AnalysisNext,
+              analysis as Analysis,
               variationDiffKey,
             ),
           ),
@@ -277,7 +277,7 @@ export default function ExperimentResults({
         Recommendations.getMetricAssignmentRecommendation(
           experiment,
           primaryMetricAssignmentAnalysesData.metric,
-          analysis as AnalysisNext,
+          analysis as Analysis,
           variationDiffKey,
         ),
       ),
@@ -347,7 +347,7 @@ export default function ExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
@@ -383,7 +383,7 @@ export default function ExperimentResults({
       }: {
         metric: Metric
         strategy: AnalysisStrategy
-        analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
         recommendation: Recommendations.Recommendation
       }) => {
         const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
@@ -435,7 +435,7 @@ export default function ExperimentResults({
       recommendation,
     }: {
       strategy: AnalysisStrategy
-      analysesByStrategyDateAsc: Record<AnalysisStrategy, AnalysisNext[]>
+      analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
       metricAssignment: MetricAssignment
       metric: Metric
       recommendation: Recommendations.Recommendation

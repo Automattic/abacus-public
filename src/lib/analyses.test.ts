@@ -16,35 +16,35 @@ describe('getParticipantCounts', () => {
           ],
         }),
         {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
             participantStats: {
               total: 100,
               variation_1: 40,
               variation_2: 70,
             },
           }),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
               total: 90,
               variation_1: 35,
               variation_2: 55,
             },
           }),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
             participantStats: {
               total: 85,
               variation_1: 40,
               variation_2: 45,
             },
           }),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
               total: 60,
               variation_1: 25,
               variation_2: 35,
             },
           }),
-          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
             participantStats: {
               total: 40,
               variation_1: 15,
@@ -134,35 +134,35 @@ describe('getExperimentParticipantStats', () => {
           ],
         }),
         {
-          [AnalysisStrategy.IttPure]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
             participantStats: {
               total: 130,
               variation_1: 40,
               variation_2: 70,
             },
           }),
-          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
               total: 90,
               variation_1: 35,
               variation_2: 55,
             },
           }),
-          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
             participantStats: {
               total: 85,
               variation_1: 40,
               variation_2: 45,
             },
           }),
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
               total: 60,
               variation_1: 25,
               variation_2: 35,
             },
           }),
-          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysisPrevious({
+          [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
             participantStats: {
               total: 40,
               variation_1: 15,
@@ -234,35 +234,35 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
             ],
           }),
           {
-            [AnalysisStrategy.IttPure]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
               participantStats: {
                 total: 130,
                 variation_1: 40,
                 variation_2: 70,
               },
             }),
-            [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
               participantStats: {
                 total: 90,
                 variation_1: 35,
                 variation_2: 55,
               },
             }),
-            [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
               participantStats: {
                 total: 85,
                 variation_1: 40,
                 variation_2: 45,
               },
             }),
-            [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
               participantStats: {
                 total: 60,
                 variation_1: 25,
                 variation_2: 35,
               },
             }),
-            [AnalysisStrategy.PpNaive]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
               participantStats: {
                 total: 40,
                 variation_1: 15,
@@ -348,14 +348,14 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
             ],
           }),
           {
-            [AnalysisStrategy.IttPure]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
               participantStats: {
                 total: 0,
                 variation_1: 0,
                 variation_2: 0,
               },
             }),
-            [AnalysisStrategy.PpNaive]: Fixtures.createAnalysisPrevious({
+            [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
               participantStats: {
                 total: 0,
                 variation_1: 0,

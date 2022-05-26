@@ -253,7 +253,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-131"
@@ -349,7 +349,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-131"
@@ -417,7 +417,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-131"
@@ -485,7 +485,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-131"
@@ -1868,7 +1868,7 @@ exports[`allows you to change analysis strategy 1`] = `
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-391"
@@ -1954,7 +1954,7 @@ exports[`allows you to change analysis strategy 1`] = `
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-391"
@@ -2022,7 +2022,7 @@ exports[`allows you to change analysis strategy 1`] = `
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-391"
@@ -2090,7 +2090,7 @@ exports[`allows you to change analysis strategy 1`] = `
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-391"
@@ -2952,7 +2952,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-42"
@@ -3026,7 +3026,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-42"
@@ -3094,7 +3094,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-42"
@@ -3162,7 +3162,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                        style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                       >
                         <span
                           class="makeStyles-metricAssignmentNameLine-42"
@@ -4241,7 +4241,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-79"
@@ -4337,7 +4337,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-79"
@@ -4405,7 +4405,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-79"
@@ -4473,7 +4473,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-79"
@@ -5772,7 +5772,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-183"
@@ -5870,7 +5870,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-183"
@@ -5938,7 +5938,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-183"
@@ -6006,7 +6006,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-183"
@@ -7313,7 +7313,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-235"
@@ -7392,7 +7392,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-235"
@@ -7460,7 +7460,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-235"
@@ -7528,7 +7528,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-235"
@@ -8841,7 +8841,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-287"
@@ -8927,7 +8927,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-287"
@@ -8995,7 +8995,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-287"
@@ -9063,7 +9063,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-287"
@@ -10957,7 +10957,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-339"
@@ -11043,7 +11043,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-339"
@@ -11111,7 +11111,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-339"
@@ -11179,7 +11179,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
-                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600;"
+                      style="box-sizing: border-box; font-family: 'Roboto Mono', monospace; font-weight: 600; min-width: 450px;"
                     >
                       <span
                         class="makeStyles-metricAssignmentNameLine-339"

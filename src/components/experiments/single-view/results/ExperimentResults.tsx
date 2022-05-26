@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: 'pre',
     },
     metricAssignmentNameLine: {
-      whiteSpace: 'nowrap',
+      wordBreak: 'break-word',
     },
   }),
 )
@@ -335,6 +335,7 @@ export default function ExperimentResults({
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
         fontWeight: 600,
+        minWidth: 450,
       },
     },
     {

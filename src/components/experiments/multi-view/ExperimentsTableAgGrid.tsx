@@ -8,7 +8,7 @@ import { ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community'
 import { AgGridReact } from 'ag-grid-react'
 import clsx from 'clsx'
 import React, { useEffect, useRef, useState } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useHistory, useLocation } from 'react-router-dom'
 
 import DatetimeText from 'src/components/general/DatetimeText'
 import MetricValue from 'src/components/general/MetricValue'
@@ -101,6 +101,8 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
     gridColumnApiRef.current = gridColumnApiRef.current = event.columnApi
 
     event.api.sizeColumnsToFit()
+
+    searchQuery && setSearchState(searchQuery)
   }
 
   const onGridResize = () => {
@@ -111,10 +113,16 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
     gridApiRef.current.sizeColumnsToFit()
   }
 
+  const history = useHistory()
+  const { pathname, search } = useLocation()
+  const searchQuery = Object.fromEntries(new URLSearchParams(search).entries())?.search
+
   const [searchState, setSearchState] = useState<string>('')
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchState(event.target.value)
+    event.target.value ? history.replace(`${pathname}?search=${event.target.value}`) : history.replace(pathname)
   }
+
   useEffect(() => {
     // istanbul ignore next; trivial and shouldn't occur
     if (!gridApiRef.current) {
@@ -124,13 +132,12 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
     gridApiRef.current?.setQuickFilter(searchState)
   }, [searchState])
 
-  const onReset = () => {
+  const onNewDataRender = () => {
     // istanbul ignore next; trivial and shouldn't occur
     if (!gridApiRef.current || !gridColumnApiRef.current) {
       return
     }
 
-    setSearchState('')
     gridColumnApiRef.current.autoSizeAllColumns()
     gridColumnApiRef.current.resetColumnState()
     gridApiRef.current.setFilterModel(null)
@@ -149,6 +156,12 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
       ],
       defaultState: { sort: null },
     })
+  }
+
+  const onReset = () => {
+    setSearchState('')
+    history.push(pathname)
+    onNewDataRender()
   }
 
   return (
@@ -262,7 +275,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
           ]}
           rowData={experiments}
           containerStyle={{ flex: 1, height: 'auto' }}
-          onFirstDataRendered={onReset}
+          onFirstDataRendered={onNewDataRender}
           onGridReady={onGridReady}
           onGridSizeChanged={onGridResize}
         />

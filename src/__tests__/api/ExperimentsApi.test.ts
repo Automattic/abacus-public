@@ -123,7 +123,7 @@ describe('ExperimentsApi.ts module', () => {
 
     it('should create a new experiment', async () => {
       const returnedExperiment = await validationErrorDisplayer(
-        ExperimentsApi.create((createRawNewExperiment() as unknown) as ExperimentFullNew),
+        ExperimentsApi.create(createRawNewExperiment() as unknown as ExperimentFullNew),
       )
       expect(returnedExperiment.experimentId).toBeGreaterThan(0)
     })
@@ -132,7 +132,7 @@ describe('ExperimentsApi.ts module', () => {
   describe('put', () => {
     it('should put an existing experiment', async () => {
       const returnedExperiment = await validationErrorDisplayer(
-        ExperimentsApi.put(1, (createRawNewExperiment() as unknown) as ExperimentFullNew),
+        ExperimentsApi.put(1, createRawNewExperiment() as unknown as ExperimentFullNew),
       )
       expect(returnedExperiment.experimentId).toEqual(1)
     })
@@ -146,7 +146,7 @@ describe('ExperimentsApi.ts module', () => {
         ownerLogin: 'owner-nickname',
       }
       const returnedExperiment = await validationErrorDisplayer(
-        ExperimentsApi.patch(1, (rawNewExperiment as unknown) as Partial<ExperimentFull>),
+        ExperimentsApi.patch(1, rawNewExperiment as unknown as Partial<ExperimentFull>),
       )
       expect(returnedExperiment.experimentId).toBeGreaterThan(0)
     })

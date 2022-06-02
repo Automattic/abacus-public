@@ -70,9 +70,7 @@ function exposureEventToFormData(exposureEvent: Event): ExposureEventFormData {
 /**
  * Takes an experiment object and formats it for use as form-data in ExperimentForm.
  */
-export function experimentToFormData(
-  experiment: Partial<ExperimentFull>,
-): {
+export function experimentToFormData(experiment: Partial<ExperimentFull>): {
   startDatetime: string
   variations: VariationFormData[]
   segmentAssignments: SegmentAssignmentFormData[]
@@ -118,9 +116,7 @@ export type ExperimentFormData = ReturnType<typeof experimentToFormData>
 /**
  * Convert a metric for use as form data in Formik.
  */
-export const metricToFormData: (
-  metric: Partial<Metric>,
-) => {
+export const metricToFormData: (metric: Partial<Metric>) => {
   parameterType: MetricParameterType
   name: string
   eventParams: string | undefined
@@ -140,9 +136,7 @@ export type MetricFormData = ReturnType<typeof metricToFormData>
 /**
  * Convert a tag for use as form data in Formik.
  */
-export const tagToFormData: (
-  tag: Partial<TagBare>,
-) => {
+export const tagToFormData: (tag: Partial<TagBare>) => {
   name: string
   description: string
 } = (tag: Partial<TagBare>) => ({

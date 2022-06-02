@@ -112,7 +112,7 @@ export default function AbacusAutocomplete<Multiple extends boolean>(
           return <TextField {...params} error={!!error} helperText={_.isString(error) ? error : undefined} />
         }
       }}
-      value={(innerValue as unknown) as Value<AutocompleteItem, Multiple, false, false>}
+      value={innerValue as unknown as Value<AutocompleteItem, Multiple, false, false>}
       onChange={onChange}
     />
   )

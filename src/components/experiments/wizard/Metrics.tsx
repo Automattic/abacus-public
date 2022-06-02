@@ -322,9 +322,8 @@ const Metrics = ({
   const decorationClasses = useDecorationStyles()
 
   // Metric Assignments
-  const [metricAssignmentsField, _metricAssignmentsFieldMetaProps, metricAssignmentsFieldHelperProps] = useField<
-    MetricAssignment[]
-  >('experiment.metricAssignments')
+  const [metricAssignmentsField, _metricAssignmentsFieldMetaProps, metricAssignmentsFieldHelperProps] =
+    useField<MetricAssignment[]>('experiment.metricAssignments')
   const [selectedMetric, setSelectedMetric] = useState<Metric | null>(null)
   const onChangeSelectedMetricOption = (_event: unknown, value: Metric | null) => setSelectedMetric(value)
 
@@ -344,9 +343,8 @@ const Metrics = ({
     formikProps.errors.experiment?.metricAssignments
 
   // ### Exposure Events
-  const [exposureEventsField, _exposureEventsFieldMetaProps, _exposureEventsFieldHelperProps] = useField<EventNew[]>(
-    'experiment.exposureEvents',
-  )
+  const [exposureEventsField, _exposureEventsFieldMetaProps, _exposureEventsFieldHelperProps] =
+    useField<EventNew[]>('experiment.exposureEvents')
 
   return (
     <div className={classes.root}>

@@ -52,9 +52,11 @@ const useMetricDetailStyles = makeStyles((theme: Theme) =>
 const MetricDetail = ({ metric: metricInitial }: { metric: Metric }) => {
   const classes = useMetricDetailStyles()
 
-  const { isLoading, data: metric, error } = useDataSource(() => MetricsApi.findById(metricInitial.metricId), [
-    metricInitial.metricId,
-  ])
+  const {
+    isLoading,
+    data: metric,
+    error,
+  } = useDataSource(() => MetricsApi.findById(metricInitial.metricId), [metricInitial.metricId])
   useDataLoadingError(error)
 
   const isReady = !isLoading && !error

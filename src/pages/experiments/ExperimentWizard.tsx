@@ -49,22 +49,28 @@ export default function WizardEdit({
   const experimentId = experimentIdSlug !== undefined && parseIdSlug(experimentIdSlug)
   debug(`ExperimentWizard#render expermentIdSlug: ${experimentIdSlug ?? ''}, mode: ${experimentWizardMode}`)
 
-  const { isLoading: experimentIsLoading, data: experiment, error: experimentError } = useDataSource(
+  const {
+    isLoading: experimentIsLoading,
+    data: experiment,
+    error: experimentError,
+  } = useDataSource(
     async () => (experimentId ? await ExperimentsApi.findById(experimentId) : ({} as ExperimentFull)),
     [experimentId],
   )
   useDataLoadingError(experimentError, 'Experiment')
 
-  const { isLoading: metricsIsLoading, data: indexedMetrics, error: metricsError } = useDataSource(
-    async () => Normalizers.indexMetrics(await MetricsApi.findAll()),
-    [],
-  )
+  const {
+    isLoading: metricsIsLoading,
+    data: indexedMetrics,
+    error: metricsError,
+  } = useDataSource(async () => Normalizers.indexMetrics(await MetricsApi.findAll()), [])
   useDataLoadingError(metricsError, 'Metrics')
 
-  const { isLoading: segmentsIsLoading, data: indexedSegments, error: segmentsError } = useDataSource(
-    async () => Normalizers.indexSegments(await SegmentsApi.findAll()),
-    [],
-  )
+  const {
+    isLoading: segmentsIsLoading,
+    data: indexedSegments,
+    error: segmentsError,
+  } = useDataSource(async () => Normalizers.indexSegments(await SegmentsApi.findAll()), [])
   useDataLoadingError(segmentsError, 'Segments')
 
   const exclusionGroupCompletionDataSource = useDataSource(async () => {

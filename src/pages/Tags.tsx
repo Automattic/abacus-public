@@ -52,7 +52,11 @@ const TagsIndexPage = (): JSX.Element => {
   // Edit Tag Modal
   const [editTagTagId, setEditTagTagId] = useState<number | null>(null)
   const isEditingTag = editTagTagId !== null
-  const { isLoading: editTagIsLoading, data: editTagInitialTag, error: editTagError } = useDataSource(async () => {
+  const {
+    isLoading: editTagIsLoading,
+    data: editTagInitialTag,
+    error: editTagError,
+  } = useDataSource(async () => {
     return editTagTagId === null ? null : await TagsApi.findById(editTagTagId)
   }, [editTagTagId])
   useDataLoadingError(editTagError, 'Tag to edit')
@@ -67,7 +71,7 @@ const TagsIndexPage = (): JSX.Element => {
       if (!editTagTagId) {
         throw new Error(`Missing tagId, this shouldn't happen.`)
       }
-      await TagsApi.put(editTagTagId, (tag as unknown) as TagFullNew)
+      await TagsApi.put(editTagTagId, tag as unknown as TagFullNew)
       enqueueSnackbar('Tag Edited!', { variant: 'success' })
       reloadRef.current()
       setEditTagTagId(null)
@@ -87,7 +91,7 @@ const TagsIndexPage = (): JSX.Element => {
   }
   const onSubmitAddTag = async ({ tag }: { tag: TagFormData }) => {
     try {
-      await TagsApi.create((tag as unknown) as TagFullNew)
+      await TagsApi.create(tag as unknown as TagFullNew)
       enqueueSnackbar('Tag Added!', { variant: 'success' })
       reloadRef.current()
       setIsAddingTag(false)

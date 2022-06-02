@@ -71,7 +71,7 @@ const MetricsIndexPage = (): JSX.Element => {
       if (!editMetricMetricId) {
         throw new Error(`Missing metricId, this shouldn't happen.`)
       }
-      await MetricsApi.put(editMetricMetricId, (metric as unknown) as MetricNew)
+      await MetricsApi.put(editMetricMetricId, metric as unknown as MetricNew)
       enqueueSnackbar('Metric Edited!', { variant: 'success' })
       reloadRef.current()
       setEditMetricMetricId(null)
@@ -91,7 +91,7 @@ const MetricsIndexPage = (): JSX.Element => {
   }
   const onSubmitAddMetric = async ({ metric }: { metric: MetricFormData }) => {
     try {
-      await MetricsApi.create((metric as unknown) as MetricNew)
+      await MetricsApi.create(metric as unknown as MetricNew)
       enqueueSnackbar('Metric Added!', { variant: 'success' })
       reloadRef.current()
       setIsAddingMetric(false)

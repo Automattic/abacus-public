@@ -161,7 +161,7 @@ function MetricAssignmentsPanel({
   }
   const onSubmitAssignMetric = async (formData: { metricAssignment: typeof assignMetricInitialAssignMetric }) => {
     try {
-      await ExperimentsApi.assignMetric(experiment, (formData.metricAssignment as unknown) as MetricAssignmentNew)
+      await ExperimentsApi.assignMetric(experiment, formData.metricAssignment as unknown as MetricAssignmentNew)
       enqueueSnackbar('Metric Assigned Successfully!', { variant: 'success' })
       experimentReloadRef.current()
       setIsAssigningMetric(false)
@@ -340,7 +340,7 @@ function MetricAssignmentsPanel({
                         id={`metricAssignment.minDifference`}
                         metricParameterType={
                           (formikProps.values.metricAssignment.metricId &&
-                            indexedMetrics[(formikProps.values.metricAssignment.metricId as unknown) as number]
+                            indexedMetrics[formikProps.values.metricAssignment.metricId as unknown as number]
                               .parameterType) ||
                           MetricParameterType.Conversion
                         }

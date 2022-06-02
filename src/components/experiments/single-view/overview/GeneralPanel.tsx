@@ -137,7 +137,7 @@ function GeneralPanel({
   const generalEditValidationSchema = yupPick(experimentFullSchema, ['description', 'ownerLogin']).shape({
     ...(canEditEndDate && {
       // We need to ensure the end date is in the future
-      endDatetime: ((yup.reach(experimentFullSchema, 'endDatetime') as unknown) as yup.MixedSchema).test(
+      endDatetime: (yup.reach(experimentFullSchema, 'endDatetime') as unknown as yup.MixedSchema).test(
         'future-end-date',
         'End date (UTC) must be in the future.',
         // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
@@ -153,7 +153,7 @@ function GeneralPanel({
         formData.experiment,
         canEditEndDate ? ['description', 'ownerLogin', 'endDatetime'] : ['description', 'ownerLogin'],
       )
-      await ExperimentsApi.patch(experiment.experimentId, (experimentPatch as unknown) as Partial<ExperimentFull>)
+      await ExperimentsApi.patch(experiment.experimentId, experimentPatch as unknown as Partial<ExperimentFull>)
       enqueueSnackbar('Experiment Updated!', { variant: 'success' })
       experimentReloadRef.current()
       setIsEditing(false)

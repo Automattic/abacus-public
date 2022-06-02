@@ -104,22 +104,28 @@ export default function ExperimentPageView({
   )
   useDataLoadingError(experimentError, 'Experiment')
 
-  const { isLoading: metricsIsLoading, data: metrics, error: metricsError } = useDataSource(
-    () => MetricsApi.findAll(),
-    [],
-  )
+  const {
+    isLoading: metricsIsLoading,
+    data: metrics,
+    error: metricsError,
+  } = useDataSource(() => MetricsApi.findAll(), [])
   useDataLoadingError(metricsError, 'Metrics')
 
-  const { isLoading: segmentsIsLoading, data: segments, error: segmentsError } = useDataSource(
-    () => SegmentsApi.findAll(),
-    [],
-  )
+  const {
+    isLoading: segmentsIsLoading,
+    data: segments,
+    error: segmentsError,
+  } = useDataSource(() => SegmentsApi.findAll(), [])
   useDataLoadingError(segmentsError, 'Segments')
 
   const { isLoading: tagsIsLoading, data: tags, error: tagsError } = useDataSource(() => TagsApi.findAll(), [])
   useDataLoadingError(tagsError, 'Tags')
 
-  const { isLoading: analysesIsLoading, data: analyses, error: analysesError } = useDataSource(async () => {
+  const {
+    isLoading: analysesIsLoading,
+    data: analyses,
+    error: analysesError,
+  } = useDataSource(async () => {
     if (!experimentId) {
       return createUnresolvingPromise<Schemas.Analysis[]>()
     }

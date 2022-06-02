@@ -16,8 +16,8 @@ function createControllablePromise() {
   })
 
   return {
-    resolve: (resOuter as unknown) as (...x: unknown[]) => void,
-    reject: (rejOuter as unknown) as (...x: unknown[]) => void,
+    resolve: resOuter as unknown as (...x: unknown[]) => void,
+    reject: rejOuter as unknown as (...x: unknown[]) => void,
     promise,
   }
 }

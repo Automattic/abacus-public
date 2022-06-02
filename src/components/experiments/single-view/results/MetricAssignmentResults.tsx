@@ -122,18 +122,15 @@ const differenceOverviewMessages: Record<
   Record<StringifiedStatisticalDifference, string>
 > = {
   [Recommendations.PracticalSignificanceStatus.Yes]: {
-    true:
-      'Deploy {{ variation }} with confidence. {{ Variation }} is winning and there is high certainty that the change is statistically and practically significant.',
+    true: 'Deploy {{ variation }} with confidence. {{ Variation }} is winning and there is high certainty that the change is statistically and practically significant.',
     false: 'There is high certainty that the change is practically significant.',
   },
   [Recommendations.PracticalSignificanceStatus.Uncertain]: {
-    true:
-      'Deploy {{ variation }}  cautiously. {{ Variation }} is ahead and is statistically different, but there is not enough certainty to say the change is practically significant.',
+    true: 'Deploy {{ variation }}  cautiously. {{ Variation }} is ahead and is statistically different, but there is not enough certainty to say the change is practically significant.',
     false: 'There is not enough certainty to draw a conclusion at this time.',
   },
   [Recommendations.PracticalSignificanceStatus.No]: {
-    true:
-      "Deploy {{ variation }}  cautiously. {{ Variation }} is barely ahead and is statistically different, but there is high certainty that the change isn't practically significant.",
+    true: "Deploy {{ variation }}  cautiously. {{ Variation }} is barely ahead and is statistically different, but there is high certainty that the change isn't practically significant.",
     false:
       'Deploy either variation. There is high certainty that difference in performance is not practically significant',
   },

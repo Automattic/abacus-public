@@ -57,6 +57,8 @@ module.exports = {
     'plugin:react/recommended',
 
     'plugin:react-hooks/recommended',
+
+    'plugin:storybook/recommended',
   ],
   plugins: ['@typescript-eslint', 'jsx-a11y', 'promise', 'react-hooks', 'simple-import-sort'],
   rules: {

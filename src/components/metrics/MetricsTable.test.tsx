@@ -8,7 +8,7 @@ import { render } from 'src/test-helpers/test-utils'
 import MetricsTable from './MetricsTable'
 
 jest.mock('src/api/MetricsApi')
-const mockedMetricsApi = (MetricsApi as unknown) as jest.Mocked<typeof MetricsApi>
+const mockedMetricsApi = MetricsApi as unknown as jest.Mocked<typeof MetricsApi>
 
 test('with no metrics, renders an empty table', () => {
   const { container, getByText } = render(<MetricsTable metrics={[]} />)

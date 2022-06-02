@@ -111,11 +111,7 @@ test('experiment page view renders with null experimentId without crashing', asy
 
   await act(async () => {
     render(
-      <ExperimentPageView
-        experimentId={(null as unknown) as number}
-        view={ExperimentView.Overview}
-        debugMode={false}
-      />,
+      <ExperimentPageView experimentId={null as unknown as number} view={ExperimentView.Overview} debugMode={false} />,
     )
   })
 })

@@ -12,7 +12,7 @@ import { Metric } from 'src/lib/schemas'
 export default function MetricAutocomplete<
   Multiple extends boolean | undefined = undefined,
   DisableClearable extends boolean | undefined = undefined,
-  FreeSolo extends boolean | undefined = undefined
+  FreeSolo extends boolean | undefined = undefined,
 >(
   props: Omit<AutocompleteProps<Metric, Multiple, DisableClearable, FreeSolo>, 'renderInput'> & {
     error?: string | false

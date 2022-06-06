@@ -1,5 +1,5 @@
 import { getExperimentRunHours } from './experiments'
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Platform, Variation } from './schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Platform } from './schemas'
 
 /**
  * # Recommendations
@@ -228,12 +228,10 @@ export function getMetricAssignmentRecommendation(
 
   const { practicallySignificant, statisticallySignificant, isPositive } = diffCredibleIntervalStats
   const decision = getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats)
-  const defaultVariation = experiment.variations.find((variation) => variation.isDefault) as Variation
-  const nonDefaultVariation = experiment.variations.find((variation) => !variation.isDefault) as Variation
+  const [changeVariationId, baseVariationId] = variationDiffKey.split('_').map((x) => parseInt(x, 10))
   let chosenVariationId = undefined
   if ([Decision.VariantBarelyAhead, Decision.VariantAhead, Decision.VariantWins].includes(decision)) {
-    chosenVariationId =
-      isPositive === metric.higherIsBetter ? nonDefaultVariation.variationId : defaultVariation.variationId
+    chosenVariationId = isPositive === metric.higherIsBetter ? changeVariationId : baseVariationId
   }
 
   const strongEnoughForDeployment = isDataStrongEnough(

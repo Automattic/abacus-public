@@ -153,6 +153,13 @@ const useStyles = makeStyles((theme: Theme) =>
     metricAssignmentNameLine: {
       wordBreak: 'break-word',
     },
+    abnControls: {
+      padding: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
+    abnVariationsSelector: {
+      display: 'flex',
+    },
   }),
 )
 
@@ -187,13 +194,30 @@ export default function ExperimentResults({
     setStrategy(event.target.value as AnalysisStrategy)
   }
 
-  const baseVariationId = experiment.variations.find((v) => v.isDefault)?.variationId
-  const changeVariationId = experiment.variations.find((v) => !v.isDefault)?.variationId
+  // For A/B/n baseline and change to compare
+  const [baseVariationId, setBaseVariationId] = useState<number | undefined>(
+    () => experiment.variations.find((v) => v.isDefault)?.variationId,
+  )
+  const [changeVariationId, setChangeVariationId] = useState<number | undefined>(
+    () => experiment.variations.find((v) => !v.isDefault)?.variationId,
+  )
+  const onBaseVariationIdChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const baseVariationId = event.target.value as number
+    setBaseVariationId(baseVariationId)
+    if (changeVariationId === baseVariationId) {
+      const notBaseVariationId = experiment.variations.find((v) => v.variationId !== baseVariationId)?.variationId
+      setChangeVariationId(notBaseVariationId)
+    }
+  }
+  const onChangeVariationIdChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setChangeVariationId(event.target.value as number)
+  }
   // istanbul ignore next; Shouldn't occur.
   if (!baseVariationId || !changeVariationId) {
     throw new Error('Missing base or change variations.')
   }
   const variationDiffKey = `${changeVariationId}_${baseVariationId}`
+  const isMultivariation = experiment.variations.length > 2
 
   const indexedMetrics = indexMetrics(metrics)
   const analysesByMetricAssignmentId = _.groupBy(analyses, 'metricAssignmentId')
@@ -468,7 +492,7 @@ export default function ExperimentResults({
       <div className={classes.root}>
         {hasAnalyses ? (
           <>
-            {experiment.variations.length > 2 && (
+            {isMultivariation && (
               <>
                 <Alert severity='error'>
                   <strong>A/B/n analysis is an ALPHA quality feature.</strong>
@@ -476,20 +500,61 @@ export default function ExperimentResults({
                   <br />
                   <strong>What&apos;s not working:</strong>
                   <ul>
-                    <li> Metric Assignment Table (Absolute/Relative Change, Analysis.) </li>
-                    <li> Summary text. </li>
-                    <li> Recommendations. </li>
-                    <li> Difference charts. </li>
                     <li> The health report. </li>
                   </ul>
                   <strong>What&apos;s working:</strong>
                   <ul>
-                    <li> Participation stats and charts. </li>
-                    <li> Analysis tables (when you open a metric assignment.)</li>
-                    <li> Variation value charts. </li>
-                    <li> Observed data. </li>
+                    <li> Everything else :-) </li>
                   </ul>
+                  <strong>
+                    IMPORTANT: Everything on this page is in the context of the new &quot;A/B/n Analysis Controls&quot;.
+                  </strong>
                 </Alert>
+                <br />
+                <Paper className={classes.abnControls}>
+                  <Typography variant='h5' gutterBottom>
+                    {' '}
+                    A/B/n Analysis Controls{' '}
+                  </Typography>
+                  <br />
+                  <div className={classes.abnVariationsSelector}>
+                    <FormControl>
+                      <InputLabel id='variation-base-selector-label'> Base Variation: </InputLabel>
+                      <Select
+                        id='variation-base-selector'
+                        labelId='variation-base-selector-label'
+                        value={baseVariationId}
+                        onChange={onBaseVariationIdChange}
+                      >
+                        {experiment.variations.map((variation) => (
+                          <MenuItem key={variation.variationId} value={variation.variationId}>
+                            {variation.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                      <FormHelperText>Base variation to compare against.</FormHelperText>
+                    </FormControl>
+                    &nbsp; &nbsp; &nbsp;
+                    <FormControl>
+                      <InputLabel id='variation-change-selector-label'> Change Variation: </InputLabel>
+                      <Select
+                        id='variation-change-selector'
+                        labelId='variation-change-selector-label'
+                        value={changeVariationId}
+                        onChange={onChangeVariationIdChange}
+                      >
+                        {experiment.variations
+                          .filter((v) => v.variationId !== baseVariationId)
+                          .map((variation) => (
+                            <MenuItem key={variation.variationId} value={variation.variationId}>
+                              {variation.name}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                      <FormHelperText>Change variation to measure against base.</FormHelperText>
+                    </FormControl>
+                  </div>
+                </Paper>
                 <br />
               </>
             )}

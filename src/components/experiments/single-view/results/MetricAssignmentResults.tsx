@@ -31,6 +31,7 @@ import {
   Metric,
   MetricAssignment,
   MetricParameterType,
+  Variation,
 } from 'src/lib/schemas'
 import * as Visualizations from 'src/lib/visualizations'
 
@@ -223,12 +224,21 @@ export default function MetricAssignmentResults({
     return <MissingAnalysisMessage />
   }
 
-  const [_changeVariationId, baseVariationId] = variationDiffKey.split('_')
+  const [changeVariationId, baseVariationId] = variationDiffKey.split('_').map((x) => parseInt(x, 10))
+  const variations = [
+    experiment.variations.find((v) => v.variationId === baseVariationId),
+    experiment.variations.find((v) => v.variationId === changeVariationId),
+  ] as unknown as [Variation, Variation]
+  // istanbul ignore next; Shouldn't occur
+  if (!variations[0] || !variations[1]) {
+    throw new Error('Missing variations matching base/change')
+  }
+  const isMultivariation = experiment.variations.length > 2
 
   const dates = analyses.map(({ analysisDatetime }) => analysisDatetime.toISOString())
 
   const plotlyDataVariationGraph: Array<Partial<PlotData>> = [
-    ..._.flatMap(experiment.variations, (variation, index) => {
+    ..._.flatMap(variations, (variation, index) => {
       return [
         {
           name: `${variation.name}: lower bound`,
@@ -457,7 +467,7 @@ export default function MetricAssignmentResults({
             </TableRow>
           </TableHead>
           <TableBody>
-            {experiment.variations.map((variation) => (
+            {variations.map((variation) => (
               <React.Fragment key={variation.variationId}>
                 <TableRow>
                   <TableCell
@@ -467,7 +477,10 @@ export default function MetricAssignmentResults({
                     valign='top'
                     className={clsx(classes.rowHeader, classes.headerCell, classes.credibleIntervalHeader)}
                   >
-                    <span className={classes.monospace}>{variation.name}</span>
+                    <span className={classes.monospace}>
+                      {variation.name}
+                      {isMultivariation && <> {variation.variationId === baseVariationId ? '(Base)' : '(Change)'}</>}
+                    </span>
                   </TableCell>
                   <TableCell className={classes.monospace} align='right'>
                     <MetricValueInterval
@@ -479,7 +492,7 @@ export default function MetricAssignmentResults({
                     />
                   </TableCell>
                   <TableCell className={classes.monospace} align='right'>
-                    {variation.isDefault ? (
+                    {variation.variationId === baseVariationId ? (
                       'Baseline'
                     ) : (
                       <MetricValueInterval
@@ -492,7 +505,7 @@ export default function MetricAssignmentResults({
                     )}
                   </TableCell>
                   <TableCell className={classes.monospace} align='right'>
-                    {variation.isDefault ? (
+                    {variation.variationId === baseVariationId ? (
                       'Baseline'
                     ) : (
                       <MetricValueInterval
@@ -581,7 +594,7 @@ export default function MetricAssignmentResults({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {experiment.variations.map((variation) => (
+                {variations.map((variation) => (
                   <React.Fragment key={variation.variationId}>
                     <TableRow>
                       <TableCell

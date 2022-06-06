@@ -1,4 +1,4 @@
-import { fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
 import React from 'react'
 import Plot from 'react-plotly.js'
 
@@ -245,6 +245,42 @@ test('A/B/n: renders correctly for 1 analysis datapoint, not statistically signi
   expect(container.querySelector('.analysis-latest-results .analysis-detail-panel')).toMatchSnapshot()
 
   expect(mockedPlot).toMatchSnapshot()
+
+  const baseVariationField = screen.getByRole('button', { name: /Base Variation/ })
+  const changeVariationField = screen.getByRole('button', { name: /Change Variation/ })
+
+  await act(async () => {
+    fireEvent.focus(baseVariationField)
+  })
+  await act(async () => {
+    fireEvent.keyDown(baseVariationField, { key: 'Enter' })
+  })
+  await act(async () => {
+    fireEvent.click(await screen.findByRole('option', { name: /treatment1/ }))
+  })
+
+  await act(async () => {
+    fireEvent.focus(changeVariationField)
+  })
+  await act(async () => {
+    fireEvent.keyDown(changeVariationField, { key: 'Enter' })
+  })
+  await act(async () => {
+    fireEvent.click(await screen.findByRole('option', { name: /treatment2/ }))
+  })
+
+  // Triggering the second select to not change when it matches the first select:
+  await act(async () => {
+    fireEvent.focus(changeVariationField)
+  })
+  await act(async () => {
+    fireEvent.keyDown(baseVariationField, { key: 'Enter' })
+  })
+  await act(async () => {
+    fireEvent.click(await screen.findByRole('option', { name: /control/ }))
+  })
+
+  expect(container.querySelector('.analysis-latest-results')).toMatchSnapshot()
 })
 test('renders correctly for 1 analysis datapoint, statistically significant', async () => {
   const metricEstimates = {

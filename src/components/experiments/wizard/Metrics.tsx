@@ -501,18 +501,10 @@ const Metrics = ({
       <Alert severity='info' className={classes.metricsInfo}>
         <Link
           underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-primary-metric"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#8-define-primary-metric'
           target='_blank'
         >
           How do I choose a Primary Metric?
-        </Link>
-        &nbsp;
-        <Link
-          underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-does-change-expected-mean-for-a-metric"
-          target='_blank'
-        >
-          What is Change Expected?
         </Link>
       </Alert>
 
@@ -524,7 +516,7 @@ const Metrics = ({
       >
         <Link
           underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-attribution-window-for-a-metric"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#6-get-comfortable-with-metric-attribution-and-refund-windows'
           target='_blank'
         >
           An Attribution Window
@@ -548,7 +540,7 @@ const Metrics = ({
       >
         <Link
           underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#how-do-i-choose-a-minimum-difference-practically-equivalent-value-for-my-metrics"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#7-get-comfortable-with-minimum-differences'
           target='_blank'
         >
           Minimum Practical Difference values
@@ -562,7 +554,11 @@ const Metrics = ({
       </CollapsibleAlert>
 
       <Alert severity='info' className={classes.requestMetricInfo}>
-        <Link underline='always' href='https://betterexperiments.wordpress.com/?start=metric-request' target='_blank'>
+        <Link
+          underline='always'
+          href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#how-to-request-a-new-metric'
+          target='_blank'
+        >
           {"Can't find a metric? Request one!"}
         </Link>
       </Alert>
@@ -628,7 +624,7 @@ const Metrics = ({
       <Alert severity='info' className={classes.exposureEventsInfo}>
         <Link
           underline='always'
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#what-is-an-exposure-event-and-when-do-i-need-it"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/model-experiment/#attribution-windows'
           target='_blank'
         >
           What is an Exposure Event? And when do I need it?

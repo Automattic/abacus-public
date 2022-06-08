@@ -20,7 +20,7 @@ export default function ExperimentCodeSetup(): JSX.Element {
       <Typography variant='body1'>
         See{' '}
         <Link
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#writing-the-controlvariant-code-experiences"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/implement-code/'
           rel='noopener noreferrer'
           target='_blank'
           underline='always'
@@ -33,15 +33,15 @@ export default function ExperimentCodeSetup(): JSX.Element {
       <Typography variant='body1'>
         When testing manually, note that <strong>changes may take up to ten minutes to propagate</strong> due to{' '}
         <Link
-          href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+          href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
           rel='noopener noreferrer'
           target='_blank'
           underline='always'
         >
           the file system assignment cache
         </Link>
-        . As specified in the wiki, you will need to run <Code>svn up</Code> to update your sandbox copy of the cache to
-        reflect the latest changes.
+        . As specified in the FieldGuide, you will need to run <Code>svn up</Code> to update your sandbox copy of the
+        cache to reflect the latest changes.
       </Typography>
     </Paper>
   )

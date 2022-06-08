@@ -91,7 +91,7 @@ const ExperimentDisableButton = ({
             <Typography variant='body2' gutterBottom>
               Disabling an experiment will <strong>trigger the default experience to all users</strong>. Due to{' '}
               <Link
-                href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+                href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
                 rel='noopener noreferrer'
                 target='_blank'
               >

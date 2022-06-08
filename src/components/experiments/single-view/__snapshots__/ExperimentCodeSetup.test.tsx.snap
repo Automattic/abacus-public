@@ -18,7 +18,7 @@ exports[`renders as expected 1`] = `
        
       <a
         class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-        href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#writing-the-controlvariant-code-experiences"
+        href="https://fieldguide.automattic.com/the-experimentation-platform/implement-code/"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -39,13 +39,13 @@ exports[`renders as expected 1`] = `
        
       <a
         class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-        href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+        href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
         rel="noopener noreferrer"
         target="_blank"
       >
         the file system assignment cache
       </a>
-      . As specified in the wiki, you will need to run 
+      . As specified in the FieldGuide, you will need to run 
       <code
         class="MuiTypography-root makeStyles-root-2 MuiTypography-body1"
       >

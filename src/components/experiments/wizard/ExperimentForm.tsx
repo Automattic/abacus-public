@@ -304,16 +304,20 @@ const ExperimentForm = ({
                         Confirm and Submit Your Experiment
                       </Typography>
                       <Typography variant='body2' gutterBottom>
-                        Now is a good time to{' '}
-                        <Link href='https://github.com/Automattic/experimentation-platform/wiki' target='_blank'>
-                          check our wiki&apos;s experiment creation checklist
+                        Now is a good time to review the{' '}
+                        <Link
+                          underline='always'
+                          href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-checklist/'
+                          target='_blank'
+                        >
+                          experiment checklist
                         </Link>{' '}
-                        and confirm everything is in place.
+                        in the FG and confirm everything is in place.
                       </Typography>
 
                       <Typography variant='body2' gutterBottom>
-                        Once you submit your experiment it will be set to staging, where it can be edited up until you
-                        set it to running.
+                        Once you submit your experiment, it will be in staging and can be edited up until the start date
+                        or manually launched.
                       </Typography>
                       <Typography variant='body2' gutterBottom>
                         <strong> When you are ready, click the Submit button below.</strong>

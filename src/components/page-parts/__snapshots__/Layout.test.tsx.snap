@@ -53,7 +53,7 @@ exports[`renders layout with declared title and children, using a flexblox 1`] =
             </a>
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/Automattic/experimentation-platform/wiki"
+              href="https://fieldguide.automattic.com/the-experimentation-platform/"
               target="_blank"
             >
               Documentation
@@ -142,7 +142,7 @@ exports[`renders layout without title with children 1`] = `
             </a>
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/Automattic/experimentation-platform/wiki"
+              href="https://fieldguide.automattic.com/the-experimentation-platform/"
               target="_blank"
             >
               Documentation

@@ -300,7 +300,7 @@ export function getExperimentParticipantHealthIndicators(
       name: 'Assignment distribution',
       value: minVariationProbabilities.assignedDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#Assignment-distribution',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
       indicationBrackets: [
         {
           max: 0.001,
@@ -331,7 +331,7 @@ export function getExperimentParticipantHealthIndicators(
       name: 'Assignment distribution without crossovers and spammers',
       value: minVariationProbabilities.assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#Assignment-distribution-without-crossovers-and-spammers',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
       indicationBrackets: [
         {
           max: 0.001,
@@ -366,7 +366,7 @@ export function getExperimentParticipantHealthIndicators(
       name: 'Assignment distribution of exposed participants',
       value: minVariationProbabilities.exposedDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#assignment-distribution-of-exposed-participants',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
       indicationBrackets: [
         {
           max: 0.001,
@@ -400,7 +400,7 @@ export function getExperimentParticipantHealthIndicators(
       name: 'Ratio of crossovers to assigned',
       value: experimentParticipantStats.ratios.overall.assignedCrossoversToAssigned,
       unit: HealthIndicatorUnit.Ratio,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#ratio-of-crossovers-to-assigned',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
       indicationBrackets: [
         {
           max: 0.01,
@@ -431,7 +431,7 @@ export function getExperimentParticipantHealthIndicators(
       name: 'Ratio of spammers to assigned',
       value: experimentParticipantStats.ratios.overall.assignedSpammersToAssigned,
       unit: HealthIndicatorUnit.Ratio,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#ratio-of-spammers-to-assigned',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
       indicationBrackets: [
         {
           max: 0.1,
@@ -476,7 +476,7 @@ export function getExperimentHealthIndicators(experiment: ExperimentFull): Healt
       name: 'Experiment run time',
       value: Experiments.getExperimentRunHours(experiment) / 24,
       unit: HealthIndicatorUnit.Days,
-      link: 'https://github.com/Automattic/experimentation-platform/wiki/Experiment-Health#experiment-run-time',
+      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time',
       indicationBrackets: [
         {
           max: 3,

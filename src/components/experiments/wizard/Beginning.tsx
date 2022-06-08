@@ -34,10 +34,23 @@ const Beginning = (): JSX.Element => {
         <br />
       </Typography>
       <Alert severity='info'>
-        <Link underline='always' href='https://github.com/Automattic/experimentation-platform/wiki' target='_blank'>
-          Our wiki is a great place to start
-        </Link>
-        , it will instruct you on creating a P2 post.
+        Our{' '}
+        <Link
+          underline='always'
+          href='https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/'
+          target='_blank'
+        >
+          FieldGuide
+        </Link>{' '}
+        is a great place to start, it will instruct you on{' '}
+        <Link
+          underline='always'
+          href='https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/'
+          target='_blank'
+        >
+          documenting your experiment
+        </Link>{' '}
+        and creating a P2 post.
       </Alert>
       <Field
         className={classes.p2EntryField}

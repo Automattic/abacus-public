@@ -187,7 +187,7 @@ exports[`renders as expected at large width 1`] = `
                (
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -986,7 +986,7 @@ exports[`renders as expected at small width 1`] = `
                (
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -1787,7 +1787,7 @@ exports[`renders as expected with conclusion data 1`] = `
                (
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -2688,7 +2688,7 @@ exports[`renders as expected without conclusion data 1`] = `
                (
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
                 rel="noopener noreferrer"
                 target="_blank"
               >

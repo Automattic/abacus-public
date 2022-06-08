@@ -95,7 +95,7 @@ const ExperimentRunButton = ({
             Launching will <strong>release experiment code to our users.</strong> This may take up to ten minutes to
             propagate to all servers due to{' '}
             <Link
-              href="https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#the-file-system-cache"
+              href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
               rel='noopener noreferrer'
               target='_blank'
             >

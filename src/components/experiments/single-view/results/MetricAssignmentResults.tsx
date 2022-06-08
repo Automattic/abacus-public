@@ -388,11 +388,13 @@ export default function MetricAssignmentResults({
                 <Typography variant='body1'>
                   {getOverviewMessage(experiment, recommendation)}{' '}
                   <Link
-                    href={`https://github.com/Automattic/experimentation-platform/wiki/Experimenter's-Guide#reading-the-data`}
+                    underline='always'
+                    href={`https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/`}
                     target='_blank'
                   >
                     Learn more
                   </Link>
+                  .
                 </Typography>
               </TableCell>
             </TableRow>

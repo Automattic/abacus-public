@@ -50,14 +50,27 @@ test('renders as expected', () => {
           <div
             class="MuiAlert-message"
           >
+            Our
+             
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-              href="https://github.com/Automattic/experimentation-platform/wiki"
+              href="https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/"
               target="_blank"
             >
-              Our wiki is a great place to start
+              FieldGuide
             </a>
-            , it will instruct you on creating a P2 post.
+             
+            is a great place to start, it will instruct you on
+             
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+              href="https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/"
+              target="_blank"
+            >
+              documenting your experiment
+            </a>
+             
+            and creating a P2 post.
           </div>
         </div>
         <div

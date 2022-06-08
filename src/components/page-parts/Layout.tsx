@@ -149,7 +149,7 @@ const Layout = ({
                 /* istanbul ignore next; Development mode only */
                 isDebugMode() && <Link to='/tags'>Tags</Link>
               }
-              <MuiLink href='https://github.com/Automattic/experimentation-platform/wiki' target='_blank'>
+              <MuiLink href='https://fieldguide.automattic.com/the-experimentation-platform/' target='_blank'>
                 Documentation
               </MuiLink>
             </nav>

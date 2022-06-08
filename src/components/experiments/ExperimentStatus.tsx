@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: '#4CAF50',
     },
     running: {
-      backgroundColor: '#FF9800',
+      backgroundColor: theme.palette.warning.main,
     },
     staging: {
       backgroundColor: '#1E77A5',

@@ -41,6 +41,7 @@ import {
   MetricParameterType,
 } from 'src/lib/schemas'
 import * as Visualizations from 'src/lib/visualizations'
+import { useDecorationStyles } from 'src/styles/styles'
 import { isDebugMode } from 'src/utils/general'
 import { createStaticTableOptions } from 'src/utils/material-table'
 import { formatIsoDate } from 'src/utils/time'
@@ -100,6 +101,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '1.5rem',
       fontWeight: 500,
     },
+    summaryStatsSubtitle: {
+      marginRight: theme.spacing(1),
+    },
     summaryHealthPaper: {
       padding: theme.spacing(4),
       marginLeft: theme.spacing(2),
@@ -113,7 +117,7 @@ const useStyles = makeStyles((theme: Theme) =>
     [indicationSeverityClassSymbol(Analyses.HealthIndicationSeverity.Warning)]: {
       borderTopWidth: 12,
       borderTopStyle: 'solid',
-      borderTopColor: '#ffa500',
+      borderTopColor: theme.palette.warning.main,
     },
     [indicationSeverityClassSymbol(Analyses.HealthIndicationSeverity.Error)]: {
       borderTopWidth: 8,
@@ -160,6 +164,9 @@ const useStyles = makeStyles((theme: Theme) =>
     abnVariationsSelector: {
       display: 'flex',
     },
+    metricAssignmentNameSubtitle: {
+      color: theme.palette.grey.A700,
+    },
   }),
 )
 
@@ -178,6 +185,7 @@ export default function ExperimentResults({
   debugMode?: boolean
 }): JSX.Element {
   const classes = useStyles()
+  const decorationClasses = useDecorationStyles()
   const theme = useTheme()
 
   const availableAnalysisStrategies = [
@@ -351,7 +359,7 @@ export default function ExperimentResults({
           {metricAssignment.isPrimary && (
             <>
               <br />
-              <Attribute name='primary' />
+              <Attribute name='primary metric' className={classes.metricAssignmentNameSubtitle} />
             </>
           )}
         </>
@@ -595,7 +603,11 @@ export default function ExperimentResults({
                           <DeploymentRecommendation {...{ experiment, analysis: primaryMetricRecommendation }} />
                         </Typography>
                         <Typography variant='subtitle1'>
-                          <strong>primary metric</strong> recommendation
+                          <Tooltip title='The recommendation is metric specific and does not consider other metrics. Check the table below to analyze each metric.'>
+                            <span className={decorationClasses.tooltipped}>
+                              <strong>primary metric</strong> recommendation
+                            </span>
+                          </Tooltip>
                         </Typography>
                       </div>
                     </>

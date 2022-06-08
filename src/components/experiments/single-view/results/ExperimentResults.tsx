@@ -20,9 +20,9 @@ import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
 import { Alert } from '@material-ui/lab'
 import clsx from 'clsx'
 import _ from 'lodash'
-import MaterialTable from 'material-table'
+import MaterialTable, { MTableBodyRow } from 'material-table'
 import { PlotData } from 'plotly.js'
-import React, { useState } from 'react'
+import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import Plot from 'react-plotly.js'
 
 import Attribute from 'src/components/general/Attribute'
@@ -169,6 +169,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 )
+
+export const METRIC_DETAILS_AUTO_EXPAND_DELAY = 1500
 
 /**
  * Render the latest analyses for the experiment for each metric assignment as a single condensed table, using only
@@ -458,42 +460,59 @@ export default function ExperimentResults({
       },
     },
   ]
-
+  interface DetailPanelProps {
+    strategy: AnalysisStrategy
+    analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+    metricAssignment: MetricAssignment
+    metric: Metric
+    recommendation: Recommendations.Recommendation
+  }
   const DetailPanel = [
-    ({
-      strategy,
-      analysesByStrategyDateAsc,
-      metricAssignment,
-      metric,
-      recommendation,
-    }: {
-      strategy: AnalysisStrategy
-      analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
-      metricAssignment: MetricAssignment
-      metric: Metric
-      recommendation: Recommendations.Recommendation
-    }) => {
+    ({ strategy, analysesByStrategyDateAsc, metricAssignment, metric, recommendation }: DetailPanelProps) => {
       let disabled = recommendation.decision === Recommendations.Decision.ManualAnalysisRequired
       // istanbul ignore next; debug only
       disabled = disabled && !isDebugMode()
       return {
-        render: () => (
-          <MetricAssignmentResults
-            {...{
-              strategy,
-              analysesByStrategyDateAsc,
-              metricAssignment,
-              metric,
-              experiment,
-              recommendation,
-              variationDiffKey,
-            }}
-          />
-        ),
+        render: () => {
+          // Prevent automatically expanding the primary metric detail panel if any panel has been opened
+          expandPrimaryMetricPanelTimer.current && clearTimeout(expandPrimaryMetricPanelTimer.current)
+
+          return (
+            <MetricAssignmentResults
+              {...{
+                strategy,
+                analysesByStrategyDateAsc,
+                metricAssignment,
+                metric,
+                experiment,
+                recommendation,
+                variationDiffKey,
+              }}
+            />
+          )
+        },
         disabled,
       }
     },
   ]
+
+  // HACK: The following solution, while being imperative, it is required for automatically expanding the primary metric detail panel
+  const primaryMetricRowRef = useRef<typeof MTableBodyRow>(null)
+  const expandPrimaryMetricPanelTimer = useRef<ReturnType<typeof setInterval> | null>(null)
+  useEffect(() => {
+    const tableRow = primaryMetricRowRef.current as unknown as {
+      props: { data: DetailPanelProps; onToggleDetailPanel: (path: number[], detailPanel: () => ReactElement) => void }
+    }
+    expandPrimaryMetricPanelTimer.current = setTimeout(() => {
+      tableRow?.props.onToggleDetailPanel([0], DetailPanel[0](tableRow.props.data).render)
+    }, METRIC_DETAILS_AUTO_EXPAND_DELAY)
+
+    // clear on component unmount
+    return () => {
+      expandPrimaryMetricPanelTimer.current && clearTimeout(expandPrimaryMetricPanelTimer.current)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [primaryMetricRowRef.current])
 
   return (
     <div className='analysis-latest-results'>
@@ -654,6 +673,12 @@ export default function ExperimentResults({
                 }
               }}
               detailPanel={DetailPanel}
+              components={{
+                // eslint-disable-next-line @typescript-eslint/naming-convention
+                Row: (props: { data: { metricAssignment: MetricAssignment } }) => (
+                  <MTableBodyRow {...props} ref={props.data.metricAssignment?.isPrimary ? primaryMetricRowRef : null} />
+                ),
+              }}
             />
             <Typography variant='h3' className={classes.tableTitle}>
               Health Report

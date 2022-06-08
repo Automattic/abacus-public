@@ -2,7 +2,9 @@ import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testi
 import React from 'react'
 import Plot from 'react-plotly.js'
 
-import ExperimentResults from 'src/components/experiments/single-view/results/ExperimentResults'
+import ExperimentResults, {
+  METRIC_DETAILS_AUTO_EXPAND_DELAY,
+} from 'src/components/experiments/single-view/results/ExperimentResults'
 import { AnalysisStrategy, MetricParameterType } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { render } from 'src/test-helpers/test-utils'
@@ -13,6 +15,7 @@ jest.mock('react-plotly.js')
 const mockedPlot = Plot as jest.MockedClass<typeof Plot>
 beforeEach(() => {
   mockedPlot.mockClear()
+  jest.useFakeTimers()
 })
 
 const experiment = Fixtures.createExperimentFull()
@@ -282,6 +285,7 @@ test('A/B/n: renders correctly for 1 analysis datapoint, not statistically signi
 
   expect(container.querySelector('.analysis-latest-results')).toMatchSnapshot()
 })
+
 test('renders correctly for 1 analysis datapoint, statistically significant', async () => {
   const metricEstimates = {
     variations: {
@@ -542,4 +546,37 @@ test('allows you to change analysis strategy', async () => {
   fireEvent.click(analysisStrategyOption)
 
   expect(container).toMatchSnapshot()
+})
+
+test('opens the primary metric DetailPanel automatically after a predefined delay', async () => {
+  render(<ExperimentResults analyses={analyses} experiment={experiment} metrics={metrics} />)
+
+  expect(screen.queryByText(/Last analyzed/)).toBeNull()
+
+  // Fast-forward until the delay has been executed
+  jest.advanceTimersByTime(METRIC_DETAILS_AUTO_EXPAND_DELAY)
+  expect(screen.queryByText(/This is metric 1/)).toBeTruthy()
+
+  // Opening another panel should work
+  fireEvent.click(screen.getByText(/metric_3/))
+  expect(screen.queryByText(/This is metric 3/)).toBeTruthy()
+  expect(screen.getAllByText(/Last analyzed/)).toHaveLength(2)
+
+  // Closing the automatically opened panel should work
+  fireEvent.click(screen.getByText(/metric_1/))
+  expect(screen.queryByText(/This is metric 1/)).toBeNull()
+  expect(screen.getAllByText(/Last analyzed/)).toHaveLength(1)
+})
+
+test('prevents opening the primary metric DetailPanel automatically if the user has already opened a DetailPanel', async () => {
+  render(<ExperimentResults analyses={analyses} experiment={experiment} metrics={metrics} />)
+
+  fireEvent.click(screen.getByText(/metric_3/))
+  expect(screen.queryByText(/This is metric 3/)).toBeTruthy()
+  expect(screen.getAllByText(/Last analyzed/)).toHaveLength(1)
+
+  jest.advanceTimersByTime(METRIC_DETAILS_AUTO_EXPAND_DELAY)
+
+  expect(screen.queryByText(/This is metric 1/)).toBeNull()
+  expect(screen.getAllByText(/Last analyzed/)).toHaveLength(1)
 })

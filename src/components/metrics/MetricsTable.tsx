@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core'
 import debugFactory from 'debug'
 import MaterialTable from 'material-table'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import MetricsApi from 'src/api/MetricsApi'
 import { Metric } from 'src/lib/schemas'
@@ -49,6 +49,9 @@ const useMetricDetailStyles = makeStyles((theme: Theme) =>
   }),
 )
 
+const stringifyMetricParams = (metric: Metric): string =>
+  JSON.stringify(metric.parameterType === 'conversion' ? metric.eventParams : metric.revenueParams, null, 4)
+
 const MetricDetail = ({ metric: metricInitial }: { metric: Metric }) => {
   const classes = useMetricDetailStyles()
 
@@ -75,13 +78,7 @@ const MetricDetail = ({ metric: metricInitial }: { metric: Metric }) => {
               <TableRow>
                 <TableCell className={classes.headerCell}>Parameters:</TableCell>
                 <TableCell className={classes.dataCell}>
-                  <div className={classes.pre}>
-                    {JSON.stringify(
-                      metric.parameterType === 'conversion' ? metric.eventParams : metric.revenueParams,
-                      null,
-                      4,
-                    )}
-                  </div>
+                  <div className={classes.pre}>{stringifyMetricParams(metric)}</div>
                 </TableCell>
               </TableRow>
             </TableBody>
@@ -107,6 +104,15 @@ const MetricsTable = ({
 }): JSX.Element => {
   debug('MetricsTable#render')
 
+  const processedMetrics = useMemo(
+    () =>
+      metrics.map((metric) => ({
+        ...metric,
+        stringifiedParamsForSearch: stringifyMetricParams(metric),
+      })),
+    [metrics],
+  )
+
   const theme = useTheme()
   const tableColumns = [
     {
@@ -131,6 +137,12 @@ const MetricsTable = ({
         fontFamily: theme.custom.fonts.monospace,
       },
     },
+    {
+      field: 'stringifiedParamsForSearch',
+      hidden: true,
+      searchable: true,
+      width: 0,
+    },
   ]
 
   return (
@@ -149,7 +161,7 @@ const MetricsTable = ({
           : undefined
       }
       columns={tableColumns}
-      data={metrics}
+      data={processedMetrics}
       onRowClick={(_event, _rowData, togglePanel) => togglePanel && togglePanel()}
       options={{
         ...defaultTableOptions,

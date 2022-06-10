@@ -137,99 +137,15 @@ test('A/B/n: renders correctly for 1 analysis datapoint, not statistically signi
       }),
     ],
   })
-  const metricEstimates = {
-    variations: {
-      '1': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 1,
-      }),
-      '2': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 1,
-      }),
-      '3': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 1,
-      }),
-    },
-    diffs: {
-      '2_1': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: -1,
-        mean: 0,
-      }),
-      '1_2': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-      '3_1': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: -1,
-        mean: 0,
-      }),
-      '1_3': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-      '3_2': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: -1,
-        mean: 0,
-      }),
-      '2_3': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-    },
-    ratios: {
-      '2_1': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 0,
-      }),
-      '1_2': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-      '3_1': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 0,
-      }),
-      '1_3': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-      '3_2': Fixtures.createDistributionStats({
-        top_95: 1,
-        bottom_95: 0.5,
-        mean: 0,
-      }),
-      '2_3': Fixtures.createDistributionStats({
-        top_95: 0,
-        bottom_95: 0,
-        mean: 0,
-      }),
-    },
-  }
   const { container } = render(
     <ExperimentResults
       analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers, metricEstimates }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers, metricEstimates }),
-        Fixtures.createAnalysis({
+        Fixtures.createMultiVariationAnalysis({ analysisStrategy: AnalysisStrategy.PpNaive }),
+        Fixtures.createMultiVariationAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
+        Fixtures.createMultiVariationAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
+        Fixtures.createMultiVariationAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
+        Fixtures.createMultiVariationAnalysis({
           analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
-          metricEstimates,
         }),
       ]}
       experiment={experiment}

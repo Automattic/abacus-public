@@ -68,6 +68,11 @@ const useStyles = makeStyles((theme: Theme) =>
     rowHeader: {
       verticalAlign: 'top',
     },
+    rowVariationNotSelected: {
+      '& > th, & > td': {
+        color: theme.palette.grey[500],
+      },
+    },
     analysisFinePrint: {
       fontSize: '.7rem',
       fontStyle: 'italic',
@@ -369,6 +374,9 @@ export default function MetricAssignmentResults({
     },
   ]
 
+  const isVariationSelected = (variation: Variation) =>
+    [baseVariationId, changeVariationId].includes(variation.variationId)
+
   return (
     <div className={clsx(classes.root, 'analysis-detail-panel')}>
       <Typography className={classes.dataTableHeader}>Summary</Typography>
@@ -469,9 +477,9 @@ export default function MetricAssignmentResults({
             </TableRow>
           </TableHead>
           <TableBody>
-            {variations.map((variation) => (
+            {experiment.variations.map((variation) => (
               <React.Fragment key={variation.variationId}>
-                <TableRow>
+                <TableRow className={!isVariationSelected(variation) ? classes.rowVariationNotSelected : undefined}>
                   <TableCell
                     component='th'
                     scope='row'
@@ -596,9 +604,9 @@ export default function MetricAssignmentResults({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {variations.map((variation) => (
+                {experiment.variations.map((variation) => (
                   <React.Fragment key={variation.variationId}>
-                    <TableRow>
+                    <TableRow className={!isVariationSelected(variation) ? classes.rowVariationNotSelected : undefined}>
                       <TableCell
                         component='th'
                         scope='row'

@@ -74,6 +74,104 @@ function createAnalysis(fieldOverrides: Partial<Analysis>): Analysis {
   }
 }
 
+function createMultiVariationAnalysis(fieldOverrides: Partial<Analysis>): Analysis {
+  return {
+    metricAssignmentId: 123,
+    analysisStrategy: AnalysisStrategy.PpNaive,
+    participantStats: {
+      total: 1000,
+      variation_1: 400,
+      variation_2: 400,
+      variation_3: 200,
+    },
+    metricEstimates: {
+      variations: {
+        '1': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 1,
+        }),
+        '2': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 1,
+        }),
+        '3': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 1,
+        }),
+      },
+      diffs: {
+        '2_1': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: -1,
+          mean: 0,
+        }),
+        '1_2': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+        '3_1': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: -1,
+          mean: 0,
+        }),
+        '1_3': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+        '3_2': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: -1,
+          mean: 0,
+        }),
+        '2_3': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+      },
+      ratios: {
+        '2_1': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 0,
+        }),
+        '1_2': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+        '3_1': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 0,
+        }),
+        '1_3': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+        '3_2': Fixtures.createDistributionStats({
+          top_95: 1,
+          bottom_95: 0.5,
+          mean: 0,
+        }),
+        '2_3': Fixtures.createDistributionStats({
+          top_95: 0,
+          bottom_95: 0,
+          mean: 0,
+        }),
+      },
+    },
+    analysisDatetime: new Date(Date.UTC(2020, 4, 10)),
+    ...fieldOverrides,
+  }
+}
+
 function createAnalyses(): Analysis[] {
   return [
     // Full set of "latest" analyses for the default metric assignment.
@@ -503,6 +601,7 @@ function createSegmentAssignment(fieldOverrides: Partial<SegmentAssignment>): Se
 const Fixtures = {
   createAnalyses,
   createAnalysis,
+  createMultiVariationAnalysis,
   createDistributionStats,
   createExperimentFull,
   createExperimentFullNew,

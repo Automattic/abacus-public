@@ -56,7 +56,7 @@ function assignmentHref(variationName: string, experimentName: string) {
        ); 
     }
     const response = await fetch(
-      'https://public-api.wordpress.com/wpcom/v2/experiments/0.1.0/assignments', 
+      'https://public-api.wordpress.com/wpcom/v2/experiments/0.1.0/assignments/', 
       {
         credentials: 'include', 
         method: 'PATCH', 

@@ -2332,7 +2332,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root"
-                          style="transition: all ease 200ms; transform: none;"
+                          style="transition: all ease 200ms; transform: rotate(90deg);"
                           tabindex="0"
                           type="button"
                         >
@@ -2383,6 +2383,41 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
                       Not analyzed yet
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone"
+                      colspan="5"
+                    >
+                      <div
+                        class="makeStyles-root-166"
+                      >
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                        >
+                           
+                          No Analysis Data Found:
+                           
+                        </h5>
+                        <ul>
+                          <li
+                            class="MuiTypography-root MuiTypography-body1"
+                          >
+                             
+                            It can take 24-48 hours for analysis data to be generated.
+                             
+                          </li>
+                          <li
+                            class="MuiTypography-root MuiTypography-body1"
+                          >
+                             
+                            Analysis data can also be missing if the event or billing-product isn't being hit.
+                          </li>
+                        </ul>
+                      </div>
                     </td>
                   </tr>
                 </tbody>

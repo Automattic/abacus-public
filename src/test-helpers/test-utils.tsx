@@ -93,3 +93,15 @@ export async function changeFieldByRole(role: string, name: RegExp, value: strin
     fireEvent.change(field, { target: { value: value } })
   })
 }
+
+/**
+ * Change the Analysis Strategy in Experiment Results
+ */
+export async function changeAnalysisStrategy() {
+  fireEvent.click(screen.getByRole('button', { name: /Choose an Analysis Strategy/ }))
+  const analysisStrategy = screen.getByRole('button', { name: /Analysis Strategy:/ })
+  fireEvent.focus(analysisStrategy)
+  fireEvent.keyDown(analysisStrategy, { key: 'Enter' })
+  const analysisStrategyOption = await screen.findByRole('option', { name: /All participants/ })
+  fireEvent.click(analysisStrategyOption)
+}

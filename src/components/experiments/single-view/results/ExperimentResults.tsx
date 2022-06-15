@@ -20,7 +20,7 @@ import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
 import { Alert } from '@material-ui/lab'
 import clsx from 'clsx'
 import _ from 'lodash'
-import MaterialTable, { MTableBodyRow } from 'material-table'
+import MaterialTable, { MTableBody } from 'material-table'
 import { PlotData } from 'plotly.js'
 import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import Plot from 'react-plotly.js'
@@ -460,6 +460,7 @@ export default function ExperimentResults({
       },
     },
   ]
+
   interface DetailPanelProps {
     strategy: AnalysisStrategy
     analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
@@ -496,23 +497,41 @@ export default function ExperimentResults({
     },
   ]
 
-  // HACK: The following solution, while being imperative, it is required for automatically expanding the primary metric detail panel
-  const primaryMetricRowRef = useRef<typeof MTableBodyRow>(null)
+  // HACK: The following solution, while being imperative, it is required for automatically expanding a detail panel
+  // Other possible solutions were discussed at https://github.com/mbrn/material-table/issues/1021
+  const tableRef = useRef<typeof MTableBody>(null)
   const expandPrimaryMetricPanelTimer = useRef<ReturnType<typeof setInterval> | null>(null)
   useEffect(() => {
-    const tableRow = primaryMetricRowRef.current as unknown as {
-      props: { data: DetailPanelProps; onToggleDetailPanel: (path: number[], detailPanel: () => ReactElement) => void }
+    const table = tableRef.current as unknown as {
+      onToggleDetailPanel: (path: number[], detailPanel: () => ReactElement) => void
+      props: {
+        data: DetailPanelProps[]
+      }
+      dataManager: {
+        lastDetailPanelRow: {
+          tableData: {
+            id: number
+            showDetailPanel?: () => void
+          }
+        }
+      }
     }
-    expandPrimaryMetricPanelTimer.current = setTimeout(() => {
-      tableRow?.props.onToggleDetailPanel([0], DetailPanel[0](tableRow.props.data).render)
-    }, METRIC_DETAILS_AUTO_EXPAND_DELAY)
-
+    if (!table?.dataManager.lastDetailPanelRow) {
+      // initial render: expand the first row after a delay
+      expandPrimaryMetricPanelTimer.current = setTimeout(() => {
+        table?.onToggleDetailPanel([0], DetailPanel[0](table?.props.data[0]).render)
+      }, METRIC_DETAILS_AUTO_EXPAND_DELAY)
+    } else if (table?.dataManager.lastDetailPanelRow.tableData.showDetailPanel) {
+      // after variation/strategy selection: expand the last active row immediately
+      const rowIndex = table.dataManager.lastDetailPanelRow.tableData.id
+      table?.onToggleDetailPanel([rowIndex], DetailPanel[0](table?.props.data[rowIndex]).render)
+    }
     // clear on component unmount
     return () => {
       expandPrimaryMetricPanelTimer.current && clearTimeout(expandPrimaryMetricPanelTimer.current)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [primaryMetricRowRef.current])
+  }, [tableRef.current, variationDiffKey, strategy])
 
   return (
     <div className='analysis-latest-results'>
@@ -656,6 +675,7 @@ export default function ExperimentResults({
               Metric Assignment Results
             </Typography>
             <MaterialTable
+              tableRef={tableRef}
               columns={tableColumns}
               data={metricAssignmentSummaryData}
               options={createStaticTableOptions(metricAssignmentSummaryData.length)}
@@ -673,12 +693,6 @@ export default function ExperimentResults({
                 }
               }}
               detailPanel={DetailPanel}
-              components={{
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                Row: (props: { data: { metricAssignment: MetricAssignment } }) => (
-                  <MTableBodyRow {...props} ref={props.data.metricAssignment?.isPrimary ? primaryMetricRowRef : null} />
-                ),
-              }}
             />
             <Typography variant='h3' className={classes.tableTitle}>
               Health Report

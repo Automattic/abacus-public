@@ -21,7 +21,6 @@ import {
 } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Add, Clear } from '@material-ui/icons'
-import { Alert } from '@material-ui/lab'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { Field, FieldArray, FormikProps, useField } from 'formik'
 import { RadioGroup as FormikMuiRadioGroup, Select, TextField as FormikMuiTextField } from 'formik-material-ui'
@@ -348,31 +347,18 @@ const Audience = ({
                         })}
                         <TableRow>
                           <TableCell colSpan={3}>
-                            <Alert severity='warning' className={classes.abnWarning}>
-                              <strong> Manual analysis only A/B/n </strong>
-                              <br />
-                              <p>
-                                Experiments with more than a single treatment variation are in an early alpha stage.
-                              </p>
-                              <p>No results will be displayed.</p>
-                              <p>
-                                Please do not set up such experiments in production without consulting the ExPlat team
-                                first.
-                              </p>
-
-                              <div className={classes.addVariation}>
-                                <Add className={classes.addVariationIcon} />
-                                <Button
-                                  variant='contained'
-                                  onClick={onAddVariation}
-                                  disableElevation
-                                  size='small'
-                                  aria-label='Add Variation'
-                                >
-                                  Add Variation
-                                </Button>
-                              </div>
-                            </Alert>
+                            <div className={classes.addVariation}>
+                              <Add className={classes.addVariationIcon} />
+                              <Button
+                                variant='contained'
+                                onClick={onAddVariation}
+                                disableElevation
+                                size='small'
+                                aria-label='Add Variation'
+                              >
+                                Add Variation
+                              </Button>
+                            </div>
                           </TableCell>
                         </TableRow>
                       </>

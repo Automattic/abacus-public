@@ -1,3 +1,4 @@
+import chiSquaredTest from 'chi-squared-test'
 import { abs, erf } from 'mathjs'
 
 /**
@@ -38,4 +39,20 @@ export function binomialProbValue({
   //              = 1 - erf( (x - mean) / sqrt(2 * variance) )
   const y = (successfulTrials - mean) / Math.sqrt(2 * variance)
   return 1 - erf(abs(y))
+}
+
+/**
+ * A slightly modified chiSquaredTest, see `chiSquaredTest` for more info:
+ *  - With all 0 observations and expectations, returns 1 (certainty).
+ */
+export function chiSquaredTestProbValue(
+  observations: number[],
+  expectations: number[],
+  degreesOfFreedomReduction: number,
+): number {
+  if (observations.every((x) => x === 0) && expectations.every((x) => x === 0)) {
+    return 1
+  }
+
+  return chiSquaredTest(observations, expectations, degreesOfFreedomReduction).probability
 }

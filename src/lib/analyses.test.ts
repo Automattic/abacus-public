@@ -1,4 +1,4 @@
-import { differenceInHours, subDays } from 'date-fns'
+import { subDays } from 'date-fns'
 
 import Fixtures from 'src/test-helpers/fixtures'
 
@@ -136,86 +136,77 @@ describe('getExperimentParticipantStats', () => {
         {
           [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
             participantStats: {
-              total: 130,
-              variation_1: 40,
-              variation_2: 70,
+              total: 11000,
+              variation_1: 4000,
+              variation_2: 7000,
             },
           }),
           [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
-              total: 90,
-              variation_1: 35,
-              variation_2: 55,
+              total: 9000,
+              variation_1: 3500,
+              variation_2: 5500,
             },
           }),
           [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
             participantStats: {
-              total: 85,
-              variation_1: 40,
-              variation_2: 45,
+              total: 8500,
+              variation_1: 4000,
+              variation_2: 4500,
             },
           }),
           [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
             participantStats: {
-              total: 60,
-              variation_1: 25,
-              variation_2: 35,
+              total: 6000,
+              variation_1: 2500,
+              variation_2: 3500,
             },
           }),
           [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
             participantStats: {
-              total: 40,
-              variation_1: 15,
-              variation_2: 27,
+              total: 4000,
+              variation_1: 1300,
+              variation_2: 2700,
             },
           }),
         },
       ),
     ).toMatchInlineSnapshot(`
       Object {
-        "probabilities": Object {
-          "byVariationId": Object {
-            "1": Object {
-              "assignedDistributionMatchingAllocated": 0.000011583130623216142,
-              "assignedNoSpammersNoCrossoversDistributionMatchingAllocated": 0.19670560245894686,
-              "exposedDistributionMatchingAllocated": 0.11384629800665802,
-            },
-            "2": Object {
-              "assignedDistributionMatchingAllocated": 0.3804551252503884,
-              "assignedNoSpammersNoCrossoversDistributionMatchingAllocated": 0.19670560245894686,
-              "exposedDistributionMatchingAllocated": 0.026856695507524453,
-            },
-          },
-        },
         "ratios": Object {
           "byVariationId": Object {
             "1": Object {
               "assignedCrossoversToAssigned": 0.125,
-              "assignedCrossoversToTotalAssignedCrossovers": 0.125,
+              "assignedCrossoversToTotalAssignedCrossovers": 0.25,
               "assignedNoSpammersNoCrossoversToAssigned": 0.625,
               "assignedSpammersToAssigned": 0,
               "assignedSpammersToTotalAssignedSpammers": 0,
-              "assignedToTotalAssigned": 0.3076923076923077,
-              "exposedToAssigned": 0.375,
-              "exposedToTotalExposed": 0.375,
+              "assignedToTotalAssigned": 0.36363636363636365,
+              "exposedToAssigned": 0.325,
+              "exposedToTotalExposed": 0.325,
             },
             "2": Object {
               "assignedCrossoversToAssigned": 0.21428571428571427,
-              "assignedCrossoversToTotalAssignedCrossovers": 0.375,
+              "assignedCrossoversToTotalAssignedCrossovers": 0.75,
               "assignedNoSpammersNoCrossoversToAssigned": 0.5,
               "assignedSpammersToAssigned": 0.35714285714285715,
-              "assignedSpammersToTotalAssignedSpammers": 0.5555555555555556,
-              "assignedToTotalAssigned": 0.5384615384615384,
+              "assignedSpammersToTotalAssignedSpammers": 1,
+              "assignedToTotalAssigned": 0.6363636363636364,
               "exposedToAssigned": 0.38571428571428573,
               "exposedToTotalExposed": 0.675,
             },
           },
           "overall": Object {
-            "assignedCrossoversToAssigned": 0.3076923076923077,
-            "assignedNoSpammersNoCrossoversToAssigned": 0.46153846153846156,
-            "assignedSpammersToAssigned": 0.34615384615384615,
-            "exposedToAssigned": 0.3076923076923077,
+            "assignedCrossoversToAssigned": 0.18181818181818182,
+            "assignedNoSpammersNoCrossoversToAssigned": 0.5454545454545454,
+            "assignedSpammersToAssigned": 0.22727272727272727,
+            "exposedToAssigned": 0.36363636363636365,
           },
+        },
+        "variationProportionProbabilities": Object {
+          "assignedDistributionMatchingAllocated": 0,
+          "assignedNoSpammersNoCrossoversDistributionMatchingAllocated": 0,
+          "exposedDistributionMatchingAllocated": 0,
         },
       }
     `)
@@ -236,37 +227,37 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
           {
             [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
               participantStats: {
-                total: 130,
-                variation_1: 40,
-                variation_2: 70,
+                total: 11000,
+                variation_1: 5700,
+                variation_2: 5300,
               },
             }),
             [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
               participantStats: {
-                total: 90,
-                variation_1: 35,
-                variation_2: 55,
+                total: 9000,
+                variation_1: 3500,
+                variation_2: 5500,
               },
             }),
             [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
               participantStats: {
-                total: 85,
-                variation_1: 40,
-                variation_2: 45,
+                total: 8500,
+                variation_1: 425,
+                variation_2: 425,
               },
             }),
             [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
               participantStats: {
-                total: 60,
-                variation_1: 25,
-                variation_2: 35,
+                total: 6000,
+                variation_1: 305,
+                variation_2: 295,
               },
             }),
             [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
               participantStats: {
-                total: 40,
-                variation_1: 15,
-                variation_2: 27,
+                total: 4000,
+                variation_1: 1300,
+                variation_2: 2700,
               },
             }),
           },
@@ -284,30 +275,31 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions",
           "name": "Assignment distribution",
           "unit": "p-value",
-          "value": 0.000011583130623216142,
+          "value": 0.00013681836098877742,
         },
         Object {
           "indication": Object {
-            "code": "nominal",
-            "reason": "0.05 < x ≤ 1",
-            "severity": "Ok",
+            "code": "probable issue",
+            "reason": "−∞ < x ≤ 0.001",
+            "recommendation": "Contact @experiment-review.",
+            "severity": "Error",
           },
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
           "name": "Assignment distribution without crossovers and spammers",
           "unit": "p-value",
-          "value": 0.19670560245894686,
+          "value": 0,
         },
         Object {
           "indication": Object {
-            "code": "possible issue",
-            "reason": "0.001 < x ≤ 0.05",
+            "code": "probable issue",
+            "reason": "−∞ < x ≤ 0.001",
             "recommendation": "If not in combination with other distribution issues, exposure event being fired is linked to variation causing bias. Choose a different exposure event or use assignment analysis (contact @experiment-review to do so).",
-            "severity": "Warning",
+            "severity": "Error",
           },
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions",
           "name": "Assignment distribution of exposed participants",
           "unit": "p-value",
-          "value": 0.026856695507524453,
+          "value": 0,
         },
         Object {
           "indication": Object {
@@ -319,7 +311,7 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
           "name": "Ratio of crossovers to assigned",
           "unit": "ratio",
-          "value": 0.3076923076923077,
+          "value": 0.18181818181818182,
         },
         Object {
           "indication": Object {
@@ -331,7 +323,117 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
           "name": "Ratio of spammers to assigned",
           "unit": "ratio",
-          "value": 0.34615384615384615,
+          "value": 0.22727272727272727,
+        },
+      ]
+    `)
+    expect(
+      Analyses.getExperimentParticipantHealthIndicators(
+        Analyses.getExperimentParticipantStats(
+          Fixtures.createExperimentFull({
+            variations: [
+              { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
+              { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
+            ],
+          }),
+          {
+            [AnalysisStrategy.IttPure]: Fixtures.createAnalysis({
+              participantStats: {
+                total: 11000,
+                variation_1: 5650,
+                variation_2: 5350,
+              },
+            }),
+            [AnalysisStrategy.MittNoCrossovers]: Fixtures.createAnalysis({
+              participantStats: {
+                total: 0,
+                variation_1: 0,
+                variation_2: 0,
+              },
+            }),
+            [AnalysisStrategy.MittNoSpammers]: Fixtures.createAnalysis({
+              participantStats: {
+                total: 0,
+                variation_1: 0,
+                variation_2: 0,
+              },
+            }),
+            [AnalysisStrategy.MittNoSpammersNoCrossovers]: Fixtures.createAnalysis({
+              participantStats: {
+                total: 11000,
+                variation_1: 5600,
+                variation_2: 5400,
+              },
+            }),
+            [AnalysisStrategy.PpNaive]: Fixtures.createAnalysis({
+              participantStats: {
+                total: 11000,
+                variation_1: 5550,
+                variation_2: 5450,
+              },
+            }),
+          },
+        ),
+      ),
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "indication": Object {
+            "code": "possible issue",
+            "reason": "0.001 < x ≤ 0.05",
+            "recommendation": "Check daily ratio patterns for anomalies, contact @experiment-review.",
+            "severity": "Warning",
+          },
+          "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions",
+          "name": "Assignment distribution",
+          "unit": "p-value",
+          "value": 0.004231237155615908,
+        },
+        Object {
+          "indication": Object {
+            "code": "nominal",
+            "reason": "0.05 < x ≤ 1",
+            "severity": "Ok",
+          },
+          "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
+          "name": "Assignment distribution without crossovers and spammers",
+          "unit": "p-value",
+          "value": 0.056530481922820064,
+        },
+        Object {
+          "indication": Object {
+            "code": "nominal",
+            "reason": "0.05 < x ≤ 1",
+            "severity": "Ok",
+          },
+          "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions",
+          "name": "Assignment distribution of exposed participants",
+          "unit": "p-value",
+          "value": 0.3403558714936903,
+        },
+        Object {
+          "indication": Object {
+            "code": "very high",
+            "reason": "0.05 < x ≤ 1",
+            "recommendation": "Contact @experiment-review.",
+            "severity": "Error",
+          },
+          "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
+          "name": "Ratio of crossovers to assigned",
+          "unit": "ratio",
+          "value": 1,
+        },
+        Object {
+          "indication": Object {
+            "code": "very high",
+            "reason": "0.4 < x ≤ 1",
+            "recommendation": "Spammers are filtered out of the displayed metrics, but high numbers may be indicative of problems.",
+            "severity": "Error",
+          },
+          "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios",
+          "name": "Ratio of spammers to assigned",
+          "unit": "ratio",
+          "value": 1,
         },
       ]
     `)
@@ -450,7 +552,6 @@ describe('getExperimentHealthIndicators', () => {
   it('should work for an experiment that ran too long', () => {
     const experimentRunTimeDays = 50
     const startDatetime = subDays(new Date(), experimentRunTimeDays)
-    const expectedExperimentRunTimeDays = differenceInHours(new Date(), startDatetime) / 24
 
     expect(
       Analyses.getExperimentHealthIndicators(
@@ -475,7 +576,7 @@ describe('getExperimentHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time",
           "name": "Experiment run time",
           "unit": "days",
-          "value": ${expectedExperimentRunTimeDays},
+          "value": 50,
         },
       ]
     `)

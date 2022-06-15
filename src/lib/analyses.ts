@@ -1,4 +1,4 @@
-import { binomialProbValue } from 'src/utils/math'
+import { chiSquaredTestProbValue } from 'src/utils/math'
 
 import * as Experiments from './experiments'
 import { Analysis, AnalysisStrategy, ExperimentFull } from './schemas'
@@ -95,9 +95,7 @@ export interface ExperimentParticipantStats {
     }
     byVariationId: Record<number, VariationRatios>
   }
-  probabilities: {
-    byVariationId: Record<number, VariationProbabilities>
-  }
+  variationProportionProbabilities: VariationProbabilities
 }
 
 /**
@@ -143,37 +141,44 @@ export function getExperimentParticipantStats(
     .map(({ allocatedPercentage }) => allocatedPercentage)
     .reduce((acc, cur) => acc + cur)
   // The probability of an equal or a more extreme outcome occuring.
-  const probabilities = {
-    byVariationId: Object.fromEntries(
-      experiment.variations.map(({ variationId, allocatedPercentage }) => {
-        const variationCountsSet = participantCounts.byVariationId[variationId]
-        return [
-          variationId,
-          {
-            exposedDistributionMatchingAllocated: binomialProbValue({
-              successfulTrials: variationCountsSet.exposed,
-              totalTrials: participantCounts.total.exposed,
-              probabilityOfSuccess: allocatedPercentage / totalAllocatedPercentage,
-            }),
-            assignedDistributionMatchingAllocated: binomialProbValue({
-              successfulTrials: variationCountsSet.assigned,
-              totalTrials: participantCounts.total.assigned,
-              probabilityOfSuccess: allocatedPercentage / totalAllocatedPercentage,
-            }),
-            assignedNoSpammersNoCrossoversDistributionMatchingAllocated: binomialProbValue({
-              successfulTrials: variationCountsSet.assignedNoSpammersNoCrossovers,
-              totalTrials: participantCounts.total.assignedNoSpammersNoCrossovers,
-              probabilityOfSuccess: allocatedPercentage / totalAllocatedPercentage,
-            }),
-          },
-        ]
-      }),
+  // We use the Pearson Chi Squared Test, replacing the previous binomial test to allow for more than 2 variations.
+  // The Pearson Chi Squared Test is recommended by Trustworthy Online Controlled Experiments (chapter 21: Sample Ratio Mismatch) and allows us to compare expected frequencies of categories against observed frequencies.
+  // We use a degree of freedom reduction of 1 as the last "category" can be determined from all the previous categories.
+  const variationProportionProbabilities = {
+    assignedDistributionMatchingAllocated: chiSquaredTestProbValue(
+      experiment.variations
+        .map((variation) => participantCounts.byVariationId[variation.variationId])
+        .map((variationCounts) => variationCounts.assigned),
+      experiment.variations.map(
+        (variation) => (variation.allocatedPercentage / totalAllocatedPercentage) * participantCounts.total.assigned,
+      ),
+      1,
+    ),
+    assignedNoSpammersNoCrossoversDistributionMatchingAllocated: chiSquaredTestProbValue(
+      experiment.variations
+        .map((variation) => participantCounts.byVariationId[variation.variationId])
+        .map((variationCounts) => variationCounts.assignedNoSpammersNoCrossovers),
+      experiment.variations.map(
+        (variation) =>
+          (variation.allocatedPercentage / totalAllocatedPercentage) *
+          participantCounts.total.assignedNoSpammersNoCrossovers,
+      ),
+      1,
+    ),
+    exposedDistributionMatchingAllocated: chiSquaredTestProbValue(
+      experiment.variations
+        .map((variation) => participantCounts.byVariationId[variation.variationId])
+        .map((variationCounts) => variationCounts.exposed),
+      experiment.variations.map(
+        (variation) => (variation.allocatedPercentage / totalAllocatedPercentage) * participantCounts.total.exposed,
+      ),
+      1,
     ),
   }
 
   return {
     ratios,
-    probabilities,
+    variationProportionProbabilities,
   }
 }
 
@@ -275,30 +280,12 @@ interface IndicatorDefinition extends Omit<HealthIndicator, 'indication'> {
 export function getExperimentParticipantHealthIndicators(
   experimentParticipantStats: ExperimentParticipantStats,
 ): HealthIndicator[] {
-  // Getting the min p-values across variations:
-  const minVariationProbabilities = Object.values(experimentParticipantStats.probabilities.byVariationId).reduce(
-    (acc: VariationProbabilities, cur: VariationProbabilities) => ({
-      assignedDistributionMatchingAllocated: Math.min(
-        acc.assignedDistributionMatchingAllocated,
-        cur.assignedDistributionMatchingAllocated,
-      ),
-      assignedNoSpammersNoCrossoversDistributionMatchingAllocated: Math.min(
-        acc.assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
-        cur.assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
-      ),
-      exposedDistributionMatchingAllocated: Math.min(
-        acc.exposedDistributionMatchingAllocated,
-        cur.exposedDistributionMatchingAllocated,
-      ),
-    }),
-  )
-
   const indicatorDefinitions: IndicatorDefinition[] = []
 
   indicatorDefinitions.push(
     {
       name: 'Assignment distribution',
-      value: minVariationProbabilities.assignedDistributionMatchingAllocated,
+      value: experimentParticipantStats.variationProportionProbabilities.assignedDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
       link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
       indicationBrackets: [
@@ -329,7 +316,9 @@ export function getExperimentParticipantHealthIndicators(
     },
     {
       name: 'Assignment distribution without crossovers and spammers',
-      value: minVariationProbabilities.assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
+      value:
+        experimentParticipantStats.variationProportionProbabilities
+          .assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
       link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
       indicationBrackets: [
@@ -364,7 +353,7 @@ export function getExperimentParticipantHealthIndicators(
     const biasedExposuresRecommendation = `If not in combination with other distribution issues, exposure event being fired is linked to variation causing bias. Choose a different exposure event or use assignment analysis (contact @experiment-review to do so).`
     indicatorDefinitions.push({
       name: 'Assignment distribution of exposed participants',
-      value: minVariationProbabilities.exposedDistributionMatchingAllocated,
+      value: experimentParticipantStats.variationProportionProbabilities.exposedDistributionMatchingAllocated,
       unit: HealthIndicatorUnit.Pvalue,
       link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
       indicationBrackets: [

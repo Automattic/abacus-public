@@ -540,21 +540,8 @@ export default function ExperimentResults({
           <>
             {isMultivariation && (
               <>
-                <Alert severity='error'>
-                  <strong>A/B/n analysis is an ALPHA quality feature.</strong>
-                  <br />
-                  <br />
-                  <strong>What&apos;s not working:</strong>
-                  <ul>
-                    <li> The health report. </li>
-                  </ul>
-                  <strong>What&apos;s working:</strong>
-                  <ul>
-                    <li> Everything else :-) </li>
-                  </ul>
-                  <strong>
-                    IMPORTANT: Everything on this page is in the context of the new &quot;A/B/n Analysis Controls&quot;.
-                  </strong>
+                <Alert severity='warning'>
+                  <strong>A/B/n analysis is an BETA quality feature.</strong>
                 </Alert>
                 <br />
                 <Paper className={classes.abnControls}>

@@ -121,7 +121,8 @@ const MetricsTable = ({
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
         fontWeight: theme.custom.fontWeights.monospaceBold,
-      },
+        wordBreak: 'break-word',
+      } as React.CSSProperties,
     },
     {
       title: 'Description',

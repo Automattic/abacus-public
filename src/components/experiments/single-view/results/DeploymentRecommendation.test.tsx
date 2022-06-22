@@ -142,12 +142,12 @@ test('renders recommendation for VariantAhead decision correctly', () => {
   `)
 })
 
-test('renders recommendation for VariantWins decision correctly', () => {
+test('renders recommendation for VariantWinning decision correctly', () => {
   const { container } = render(
     <DeploymentRecommendation
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
-        decision: Decision.VariantWins,
+        decision: Decision.VariantWinning,
         strongEnoughForDeployment: true,
         chosenVariationId: 123,
       }}

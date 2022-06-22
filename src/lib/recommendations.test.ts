@@ -452,7 +452,7 @@ describe('getMetricAssignmentRecommendation', () => {
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
-      decision: Recommendations.Decision.VariantWins,
+      decision: Recommendations.Decision.VariantWinning,
       strongEnoughForDeployment: false,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
@@ -496,7 +496,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ),
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
-    decision: Recommendations.Decision.VariantWins,
+    decision: Recommendations.Decision.VariantWinning,
     strongEnoughForDeployment: true,
     chosenVariationId: 1,
     practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
@@ -552,14 +552,14 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
           },
           {
             analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
@@ -569,7 +569,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
-      decision: Recommendations.Decision.VariantWins,
+      decision: Recommendations.Decision.VariantWinning,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
@@ -580,7 +580,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
@@ -594,7 +594,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
-      decision: Recommendations.Decision.VariantWins,
+      decision: Recommendations.Decision.VariantWinning,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
@@ -674,14 +674,14 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
           },
           {
             analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 1,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
@@ -701,7 +701,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
@@ -717,7 +717,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
       ),
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
-      decision: Recommendations.Decision.VariantWins,
+      decision: Recommendations.Decision.VariantWinning,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
@@ -728,14 +728,14 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
         [
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 2,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,
           },
           {
             analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers,
-            decision: Recommendations.Decision.VariantWins,
+            decision: Recommendations.Decision.VariantWinning,
             chosenVariationId: 1,
             practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
             statisticallySignificant: true,

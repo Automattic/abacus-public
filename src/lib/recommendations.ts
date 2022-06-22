@@ -124,7 +124,7 @@ export enum Decision {
   VariantBarelyAhead = 'VariantBarelyAhead',
   Inconclusive = 'Inconclusive',
   VariantAhead = 'VariantAhead',
-  VariantWins = 'VariantWins',
+  VariantWinning = 'VariantWinning',
 }
 
 export interface Recommendation {
@@ -145,7 +145,7 @@ function getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats: Dif
       return diffCredibleIntervalStats.statisticallySignificant ? Decision.VariantAhead : Decision.Inconclusive
 
     case PracticalSignificanceStatus.Yes:
-      return Decision.VariantWins
+      return Decision.VariantWinning
   }
 }
 
@@ -193,7 +193,7 @@ export function isDataStrongEnough(
     case Decision.NoDifference:
       return kruschkeUncertainty < maxSafeKruschke[decision] && hasEnoughRuntime
 
-    case Decision.VariantWins:
+    case Decision.VariantWinning:
       return runtimeInDays > minSafeRuntimeInDays
 
     default:
@@ -230,7 +230,7 @@ export function getMetricAssignmentRecommendation(
   const decision = getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats)
   const [changeVariationId, baseVariationId] = variationDiffKey.split('_').map((x) => parseInt(x, 10))
   let chosenVariationId = undefined
-  if ([Decision.VariantBarelyAhead, Decision.VariantAhead, Decision.VariantWins].includes(decision)) {
+  if ([Decision.VariantBarelyAhead, Decision.VariantAhead, Decision.VariantWinning].includes(decision)) {
     chosenVariationId = isPositive === metric.higherIsBetter ? changeVariationId : baseVariationId
   }
 

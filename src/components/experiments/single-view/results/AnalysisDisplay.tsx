@@ -38,8 +38,8 @@ export default function AnalysisDisplay({
     case Decision.VariantAhead: {
       return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} ahead</>
     }
-    case Decision.VariantWins: {
-      return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} wins</>
+    case Decision.VariantWinning: {
+      return <>{capitalize(getChosenVariation(experiment, analysis)?.name)} winning</>
     }
     default:
       throw new Error('Missing Decision.')

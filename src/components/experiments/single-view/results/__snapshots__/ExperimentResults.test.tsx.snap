@@ -7253,7 +7253,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                       style="box-sizing: border-box; font-family: 'Roboto Mono', monospace;"
                     >
                       Control
-                       wins
+                       winning
                     </td>
                   </tr>
                   <tr
@@ -8192,7 +8192,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               class="MuiTypography-root makeStyles-recommendation-233 MuiTypography-h5 MuiTypography-gutterBottom"
             >
               Control
-               wins
+               winning
             </h5>
             <p
               class="MuiTypography-root MuiTypography-body1"

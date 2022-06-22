@@ -136,12 +136,12 @@ test('renders VariantAhead correctly', () => {
   `)
 })
 
-test('renders VariantWins correctly', () => {
+test('renders VariantWinning correctly', () => {
   const { container } = render(
     <AnalysisDisplay
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
-        decision: Decision.VariantWins,
+        decision: Decision.VariantWinning,
         chosenVariationId: 123,
       }}
       experiment={Fixtures.createExperimentFull({
@@ -159,7 +159,7 @@ test('renders VariantWins correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     <div>
       Variation_name_123
-       wins
+       winning
     </div>
   `)
 })
@@ -173,7 +173,7 @@ test('throws error for missing chosenVariationId', () => {
       <AnalysisDisplay
         analysis={{
           analysisStrategy: AnalysisStrategy.PpNaive,
-          decision: Decision.VariantWins,
+          decision: Decision.VariantWinning,
           chosenVariationId: 123,
         }}
         experiment={Fixtures.createExperimentFull({

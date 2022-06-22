@@ -40,7 +40,7 @@ export default function DeploymentRecommendation({
       case Decision.VariantBarelyAhead: {
         return <>Deploy {getChosenVariation(experiment, analysis)?.name} cautiously</>
       }
-      case Decision.VariantWins: {
+      case Decision.VariantWinning: {
         return <>Deploy {getChosenVariation(experiment, analysis)?.name} with confidence</>
       }
     }

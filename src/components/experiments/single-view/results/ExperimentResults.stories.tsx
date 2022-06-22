@@ -145,8 +145,8 @@ metricsWithLongName.args = {
   ],
 }
 
-export const treatmentWins = Template.bind({})
-treatmentWins.args = {
+export const treatmentWinning = Template.bind({})
+treatmentWinning.args = {
   ...defaultArgs,
   metrics: [
     Fixtures.createMetric(1, { higherIsBetter: true }),

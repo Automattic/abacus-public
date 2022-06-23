@@ -194,7 +194,7 @@ export function isDataStrongEnough(
       return kruschkeUncertainty < maxSafeKruschke[decision] && hasEnoughRuntime
 
     case Decision.VariantWinning:
-      return runtimeInDays > minSafeRuntimeInDays
+      return hasEnoughRuntime
 
     default:
       return false

@@ -129,7 +129,7 @@ test('An autocomplete component can be rendered', async () => {
   `)
 
   await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: 'Clear' }))
+    fireEvent.click(screen.getByTitle('Clear'))
   })
   expect(container).toMatchSnapshot()
   expect(formValues).toMatchInlineSnapshot(`
@@ -275,7 +275,7 @@ test('A multiple entry autocomplete component can be rendered', async () => {
   `)
 
   await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: 'Clear' }))
+    fireEvent.click(screen.getByTitle('Clear'))
   })
   expect(container).toMatchSnapshot()
   expect(formValues).toMatchInlineSnapshot(`

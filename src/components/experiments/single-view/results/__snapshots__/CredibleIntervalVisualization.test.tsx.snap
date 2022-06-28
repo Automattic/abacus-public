@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CredibleIntervalVisualization correctly 1`] = `
+<div>
+  <svg
+    class="makeStyles-root-1"
+  >
+    <line
+      class="makeStyles-minDifference-2"
+      x1="17"
+      x2="17"
+      y1="10"
+      y2="35"
+    />
+    <line
+      class="makeStyles-minDifference-2"
+      x1="141"
+      x2="141"
+      y1="10"
+      y2="35"
+    />
+    <line
+      stroke="#4e4e4e"
+      stroke-width="2"
+      x1="79"
+      x2="79"
+      y2="45"
+    />
+    <g
+      class="makeStyles-intervalGroup-3"
+    >
+      <rect
+        class="makeStyles-intervalMiddle-5"
+        height="15"
+        width="109"
+        x="47"
+        y="15"
+      />
+      <line
+        class="makeStyles-intervalEdge-4"
+        x1="47"
+        x2="47"
+        y1="12"
+        y2="33"
+      />
+      <line
+        class="makeStyles-intervalEdge-4"
+        x1="156"
+        x2="156"
+        y1="12"
+        y2="33"
+      />
+    </g>
+  </svg>
+</div>
+`;

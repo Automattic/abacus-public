@@ -421,13 +421,7 @@ export const experimentBareSchema = yup
       .when(
         'startDatetime',
         (startDatetime: Date, schema: yup.DateSchema) =>
-          startDatetime &&
-          schema
-            .min(startDatetime, 'End date must be after start date.')
-            .max(
-              dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
-              `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
-            ),
+          startDatetime && schema.min(startDatetime, 'End date must be after start date.'),
       ),
     status: yup.string().oneOf(Object.values(Status)).defined(),
     platform: yup.string().oneOf(Object.values(Platform)).defined(),
@@ -489,6 +483,19 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       `Start date must be within ${MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS} months from now.`,
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
       (date) => dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
+    ),
+  endDatetime: dateSchema
+    .defined()
+    .when(
+      'startDatetime',
+      (startDatetime: Date, schema: yup.DateSchema) =>
+        startDatetime &&
+        schema
+          .min(startDatetime, 'End date must be after start date.')
+          .max(
+            dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
+            `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
+          ),
     ),
   exposureEvents: yup.array(eventNewSchema).notRequired(),
   metricAssignments: yup

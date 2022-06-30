@@ -279,39 +279,39 @@ describe('lib/schemas.ts module', () => {
     })
   })
 
-  describe('experimentFullNewSchema endDatetime', () => {
+  describe('experimentFullSchema endDatetime', () => {
     it('throws validation error if endDate is before startDate', async () => {
       expect.assertions(1)
       try {
-        await Schemas.experimentFullNewSchema.validate(
+        await Schemas.experimentFullSchema.validate(
           {
-            startDatetime: '2020-08-02',
-            endDatetime: '2020-08-01',
+            startDatetime: '2020-08-01',
+            endDatetime: '2019-08-02',
           },
           { abortEarly: false },
         )
       } catch (e) {
-        expect(e.inner).toMatchInlineSnapshot(`
-          Array [
-            [ValidationError: This field is required],
-            [ValidationError: Start date (UTC) must be in the future.],
-            [ValidationError: End date must be after start date.],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: This field is required],
-            [ValidationError: A default variation is required.],
-            [ValidationError: The sum of allocated percentages must be less than or equal to 100.],
-            [ValidationError: Variation names must be unique.],
-          ]
-        `)
+        expect(String(e.inner)).toContain('End date must be after start date.')
       }
     })
 
+    it('allows more than 12 months between startDate and endDate', async () => {
+      expect.assertions(1)
+      try {
+        await Schemas.experimentFullSchema.validate(
+          {
+            startDatetime: '2020-08-01',
+            endDatetime: '2021-08-10',
+          },
+          { abortEarly: false },
+        )
+      } catch (e) {
+        expect(String(e.inner)).not.toContain('End date must be within 12 months of start date.')
+      }
+    })
+  })
+
+  describe('experimentFullNewSchema endDatetime', () => {
     it('throws validation error if endDate is not within defined period of startDate', async () => {
       expect.assertions(1)
       try {

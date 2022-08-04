@@ -7,3 +7,8 @@ declare module 'chi-squared-test' {
   function chiSquaredTest(observations: number[], expectations: number[], degreesOfFreedomReduction: number): ResultsSet
   export = chiSquaredTest
 }
+
+declare module 'norminv' {
+  function norminv(probability: number, mean: number, standardDeviation: number): number
+  export = norminv
+}

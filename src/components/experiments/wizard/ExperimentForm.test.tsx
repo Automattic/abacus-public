@@ -461,6 +461,16 @@ test('form submits with valid fields', async () => {
 
   await changeFieldByRole('spinbutton', /Minimum Difference/, '0.01')
 
+  // Use the min-diff calculator
+  screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
+  screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
+  screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
+  await changeFieldByRole('spinbutton', /Users \/ month/, '500000')
+  await changeFieldByRole('spinbutton', /Baseline revenue/, '10000')
+  await changeFieldByRole('spinbutton', /Extra revenue \/ month/, '100')
+  screen.getByRole('checkbox', { name: /I understand that a ARPU/ }).click()
+  screen.getByRole('button', { name: /Apply min diff/ }).click()
+
   // #### Exposure Events
   await act(async () => {
     fireEvent.click(screen.getByRole('button', { name: /Add exposure event/ }))

@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     formPart: {
       flex: '1  0',
-      maxWidth: 980,
+      maxWidth: 1024,
       padding: theme.spacing(2, 0),
     },
     formPartActions: {

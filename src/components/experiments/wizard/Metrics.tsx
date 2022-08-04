@@ -16,8 +16,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { Add, Clear } from '@material-ui/icons'
-import { Alert, AutocompleteRenderInputParams } from '@material-ui/lab'
+import { Add, ArrowDropDown, Clear } from '@material-ui/icons'
+import { Alert, AutocompleteRenderInputParams, ToggleButton } from '@material-ui/lab'
 import clsx from 'clsx'
 import { Field, FieldArray, FormikProps, useField } from 'formik'
 import { Select, Switch, TextField } from 'formik-material-ui'
@@ -33,7 +33,7 @@ import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import MoreMenu from 'src/components/general/MoreMenu'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
-import { EventNew, Metric, MetricAssignment } from 'src/lib/schemas'
+import { EventNew, Metric, MetricAssignment, MetricParameterType } from 'src/lib/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
 import { useDataSource } from 'src/utils/data-loading'
 
@@ -41,6 +41,7 @@ import { ExperimentFormCompletionBag } from './ExperimentForm'
 import { ReactComponent as AttributionWindowDiagram } from './img/attribution_window.svg'
 import { ReactComponent as MinDiffDiagram } from './img/min_diffs.svg'
 import { ReactComponent as RefundWindowDiagram } from './img/refund_window.svg'
+import MinDiffCalculator from './MinDiffCalculator'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,8 +68,16 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: theme.custom.fonts.monospace,
       fontWeight: theme.custom.fontWeights.monospaceBold,
     },
+    minDifferenceColumn: {
+      display: 'flex',
+    },
     minDifferenceField: {
       maxWidth: '14rem',
+      marginRight: theme.spacing(1),
+    },
+    minDifferenceCalculatorToggle: {
+      alignSelf: 'start',
+      textTransform: 'none',
     },
     changeExpected: {
       textAlign: 'center',
@@ -92,6 +101,19 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
       marginTop: theme.spacing(1),
     },
+    thMetricName: {},
+    thAttributionWindow: {
+      width: '11rem',
+    },
+    thChangeExpected: {
+      width: '8rem',
+    },
+    thMinDiff: {
+      width: '15rem',
+    },
+    thSettings: {
+      width: '5.5rem',
+    },
     requestMetricInfo: {
       marginTop: theme.spacing(1),
     },
@@ -104,6 +126,20 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     multipleExposureEventsInfo: {
       marginTop: theme.spacing(1),
+    },
+    minDiffExpanded: {
+      backgroundColor: theme.palette.grey[50],
+      border: `1px solid ${theme.palette.grey[300]}`,
+      borderBottomColor: theme.palette.grey[50],
+    },
+    minDiffCalculator: {
+      backgroundColor: theme.palette.grey[50],
+    },
+    minDiffCalculatorCollapsed: {
+      display: 'none',
+    },
+    metricsTable: {
+      tableLayout: 'fixed',
     },
   }),
 )
@@ -346,6 +382,31 @@ const Metrics = ({
   const [exposureEventsField, _exposureEventsFieldMetaProps, _exposureEventsFieldHelperProps] =
     useField<EventNew[]>('experiment.exposureEvents')
 
+  const [samplesPerMonth, setSamplesPerMonth] = useState(0)
+
+  // Minimum practical difference calculator toggle
+  const [activeMinDiffCalculatorList, setActiveMinDiffCalculatorList] = useState<boolean[]>(
+    Array(metricAssignmentsField.value.length).fill(false),
+  )
+  const handleMinDiffCalculatorToggle = (indexToSet: number) => {
+    setActiveMinDiffCalculatorList((list) => [
+      ...list.slice(0, indexToSet),
+      !list[indexToSet],
+      ...list.slice(indexToSet + 1),
+    ])
+  }
+
+  // Minimum practical difference value update
+  const handleMinPracticalDiffUpdate = (newMinDiff: number, indexToSet: number) => {
+    newMinDiff &&
+      metricAssignmentsFieldHelperProps.setValue(
+        metricAssignmentsField.value.map((metricAssignment, index) => ({
+          ...metricAssignment,
+          ...(index === indexToSet && { minDifference: newMinDiff / 100 }),
+        })),
+      )
+  }
+
   return (
     <div className={classes.root}>
       <Typography variant='h4' gutterBottom>
@@ -362,6 +423,7 @@ const Metrics = ({
                 ...metricAssignment,
                 isPrimary: metricAssignmentsField.value.length === 0,
               })
+              setActiveMinDiffCalculatorList([...activeMinDiffCalculatorList, false])
             }
             setSelectedMetric(null)
           }
@@ -369,20 +431,21 @@ const Metrics = ({
           return (
             <>
               <TableContainer>
-                <Table>
+                <Table className={classes.metricsTable}>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Metric</TableCell>
-                      <TableCell>Attribution Window</TableCell>
-                      <TableCell>Change Expected?</TableCell>
-                      <TableCell>Minimum Practical Difference</TableCell>
-                      <TableCell />
+                      <TableCell className={classes.thMetricName}>Metric</TableCell>
+                      <TableCell className={classes.thAttributionWindow}>Attribution Window</TableCell>
+                      <TableCell className={classes.thChangeExpected}>Change Expected?</TableCell>
+                      <TableCell className={classes.thMinDiff}>Minimum Practical Difference</TableCell>
+                      <TableCell className={classes.thSettings} />
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {metricAssignmentsField.value.map((metricAssignment, index) => {
                       const onRemoveMetricAssignment = () => {
                         arrayHelpers.remove(index)
+                        setActiveMinDiffCalculatorList(activeMinDiffCalculatorList.filter((_, i) => i !== index))
                       }
 
                       const onMakePrimary = () => {
@@ -400,69 +463,110 @@ const Metrics = ({
                         ) as string | undefined)
 
                       return (
-                        <TableRow key={index}>
-                          <TableCell className={classes.metricNameCell}>
-                            <Tooltip arrow title={indexedMetrics[metricAssignment.metricId].description}>
-                              <span className={clsx(classes.metricName, decorationClasses.tooltipped)}>
-                                {indexedMetrics[metricAssignment.metricId].name}
-                              </span>
-                            </Tooltip>
-                            <br />
-                            {metricAssignment.isPrimary && <Attribute name='primary' className={classes.monospaced} />}
-                          </TableCell>
-                          <TableCell>
-                            <Field
-                              className={classes.attributionWindowSelect}
-                              component={Select}
-                              name={`experiment.metricAssignments[${index}].attributionWindowSeconds`}
-                              labelId={`experiment.metricAssignments[${index}].attributionWindowSeconds`}
-                              size='small'
-                              variant='outlined'
-                              autoWidth
-                              displayEmpty
-                              error={!!attributionWindowError}
-                              SelectDisplayProps={{
-                                'aria-label': 'Attribution Window',
-                              }}
-                            >
-                              <MenuItem value=''>-</MenuItem>
-                              {Object.entries(AttributionWindowSecondsToHuman).map(
-                                ([attributionWindowSeconds, attributionWindowSecondsHuman]) => (
-                                  <MenuItem value={attributionWindowSeconds} key={attributionWindowSeconds}>
-                                    {attributionWindowSecondsHuman}
-                                  </MenuItem>
-                                ),
+                        <React.Fragment key={index}>
+                          <TableRow key={index}>
+                            <TableCell className={classes.metricNameCell}>
+                              <Tooltip arrow title={indexedMetrics[metricAssignment.metricId].description}>
+                                <span className={clsx(classes.metricName, decorationClasses.tooltipped)}>
+                                  {indexedMetrics[metricAssignment.metricId].name}
+                                </span>
+                              </Tooltip>
+                              <br />
+                              {metricAssignment.isPrimary && (
+                                <Attribute name='primary' className={classes.monospaced} />
                               )}
-                            </Field>
-                            {_.isString(attributionWindowError) && (
-                              <FormHelperText error>{attributionWindowError}</FormHelperText>
+                            </TableCell>
+                            <TableCell>
+                              <Field
+                                className={classes.attributionWindowSelect}
+                                component={Select}
+                                name={`experiment.metricAssignments[${index}].attributionWindowSeconds`}
+                                labelId={`experiment.metricAssignments[${index}].attributionWindowSeconds`}
+                                size='small'
+                                variant='outlined'
+                                autoWidth
+                                displayEmpty
+                                error={!!attributionWindowError}
+                                SelectDisplayProps={{
+                                  'aria-label': 'Attribution Window',
+                                }}
+                              >
+                                <MenuItem value=''>-</MenuItem>
+                                {Object.entries(AttributionWindowSecondsToHuman).map(
+                                  ([attributionWindowSeconds, attributionWindowSecondsHuman]) => (
+                                    <MenuItem value={attributionWindowSeconds} key={attributionWindowSeconds}>
+                                      {attributionWindowSecondsHuman}
+                                    </MenuItem>
+                                  ),
+                                )}
+                              </Field>
+                              {_.isString(attributionWindowError) && (
+                                <FormHelperText error>{attributionWindowError}</FormHelperText>
+                              )}
+                            </TableCell>
+                            <TableCell className={classes.changeExpected}>
+                              <Field
+                                component={Switch}
+                                name={`experiment.metricAssignments[${index}].changeExpected`}
+                                id={`experiment.metricAssignments[${index}].changeExpected`}
+                                type='checkbox'
+                                aria-label='Change Expected'
+                                variant='outlined'
+                              />
+                            </TableCell>
+                            <TableCell
+                              className={clsx(
+                                classes.minDifferenceColumn,
+                                activeMinDiffCalculatorList[index] && classes.minDiffExpanded,
+                              )}
+                            >
+                              <MetricDifferenceField
+                                className={classes.minDifferenceField}
+                                name={`experiment.metricAssignments[${index}].minDifference`}
+                                id={`experiment.metricAssignments[${index}].minDifference`}
+                                metricParameterType={indexedMetrics[metricAssignment.metricId].parameterType}
+                              />
+                              <ToggleButton
+                                value='check'
+                                selected={activeMinDiffCalculatorList[index]}
+                                onChange={handleMinDiffCalculatorToggle.bind(null, index)}
+                                className={classes.minDifferenceCalculatorToggle}
+                                title='Minimum Difference Calculator'
+                                size='small'
+                              >
+                                <ArrowDropDown />
+                              </ToggleButton>
+                            </TableCell>
+                            <TableCell>
+                              <MoreMenu>
+                                <MenuItem onClick={onMakePrimary}>Set as Primary</MenuItem>
+                                <MenuItem onClick={onRemoveMetricAssignment}>Remove</MenuItem>
+                              </MoreMenu>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow
+                            className={clsx(
+                              classes.minDiffCalculator,
+                              !activeMinDiffCalculatorList[index] && classes.minDiffCalculatorCollapsed,
                             )}
-                          </TableCell>
-                          <TableCell className={classes.changeExpected}>
-                            <Field
-                              component={Switch}
-                              name={`experiment.metricAssignments[${index}].changeExpected`}
-                              id={`experiment.metricAssignments[${index}].changeExpected`}
-                              type='checkbox'
-                              aria-label='Change Expected'
-                              variant='outlined'
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <MetricDifferenceField
-                              className={classes.minDifferenceField}
-                              name={`experiment.metricAssignments[${index}].minDifference`}
-                              id={`experiment.metricAssignments[${index}].minDifference`}
-                              metricParameterType={indexedMetrics[metricAssignment.metricId].parameterType}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <MoreMenu>
-                              <MenuItem onClick={onMakePrimary}>Set as Primary</MenuItem>
-                              <MenuItem onClick={onRemoveMetricAssignment}>Remove</MenuItem>
-                            </MoreMenu>
-                          </TableCell>
-                        </TableRow>
+                            key={`${index}-metric-calculator`}
+                          >
+                            <TableCell></TableCell>
+                            <TableCell colSpan={4}>
+                              <MinDiffCalculator
+                                setMinPracticalDiff={(newMinDiff) => handleMinPracticalDiffUpdate(newMinDiff, index)}
+                                {...{
+                                  samplesPerMonth,
+                                  setSamplesPerMonth,
+                                  experiment: formikProps.values.experiment,
+                                  isConversion:
+                                    indexedMetrics[metricAssignment.metricId].parameterType ===
+                                    MetricParameterType.Conversion,
+                                }}
+                              />
+                            </TableCell>
+                          </TableRow>
+                        </React.Fragment>
                       )
                     })}
                     {metricAssignmentsField.value.length === 0 && (

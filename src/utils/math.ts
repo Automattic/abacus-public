@@ -56,3 +56,35 @@ export function chiSquaredTestProbValue(
 
   return chiSquaredTest(observations, expectations, degreesOfFreedomReduction).probability
 }
+
+/**
+ * Default statistical significance to use
+ */
+export const defaultStatisticalSignificance = 0.95
+
+/**
+ * Default statistical power to use for sample size estimation.
+ */
+export const defaultStatisticalPower = 0.8
+
+/**
+ * FIXME: Does not work currently.
+ * Estimate the sample size required per variation for conversions
+ */
+export function samplesRequiredPerVariationForConversion(
+  /**
+   * Variance of the value.
+   */
+  variance: number,
+  /**
+   * Minimum to detect of the value.
+   */
+  delta: number,
+  _statisticalSignificance: number,
+  _statisticalPower: number,
+) {
+  // const zScore = standardNormInv((1 - statisticalSignificance) / 2) + standardNormInv(1 - statisticalPower)
+  // FIXME: Dummy zScore until we have norm-inv working
+  const zScore = 2.5
+  return Math.ceil(Math.pow(zScore / delta, 2) * variance)
+}

@@ -87,8 +87,16 @@ test('allows adding, editing and removing a Metric Assignment', async () => {
   expect(container).toMatchSnapshot()
 
   fireEvent.click(metricSearchFieldMoreButton)
-  fireEvent.click(await screen.findByRole('option', { name: /asdf_7d_refund/ }))
+  fireEvent.click(await screen.findByRole('option', { name: /registration_start/ }))
   fireEvent.click(metricAddButton)
+
+  // Use the min-diff calculator
+  screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
+  await changeFieldByRole('spinbutton', /Users \/ month/, '500000')
+  await changeFieldByRole('spinbutton', /Baseline conversion rate/, '50')
+  await changeFieldByRole('spinbutton', /Extra conversions \/ month/, '5000')
+  screen.getByRole('checkbox', { name: /I understand that a conversion/ }).click()
+  screen.getByRole('button', { name: /Apply min diff/ }).click()
 
   expect(container).toMatchSnapshot()
 

@@ -3,7 +3,7 @@
 exports[`allows adding, editing and removing a Metric Assignment 1`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -14,7 +14,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -23,31 +23,31 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -73,11 +73,11 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -86,7 +86,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -188,7 +188,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -218,7 +218,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -239,13 +239,13 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -309,7 +309,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -328,7 +328,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -349,13 +349,13 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -419,7 +419,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -435,7 +435,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -465,7 +465,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -498,11 +498,11 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -527,7 +527,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -561,7 +561,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -596,7 +596,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
 exports[`allows adding, editing and removing a Metric Assignment 2`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -607,7 +607,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -616,31 +616,31 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -666,11 +666,11 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -679,7 +679,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -781,7 +781,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -811,7 +811,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -832,13 +832,13 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -902,7 +902,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -921,7 +921,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -942,13 +942,13 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -1012,7 +1012,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -1028,7 +1028,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1058,7 +1058,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -1091,11 +1091,11 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1120,7 +1120,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1154,7 +1154,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1189,7 +1189,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
 exports[`allows adding, editing and removing a Metric Assignment 3`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1200,7 +1200,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -1209,31 +1209,31 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -1245,17 +1245,17 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-30"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-41"
             >
               <span
-                class="makeStyles-metricName-31 makeStyles-tooltipped-46"
+                class="makeStyles-metricName-42 makeStyles-tooltipped-68"
                 title="string"
               >
-                asdf_7d_refund
+                registration_start
               </span>
               <br />
               <span
-                class="makeStyles-root-49 makeStyles-monospaced-29"
+                class="makeStyles-root-71 makeStyles-monospaced-40"
               >
                 primary
               </span>
@@ -1264,7 +1264,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-28"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-39"
               >
                 <div
                   aria-haspopup="listbox"
@@ -1296,11 +1296,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-51"
+                    class="PrivateNotchedOutline-legend-73"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -1311,7 +1311,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-33"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-46"
             >
               <span
                 class="MuiSwitch-root"
@@ -1319,7 +1319,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-54 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-55 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-77 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -1327,7 +1327,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-57 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-79 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -1347,10 +1347,10 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-58 makeStyles-minDifferenceField-32"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -1360,28 +1360,30 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                     aria-label="Minimum Difference"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     id="experiment.metricAssignments[0].minDifference"
+                    max="100"
                     min="0"
                     name="experiment.metricAssignments[0].minDifference"
-                    placeholder="1.30"
+                    placeholder="5.4"
                     type="number"
-                    value=""
+                    value="1"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-59 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      title="Percentage Points"
                     >
-                      USD
+                      pp
                     </p>
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-51"
+                      class="PrivateNotchedOutline-legend-73"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -1391,6 +1393,32 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                   </fieldset>
                 </div>
               </div>
+              <button
+                aria-pressed="true"
+                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                tabindex="0"
+                title="Minimum Difference Calculator"
+                type="button"
+                value="check"
+              >
+                <span
+                  class="MuiToggleButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -1425,15 +1453,486 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               </div>
             </td>
           </tr>
+          <tr
+            class="MuiTableRow-root makeStyles-minDiffCalculator-62"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            />
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              colspan="4"
+            >
+              <div
+                class="makeStyles-root-82"
+              >
+                <h5
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                >
+                  Calculator: Minimum practical difference
+                </h5>
+                <br />
+                <div
+                  class="makeStyles-sideBySide-84"
+                >
+                  <div
+                    class="MuiPaper-root MuiStepper-root MuiStepper-vertical makeStyles-stepper-83 MuiPaper-elevation0"
+                  >
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              1
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many users are entering the flow per month? (total)
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="1"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="samples-per-month-10"
+                                  id="samples-per-month-10-label"
+                                >
+                                  Users / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="samples-per-month-10"
+                                    placeholder="15000"
+                                    required=""
+                                    type="number"
+                                    value="500000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Users / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              2
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            What is the baseline conversion rate?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="2"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="baseline-conversion-rate-10"
+                                  id="baseline-conversion-rate-10-label"
+                                >
+                                  Baseline conversion rate
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                >
+                                  <input
+                                    aria-describedby="baseline-conversion-rate-10-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                    id="baseline-conversion-rate-10"
+                                    max="100"
+                                    min="0"
+                                    placeholder="27.5"
+                                    required=""
+                                    type="number"
+                                    value="50"
+                                  />
+                                  <div
+                                    class="MuiInputAdornment-root makeStyles-adornment-86 MuiInputAdornment-positionEnd"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                                    >
+                                      %
+                                    </p>
+                                  </div>
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Baseline conversion rate
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="baseline-conversion-rate-10-helper-text"
+                                >
+                                  = 250000 conversions per month
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              3
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many extra conversions makes a practical difference?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root MuiStepContent-last"
+                        icon="3"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="extra-conversions-per-month-10"
+                                  id="extra-conversions-per-month-10-label"
+                                >
+                                  Extra conversions / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-describedby="extra-conversions-per-month-10-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="extra-conversions-per-month-10"
+                                    min="0"
+                                    placeholder="100"
+                                    required=""
+                                    type="number"
+                                    value="5000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Extra conversions / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="extra-conversions-per-month-10-helper-text"
+                                >
+                                  = 2% lift
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="makeStyles-results-85"
+                  >
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                    >
+                      Calculated Results
+                    </h5>
+                    <br />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      <strong>
+                         Minimum practical difference: 
+                      </strong>
+                    </p>
+                    <strong>
+                      <pre>
+                        1
+                         
+                        pp
+                      </pre>
+                    </strong>
+                    <br />
+                    <div
+                      class="makeStyles-liability-87"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiCheckbox-root MuiCheckbox-colorSecondary makeStyles-liabilityCheckbox-88 PrivateSwitchBase-checked-77 Mui-checked MuiIconButton-colorSecondary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input-79"
+                            data-indeterminate="false"
+                            id="liability-checkbox"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <label
+                        class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
+                        for="liability-checkbox"
+                      >
+                        I understand that a 
+                        conversion rate
+                         of between
+                         
+                        49.00
+                        %
+                         and
+                         
+                        51.00
+                        %
+                         will be regarded as having no change.
+                      </label>
+                    </div>
+                    <br />
+                    <button
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        Apply min diff
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1442,7 +1941,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -1544,7 +2043,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1574,7 +2073,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1595,13 +2094,13 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -1665,7 +2164,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -1684,7 +2183,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1705,13 +2204,13 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -1775,7 +2274,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -1791,7 +2290,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1821,7 +2320,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -1854,11 +2353,11 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -1883,7 +2382,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1917,7 +2416,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -1954,7 +2453,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
   aria-hidden="true"
 >
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -1965,7 +2464,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -1974,31 +2473,31 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -2010,17 +2509,17 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-30"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-41"
             >
               <span
-                class="makeStyles-metricName-31 makeStyles-tooltipped-46"
+                class="makeStyles-metricName-42 makeStyles-tooltipped-68"
                 title="string"
               >
-                asdf_7d_refund
+                registration_start
               </span>
               <br />
               <span
-                class="makeStyles-root-49 makeStyles-monospaced-29"
+                class="makeStyles-root-71 makeStyles-monospaced-40"
               >
                 primary
               </span>
@@ -2029,7 +2528,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-28"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-39"
               >
                 <div
                   aria-haspopup="listbox"
@@ -2061,11 +2560,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-51"
+                    class="PrivateNotchedOutline-legend-73"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -2076,7 +2575,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-33"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-46"
             >
               <span
                 class="MuiSwitch-root"
@@ -2084,7 +2583,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-54 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-55 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-77 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -2092,7 +2591,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-57 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-79 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -2112,10 +2611,10 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-58 makeStyles-minDifferenceField-32"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -2125,28 +2624,30 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                     aria-label="Minimum Difference"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     id="experiment.metricAssignments[0].minDifference"
+                    max="100"
                     min="0"
                     name="experiment.metricAssignments[0].minDifference"
-                    placeholder="1.30"
+                    placeholder="5.4"
                     type="number"
                     value="0.01"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-59 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      title="Percentage Points"
                     >
-                      USD
+                      pp
                     </p>
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-51"
+                      class="PrivateNotchedOutline-legend-73"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -2156,6 +2657,32 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                   </fieldset>
                 </div>
               </div>
+              <button
+                aria-pressed="true"
+                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                tabindex="0"
+                title="Minimum Difference Calculator"
+                type="button"
+                value="check"
+              >
+                <span
+                  class="MuiToggleButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -2190,15 +2717,486 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               </div>
             </td>
           </tr>
+          <tr
+            class="MuiTableRow-root makeStyles-minDiffCalculator-62"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            />
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              colspan="4"
+            >
+              <div
+                class="makeStyles-root-82"
+              >
+                <h5
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                >
+                  Calculator: Minimum practical difference
+                </h5>
+                <br />
+                <div
+                  class="makeStyles-sideBySide-84"
+                >
+                  <div
+                    class="MuiPaper-root MuiStepper-root MuiStepper-vertical makeStyles-stepper-83 MuiPaper-elevation0"
+                  >
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              1
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many users are entering the flow per month? (total)
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="1"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="samples-per-month-14"
+                                  id="samples-per-month-14-label"
+                                >
+                                  Users / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="samples-per-month-14"
+                                    placeholder="15000"
+                                    required=""
+                                    type="number"
+                                    value="500000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Users / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              2
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            What is the baseline conversion rate?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="2"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="baseline-conversion-rate-14"
+                                  id="baseline-conversion-rate-14-label"
+                                >
+                                  Baseline conversion rate
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                >
+                                  <input
+                                    aria-describedby="baseline-conversion-rate-14-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                    id="baseline-conversion-rate-14"
+                                    max="100"
+                                    min="0"
+                                    placeholder="27.5"
+                                    required=""
+                                    type="number"
+                                    value="50"
+                                  />
+                                  <div
+                                    class="MuiInputAdornment-root makeStyles-adornment-86 MuiInputAdornment-positionEnd"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                                    >
+                                      %
+                                    </p>
+                                  </div>
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Baseline conversion rate
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="baseline-conversion-rate-14-helper-text"
+                                >
+                                  = 250000 conversions per month
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              3
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many extra conversions makes a practical difference?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root MuiStepContent-last"
+                        icon="3"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="extra-conversions-per-month-14"
+                                  id="extra-conversions-per-month-14-label"
+                                >
+                                  Extra conversions / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-describedby="extra-conversions-per-month-14-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="extra-conversions-per-month-14"
+                                    min="0"
+                                    placeholder="100"
+                                    required=""
+                                    type="number"
+                                    value="5000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Extra conversions / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="extra-conversions-per-month-14-helper-text"
+                                >
+                                  = 2% lift
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="makeStyles-results-85"
+                  >
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                    >
+                      Calculated Results
+                    </h5>
+                    <br />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      <strong>
+                         Minimum practical difference: 
+                      </strong>
+                    </p>
+                    <strong>
+                      <pre>
+                        1
+                         
+                        pp
+                      </pre>
+                    </strong>
+                    <br />
+                    <div
+                      class="makeStyles-liability-87"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiCheckbox-root MuiCheckbox-colorSecondary makeStyles-liabilityCheckbox-88 PrivateSwitchBase-checked-77 Mui-checked MuiIconButton-colorSecondary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input-79"
+                            data-indeterminate="false"
+                            id="liability-checkbox"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <label
+                        class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
+                        for="liability-checkbox"
+                      >
+                        I understand that a 
+                        conversion rate
+                         of between
+                         
+                        49.00
+                        %
+                         and
+                         
+                        51.00
+                        %
+                         will be regarded as having no change.
+                      </label>
+                    </div>
+                    <br />
+                    <button
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        Apply min diff
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2207,7 +3205,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -2309,7 +3307,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2339,7 +3337,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2360,13 +3358,13 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -2430,7 +3428,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -2449,7 +3447,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2470,13 +3468,13 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -2540,7 +3538,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -2556,7 +3554,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2586,7 +3584,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -2619,11 +3617,11 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2648,7 +3646,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2682,7 +3680,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -2717,7 +3715,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
 exports[`allows adding, editing and removing a Metric Assignment 5`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -2728,7 +3726,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -2737,31 +3735,31 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -2773,17 +3771,17 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-30"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-41"
             >
               <span
-                class="makeStyles-metricName-31 makeStyles-tooltipped-46"
+                class="makeStyles-metricName-42 makeStyles-tooltipped-68"
                 title="string"
               >
-                asdf_7d_refund
+                registration_start
               </span>
               <br />
               <span
-                class="makeStyles-root-49 makeStyles-monospaced-29"
+                class="makeStyles-root-71 makeStyles-monospaced-40"
               >
                 primary
               </span>
@@ -2792,7 +3790,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-28"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-39"
               >
                 <div
                   aria-haspopup="listbox"
@@ -2824,11 +3822,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-51"
+                    class="PrivateNotchedOutline-legend-73"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -2839,7 +3837,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-33"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-46"
             >
               <span
                 class="MuiSwitch-root"
@@ -2847,7 +3845,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-54 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-55 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-77 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -2855,7 +3853,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-57 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-79 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -2875,10 +3873,10 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-58 makeStyles-minDifferenceField-32"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -2888,28 +3886,30 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                     aria-label="Minimum Difference"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     id="experiment.metricAssignments[0].minDifference"
+                    max="100"
                     min="0"
                     name="experiment.metricAssignments[0].minDifference"
-                    placeholder="1.30"
+                    placeholder="5.4"
                     type="number"
                     value="0.01"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-59 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      title="Percentage Points"
                     >
-                      USD
+                      pp
                     </p>
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-50 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-51"
+                      class="PrivateNotchedOutline-legend-73"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -2919,6 +3919,32 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                   </fieldset>
                 </div>
               </div>
+              <button
+                aria-pressed="true"
+                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                tabindex="0"
+                title="Minimum Difference Calculator"
+                type="button"
+                value="check"
+              >
+                <span
+                  class="MuiToggleButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -2953,15 +3979,486 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               </div>
             </td>
           </tr>
+          <tr
+            class="MuiTableRow-root makeStyles-minDiffCalculator-62"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            />
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              colspan="4"
+            >
+              <div
+                class="makeStyles-root-82"
+              >
+                <h5
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                >
+                  Calculator: Minimum practical difference
+                </h5>
+                <br />
+                <div
+                  class="makeStyles-sideBySide-84"
+                >
+                  <div
+                    class="MuiPaper-root MuiStepper-root MuiStepper-vertical makeStyles-stepper-83 MuiPaper-elevation0"
+                  >
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              1
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many users are entering the flow per month? (total)
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="1"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="samples-per-month-15"
+                                  id="samples-per-month-15-label"
+                                >
+                                  Users / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="samples-per-month-15"
+                                    placeholder="15000"
+                                    required=""
+                                    type="number"
+                                    value="500000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Users / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              2
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            What is the baseline conversion rate?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="2"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="baseline-conversion-rate-15"
+                                  id="baseline-conversion-rate-15-label"
+                                >
+                                  Baseline conversion rate
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                >
+                                  <input
+                                    aria-describedby="baseline-conversion-rate-15-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                    id="baseline-conversion-rate-15"
+                                    max="100"
+                                    min="0"
+                                    placeholder="27.5"
+                                    required=""
+                                    type="number"
+                                    value="50"
+                                  />
+                                  <div
+                                    class="MuiInputAdornment-root makeStyles-adornment-86 MuiInputAdornment-positionEnd"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                                    >
+                                      %
+                                    </p>
+                                  </div>
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Baseline conversion rate
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="baseline-conversion-rate-15-helper-text"
+                                >
+                                  = 250000 conversions per month
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              3
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many extra conversions makes a practical difference?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root MuiStepContent-last"
+                        icon="3"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="extra-conversions-per-month-15"
+                                  id="extra-conversions-per-month-15-label"
+                                >
+                                  Extra conversions / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-describedby="extra-conversions-per-month-15-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="extra-conversions-per-month-15"
+                                    min="0"
+                                    placeholder="100"
+                                    required=""
+                                    type="number"
+                                    value="5000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-74 PrivateNotchedOutline-legendNotched-75"
+                                    >
+                                      <span>
+                                        Extra conversions / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="extra-conversions-per-month-15-helper-text"
+                                >
+                                  = 2% lift
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="makeStyles-results-85"
+                  >
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                    >
+                      Calculated Results
+                    </h5>
+                    <br />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      <strong>
+                         Minimum practical difference: 
+                      </strong>
+                    </p>
+                    <strong>
+                      <pre>
+                        1
+                         
+                        pp
+                      </pre>
+                    </strong>
+                    <br />
+                    <div
+                      class="makeStyles-liability-87"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-76 MuiCheckbox-root MuiCheckbox-colorSecondary makeStyles-liabilityCheckbox-88 PrivateSwitchBase-checked-77 Mui-checked MuiIconButton-colorSecondary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input-79"
+                            data-indeterminate="false"
+                            id="liability-checkbox"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <label
+                        class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
+                        for="liability-checkbox"
+                      >
+                        I understand that a 
+                        conversion rate
+                         of between
+                         
+                        49.00
+                        %
+                         and
+                         
+                        51.00
+                        %
+                         will be regarded as having no change.
+                      </label>
+                    </div>
+                    <br />
+                    <button
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        Apply min diff
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -2970,7 +4467,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -3072,7 +4569,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3102,7 +4599,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3123,13 +4620,13 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -3193,7 +4690,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -3212,7 +4709,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3233,13 +4730,13 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -3303,7 +4800,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -3319,7 +4816,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3349,7 +4846,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -3382,11 +4879,11 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -3411,7 +4908,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3445,7 +4942,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3480,7 +4977,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
 exports[`allows adding, editing and removing a Metric Assignment 6`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -3491,7 +4988,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -3500,31 +4997,31 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -3550,11 +5047,11 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -3563,7 +5060,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -3665,7 +5162,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3695,7 +5192,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3716,13 +5213,13 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -3786,7 +5283,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -3805,7 +5302,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3826,13 +5323,13 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -3896,7 +5393,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -3912,7 +5409,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -3942,7 +5439,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -3975,11 +5472,11 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -4004,7 +5501,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4038,7 +5535,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4073,7 +5570,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
 exports[`allows adding, editing and removing a Metric Assignment 7`] = `
 <div>
   <div
-    class="makeStyles-root-25"
+    class="makeStyles-root-36"
   >
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -4084,7 +5581,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-64"
       >
         <thead
           class="MuiTableHead-root"
@@ -4093,31 +5590,31 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-52"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-53"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-54"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-55"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-56"
               scope="col"
             />
           </tr>
@@ -4129,17 +5626,17 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
             class="MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-30"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-metricNameCell-41"
             >
               <span
-                class="makeStyles-metricName-31 makeStyles-tooltipped-46"
+                class="makeStyles-metricName-42 makeStyles-tooltipped-68"
                 title="string"
               >
                 registration_start
               </span>
               <br />
               <span
-                class="makeStyles-root-60 makeStyles-monospaced-29"
+                class="makeStyles-root-89 makeStyles-monospaced-40"
               >
                 primary
               </span>
@@ -4148,7 +5645,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               class="MuiTableCell-root MuiTableCell-body"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-28"
+                class="MuiInputBase-root MuiOutlinedInput-root makeStyles-attributionWindowSelect-39"
               >
                 <div
                   aria-haspopup="listbox"
@@ -4180,11 +5677,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-61 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
                   style="padding-left: 8px;"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-62"
+                    class="PrivateNotchedOutline-legend-91"
                     style="width: 0.01px;"
                   >
                     <span>
@@ -4195,7 +5692,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               </div>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-33"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-changeExpected-46"
             >
               <span
                 class="MuiSwitch-root"
@@ -4203,7 +5700,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                 <span
                   aria-disabled="false"
                   aria-label="Change Expected"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-65 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-66 Mui-checked"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-94 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-95 Mui-checked"
                   variant="outlined"
                 >
                   <span
@@ -4211,7 +5708,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                   >
                     <input
                       checked=""
-                      class="PrivateSwitchBase-input-68 MuiSwitch-input"
+                      class="PrivateSwitchBase-input-97 MuiSwitch-input"
                       id="experiment.metricAssignments[0].changeExpected"
                       name="experiment.metricAssignments[0].changeExpected"
                       type="checkbox"
@@ -4231,10 +5728,10 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-69 makeStyles-minDifferenceField-32"
+                class="MuiFormControl-root MuiTextField-root makeStyles-root-98 makeStyles-minDifferenceField-44"
               >
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -4252,10 +5749,10 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                     value="0"
                   />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-70 MuiInputAdornment-positionEnd"
+                    class="MuiInputAdornment-root makeStyles-adornment-99 MuiInputAdornment-positionEnd"
                   >
                     <p
-                      class="MuiTypography-root makeStyles-tooltipped-46 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
                       title="Percentage Points"
                     >
                       pp
@@ -4263,11 +5760,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-61 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-62"
+                      class="PrivateNotchedOutline-legend-91"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -4277,6 +5774,32 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                   </fieldset>
                 </div>
               </div>
+              <button
+                aria-pressed="false"
+                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 MuiToggleButton-sizeSmall"
+                tabindex="0"
+                title="Minimum Difference Calculator"
+                type="button"
+                value="check"
+              >
+                <span
+                  class="MuiToggleButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -4311,15 +5834,484 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               </div>
             </td>
           </tr>
+          <tr
+            class="MuiTableRow-root makeStyles-minDiffCalculator-62 makeStyles-minDiffCalculatorCollapsed-63"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            />
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              colspan="4"
+            >
+              <div
+                class="makeStyles-root-100"
+              >
+                <h5
+                  class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                >
+                  Calculator: Minimum practical difference
+                </h5>
+                <br />
+                <div
+                  class="makeStyles-sideBySide-102"
+                >
+                  <div
+                    class="MuiPaper-root MuiStepper-root MuiStepper-vertical makeStyles-stepper-101 MuiPaper-elevation0"
+                  >
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              1
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many users are entering the flow per month? (total)
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="1"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="samples-per-month-18"
+                                  id="samples-per-month-18-label"
+                                >
+                                  Users / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="samples-per-month-18"
+                                    placeholder="15000"
+                                    required=""
+                                    type="number"
+                                    value="500000"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-92 PrivateNotchedOutline-legendNotched-93"
+                                    >
+                                      <span>
+                                        Users / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              2
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            What is the baseline conversion rate?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root"
+                        icon="2"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="baseline-conversion-rate-18"
+                                  id="baseline-conversion-rate-18-label"
+                                >
+                                  Baseline conversion rate
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                >
+                                  <input
+                                    aria-describedby="baseline-conversion-rate-18-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                    id="baseline-conversion-rate-18"
+                                    max="100"
+                                    min="0"
+                                    placeholder="27.5"
+                                    required=""
+                                    type="number"
+                                    value="0"
+                                  />
+                                  <div
+                                    class="MuiInputAdornment-root makeStyles-adornment-104 MuiInputAdornment-positionEnd"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                                    >
+                                      %
+                                    </p>
+                                  </div>
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-92 PrivateNotchedOutline-legendNotched-93"
+                                    >
+                                      <span>
+                                        Baseline conversion rate
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="baseline-conversion-rate-18-helper-text"
+                                >
+                                  = 0 conversions per month
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiStepConnector-root MuiStepConnector-vertical MuiStepConnector-active"
+                    >
+                      <span
+                        class="MuiStepConnector-line MuiStepConnector-lineVertical"
+                      />
+                    </div>
+                    <div
+                      class="MuiStep-root MuiStep-vertical"
+                    >
+                      <span
+                        class="MuiStepLabel-root MuiStepLabel-vertical"
+                      >
+                        <span
+                          class="MuiStepLabel-iconContainer"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="12"
+                            />
+                            <text
+                              class="MuiStepIcon-text"
+                              text-anchor="middle"
+                              x="12"
+                              y="16"
+                            >
+                              3
+                            </text>
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiStepLabel-labelContainer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            How many extra conversions makes a practical difference?
+                          </span>
+                        </span>
+                      </span>
+                      <div
+                        class="MuiStepContent-root MuiStepContent-last"
+                        icon="3"
+                      >
+                        <div
+                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          style="min-height: 0px;"
+                        >
+                          <div
+                            class="MuiCollapse-wrapper"
+                          >
+                            <div
+                              class="MuiCollapse-wrapperInner"
+                            >
+                              <div
+                                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                              >
+                                <label
+                                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                                  data-shrink="true"
+                                  for="extra-conversions-per-month-18"
+                                  id="extra-conversions-per-month-18-label"
+                                >
+                                  Extra conversions / month
+                                  <span
+                                    aria-hidden="true"
+                                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                  >
+                                     
+                                    *
+                                  </span>
+                                </label>
+                                <div
+                                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                                >
+                                  <input
+                                    aria-describedby="extra-conversions-per-month-18-helper-text"
+                                    aria-invalid="false"
+                                    class="MuiInputBase-input MuiOutlinedInput-input"
+                                    id="extra-conversions-per-month-18"
+                                    min="0"
+                                    placeholder="100"
+                                    required=""
+                                    type="number"
+                                    value="0"
+                                  />
+                                  <fieldset
+                                    aria-hidden="true"
+                                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
+                                  >
+                                    <legend
+                                      class="PrivateNotchedOutline-legendLabelled-92 PrivateNotchedOutline-legendNotched-93"
+                                    >
+                                      <span>
+                                        Extra conversions / month
+                                         *
+                                      </span>
+                                    </legend>
+                                  </fieldset>
+                                </div>
+                                <p
+                                  class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                                  id="extra-conversions-per-month-18-helper-text"
+                                >
+                                  = 0% lift
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="makeStyles-results-103"
+                  >
+                    <h5
+                      class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+                    >
+                      Calculated Results
+                    </h5>
+                    <br />
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      <strong>
+                         Minimum practical difference: 
+                      </strong>
+                    </p>
+                    <strong>
+                      <pre>
+                        0
+                         
+                        pp
+                      </pre>
+                    </strong>
+                    <br />
+                    <div
+                      class="makeStyles-liability-105"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-94 MuiCheckbox-root MuiCheckbox-colorSecondary makeStyles-liabilityCheckbox-106 MuiIconButton-colorSecondary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            class="PrivateSwitchBase-input-97"
+                            data-indeterminate="false"
+                            id="liability-checkbox"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <label
+                        class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
+                        for="liability-checkbox"
+                      >
+                        I understand that a 
+                        conversion rate
+                         of between
+                         
+                        0.00
+                        %
+                         and
+                         
+                        0.00
+                        %
+                         will be regarded as having no change.
+                      </label>
+                    </div>
+                    <br />
+                    <button
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained Mui-disabled Mui-disabled"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        Apply min diff
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -4328,7 +6320,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
         />
       </svg>
       <div
-        class="MuiFormControl-root makeStyles-addMetricSelect-27"
+        class="MuiFormControl-root makeStyles-addMetricSelect-38"
       >
         <div
           aria-expanded="false"
@@ -4430,7 +6422,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-34 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-47 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4460,7 +6452,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-35 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-48 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4481,13 +6473,13 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -4551,7 +6543,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-36"
+                        class="makeStyles-attributionWindowDiagram-49"
                       >
                         <svg>
                           attribution_window.svg
@@ -4570,7 +6562,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-37 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-50 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4591,13 +6583,13 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-47 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-69 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-48"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-70"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -4661,7 +6653,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-38"
+                        class="makeStyles-minDiffDiagram-51"
                       >
                         <svg>
                           min_diffs.svg
@@ -4677,7 +6669,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-39 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-57 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4707,7 +6699,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-40 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-58 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -4740,11 +6732,11 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-44"
+      class="makeStyles-addMetric-66"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-45"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-67"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -4769,7 +6761,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-41 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-59 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4803,7 +6795,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-42 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-60 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -4849,7 +6841,7 @@ exports[`renders as expected 1`] = `
       class="MuiTableContainer-root"
     >
       <table
-        class="MuiTable-root"
+        class="MuiTable-root makeStyles-metricsTable-29"
       >
         <thead
           class="MuiTableHead-root"
@@ -4858,31 +6850,31 @@ exports[`renders as expected 1`] = `
             class="MuiTableRow-root MuiTableRow-head"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMetricName-17"
               scope="col"
             >
               Metric
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thAttributionWindow-18"
               scope="col"
             >
               Attribution Window
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thChangeExpected-19"
               scope="col"
             >
               Change Expected?
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thMinDiff-20"
               scope="col"
             >
               Minimum Practical Difference
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head makeStyles-thSettings-21"
               scope="col"
             />
           </tr>
@@ -4908,11 +6900,11 @@ exports[`renders as expected 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-20"
+      class="makeStyles-addMetric-31"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-21"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -5023,7 +7015,7 @@ exports[`renders as expected 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-10 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-metricsInfo-12 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -5053,7 +7045,7 @@ exports[`renders as expected 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-11 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-attributionWindowInfo-13 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -5074,13 +7066,13 @@ exports[`renders as expected 1`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-23 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-34 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="attr-window-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-24"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-35"
             id="attr-window-panel"
             role="button"
             tabindex="0"
@@ -5144,7 +7136,7 @@ exports[`renders as expected 1`] = `
                       is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
-                        class="makeStyles-attributionWindowDiagram-12"
+                        class="makeStyles-attributionWindowDiagram-14"
                       >
                         <svg>
                           attribution_window.svg
@@ -5163,7 +7155,7 @@ exports[`renders as expected 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-13 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-minDiffInfo-15 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -5184,13 +7176,13 @@ exports[`renders as expected 1`] = `
         class="MuiAlert-message"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-23 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root MuiAlert-standardInfo makeStyles-accordionRoot-34 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-controls="min-diff-panel-content"
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-24"
+            class="MuiButtonBase-root MuiAccordionSummary-root makeStyles-accordionSummary-35"
             id="min-diff-panel"
             role="button"
             tabindex="0"
@@ -5254,7 +7246,7 @@ exports[`renders as expected 1`] = `
                       are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a minimum difference of 0.5 pp is equivalent to a 10% relative change.
                       <br />
                       <div
-                        class="makeStyles-minDiffDiagram-14"
+                        class="makeStyles-minDiffDiagram-16"
                       >
                         <svg>
                           min_diffs.svg
@@ -5270,7 +7262,7 @@ exports[`renders as expected 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-15 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-requestMetricInfo-22 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -5300,7 +7292,7 @@ exports[`renders as expected 1`] = `
       </div>
     </div>
     <h4
-      class="MuiTypography-root makeStyles-exposureEventsTitle-16 MuiTypography-h4"
+      class="MuiTypography-root makeStyles-exposureEventsTitle-23 MuiTypography-h4"
     >
       Exposure Events
     </h4>
@@ -5333,11 +7325,11 @@ exports[`renders as expected 1`] = `
       </table>
     </div>
     <div
-      class="makeStyles-addMetric-20"
+      class="makeStyles-addMetric-31"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-21"
+        class="MuiSvgIcon-root makeStyles-addMetricAddSymbol-32"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -5362,7 +7354,7 @@ exports[`renders as expected 1`] = `
       </button>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-17 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-exposureEventsInfo-24 MuiPaper-elevation0"
       role="alert"
     >
       <div
@@ -5396,7 +7388,7 @@ exports[`renders as expected 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-18 MuiPaper-elevation0"
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-multipleExposureEventsInfo-25 MuiPaper-elevation0"
       role="alert"
     >
       <div

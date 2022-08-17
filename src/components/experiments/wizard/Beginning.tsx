@@ -50,15 +50,19 @@ const Beginning = (): JSX.Element => {
         >
           documenting your experiment
         </Link>{' '}
-        and creating a P2 post.
+        and creating a post on{' '}
+        <Link underline='always' href='https://a8cexperiments.wordpress.com/' target='_blank'>
+          a8cexperiments
+        </Link>{' '}
+        P2.
       </Alert>
       <Field
         className={classes.p2EntryField}
         component={TextField}
         id='experiment.p2Url'
         name='experiment.p2Url'
-        placeholder='https://your-p2-post-here'
-        label={`Your Post's URL`}
+        placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
+        label={`Your a8cexperiments P2 post URL`}
         variant='outlined'
         InputLabelProps={{
           shrink: true,

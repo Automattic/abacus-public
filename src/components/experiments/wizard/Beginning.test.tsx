@@ -70,7 +70,17 @@ test('renders as expected', () => {
               documenting your experiment
             </a>
              
-            and creating a P2 post.
+            and creating a post on
+             
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+              href="https://a8cexperiments.wordpress.com/"
+              target="_blank"
+            >
+              a8cexperiments
+            </a>
+             
+            P2.
           </div>
         </div>
         <div
@@ -82,7 +92,7 @@ test('renders as expected', () => {
             for="experiment.p2Url"
             id="experiment.p2Url-label"
           >
-            Your Post's URL
+            Your a8cexperiments P2 post URL
           </label>
           <div
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
@@ -92,7 +102,7 @@ test('renders as expected', () => {
               class="MuiInputBase-input MuiOutlinedInput-input"
               id="experiment.p2Url"
               name="experiment.p2Url"
-              placeholder="https://your-p2-post-here"
+              placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
               type="text"
               value=""
             />
@@ -104,7 +114,7 @@ test('renders as expected', () => {
                 class="PrivateNotchedOutline-legendLabelled-6 PrivateNotchedOutline-legendNotched-7"
               >
                 <span>
-                  Your Post's URL
+                  Your a8cexperiments P2 post URL
                 </span>
               </legend>
             </fieldset>

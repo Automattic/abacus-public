@@ -364,7 +364,17 @@ exports[`renders as expected 1`] = `
                     documenting your experiment
                   </a>
                    
-                  and creating a P2 post.
+                  and creating a post on
+                   
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                    href="https://a8cexperiments.wordpress.com/"
+                    target="_blank"
+                  >
+                    a8cexperiments
+                  </a>
+                   
+                  P2.
                 </div>
               </div>
               <div
@@ -376,7 +386,7 @@ exports[`renders as expected 1`] = `
                   for="experiment.p2Url"
                   id="experiment.p2Url-label"
                 >
-                  Your Post's URL
+                  Your a8cexperiments P2 post URL
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
@@ -386,7 +396,7 @@ exports[`renders as expected 1`] = `
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     id="experiment.p2Url"
                     name="experiment.p2Url"
-                    placeholder="https://your-p2-post-here"
+                    placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
                     type="text"
                     value=""
                   />
@@ -398,7 +408,7 @@ exports[`renders as expected 1`] = `
                       class="PrivateNotchedOutline-legendLabelled-12 PrivateNotchedOutline-legendNotched-13"
                     >
                       <span>
-                        Your Post's URL
+                        Your a8cexperiments P2 post URL
                       </span>
                     </legend>
                   </fieldset>
@@ -795,7 +805,17 @@ exports[`sections should be browsable by the section buttons and show validation
                     documenting your experiment
                   </a>
                    
-                  and creating a P2 post.
+                  and creating a post on
+                   
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                    href="https://a8cexperiments.wordpress.com/"
+                    target="_blank"
+                  >
+                    a8cexperiments
+                  </a>
+                   
+                  P2.
                 </div>
               </div>
               <div
@@ -807,7 +827,7 @@ exports[`sections should be browsable by the section buttons and show validation
                   for="experiment.p2Url"
                   id="experiment.p2Url-label"
                 >
-                  Your Post's URL
+                  Your a8cexperiments P2 post URL
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
@@ -817,7 +837,7 @@ exports[`sections should be browsable by the section buttons and show validation
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     id="experiment.p2Url"
                     name="experiment.p2Url"
-                    placeholder="https://your-p2-post-here"
+                    placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
                     type="text"
                     value=""
                   />
@@ -829,7 +849,7 @@ exports[`sections should be browsable by the section buttons and show validation
                       class="PrivateNotchedOutline-legendLabelled-104 PrivateNotchedOutline-legendNotched-105"
                     >
                       <span>
-                        Your Post's URL
+                        Your a8cexperiments P2 post URL
                       </span>
                     </legend>
                   </fieldset>

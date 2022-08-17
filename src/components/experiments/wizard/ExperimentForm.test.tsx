@@ -275,7 +275,7 @@ test('section should be validated after change', async () => {
     fireEvent.click(startSectionButton)
   })
 
-  const postUrlInput = screen.getByRole('textbox', { name: /Your Post's URL/ })
+  const postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
 
   await act(async () => {
     fireEvent.change(postUrlInput, { target: { value: 'http://example.com/' } })
@@ -361,7 +361,7 @@ test('form submits with valid fields', async () => {
 
   // ### Start
   screen.getByText(/Design and Document Your Experiment/)
-  await changeFieldByRole('textbox', /Your Post's URL/, 'http://example.com/')
+  await changeFieldByRole('textbox', /Your a8cexperiments P2 post URL/, 'http://example.com/')
   await act(async () => {
     fireEvent.click(screen.getByRole('button', { name: /Begin/ }))
   })

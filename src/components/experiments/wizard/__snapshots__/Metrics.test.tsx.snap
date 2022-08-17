@@ -1891,17 +1891,13 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                         class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
                         for="liability-checkbox"
                       >
-                        I understand that a 
-                        conversion rate
-                         of between
+                        I understand that a conversion rate between
                          
                         49.00
-                        %
-                         and
+                        % and
                          
                         51.00
-                        %
-                         will be regarded as having no change.
+                        % will be regarded as having no change.
                       </label>
                     </div>
                     <br />
@@ -3155,17 +3151,13 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                         class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
                         for="liability-checkbox"
                       >
-                        I understand that a 
-                        conversion rate
-                         of between
+                        I understand that a conversion rate between
                          
                         49.00
-                        %
-                         and
+                        % and
                          
                         51.00
-                        %
-                         will be regarded as having no change.
+                        % will be regarded as having no change.
                       </label>
                     </div>
                     <br />
@@ -4417,17 +4409,13 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                         class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
                         for="liability-checkbox"
                       >
-                        I understand that a 
-                        conversion rate
-                         of between
+                        I understand that a conversion rate between
                          
                         49.00
-                        %
-                         and
+                        % and
                          
                         51.00
-                        %
-                         will be regarded as having no change.
+                        % will be regarded as having no change.
                       </label>
                     </div>
                     <br />
@@ -6272,17 +6260,13 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                         class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
                         for="liability-checkbox"
                       >
-                        I understand that a 
-                        conversion rate
-                         of between
+                        I understand that a conversion rate between
                          
                         0.00
-                        %
-                         and
+                        % and
                          
                         0.00
-                        %
-                         will be regarded as having no change.
+                        % will be regarded as having no change.
                       </label>
                     </div>
                     <br />

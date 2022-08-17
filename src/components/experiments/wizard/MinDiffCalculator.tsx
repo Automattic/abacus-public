@@ -208,7 +208,7 @@ const MinDiffCalculator = ({
                   onChange={onChangeMetricBaselineRevenue}
                   label='Baseline revenue / month'
                   placeholder='9800'
-                  helperText={`= ${roundToNumPlaces(nanToZero(metricBaselineRevenuePerUser), 4)}$ ARPU`}
+                  helperText={`= ${roundToNumPlaces(nanToZero(metricBaselineRevenuePerUser), 4)} USD ARPU`}
                   variant='outlined'
                   fullWidth
                   required
@@ -341,11 +341,21 @@ const MinDiffCalculator = ({
               id='liability-checkbox'
             />
             <Typography variant='caption' gutterBottom component='label' htmlFor='liability-checkbox'>
-              I understand that a {isConversion ? 'conversion rate' : 'ARPU'} of between{' '}
-              {nanToZero(metricBaselineConversionRate * 100 - metricMinimumPracticalDifference).toFixed(2)}
-              {isConversion ? '%' : ' USD'} and{' '}
-              {nanToZero(metricBaselineConversionRate * 100 + metricMinimumPracticalDifference).toFixed(2)}
-              {isConversion ? '%' : ' USD'} will be regarded as having no change.
+              {isConversion ? (
+                <>
+                  I understand that a conversion rate between{' '}
+                  {nanToZero(metricBaselineConversionRate * 100 - metricMinimumPracticalDifference).toFixed(2)}% and{' '}
+                  {nanToZero(metricBaselineConversionRate * 100 + metricMinimumPracticalDifference).toFixed(2)}% will be
+                  regarded as having no change.
+                </>
+              ) : (
+                <>
+                  I understand that ARPU between{' '}
+                  {nanToZero(metricBaselineRevenuePerUser - metricMinimumPracticalDifference).toFixed(2)} USD and{' '}
+                  {nanToZero(metricBaselineRevenuePerUser + metricMinimumPracticalDifference).toFixed(2)} USD will be
+                  regarded as having no change.
+                </>
+              )}
             </Typography>
           </div>
 

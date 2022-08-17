@@ -468,7 +468,7 @@ test('form submits with valid fields', async () => {
   await changeFieldByRole('spinbutton', /Users \/ month/, '500000')
   await changeFieldByRole('spinbutton', /Baseline revenue/, '10000')
   await changeFieldByRole('spinbutton', /Extra revenue \/ month/, '100')
-  screen.getByRole('checkbox', { name: /I understand that a ARPU/ }).click()
+  screen.getByRole('checkbox', { name: /I understand that ARPU/ }).click()
   screen.getByRole('button', { name: /Apply min diff/ }).click()
 
   // #### Exposure Events

@@ -3308,7 +3308,8 @@ exports[`sections should be browsable by the section buttons and show validation
                               id="experiment.metricAssignments[0].minDifference"
                               min="0"
                               name="experiment.metricAssignments[0].minDifference"
-                              placeholder="1.30"
+                              placeholder="0.01"
+                              step="0.01"
                               type="number"
                               value=""
                             />

@@ -47,11 +47,12 @@ export default function MetricDifferenceField(props: {
         id={props.id}
         type='number'
         variant='outlined'
-        placeholder='5.4'
+        placeholder='0.03'
         inputProps={{
           'aria-label': 'Minimum Difference',
           min: '0',
           max: '100',
+          step: '0.01',
         }}
         InputProps={{
           endAdornment: (
@@ -75,10 +76,11 @@ export default function MetricDifferenceField(props: {
         id={props.id}
         type='number'
         variant='outlined'
-        placeholder='1.30'
+        placeholder='0.01'
         inputProps={{
           'aria-label': 'Minimum Difference',
           min: '0',
+          step: '0.01',
         }}
         InputProps={{
           endAdornment: (

@@ -116,6 +116,9 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: '-2px',
       marginLeft: '-1.3rem',
     },
+    warningAsterisk: {
+      color: theme.palette.error.main,
+    },
   }),
 )
 
@@ -189,6 +192,11 @@ function MissingAnalysisMessage() {
       </ul>
     </div>
   )
+}
+
+function WarningAsterisk() {
+  const classes = useStyles()
+  return <span className={classes.warningAsterisk}>*</span>
 }
 
 /**
@@ -595,11 +603,13 @@ export default function MetricAssignmentResults({
                   <TableCell align='right'>Users</TableCell>
                   <TableCell align='right'>
                     {metric.parameterType === MetricParameterType.Revenue ? 'Revenue' : 'Conversions'}
+                    <WarningAsterisk />
                   </TableCell>
                   <TableCell align='right'>
                     {metric.parameterType === MetricParameterType.Revenue
                       ? 'Average revenue per user (ARPU)'
                       : 'Conversion rate'}
+                    <WarningAsterisk />
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -646,7 +656,7 @@ export default function MetricAssignmentResults({
           </TableContainer>
           <Typography variant='caption' gutterBottom>
             <Link href='https://wp.me/PCYsg-Fqg/#observed-data-uses-posterior-means' target='_blank'>
-              &quot;Observed&quot; data as produced from our model, not raw observed data.
+              <WarningAsterisk /> &quot;Observed&quot; data as produced from our model, not raw observed data.
             </Link>{' '}
             For illustrative purposes only.
           </Typography>

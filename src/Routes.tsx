@@ -33,21 +33,13 @@ export default function Routes(): JSX.Element {
         <Route path='/experiments/new' exact>
           <ExperimentWizard experimentWizardMode={ExperimentWizardMode.Create} />
         </Route>
-        <Route
-          path='/experiments/:experimentIdSlug'
-          render={({ location, history }) => {
-            history.replace(`${location.pathname}/overview`)
-            return undefined
-          }}
-          exact
-        />
         <Route path='/experiments/:experimentIdSlug/wizard-edit' exact>
           <ExperimentWizard experimentWizardMode={ExperimentWizardMode.Edit} />
         </Route>
         <Route path='/experiments/:experimentIdSlug/clone' exact>
           <ExperimentWizard experimentWizardMode={ExperimentWizardMode.Clone} />
         </Route>
-        <Route path='/experiments/:experimentIdSlug/:view' exact>
+        <Route path='/experiments/:experimentIdSlug/:view?' exact>
           <Experiment />
         </Route>
 

@@ -31,7 +31,7 @@ const mockedAnalysesApi = AnalysesApi as jest.Mocked<typeof AnalysesApi>
 jest.mock('src/api/TagsApi')
 const mockedTagsApi = TagsApi as jest.Mocked<typeof TagsApi>
 
-const renderExperimentPageView = async ({ experiment: experimentOverrides = {} }, view: ExperimentView) => {
+const renderExperimentPageView = async ({ experiment: experimentOverrides = {} }, view?: ExperimentView) => {
   const experiment = Fixtures.createExperimentFull(experimentOverrides)
   mockedExperimentsApi.findById.mockImplementationOnce(async () => experiment)
 
@@ -110,9 +110,7 @@ test('experiment page view renders with null experimentId without crashing', asy
   mockedSegmentsApi.findAll.mockImplementationOnce(async () => segments)
 
   await act(async () => {
-    render(
-      <ExperimentPageView experimentId={null as unknown as number} view={ExperimentView.Overview} debugMode={false} />,
-    )
+    render(<ExperimentPageView experimentId={null as unknown as number} debugMode={false} />)
   })
 })
 
@@ -174,4 +172,16 @@ test('disabled experiment shows correct features enabled in overview', async () 
     assignMetric: true,
     conclusionEdit: true,
   })
+})
+
+test('staging experiment shows Overview without a /:view param', async () => {
+  await renderExperimentPageView({ experiment: { status: Status.Staging } })
+
+  expect(waitFor(() => screen.queryByRole('button', { name: /Assign Metric2/ }))).toBeTruthy()
+})
+
+test('non-staging experiment shows Results without a /:view param', async () => {
+  await renderExperimentPageView({ experiment: { status: Status.Disabled } })
+
+  expect(waitFor(() => screen.queryByText(/Participants by Variation/))).toBeTruthy()
 })

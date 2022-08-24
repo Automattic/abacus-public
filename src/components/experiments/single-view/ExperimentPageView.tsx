@@ -11,8 +11,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import { Skeleton } from '@material-ui/lab'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 import AnalysesApi from 'src/api/AnalysesApi'
 import ExperimentsApi from 'src/api/ExperimentsApi'
@@ -87,7 +87,7 @@ export default function ExperimentPageView({
   experimentId,
   debugMode,
 }: {
-  view: ExperimentView
+  view?: ExperimentView
   experimentId: number
   debugMode: boolean
 }): JSX.Element {
@@ -139,6 +139,19 @@ export default function ExperimentPageView({
 
   const experimentIdSlug = createIdSlug(experimentId, experiment?.name || '')
 
+  const history = useHistory()
+
+  // When landing from experiment directory or by using a '/experiments/{experimentId}' link, the initial view is:
+  // - 'Overview' for staging experiments
+  // - 'Results' for all other statuses
+  useEffect(() => {
+    if (!view && experiment) {
+      history.replace(
+        `/experiments/${experimentIdSlug}/${canEditInWizard ? ExperimentView.Overview : ExperimentView.Results}`,
+      )
+    }
+  }, [history, canEditInWizard, experimentIdSlug, experiment, view])
+
   return (
     <Layout headTitle={`${experiment?.name ?? 'unknown'} - Experiment`}>
       <>
@@ -155,7 +168,7 @@ export default function ExperimentPageView({
           </Typography>
         </div>
         <div className={classes.topBar}>
-          <Tabs className={classes.topBarTabs} value={view}>
+          <Tabs className={classes.topBarTabs} value={view || false}>
             <Tab
               className={classes.topBarTab}
               label='Overview'

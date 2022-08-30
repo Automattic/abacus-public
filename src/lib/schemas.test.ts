@@ -334,6 +334,7 @@ describe('lib/schemas.ts module', () => {
             [ValidationError: This field is required],
             [ValidationError: This field is required],
             [ValidationError: This field is required],
+            [ValidationError: One primary metric assignment is required.],
             [ValidationError: This field is required],
             [ValidationError: This field is required],
             [ValidationError: A default variation is required.],

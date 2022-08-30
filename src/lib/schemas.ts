@@ -505,7 +505,13 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
   metricAssignments: yup
     .array(metricAssignmentNewSchema)
     .defined()
-    .min(1, 'At least one metric assignment is required.'),
+    .min(1, 'At least one metric assignment is required.')
+    .test(
+      'primary-metric-assignment',
+      `One primary metric assignment is required.`,
+      (metricAssignments: MetricAssignmentNew[]) =>
+        Array.isArray(metricAssignments) && metricAssignments.some((metricAssignment) => metricAssignment.isPrimary),
+    ),
   segmentAssignments: yup.array(segmentAssignmentNewSchema).defined(),
   variations: yup
     .array<VariationNew>(variationNewSchema)

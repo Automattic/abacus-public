@@ -411,6 +411,7 @@ test('renders the condensed table with some analyses in non-debug mode for a Con
   await waitFor(() => getAllByText(container, /Last analyzed/), { container })
   expect(container.querySelector('.analysis-latest-results .analysis-detail-panel')).toMatchSnapshot()
   fireEvent.click(screen.getAllByRole('button', { name: /"Observed" data/ })[0])
+  fireEvent.click(screen.getAllByRole('button', { name: /All credible intervals/ })[0])
 
   expect(mockedPlot).toMatchSnapshot()
 })

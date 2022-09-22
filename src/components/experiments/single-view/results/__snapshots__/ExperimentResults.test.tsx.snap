@@ -1806,6 +1806,22 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
     </svg>
     "Observed" data
   </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-192 makeStyles-clickable-194 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-195"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
+  </p>
 </div>
 `;
 
@@ -7312,6 +7328,22 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
     </svg>
     "Observed" data
   </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-127 makeStyles-clickable-129 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-130"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
+  </p>
 </div>
 `;
 
@@ -8964,6 +8996,22 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
     </svg>
     "Observed" data
   </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-257 makeStyles-clickable-259 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-260"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
+  </p>
 </div>
 `;
 
@@ -10542,6 +10590,22 @@ exports[`renders correctly for conflicting analysis data 2`] = `
       />
     </svg>
     "Observed" data
+  </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-315 makeStyles-clickable-317 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-318"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
   </p>
 </div>
 `;
@@ -12248,6 +12312,22 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
       />
     </svg>
     "Observed" data
+  </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-382 makeStyles-clickable-384 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-385"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
   </p>
 </div>
 `;
@@ -14515,6 +14595,22 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
       />
     </svg>
     "Observed" data
+  </p>
+  <p
+    class="MuiTypography-root makeStyles-dataTableHeader-447 makeStyles-clickable-449 MuiTypography-body1"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-expandCollapseIcon-450"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    All credible intervals
   </p>
 </div>
 `;

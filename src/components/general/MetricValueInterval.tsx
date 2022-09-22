@@ -40,6 +40,7 @@ export default function MetricValueInterval({
   displayTooltipHint = true,
   displayPositiveSign = true,
   alignToCenter,
+  ciPercent = 95,
 }: {
   intervalName: string
   metricParameterType: MetricParameterType
@@ -49,6 +50,7 @@ export default function MetricValueInterval({
   displayTooltipHint?: boolean
   displayPositiveSign?: boolean
   alignToCenter?: boolean
+  ciPercent?: number
 }): JSX.Element {
   const classes = useStyles()
   const decorationClasses = useDecorationStyles()
@@ -59,7 +61,7 @@ export default function MetricValueInterval({
         <>
           <strong>Interpretation:</strong>
           <br />
-          There is a 95% probability that {intervalName} is between{' '}
+          There is a {ciPercent}% probability that {intervalName} is between{' '}
           <MetricValue
             value={bottomValue}
             metricParameterType={metricParameterType}

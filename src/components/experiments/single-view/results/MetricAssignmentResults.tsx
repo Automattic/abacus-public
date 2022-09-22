@@ -27,6 +27,7 @@ import * as Recommendations from 'src/lib/recommendations'
 import {
   Analysis,
   AnalysisStrategy,
+  DistributionStats,
   ExperimentFull,
   Metric,
   MetricAssignment,
@@ -34,6 +35,7 @@ import {
   Variation,
 } from 'src/lib/schemas'
 import * as Visualizations from 'src/lib/visualizations'
+import { cartesianProduct } from 'src/utils/general'
 
 import MetricValueInterval from '../../../general/MetricValueInterval'
 import AnalysisDisplay from './AnalysisDisplay'
@@ -199,6 +201,13 @@ function WarningAsterisk() {
   return <span className={classes.warningAsterisk}>*</span>
 }
 
+interface CredibleIntervalLine {
+  name: string
+  distributionStats?: DistributionStats
+  intervalName: string
+  metricParameterType: MetricParameterType
+}
+
 /**
  * Display results for a MetricAssignment
  */
@@ -224,6 +233,11 @@ export default function MetricAssignmentResults({
   const [isShowObservedData, setIsShowObservedData] = useState<boolean>(false)
   const toggleIsShowObservedData = () => {
     setIsShowObservedData((isShowObservedData) => !isShowObservedData)
+  }
+
+  const [isShowAllCredibleIntervals, setIsShowAllCredibleIntervals] = useState<boolean>(false)
+  const toggleIsShowAllCredibleIntervals = () => {
+    setIsShowAllCredibleIntervals((isShowAllCredibleIntervals) => !isShowAllCredibleIntervals)
   }
 
   const isConversion = metric.parameterType === MetricParameterType.Conversion
@@ -384,6 +398,40 @@ export default function MetricAssignmentResults({
 
   const isVariationSelected = (variation: Variation) =>
     [baseVariationId, changeVariationId].includes(variation.variationId)
+
+  const allCredibleIntervalLines: CredibleIntervalLine[] = [
+    // Variations:
+    ...experiment.variations.map((variation) => ({
+      name: variation.name,
+      distributionStats: _.get(latestEstimates, ['variations', variation.variationId]) as DistributionStats | undefined,
+      intervalName: 'the metric value',
+      metricParameterType: metric.parameterType,
+    })),
+
+    // Absolute diffs
+    ...cartesianProduct(experiment.variations, experiment.variations).map(([variationA, variationB]) => ({
+      name: `${variationA.name} - ${variationB.name}`,
+      distributionStats: _.get(latestEstimates, ['diffs', `${variationA.variationId}_${variationB.variationId}`]) as
+        | DistributionStats
+        | undefined,
+      intervalName: 'the absolute change between variations',
+      metricParameterType: metric.parameterType,
+    })),
+
+    // Relative diffs
+    ...cartesianProduct(experiment.variations, experiment.variations).map(([variationA, variationB]) => {
+      const ratios = _.get(latestEstimates, ['ratios', `${variationA.variationId}_${variationB.variationId}`])
+
+      const relDiffs = ratios ? _.mapValues(ratios, Analyses.ratioToDifferenceRatio.bind(null)) : undefined
+
+      return {
+        name: `(${variationA.name} - ${variationB.name}) / ${variationB.name}`,
+        distributionStats: relDiffs as DistributionStats | undefined,
+        intervalName: 'the relative change between variations',
+        metricParameterType: MetricParameterType.Conversion,
+      }
+    }),
+  ]
 
   return (
     <div className={clsx(classes.root, 'analysis-detail-panel')}>
@@ -661,6 +709,81 @@ export default function MetricAssignmentResults({
             For illustrative purposes only.
           </Typography>
         </>
+      )}
+      <Typography
+        className={clsx(classes.dataTableHeader, classes.clickable)}
+        onClick={toggleIsShowAllCredibleIntervals}
+        role='button'
+      >
+        {isShowAllCredibleIntervals ? (
+          <ExpandMore className={classes.expandCollapseIcon} />
+        ) : (
+          <ChevronRight className={classes.expandCollapseIcon} />
+        )}
+        All credible intervals
+      </Typography>
+      {isShowAllCredibleIntervals && (
+        <TableContainer component={Paper}>
+          <Table className={classes.coolTable}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Measure</TableCell>
+                <TableCell align='right'>99%</TableCell>
+                <TableCell align='right'>95%</TableCell>
+                <TableCell align='right'>50%</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {allCredibleIntervalLines.map(({ name, distributionStats, intervalName, metricParameterType }) => (
+                <React.Fragment key={name}>
+                  {distributionStats && (
+                    <TableRow>
+                      <TableCell
+                        component='th'
+                        scope='row'
+                        variant='head'
+                        valign='top'
+                        className={clsx(classes.rowHeader, classes.headerCell, classes.credibleIntervalHeader)}
+                      >
+                        <span className={classes.monospace}>{name}</span>
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        <MetricValueInterval
+                          intervalName={intervalName}
+                          ciPercent={99}
+                          metricParameterType={metricParameterType}
+                          bottomValue={distributionStats[`bottom_99`] || NaN}
+                          topValue={distributionStats[`top_99`] || NaN}
+                          displayPositiveSign={false}
+                        />
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        <MetricValueInterval
+                          intervalName={intervalName}
+                          ciPercent={95}
+                          metricParameterType={metricParameterType}
+                          bottomValue={distributionStats[`bottom_95`] || NaN}
+                          topValue={distributionStats[`top_95`] || NaN}
+                          displayPositiveSign={false}
+                        />
+                      </TableCell>
+                      <TableCell className={classes.monospace} align='right'>
+                        <MetricValueInterval
+                          intervalName={intervalName}
+                          ciPercent={50}
+                          metricParameterType={metricParameterType}
+                          bottomValue={distributionStats[`bottom_50`] || NaN}
+                          topValue={distributionStats[`top_50`] || NaN}
+                          displayPositiveSign={false}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </React.Fragment>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </div>
   )

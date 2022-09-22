@@ -63,3 +63,22 @@ export function parseIdSlug(idSlug: string): number {
 export function createIdSlug(id: number, name: string): string {
   return `${id}-${name.replace(/_/g, '-')}`
 }
+
+/**
+ * Type specifically for the cartesianProduct function.
+ *
+ * From: https://stackoverflow.com/questions/65025411/how-to-utilise-typescript-variadic-tuple-types-for-a-cartesian-product-function
+ */
+type MapCartesian<T extends unknown[][]> = {
+  [P in keyof T]: T[P] extends Array<infer U> ? U : never
+}
+
+/**
+ * Returns the cartesian product of given arrays.
+ * e.g.: ([a1, a2], [b1, b2]) => [[a1, b1], [a1, b2], [a2, b1], [a2, b2]].
+ *
+ * From: https://stackoverflow.com/questions/65025411/how-to-utilise-typescript-variadic-tuple-types-for-a-cartesian-product-function
+ */
+export function cartesianProduct<T extends unknown[][]>(...a: T): MapCartesian<T>[] {
+  return a.reduce((a, b) => a.flatMap((d) => b.map((e) => [d, e].flat()))) as MapCartesian<T>[]
+}

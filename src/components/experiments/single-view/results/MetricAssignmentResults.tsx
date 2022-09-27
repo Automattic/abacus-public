@@ -399,6 +399,11 @@ export default function MetricAssignmentResults({
   const isVariationSelected = (variation: Variation) =>
     [baseVariationId, changeVariationId].includes(variation.variationId)
 
+  const variationsTuples = isMultivariation
+    ? cartesianProduct(experiment.variations, experiment.variations)
+    : // Need to reverse the A/B variations for the grid (e.g. Treatment - Control):
+      [[variations[1], variations[0]]]
+
   const allCredibleIntervalLines: CredibleIntervalLine[] = [
     // Variations:
     ...experiment.variations.map((variation) => ({
@@ -409,7 +414,7 @@ export default function MetricAssignmentResults({
     })),
 
     // Absolute diffs
-    ...cartesianProduct(experiment.variations, experiment.variations).map(([variationA, variationB]) => ({
+    ...variationsTuples.map(([variationA, variationB]) => ({
       name: `${variationA.name} - ${variationB.name}`,
       distributionStats: _.get(latestEstimates, ['diffs', `${variationA.variationId}_${variationB.variationId}`]) as
         | DistributionStats
@@ -419,7 +424,7 @@ export default function MetricAssignmentResults({
     })),
 
     // Relative diffs
-    ...cartesianProduct(experiment.variations, experiment.variations).map(([variationA, variationB]) => {
+    ...variationsTuples.map(([variationA, variationB]) => {
       const ratios = _.get(latestEstimates, ['ratios', `${variationA.variationId}_${variationB.variationId}`])
 
       const relDiffs = ratios ? _.mapValues(ratios, Analyses.ratioToDifferenceRatio.bind(null)) : undefined

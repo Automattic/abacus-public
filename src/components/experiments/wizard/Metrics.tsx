@@ -627,7 +627,7 @@ const Metrics = ({
         </Link>{' '}
         is the window of time after exposure to an experiment that we capture metric events for a participant (exposure
         can be from either assignment or specified exposure events). The refund window is the window of time after a
-        purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the
+        purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the
         metric’s refund window.
         <br />
         <div className={classes.attributionWindowDiagram}>

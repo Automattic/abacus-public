@@ -14320,7 +14320,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
             >
               The absolute change in the 
-              ARPU
+              ACPU
                of
                
               +
@@ -14406,7 +14406,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
             scope="col"
           >
-            Average revenue per user (ARPU) interval
+            Average cash per user (ACPU) interval
           </th>
           <th
             class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
@@ -14763,7 +14763,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "t": 64,
           },
           "showlegend": false,
-          "title": "Revenue estimates by variation (USD)",
+          "title": "Cash sales estimates by variation (USD)",
         },
         "style": Object {
           "display": "inline-block",
@@ -14945,7 +14945,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "t": 64,
           },
           "showlegend": false,
-          "title": "Revenue difference estimates (USD)",
+          "title": "Cash sales difference estimates (USD)",
         },
         "style": Object {
           "display": "inline-block",
@@ -15041,7 +15041,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "t": 64,
           },
           "showlegend": false,
-          "title": "Revenue estimates by variation (USD)",
+          "title": "Cash sales estimates by variation (USD)",
         },
         "style": Object {
           "display": "inline-block",
@@ -15223,7 +15223,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "t": 64,
           },
           "showlegend": false,
-          "title": "Revenue difference estimates (USD)",
+          "title": "Cash sales difference estimates (USD)",
         },
         "style": Object {
           "display": "inline-block",

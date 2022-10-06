@@ -2,6 +2,7 @@ import {
   Button,
   Checkbox,
   InputAdornment,
+  Link,
   Step,
   StepContent,
   StepLabel,
@@ -88,7 +89,7 @@ const MinDiffCalculator = ({
     setMetricConversionsPerMonthMinPracticalDiff(event.target.value as number)
   }
 
-  // Revenue metrics calc
+  // Cash sales metrics calc
   const [metricBaselineRevenue, setmetricBaselineRevenue] = useState(0)
   const onChangeMetricBaselineRevenue = (event: React.ChangeEvent<{ value: unknown }>) => {
     setmetricBaselineRevenue(event.target.value as number)
@@ -199,16 +200,26 @@ const MinDiffCalculator = ({
               </StepContent>
             </Step>
           ) : (
-            <Step active key='revenue-2'>
-              <StepLabel>What is the baseline monthly revenue?</StepLabel>
+            <Step active key='cash-sales-2'>
+              <StepLabel>
+                What is the baseline monthly{' '}
+                <Link
+                  underline='always'
+                  href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#what-is-the-difference-between-cash-sales-and-revenue-metrics'
+                  target='_blank'
+                >
+                  cash sales
+                </Link>{' '}
+                volume?
+              </StepLabel>
               <StepContent>
                 <TextField
                   id={`baseline-revenue-${calculatorUniqueId}`}
                   value={metricBaselineRevenue}
                   onChange={onChangeMetricBaselineRevenue}
-                  label='Baseline revenue / month'
+                  label='Baseline cash sales / month'
                   placeholder='9800'
-                  helperText={`= ${roundToNumPlaces(nanToZero(metricBaselineRevenuePerUser), 4)} USD ARPU`}
+                  helperText={`= ${roundToNumPlaces(nanToZero(metricBaselineRevenuePerUser), 4)} USD ACPU`}
                   variant='outlined'
                   fullWidth
                   required
@@ -256,14 +267,14 @@ const MinDiffCalculator = ({
               </StepContent>
             </Step>
           ) : (
-            <Step active key={'revenue-3'}>
-              <StepLabel>How much extra monthly revenue makes a practical difference?</StepLabel>
+            <Step active key={'cash-sales-3'}>
+              <StepLabel>How much extra monthly cash sales makes a practical difference?</StepLabel>
               <StepContent>
                 <TextField
-                  id={`extra-revenue-${calculatorUniqueId}`}
+                  id={`extra-cash-sales-${calculatorUniqueId}`}
                   value={metricRevenuePerMonthMinPracticalDiff}
                   onChange={onChangeMetricRevenuePerMonthMinPracticalDiff}
-                  label='Extra revenue / month'
+                  label='Extra cash sales / month'
                   placeholder='1500'
                   variant='outlined'
                   fullWidth
@@ -308,7 +319,7 @@ const MinDiffCalculator = ({
           </Typography>
           <strong>
             <pre>
-              {nanToZero(metricMinimumPracticalDifference)} {isConversion ? 'pp' : 'USD ARPU'}
+              {nanToZero(metricMinimumPracticalDifference)} {isConversion ? 'pp' : 'USD ACPU'}
             </pre>
           </strong>
           <br />
@@ -350,7 +361,7 @@ const MinDiffCalculator = ({
                 </>
               ) : (
                 <>
-                  I understand that ARPU between{' '}
+                  I understand that ACPU (Average cash per user) between{' '}
                   {nanToZero(metricBaselineRevenuePerUser - metricMinimumPracticalDifference).toFixed(2)} USD and{' '}
                   {nanToZero(metricBaselineRevenuePerUser + metricMinimumPracticalDifference).toFixed(2)} USD will be
                   regarded as having no change.

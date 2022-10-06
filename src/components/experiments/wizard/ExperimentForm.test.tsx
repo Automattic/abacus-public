@@ -466,9 +466,9 @@ test('form submits with valid fields', async () => {
   screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
   screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
   await changeFieldByRole('spinbutton', /Users \/ month/, '500000')
-  await changeFieldByRole('spinbutton', /Baseline revenue/, '10000')
-  await changeFieldByRole('spinbutton', /Extra revenue \/ month/, '100')
-  screen.getByRole('checkbox', { name: /I understand that ARPU/ }).click()
+  await changeFieldByRole('spinbutton', /Baseline cash sales/, '10000')
+  await changeFieldByRole('spinbutton', /Extra cash sales \/ month/, '100')
+  screen.getByRole('checkbox', { name: /I understand that ACPU/ }).click()
   screen.getByRole('button', { name: /Apply min diff/ }).click()
 
   // #### Exposure Events

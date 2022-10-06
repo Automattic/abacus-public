@@ -1813,7 +1813,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   An Attribution Window
                                 </a>
                                  
-                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                                 <br />
                                 <div
                                   class="makeStyles-attributionWindowDiagram-122"
@@ -3576,7 +3576,17 @@ exports[`sections should be browsable by the section buttons and show validation
                                     <span
                                       class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
                                     >
-                                      What is the baseline monthly revenue?
+                                      What is the baseline monthly
+                                       
+                                      <a
+                                        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+                                        href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#what-is-the-difference-between-cash-sales-and-revenue-metrics"
+                                        target="_blank"
+                                      >
+                                        cash sales
+                                      </a>
+                                       
+                                      volume?
                                     </span>
                                   </span>
                                 </span>
@@ -3603,7 +3613,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                             for="baseline-revenue-10"
                                             id="baseline-revenue-10-label"
                                           >
-                                            Baseline revenue / month
+                                            Baseline cash sales / month
                                             <span
                                               aria-hidden="true"
                                               class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -3644,7 +3654,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                                 class="PrivateNotchedOutline-legendLabelled-147 PrivateNotchedOutline-legendNotched-148"
                                               >
                                                 <span>
-                                                  Baseline revenue / month
+                                                  Baseline cash sales / month
                                                    *
                                                 </span>
                                               </legend>
@@ -3654,7 +3664,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                             class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
                                             id="baseline-revenue-10-helper-text"
                                           >
-                                            = 0 USD ARPU
+                                            = 0 USD ACPU
                                           </p>
                                         </div>
                                       </div>
@@ -3705,7 +3715,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                     <span
                                       class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
                                     >
-                                      How much extra monthly revenue makes a practical difference?
+                                      How much extra monthly cash sales makes a practical difference?
                                     </span>
                                   </span>
                                 </span>
@@ -3729,10 +3739,10 @@ exports[`sections should be browsable by the section buttons and show validation
                                           <label
                                             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                             data-shrink="true"
-                                            for="extra-revenue-10"
-                                            id="extra-revenue-10-label"
+                                            for="extra-cash-sales-10"
+                                            id="extra-cash-sales-10-label"
                                           >
-                                            Extra revenue / month
+                                            Extra cash sales / month
                                             <span
                                               aria-hidden="true"
                                               class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -3745,10 +3755,10 @@ exports[`sections should be browsable by the section buttons and show validation
                                             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                           >
                                             <input
-                                              aria-describedby="extra-revenue-10-helper-text"
+                                              aria-describedby="extra-cash-sales-10-helper-text"
                                               aria-invalid="false"
                                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                              id="extra-revenue-10"
+                                              id="extra-cash-sales-10"
                                               min="0"
                                               placeholder="1500"
                                               required=""
@@ -3772,7 +3782,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                                 class="PrivateNotchedOutline-legendLabelled-147 PrivateNotchedOutline-legendNotched-148"
                                               >
                                                 <span>
-                                                  Extra revenue / month
+                                                  Extra cash sales / month
                                                    *
                                                 </span>
                                               </legend>
@@ -3780,7 +3790,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                           </div>
                                           <p
                                             class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                            id="extra-revenue-10-helper-text"
+                                            id="extra-cash-sales-10-helper-text"
                                           >
                                             = 0% lift
                                           </p>
@@ -3811,7 +3821,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                 <pre>
                                   0
                                    
-                                  USD ARPU
+                                  USD ACPU
                                 </pre>
                               </strong>
                               <br />
@@ -3851,7 +3861,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom"
                                   for="liability-checkbox"
                                 >
-                                  I understand that ARPU between
+                                  I understand that ACPU (Average cash per user) between
                                    
                                   0.00
                                    USD and
@@ -4115,7 +4125,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   An Attribution Window
                                 </a>
                                  
-                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                                is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                                 <br />
                                 <div
                                   class="makeStyles-attributionWindowDiagram-179"

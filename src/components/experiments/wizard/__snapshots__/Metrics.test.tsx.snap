@@ -306,7 +306,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -899,7 +899,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -2158,7 +2158,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -3419,7 +3419,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -4678,7 +4678,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -5271,7 +5271,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -6528,7 +6528,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-49"
@@ -7121,7 +7121,7 @@ exports[`renders as expected 1`] = `
                         An Attribution Window
                       </a>
                        
-                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Revenue metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
+                      is the window of time after exposure to an experiment that we capture metric events for a participant (exposure can be from either assignment or specified exposure events). The refund window is the window of time after a purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the metric’s refund window.
                       <br />
                       <div
                         class="makeStyles-attributionWindowDiagram-14"

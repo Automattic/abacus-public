@@ -470,7 +470,7 @@ export default function MetricAssignmentResults({
             <TableRow>
               <TableCell>
                 <Typography variant='body1' gutterBottom>
-                  The absolute change in the {isConversion ? 'conversion rate' : 'ARPU'} of{' '}
+                  The absolute change in the {isConversion ? 'conversion rate' : 'ACPU'} of{' '}
                   <MetricValue
                     metricParameterType={metric.parameterType}
                     isDifference={true}
@@ -530,7 +530,7 @@ export default function MetricAssignmentResults({
               <TableCell>Variant</TableCell>
               <TableCell align='right'>
                 {metric.parameterType === MetricParameterType.Revenue
-                  ? 'Average revenue per user (ARPU) interval'
+                  ? 'Average cash per user (ACPU) interval'
                   : 'Conversion rate interval'}
               </TableCell>
               <TableCell align='right'>Absolute change</TableCell>
@@ -613,7 +613,7 @@ export default function MetricAssignmentResults({
               ...Visualizations.plotlyLayoutDefault,
               title: isConversion
                 ? `Conversion rate estimates by variation (%)`
-                : `Revenue estimates by variation (USD)`,
+                : `Cash sales estimates by variation (USD)`,
             }}
             data={plotlyDataVariationGraph}
             className={classes.metricEstimatePlot}
@@ -623,7 +623,7 @@ export default function MetricAssignmentResults({
               ...Visualizations.plotlyLayoutDefault,
               title: isConversion
                 ? `Conversion rate difference estimates (percentage points)`
-                : `Revenue difference estimates (USD)`,
+                : `Cash sales difference estimates (USD)`,
             }}
             data={plotlyDataDifferenceGraph}
             className={classes.metricEstimatePlot}
@@ -655,12 +655,12 @@ export default function MetricAssignmentResults({
                   <TableCell>Variant</TableCell>
                   <TableCell align='right'>Users</TableCell>
                   <TableCell align='right'>
-                    {metric.parameterType === MetricParameterType.Revenue ? 'Revenue' : 'Conversions'}
+                    {metric.parameterType === MetricParameterType.Revenue ? 'Cash Sales' : 'Conversions'}
                     <WarningAsterisk />
                   </TableCell>
                   <TableCell align='right'>
                     {metric.parameterType === MetricParameterType.Revenue
-                      ? 'Average revenue per user (ARPU)'
+                      ? 'Average cash per user (ACPU)'
                       : 'Conversion rate'}
                     <WarningAsterisk />
                   </TableCell>

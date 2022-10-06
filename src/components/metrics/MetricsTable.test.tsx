@@ -29,8 +29,8 @@ test('with some metrics, renders a table', () => {
   expect(tBodyElmt).not.toBeNull()
   expect(getByText(tBodyElmt, 'metric_1', { selector: 'tr > td' })).toBeInTheDocument()
   expect(getByText(tBodyElmt, 'This is metric 1', { selector: 'tr > td' })).toBeInTheDocument()
-  expect(getByText(tBodyElmt, 'revenue', { selector: 'tr > td' })).toBeInTheDocument()
-  expect(getByText(tBodyElmt, 'conversion', { selector: 'tr > td' })).toBeInTheDocument()
+  expect(getByText(tBodyElmt, 'Cash Sales', { selector: 'tr > td' })).toBeInTheDocument()
+  expect(getByText(tBodyElmt, 'Conversion', { selector: 'tr > td' })).toBeInTheDocument()
 })
 
 test('with some metrics, loads and opens metric details', async () => {

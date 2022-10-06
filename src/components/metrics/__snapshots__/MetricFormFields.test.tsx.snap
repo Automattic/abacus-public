@@ -234,7 +234,7 @@ exports[`renders as expected for conversion metric 1`] = `
           </span>
         </label>
         <label
-          aria-label="Revenue"
+          aria-label="Cash Sales"
           class="MuiFormControlLabel-root"
         >
           <span
@@ -282,7 +282,7 @@ exports[`renders as expected for conversion metric 1`] = `
           <span
             class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
           >
-            Revenue
+            Cash Sales
           </span>
         </label>
       </div>
@@ -603,7 +603,7 @@ exports[`renders as expected for new metric 1`] = `
           </span>
         </label>
         <label
-          aria-label="Revenue"
+          aria-label="Cash Sales"
           class="MuiFormControlLabel-root"
         >
           <span
@@ -651,7 +651,7 @@ exports[`renders as expected for new metric 1`] = `
           <span
             class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
           >
-            Revenue
+            Cash Sales
           </span>
         </label>
       </div>
@@ -732,7 +732,7 @@ exports[`renders as expected for new metric 1`] = `
 </div>
 `;
 
-exports[`renders as expected for revenue metric 1`] = `
+exports[`renders as expected for the Cash Sales metric 1`] = `
 <div>
   <div
     class="makeStyles-row-19"
@@ -965,7 +965,7 @@ exports[`renders as expected for revenue metric 1`] = `
           </span>
         </label>
         <label
-          aria-label="Revenue"
+          aria-label="Cash Sales"
           class="MuiFormControlLabel-root"
         >
           <span
@@ -1014,7 +1014,7 @@ exports[`renders as expected for revenue metric 1`] = `
           <span
             class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
           >
-            Revenue
+            Cash Sales
           </span>
         </label>
       </div>
@@ -1038,7 +1038,7 @@ exports[`renders as expected for revenue metric 1`] = `
           for="metric.revenueParams"
           id="metric.revenueParams-label"
         >
-          Revenue Parameters
+          Cash Sales Parameters
           <span
             aria-hidden="true"
             class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -1076,7 +1076,7 @@ exports[`renders as expected for revenue metric 1`] = `
               class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
             >
               <span>
-                Revenue Parameters
+                Cash Sales Parameters
                  *
               </span>
             </legend>

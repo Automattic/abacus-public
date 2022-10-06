@@ -143,8 +143,8 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
             />
             <FormControlLabel
               value={MetricParameterType.Revenue}
-              label='Revenue'
-              aria-label='Revenue'
+              label='Cash Sales'
+              aria-label='Cash Sales'
               control={<Radio disabled={formikProps.isSubmitting} />}
               disabled={formikProps.isSubmitting}
             />
@@ -175,7 +175,7 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
             component={JsonTextField}
             name='metric.revenueParams'
             id='metric.revenueParams'
-            label='Revenue Parameters'
+            label='Cash Sales Parameters'
             variant='outlined'
             fullWidth
             required

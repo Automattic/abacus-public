@@ -31,11 +31,11 @@ test('renders as expected for conversion metric', async () => {
   expect(container).toMatchSnapshot()
 
   await act(async () => {
-    fireEvent.click(screen.getByRole('radio', { name: 'Revenue' }))
+    fireEvent.click(screen.getByRole('radio', { name: 'Cash Sales' }))
   })
 })
 
-test('renders as expected for revenue metric', async () => {
+test('renders as expected for the Cash Sales metric', async () => {
   const metric = Fixtures.createMetric(2)
   const { container } = render(
     <Formik

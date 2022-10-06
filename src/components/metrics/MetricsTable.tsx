@@ -11,11 +11,12 @@ import {
   useTheme,
 } from '@material-ui/core'
 import debugFactory from 'debug'
+import _ from 'lodash'
 import MaterialTable from 'material-table'
 import React, { useMemo } from 'react'
 
 import MetricsApi from 'src/api/MetricsApi'
-import { Metric } from 'src/lib/schemas'
+import { Metric, MetricParameterType } from 'src/lib/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 import { formatBoolean } from 'src/utils/formatters'
 import { defaultTableOptions } from 'src/utils/material-table'
@@ -134,6 +135,8 @@ const MetricsTable = ({
     {
       title: 'Parameter Type',
       field: 'parameterType',
+      render: ({ parameterType }: { parameterType: MetricParameterType }) =>
+        parameterType === MetricParameterType.Revenue ? 'Cash Sales' : _.capitalize(parameterType),
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
       },

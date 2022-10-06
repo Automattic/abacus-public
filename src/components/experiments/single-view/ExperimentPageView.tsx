@@ -22,6 +22,7 @@ import TagsApi from 'src/api/TagsApi'
 import ExperimentCodeSetup from 'src/components/experiments/single-view/ExperimentCodeSetup'
 import ExperimentDisableButton from 'src/components/experiments/single-view/ExperimentDisableButton'
 import ExperimentDetails from 'src/components/experiments/single-view/overview/ExperimentDetails'
+import ClipboardButton from 'src/components/general/ClipboardButton'
 import Layout from 'src/components/page-parts/Layout'
 import * as Schemas from 'src/lib/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
@@ -37,16 +38,18 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.grey.A700,
     },
     titleHeader: {
-      display: 'inline-block',
-      overflow: 'hidden',
+      display: 'flex',
       maxWidth: '100%',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
+      alignItems: 'baseline',
     },
     titleName: {
       fontFamily: theme.custom.fonts.monospace,
       color: '#000',
       display: 'inline',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      marginLeft: theme.spacing(1),
     },
     titleNameSkeleton: {
       display: 'inline-block',
@@ -159,9 +162,13 @@ export default function ExperimentPageView({
           <Typography className={classes.titleHeader} variant='h2'>
             Experiment:{' '}
             {experiment ? (
-              <Tooltip title={experiment.name ?? ''}>
-                <span className={classes.titleName}>{experiment.name}</span>
-              </Tooltip>
+              <>
+                <Tooltip title={experiment.name ?? ''}>
+                  <span className={classes.titleName}>{experiment.name}</span>
+                </Tooltip>
+
+                <ClipboardButton text={experiment.name} targetName='Experiment name' />
+              </>
             ) : (
               <Skeleton className={classes.titleNameSkeleton} variant='text' width={200} />
             )}

@@ -14,3 +14,8 @@ beforeEach(() => {
     closeSnackbar: jest.fn(),
   }))
 })
+
+global.console = {
+  ...console,
+  error: jest.fn(),
+}

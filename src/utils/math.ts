@@ -82,7 +82,7 @@ export function samplesRequiredPerVariationForConversion(
   delta: number,
   _statisticalSignificance: number,
   _statisticalPower: number,
-) {
+): number {
   // const zScore = standardNormInv((1 - statisticalSignificance) / 2) + standardNormInv(1 - statisticalPower)
   // FIXME: Dummy zScore until we have norm-inv working
   const zScore = 2.5

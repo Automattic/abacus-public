@@ -1,7 +1,7 @@
 import { chiSquaredTestProbValue } from 'src/utils/math'
 
 import * as Experiments from './experiments'
-import { Analysis, AnalysisStrategy, ExperimentFull } from './schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Platform } from './schemas'
 
 /**
  * Mapping from AnalysisStrategy to human-friendly descriptions.
@@ -278,76 +278,78 @@ interface IndicatorDefinition extends Omit<HealthIndicator, 'indication'> {
  * Returns indicators from experimentParticipantStats.
  */
 export function getExperimentParticipantHealthIndicators(
+  experiment: ExperimentFull,
   experimentParticipantStats: ExperimentParticipantStats,
 ): HealthIndicator[] {
   const indicatorDefinitions: IndicatorDefinition[] = []
 
-  indicatorDefinitions.push(
-    {
-      name: 'Assignment distribution',
-      value: experimentParticipantStats.variationProportionProbabilities.assignedDistributionMatchingAllocated,
-      unit: HealthIndicatorUnit.Pvalue,
-      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
-      indicationBrackets: [
-        {
-          max: 0.001,
-          indication: {
-            code: HealthIndicationCode.ProbableIssue,
-            severity: HealthIndicationSeverity.Error,
-            recommendation: contactUsRecommendation,
+  experiment.platform !== Platform.Mlsales &&
+    indicatorDefinitions.push(
+      {
+        name: 'Assignment distribution',
+        value: experimentParticipantStats.variationProportionProbabilities.assignedDistributionMatchingAllocated,
+        unit: HealthIndicatorUnit.Pvalue,
+        link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions',
+        indicationBrackets: [
+          {
+            max: 0.001,
+            indication: {
+              code: HealthIndicationCode.ProbableIssue,
+              severity: HealthIndicationSeverity.Error,
+              recommendation: contactUsRecommendation,
+            },
           },
-        },
-        {
-          max: 0.05,
-          indication: {
-            code: HealthIndicationCode.PossibleIssue,
-            severity: HealthIndicationSeverity.Warning,
-            recommendation: `Check daily ratio patterns for anomalies, contact @experiment-review.`,
+          {
+            max: 0.05,
+            indication: {
+              code: HealthIndicationCode.PossibleIssue,
+              severity: HealthIndicationSeverity.Warning,
+              recommendation: `Check daily ratio patterns for anomalies, contact @experiment-review.`,
+            },
           },
-        },
-        {
-          max: 1,
-          indication: {
-            code: HealthIndicationCode.Nominal,
-            severity: HealthIndicationSeverity.Ok,
+          {
+            max: 1,
+            indication: {
+              code: HealthIndicationCode.Nominal,
+              severity: HealthIndicationSeverity.Ok,
+            },
           },
-        },
-      ],
-    },
-    {
-      name: 'Assignment distribution without crossovers and spammers',
-      value:
-        experimentParticipantStats.variationProportionProbabilities
-          .assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
-      unit: HealthIndicatorUnit.Pvalue,
-      link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
-      indicationBrackets: [
-        {
-          max: 0.001,
-          indication: {
-            code: HealthIndicationCode.ProbableIssue,
-            severity: HealthIndicationSeverity.Error,
-            recommendation: contactUsRecommendation,
+        ],
+      },
+      {
+        name: 'Assignment distribution without crossovers and spammers',
+        value:
+          experimentParticipantStats.variationProportionProbabilities
+            .assignedNoSpammersNoCrossoversDistributionMatchingAllocated,
+        unit: HealthIndicatorUnit.Pvalue,
+        link: 'https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios',
+        indicationBrackets: [
+          {
+            max: 0.001,
+            indication: {
+              code: HealthIndicationCode.ProbableIssue,
+              severity: HealthIndicationSeverity.Error,
+              recommendation: contactUsRecommendation,
+            },
           },
-        },
-        {
-          max: 0.05,
-          indication: {
-            code: HealthIndicationCode.PossibleIssue,
-            severity: HealthIndicationSeverity.Warning,
-            recommendation: `If not in combination with a "Assignment distribution" issue, contact @experiment-review.`,
+          {
+            max: 0.05,
+            indication: {
+              code: HealthIndicationCode.PossibleIssue,
+              severity: HealthIndicationSeverity.Warning,
+              recommendation: `If not in combination with a "Assignment distribution" issue, contact @experiment-review.`,
+            },
           },
-        },
-        {
-          max: 1,
-          indication: {
-            code: HealthIndicationCode.Nominal,
-            severity: HealthIndicationSeverity.Ok,
+          {
+            max: 1,
+            indication: {
+              code: HealthIndicationCode.Nominal,
+              severity: HealthIndicationSeverity.Ok,
+            },
           },
-        },
-      ],
-    },
-  )
+        ],
+      },
+    )
 
   if (experimentParticipantStats.ratios.overall.exposedToAssigned) {
     const biasedExposuresRecommendation = `If not in combination with other distribution issues, exposure event being fired is linked to variation causing bias. Choose a different exposure event or use assignment analysis (contact @experiment-review to do so).`
@@ -455,6 +457,8 @@ export function getExperimentParticipantHealthIndicators(
     ...rest,
   }))
 }
+
+export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe, Platform.Mlsales]
 
 /**
  * Get experiment health indicators for a experiment.

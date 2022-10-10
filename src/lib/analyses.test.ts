@@ -217,6 +217,7 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
   it('should work correctly', () => {
     expect(
       Analyses.getExperimentParticipantHealthIndicators(
+        Fixtures.createExperimentFull(),
         Analyses.getExperimentParticipantStats(
           Fixtures.createExperimentFull({
             variations: [
@@ -329,6 +330,7 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
     `)
     expect(
       Analyses.getExperimentParticipantHealthIndicators(
+        Fixtures.createExperimentFull(),
         Analyses.getExperimentParticipantStats(
           Fixtures.createExperimentFull({
             variations: [
@@ -442,6 +444,7 @@ describe('getExperimentParticipantStatHealthIndicators', () => {
   it('should handle bad values gracefully', () => {
     expect(
       Analyses.getExperimentParticipantHealthIndicators(
+        Fixtures.createExperimentFull(),
         Analyses.getExperimentParticipantStats(
           Fixtures.createExperimentFull({
             variations: [

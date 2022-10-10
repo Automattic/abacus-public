@@ -1,5 +1,6 @@
+import { runtimeWhitelistedPlatforms } from './analyses'
 import { getExperimentRunHours } from './experiments'
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Platform } from './schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from './schemas'
 
 /**
  * # Recommendations
@@ -156,7 +157,6 @@ const maxSafeKruschke = {
 }
 
 const minSafeRuntimeInDays = 7
-export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe]
 
 /**
  * Returns deployment recommendation

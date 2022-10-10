@@ -328,7 +328,7 @@ export default function ExperimentResults({
     primaryMetricLatestAnalysesByStrategy,
   )
   const experimentHealthIndicators = [
-    ...Analyses.getExperimentParticipantHealthIndicators(experimentParticipantStats),
+    ...Analyses.getExperimentParticipantHealthIndicators(experiment, experimentParticipantStats),
     ...Analyses.getExperimentHealthIndicators(experiment),
   ]
 

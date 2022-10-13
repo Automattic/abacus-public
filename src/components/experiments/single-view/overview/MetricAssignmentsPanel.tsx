@@ -1,16 +1,4 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  MenuItem,
-  Toolbar,
-  Tooltip,
-} from '@material-ui/core'
+import { Button, Dialog, DialogTitle, Toolbar, Tooltip } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -21,34 +9,16 @@ import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 import { Add } from '@material-ui/icons'
 import clsx from 'clsx'
-import { ErrorMessage, Field, Formik } from 'formik'
-import { Select, Switch } from 'formik-material-ui'
 import _ from 'lodash'
-import { useSnackbar } from 'notistack'
 import React, { useMemo, useState } from 'react'
-import * as yup from 'yup'
 
-import ExperimentsApi from 'src/api/ExperimentsApi'
-import { serverErrorMessage } from 'src/api/HttpResponseError'
+import MetricAssignmentForm from 'src/components/experiments/MetricAssignmentForm'
 import Attribute from 'src/components/general/Attribute'
-import MetricAutocomplete from 'src/components/general/MetricAutocomplete'
-import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import MetricValue from 'src/components/general/MetricValue'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import * as MetricAssignments from 'src/lib/metric-assignments'
-import { indexMetrics } from 'src/lib/normalizers'
-import {
-  ExperimentFull,
-  Metric,
-  MetricAssignment,
-  MetricAssignmentNew,
-  metricAssignmentNewSchema,
-  MetricParameterType,
-  Status,
-} from 'src/lib/schemas'
+import { ExperimentFull, Metric, MetricAssignment, Status } from 'src/lib/schemas'
 import { formatBoolean } from 'src/utils/formatters'
-
-import LoadingButtonContainer from '../../../general/LoadingButtonContainer'
 
 /**
  * Resolves the metric ID of the metric assignment with the actual metric. If the
@@ -103,17 +73,8 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
     },
-    row: {
-      minWidth: 400,
-      marginTop: theme.spacing(3),
-      display: 'flex',
-      alignItems: 'center',
-      '&:first-of-type': {
-        marginTop: theme.spacing(0),
-      },
-    },
-    label: {
-      marginBottom: theme.spacing(1),
+    metricAssignmentDialog: {
+      minWidth: 600,
     },
   }),
 )
@@ -141,39 +102,17 @@ function MetricAssignmentsPanel({
     [experiment, metrics],
   )
 
-  // TODO: Normalize this higher up
-  const indexedMetrics = indexMetrics(metrics)
-
   // Assign Metric Modal
-  const { enqueueSnackbar } = useSnackbar()
   const canAssignMetric = experiment.status !== Status.Staging
   const [isAssigningMetric, setIsAssigningMetric] = useState<boolean>(false)
-  const assignMetricInitialAssignMetric = {
-    metricId: '',
-    attributionWindowSeconds: '',
-    changeExpected: false,
-    isPrimary: false,
-    minDifference: '',
-  }
+
   const onAssignMetric = () => setIsAssigningMetric(true)
   const onCancelAssignMetric = () => {
     setIsAssigningMetric(false)
   }
-  const onSubmitAssignMetric = async (formData: { metricAssignment: typeof assignMetricInitialAssignMetric }) => {
-    try {
-      await ExperimentsApi.assignMetric(experiment, formData.metricAssignment as unknown as MetricAssignmentNew)
-      enqueueSnackbar('Metric Assigned Successfully!', { variant: 'success' })
-      experimentReloadRef.current()
-      setIsAssigningMetric(false)
-    } catch (e) /* istanbul ignore next; Shouldn't happen */ {
-      console.error(e)
-      enqueueSnackbar(
-        `Oops! Something went wrong while trying to assign a metric to your experiment. ${serverErrorMessage(e)}`,
-        {
-          variant: 'error',
-        },
-      )
-    }
+  const onSuccessAssignMetric = () => {
+    experimentReloadRef.current()
+    setIsAssigningMetric(false)
   }
 
   return (
@@ -239,134 +178,19 @@ function MetricAssignmentsPanel({
           ))}
         </TableBody>
       </Table>
-      <Dialog open={isAssigningMetric} aria-labelledby='assign-metric-form-dialog-title'>
+      <Dialog
+        maxWidth='md'
+        open={isAssigningMetric}
+        aria-labelledby='assign-metric-form-dialog-title'
+        PaperProps={{ className: classes.metricAssignmentDialog }}
+      >
         <DialogTitle id='assign-metric-form-dialog-title'>Assign Metric</DialogTitle>
-        <Formik
-          initialValues={{ metricAssignment: assignMetricInitialAssignMetric }}
-          onSubmit={onSubmitAssignMetric}
-          validationSchema={yup.object({ metricAssignment: metricAssignmentNewSchema })}
-        >
-          {(formikProps) => {
-            const metricAssignmentsError =
-              formikProps.touched.metricAssignment?.metricId && formikProps.errors.metricAssignment?.metricId
-            const onMetricChange = (_event: unknown, metric: Metric | null) =>
-              formikProps.setFieldValue('metricAssignment.metricId', metric?.metricId)
-            return (
-              <form onSubmit={formikProps.handleSubmit} noValidate>
-                <DialogContent>
-                  <div className={classes.row}>
-                    <FormControl component='fieldset' fullWidth>
-                      <FormLabel required className={classes.label} htmlFor={`metricAssignment.metricId`}>
-                        Metric
-                      </FormLabel>
-                      <MetricAutocomplete
-                        id={`metricAssignment.metricId`}
-                        value={indexedMetrics[Number(formikProps.values.metricAssignment.metricId)] ?? null}
-                        onChange={onMetricChange}
-                        options={Object.values(indexedMetrics)}
-                        error={metricAssignmentsError}
-                        fullWidth
-                      />
-                      {formikProps.errors.metricAssignment?.metricId && (
-                        <FormHelperText error={true}>
-                          <ErrorMessage name={`metricAssignment.metricId`} />
-                        </FormHelperText>
-                      )}
-                    </FormControl>
-                  </div>
-                  <div className={classes.row}>
-                    <FormControl component='fieldset' fullWidth>
-                      <FormLabel
-                        required
-                        className={classes.label}
-                        id={`metricAssignment.attributionWindowSeconds-label`}
-                      >
-                        Attribution Window
-                      </FormLabel>
-                      <Field
-                        component={Select}
-                        name={`metricAssignment.attributionWindowSeconds`}
-                        labelId={`metricAssignment.attributionWindowSeconds-label`}
-                        id={`metricAssignment.attributionWindowSeconds`}
-                        variant='outlined'
-                        error={
-                          // istanbul ignore next; trivial, not-critical, pain to test.
-                          !!formikProps.errors.metricAssignment?.attributionWindowSeconds &&
-                          !!formikProps.touched.metricAssignment?.attributionWindowSeconds
-                        }
-                        displayEmpty
-                      >
-                        <MenuItem value=''>-</MenuItem>
-                        {Object.entries(AttributionWindowSecondsToHuman).map(
-                          ([attributionWindowSeconds, attributionWindowSecondsHuman]) => (
-                            <MenuItem value={attributionWindowSeconds} key={attributionWindowSeconds}>
-                              {attributionWindowSecondsHuman}
-                            </MenuItem>
-                          ),
-                        )}
-                      </Field>
-                      {formikProps.errors.metricAssignment?.attributionWindowSeconds && (
-                        <FormHelperText error={true}>
-                          <ErrorMessage name={`metricAssignment.attributionWindowSeconds`} />
-                        </FormHelperText>
-                      )}
-                    </FormControl>
-                  </div>
-                  <div className={classes.row}>
-                    <FormControl component='fieldset' fullWidth>
-                      <FormLabel required className={classes.label}>
-                        Change Expected
-                      </FormLabel>
-                      <Field
-                        component={Switch}
-                        label='Change Expected'
-                        name={`metricAssignment.changeExpected`}
-                        id={`metricAssignment.changeExpected`}
-                        inputProps={{
-                          'aria-label': 'Change Expected',
-                        }}
-                        variant='outlined'
-                        type='checkbox'
-                      />
-                    </FormControl>
-                  </div>
-                  <div className={classes.row}>
-                    <FormControl component='fieldset' fullWidth>
-                      <FormLabel required className={classes.label} id={`metricAssignment.minDifference-label`}>
-                        Minimum Difference
-                      </FormLabel>
-                      <MetricDifferenceField
-                        name={`metricAssignment.minDifference`}
-                        id={`metricAssignment.minDifference`}
-                        metricParameterType={
-                          (formikProps.values.metricAssignment.metricId &&
-                            indexedMetrics[formikProps.values.metricAssignment.metricId as unknown as number]
-                              .parameterType) ||
-                          MetricParameterType.Conversion
-                        }
-                      />
-                    </FormControl>
-                  </div>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={onCancelAssignMetric} color='primary'>
-                    Cancel
-                  </Button>
-                  <LoadingButtonContainer isLoading={formikProps.isSubmitting}>
-                    <Button
-                      type='submit'
-                      variant='contained'
-                      color='secondary'
-                      disabled={formikProps.isSubmitting || !formikProps.isValid}
-                    >
-                      Assign
-                    </Button>
-                  </LoadingButtonContainer>
-                </DialogActions>
-              </form>
-            )
-          }}
-        </Formik>
+        <MetricAssignmentForm
+          experiment={experiment}
+          metrics={metrics}
+          onSuccess={onSuccessAssignMetric}
+          onCancel={onCancelAssignMetric}
+        />
       </Dialog>
     </Paper>
   )

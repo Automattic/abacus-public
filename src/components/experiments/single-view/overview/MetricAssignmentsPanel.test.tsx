@@ -1,17 +1,14 @@
 /* eslint-disable @typescript-eslint/require-await, no-irregular-whitespace */
-import { act, fireEvent, getByRole, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
+import { fireEvent, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
 import { noop } from 'lodash'
 import React from 'react'
 
-import ExperimentsApi from 'src/api/ExperimentsApi'
 import { Status } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
-import { changeFieldByRole, render } from 'src/test-helpers/test-utils'
+import { render } from 'src/test-helpers/test-utils'
 
+import { fillMetricAssignmentForm } from '../../MetricAssignmentForm.test'
 import MetricAssignmentsPanel from './MetricAssignmentsPanel'
-
-jest.mock('src/api/ExperimentsApi')
-const mockedExperimentsApi = ExperimentsApi as jest.Mocked<typeof ExperimentsApi>
 
 test('renders as expected with all metrics resolvable', () => {
   const metrics = Fixtures.createMetrics()
@@ -28,7 +25,7 @@ test('renders as expected with all metrics resolvable', () => {
           class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
         >
           <h3
-            class="MuiTypography-root makeStyles-title-3 MuiTypography-h3 MuiTypography-colorTextPrimary"
+            class="MuiTypography-root makeStyles-title-34 MuiTypography-h3 MuiTypography-colorTextPrimary"
           >
             Metrics
           </h3>
@@ -61,7 +58,7 @@ test('renders as expected with all metrics resolvable', () => {
           </div>
         </div>
         <table
-          class="MuiTable-root makeStyles-metricsTable-4"
+          class="MuiTable-root makeStyles-metricsTable-35"
         >
           <thead
             class="MuiTableHead-root"
@@ -77,21 +74,21 @@ test('renders as expected with all metrics resolvable', () => {
                 Name
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-6"
+                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-37"
                 role="columnheader"
                 scope="col"
               >
                 Attribution Window
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-6"
+                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-37"
                 role="columnheader"
                 scope="col"
               >
                 Changes Expected
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-6"
+                class="MuiTableCell-root MuiTableCell-head makeStyles-smallColumn-37"
                 role="columnheader"
                 scope="col"
               >
@@ -109,41 +106,41 @@ test('renders as expected with all metrics resolvable', () => {
                 class="MuiTableCell-root MuiTableCell-body"
               >
                 <strong
-                  class="makeStyles-monospace-2 makeStyles-metricName-7"
+                  class="makeStyles-monospace-33 makeStyles-metricName-38"
                   title="metric_1"
                 >
                   metric_1
                 </strong>
                 <br />
                 <small
-                  class="makeStyles-monospace-2"
+                  class="makeStyles-monospace-33"
                 >
                   This is metric 1
                 </small>
                 <br />
                 <span
-                  class="makeStyles-root-10"
+                  class="makeStyles-root-40"
                 >
                   primary
                 </span>
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 1 week
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 Yes
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 
                 10
                 <span
-                  class="makeStyles-tooltipped-11"
+                  class="makeStyles-tooltipped-41"
                   title="Percentage points."
                 >
                   pp
@@ -157,31 +154,31 @@ test('renders as expected with all metrics resolvable', () => {
                 class="MuiTableCell-root MuiTableCell-body"
               >
                 <strong
-                  class="makeStyles-monospace-2 makeStyles-metricName-7"
+                  class="makeStyles-monospace-33 makeStyles-metricName-38"
                   title="metric_2"
                 >
                   metric_2
                 </strong>
                 <br />
                 <small
-                  class="makeStyles-monospace-2"
+                  class="makeStyles-monospace-33"
                 >
                   This is metric 2
                 </small>
                 <br />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 1 hour
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 Yes
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 
                 0.50
@@ -195,31 +192,31 @@ test('renders as expected with all metrics resolvable', () => {
                 class="MuiTableCell-root MuiTableCell-body"
               >
                 <strong
-                  class="makeStyles-monospace-2 makeStyles-metricName-7"
+                  class="makeStyles-monospace-33 makeStyles-metricName-38"
                   title="metric_2"
                 >
                   metric_2
                 </strong>
                 <br />
                 <small
-                  class="makeStyles-monospace-2"
+                  class="makeStyles-monospace-33"
                 >
                   This is metric 2
                 </small>
                 <br />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 4 weeks
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 No
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 
                 10.50
@@ -233,36 +230,36 @@ test('renders as expected with all metrics resolvable', () => {
                 class="MuiTableCell-root MuiTableCell-body"
               >
                 <strong
-                  class="makeStyles-monospace-2 makeStyles-metricName-7"
+                  class="makeStyles-monospace-33 makeStyles-metricName-38"
                   title="metric_3"
                 >
                   metric_3
                 </strong>
                 <br />
                 <small
-                  class="makeStyles-monospace-2"
+                  class="makeStyles-monospace-33"
                 >
                   This is metric 3
                 </small>
                 <br />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 6 hours
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 Yes
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-2"
+                class="MuiTableCell-root MuiTableCell-body makeStyles-monospace-33"
               >
                 
                 1200
                 <span
-                  class="makeStyles-tooltipped-11"
+                  class="makeStyles-tooltipped-41"
                   title="Percentage points."
                 >
                   pp
@@ -295,63 +292,24 @@ test('throws an error when some metrics not resolvable', () => {
   }
 })
 
-test('opens, submits and cancels assign metric dialog', async () => {
+test('opens, submits, and cancels assign metric dialog', async () => {
   const metrics = Fixtures.createMetrics(5)
   const experiment = Fixtures.createExperimentFull({ status: Status.Running })
   const experimentReloadRef: React.MutableRefObject<() => void> = { current: noop }
   render(<MetricAssignmentsPanel {...{ experiment, metrics, experimentReloadRef }} />)
 
-  mockedExperimentsApi.assignMetric.mockReset()
-  // @ts-ignore
-  mockedExperimentsApi.assignMetric.mockImplementationOnce(async () => null)
-
   const startAssignButton = screen.getByRole('button', { name: /Assign Metric/ })
   fireEvent.click(startAssignButton)
 
-  await waitFor(() => screen.getByRole('button', { name: 'Assign' }))
-  const assignButton = screen.getByRole('button', { name: 'Assign' })
-
-  // We click it now to test the validation state
+  await waitFor(() => screen.getByRole('button', { name: /Assign/ }))
+  const assignButton = screen.getByRole('button', { name: /Assign/ })
+  await fillMetricAssignmentForm()
   fireEvent.click(assignButton)
-
-  const metricSearchField = screen.getByRole('combobox', { name: /Select a metric/ })
-  const metricSearchFieldMoreButton = getByRole(metricSearchField, 'button', { name: 'Open' })
-  fireEvent.click(metricSearchFieldMoreButton)
-  fireEvent.click(await screen.findByRole('option', { name: /metric_3/ }))
-
-  const attributionWindowField = await screen.findByLabelText(/Attribution Window/)
-  await act(async () => {
-    fireEvent.focus(attributionWindowField)
-  })
-  await act(async () => {
-    fireEvent.keyDown(attributionWindowField, { key: 'Enter' })
-  })
-  const attributionWindowFieldOption = await screen.findByRole('option', { name: /24 hours/ })
-  await act(async () => {
-    fireEvent.click(attributionWindowFieldOption)
-  })
-
-  await changeFieldByRole('spinbutton', /Minimum Difference/, '1')
-
-  fireEvent.click(assignButton)
-  await waitForElementToBeRemoved(assignButton)
-
-  expect(mockedExperimentsApi.assignMetric).toHaveBeenCalledTimes(1)
-  expect(mockedExperimentsApi.assignMetric).toHaveBeenLastCalledWith(experiment, {
-    attributionWindowSeconds: '86400',
-    changeExpected: false,
-    isPrimary: false,
-    metricId: 3,
-    minDifference: '0.01',
-  })
+  expect(waitForElementToBeRemoved(assignButton))
 
   fireEvent.click(startAssignButton)
-
   await waitFor(() => screen.getByRole('button', { name: /Cancel/ }))
-
   const cancelButton = screen.getByRole('button', { name: /Cancel/ })
   fireEvent.click(cancelButton)
-  await waitForElementToBeRemoved(cancelButton)
-
-  expect(mockedExperimentsApi.assignMetric).toHaveBeenCalledTimes(1)
+  expect(waitForElementToBeRemoved(cancelButton))
 })

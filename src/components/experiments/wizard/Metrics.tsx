@@ -25,6 +25,7 @@ import _ from 'lodash'
 import React, { useState } from 'react'
 
 import { getPropNameCompletions } from 'src/api/AutocompleteApi'
+import MinDiffCalculator from 'src/components/experiments/MinDiffCalculator'
 import Attribute from 'src/components/general/Attribute'
 import AbacusAutocomplete, { autocompleteInputProps } from 'src/components/general/Autocomplete'
 import CollapsibleAlert from 'src/components/general/CollapsibleAlert'
@@ -33,7 +34,7 @@ import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import MoreMenu from 'src/components/general/MoreMenu'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
-import { EventNew, Metric, MetricAssignment, MetricParameterType } from 'src/lib/schemas'
+import { EventNew, Metric, MetricAssignment } from 'src/lib/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
 import { useDataSource } from 'src/utils/data-loading'
 
@@ -41,7 +42,6 @@ import { ExperimentFormCompletionBag } from './ExperimentForm'
 import { ReactComponent as AttributionWindowDiagram } from './img/attribution_window.svg'
 import { ReactComponent as MinDiffDiagram } from './img/min_diffs.svg'
 import { ReactComponent as RefundWindowDiagram } from './img/refund_window.svg'
-import MinDiffCalculator from './MinDiffCalculator'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -559,9 +559,7 @@ const Metrics = ({
                                   samplesPerMonth,
                                   setSamplesPerMonth,
                                   experiment: formikProps.values.experiment,
-                                  isConversion:
-                                    indexedMetrics[metricAssignment.metricId].parameterType ===
-                                    MetricParameterType.Conversion,
+                                  metricParameterType: indexedMetrics[metricAssignment.metricId].parameterType,
                                 }}
                               />
                             </TableCell>

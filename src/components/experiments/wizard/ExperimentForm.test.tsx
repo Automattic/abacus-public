@@ -8,9 +8,14 @@ import React from 'react'
 import * as AutocompleteApi from 'src/api/AutocompleteApi'
 import { experimentToFormData } from 'src/lib/form-data'
 import * as Normalizers from 'src/lib/normalizers'
-import { experimentFullNewSchema, Status } from 'src/lib/schemas'
+import { experimentFullNewSchema, MetricParameterType, Status } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
-import { changeFieldByRole, render, validationErrorDisplayer } from 'src/test-helpers/test-utils'
+import {
+  changeFieldByRole,
+  interactWithMinDiffCalculator,
+  render,
+  validationErrorDisplayer,
+} from 'src/test-helpers/test-utils'
 import { formatIsoDate } from 'src/utils/time'
 
 import ExperimentForm, { ExperimentFormCompletionBag } from './ExperimentForm'
@@ -465,11 +470,7 @@ test('form submits with valid fields', async () => {
   screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
   screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
   screen.getByRole('button', { name: /Minimum Difference Calculator/ }).click()
-  await changeFieldByRole('spinbutton', /Users \/ month/, '500000')
-  await changeFieldByRole('spinbutton', /Baseline cash sales/, '10000')
-  await changeFieldByRole('spinbutton', /Extra cash sales \/ month/, '100')
-  screen.getByRole('checkbox', { name: /I understand that ACPU/ }).click()
-  screen.getByRole('button', { name: /Apply min diff/ }).click()
+  await interactWithMinDiffCalculator(MetricParameterType.Revenue)
 
   // #### Exposure Events
   await act(async () => {

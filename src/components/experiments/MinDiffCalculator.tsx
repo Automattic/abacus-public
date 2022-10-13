@@ -16,6 +16,7 @@ import React, { useState } from 'react'
 
 import DebugOutput from 'src/components/general/DebugOutput'
 import { ExperimentFormData } from 'src/lib/form-data'
+import { MetricParameterType } from 'src/lib/schemas'
 import { isDebugMode } from 'src/utils/general'
 import {
   defaultStatisticalPower,
@@ -62,15 +63,16 @@ const MinDiffCalculator = ({
   setSamplesPerMonth,
   setMinPracticalDiff,
   experiment,
-  isConversion,
+  metricParameterType,
 }: {
   samplesPerMonth: number
   setSamplesPerMonth: (n: number) => void
   setMinPracticalDiff: (n: number) => void
   experiment: ExperimentFormData
-  isConversion: boolean
+  metricParameterType: MetricParameterType
 }): JSX.Element => {
   const classes = useStyles()
+  const isConversion = metricParameterType === MetricParameterType.Conversion
 
   const onChangeSamplesPerMonth = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSamplesPerMonth(event.target.value as number)

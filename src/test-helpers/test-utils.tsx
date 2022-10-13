@@ -6,6 +6,7 @@ import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { ValidationError } from 'yup'
 
+import { MetricParameterType } from 'src/lib/schemas'
 import ThemeProvider from 'src/styles/ThemeProvider'
 
 /**
@@ -104,4 +105,30 @@ export async function changeAnalysisStrategy() {
   fireEvent.keyDown(analysisStrategy, { key: 'Enter' })
   const analysisStrategyOption = await screen.findByRole('option', { name: /All participants/ })
   fireEvent.click(analysisStrategyOption)
+}
+
+/**
+ * Use the Mininum Difference Calculator
+ */
+export async function interactWithMinDiffCalculator(
+  parameterType: MetricParameterType,
+  usersCount = '500000',
+  baselineValue = '10000',
+  extraValue = '100',
+) {
+  await changeFieldByRole('spinbutton', /Users \/ month/, usersCount)
+
+  if (parameterType === MetricParameterType.Conversion) {
+    await changeFieldByRole('spinbutton', /Baseline conversion/, baselineValue)
+    await changeFieldByRole('spinbutton', /Extra conversions \/ month/, extraValue)
+    screen.getByRole('checkbox', { name: /I understand that a conversion rate/ }).click()
+    screen.getByRole('button', { name: /Apply min diff/ }).click()
+  }
+
+  if (parameterType === MetricParameterType.Revenue) {
+    await changeFieldByRole('spinbutton', /Baseline cash sales/, baselineValue)
+    await changeFieldByRole('spinbutton', /Extra cash sales \/ month/, extraValue)
+    screen.getByRole('checkbox', { name: /I understand that ACPU/ }).click()
+    screen.getByRole('button', { name: /Apply min diff/ }).click()
+  }
 }

@@ -1,3 +1,4 @@
+import { green, orange } from '@material-ui/core/colors'
 import { createMuiTheme } from '@material-ui/core/styles'
 import React from 'react'
 
@@ -104,6 +105,14 @@ const theme = createMuiTheme({
       main: '#2e7d32',
       light: '#60ad5e',
       dark: '#005005',
+    },
+    warning: {
+      ...orange,
+      light: '#fcb900',
+    },
+    success: {
+      ...green,
+      main: '#00d084',
     },
   },
   typography: {

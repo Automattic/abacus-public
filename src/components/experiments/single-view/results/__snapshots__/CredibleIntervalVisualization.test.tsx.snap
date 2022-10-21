@@ -27,24 +27,23 @@ exports[`renders CredibleIntervalVisualization correctly 1`] = `
       y2="45"
     />
     <g
-      class="makeStyles-intervalGroup-3"
+      class="makeStyles-intervalGroup-3 makeStyles-intervalWithEnoughData-4"
     >
       <rect
-        class="makeStyles-intervalMiddle-5"
         height="15"
         width="109"
         x="47"
         y="15"
       />
       <line
-        class="makeStyles-intervalEdge-4"
+        class="makeStyles-intervalEdge-5"
         x1="47"
         x2="47"
         y1="12"
         y2="33"
       />
       <line
-        class="makeStyles-intervalEdge-4"
+        class="makeStyles-intervalEdge-5"
         x1="156"
         x2="156"
         y1="12"

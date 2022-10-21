@@ -52,7 +52,7 @@ test('renders recommendation for NoDifference decision correctly', () => {
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.NoDifference,
-        strongEnoughForDeployment: true,
+        strongEnoughData: true,
       }}
       experiment={Fixtures.createExperimentFull()}
     />,
@@ -70,7 +70,7 @@ test('renders recommendation correctly when data is not strong enough', () => {
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.NoDifference,
-        strongEnoughForDeployment: false,
+        strongEnoughData: false,
       }}
       experiment={Fixtures.createExperimentFull()}
     />,
@@ -88,7 +88,7 @@ test('renders recommendation for VariantBarelyAhead decision correctly', () => {
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.VariantBarelyAhead,
-        strongEnoughForDeployment: true,
+        strongEnoughData: true,
         chosenVariationId: 123,
       }}
       experiment={Fixtures.createExperimentFull({
@@ -118,7 +118,7 @@ test('renders recommendation for VariantAhead decision correctly', () => {
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.VariantAhead,
-        strongEnoughForDeployment: true,
+        strongEnoughData: true,
         chosenVariationId: 123,
       }}
       experiment={Fixtures.createExperimentFull({
@@ -148,7 +148,7 @@ test('renders recommendation for VariantWinning decision correctly', () => {
       analysis={{
         analysisStrategy: AnalysisStrategy.PpNaive,
         decision: Decision.VariantWinning,
-        strongEnoughForDeployment: true,
+        strongEnoughData: true,
         chosenVariationId: 123,
       }}
       experiment={Fixtures.createExperimentFull({

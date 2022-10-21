@@ -403,6 +403,7 @@ export default function ExperimentResults({
               top={latestEstimates.diffs[variationDiffKey].top_95}
               bottom={latestEstimates.diffs[variationDiffKey].bottom_95}
               minDifference={metricAssignment.minDifference}
+              recommendation={recommendation}
             />
             <MetricValueInterval
               intervalName={'the absolute change between variations'}

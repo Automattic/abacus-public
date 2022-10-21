@@ -383,21 +383,20 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           class="makeStyles-intervalGroup-168"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-170"
                             height="15"
                             width="154"
                             x="2"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-169"
+                            class="makeStyles-intervalEdge-170"
                             x1="2"
                             x2="2"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-169"
+                            class="makeStyles-intervalEdge-170"
                             x1="156"
                             x2="156"
                             y1="12"
@@ -2290,21 +2289,20 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           class="makeStyles-intervalGroup-168"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-170"
                             height="15"
                             width="154"
                             x="2"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-169"
+                            class="makeStyles-intervalEdge-170"
                             x1="2"
                             x2="2"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-169"
+                            class="makeStyles-intervalEdge-170"
                             x1="156"
                             x2="156"
                             y1="12"
@@ -3555,21 +3553,20 @@ exports[`allows you to change analysis strategy 1`] = `
                             class="makeStyles-intervalGroup-488"
                           >
                             <rect
-                              class="makeStyles-intervalMiddle-490"
                               height="15"
                               width="0"
                               x="79"
                               y="15"
                             />
                             <line
-                              class="makeStyles-intervalEdge-489"
+                              class="makeStyles-intervalEdge-490"
                               x1="79"
                               x2="79"
                               y1="12"
                               y2="33"
                             />
                             <line
-                              class="makeStyles-intervalEdge-489"
+                              class="makeStyles-intervalEdge-490"
                               x1="79"
                               x2="79"
                               y1="12"
@@ -5998,21 +5995,20 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                           class="makeStyles-intervalGroup-103"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-105"
                             height="15"
                             width="154"
                             x="2"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-104"
+                            class="makeStyles-intervalEdge-105"
                             x1="2"
                             x2="2"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-104"
+                            class="makeStyles-intervalEdge-105"
                             x1="156"
                             x2="156"
                             y1="12"
@@ -7661,21 +7657,20 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                           class="makeStyles-intervalGroup-233"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-235"
                             height="15"
                             width="37.5"
                             x="118.5"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-234"
+                            class="makeStyles-intervalEdge-235"
                             x1="118.5"
                             x2="118.5"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-234"
+                            class="makeStyles-intervalEdge-235"
                             x1="156"
                             x2="156"
                             y1="12"
@@ -10924,21 +10919,20 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                           class="makeStyles-intervalGroup-358"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-360"
                             height="15"
                             width="0"
                             x="79"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-359"
+                            class="makeStyles-intervalEdge-360"
                             x1="79"
                             x2="79"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-359"
+                            class="makeStyles-intervalEdge-360"
                             x1="79"
                             x2="79"
                             y1="12"
@@ -11200,21 +11194,20 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                           class="makeStyles-intervalGroup-358"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-360"
                             height="15"
                             width="0"
                             x="79"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-359"
+                            class="makeStyles-intervalEdge-360"
                             x1="79"
                             x2="79"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-359"
+                            class="makeStyles-intervalEdge-360"
                             x1="79"
                             x2="79"
                             y1="12"
@@ -13222,21 +13215,20 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                           class="makeStyles-intervalGroup-423"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-425"
                             height="15"
                             width="0"
                             x="79"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-424"
+                            class="makeStyles-intervalEdge-425"
                             x1="79"
                             x2="79"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-424"
+                            class="makeStyles-intervalEdge-425"
                             x1="79"
                             x2="79"
                             y1="12"
@@ -13498,21 +13490,20 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                           class="makeStyles-intervalGroup-423"
                         >
                           <rect
-                            class="makeStyles-intervalMiddle-425"
                             height="15"
                             width="0"
                             x="79"
                             y="15"
                           />
                           <line
-                            class="makeStyles-intervalEdge-424"
+                            class="makeStyles-intervalEdge-425"
                             x1="79"
                             x2="79"
                             y1="12"
                             y2="33"
                           />
                           <line
-                            class="makeStyles-intervalEdge-424"
+                            class="makeStyles-intervalEdge-425"
                             x1="79"
                             x2="79"
                             y1="12"

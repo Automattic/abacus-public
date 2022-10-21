@@ -1,6 +1,9 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
+import clsx from 'clsx'
 import _ from 'lodash'
 import React from 'react'
+
+import { Recommendation } from 'src/lib/recommendations'
 
 const DIAGRAM_WIDTH = 150
 const DIAGRAM_HEIGHT = 45
@@ -19,14 +22,16 @@ const useStyles = makeStyles((theme: Theme) =>
       strokeDasharray: '4 3',
     },
     intervalGroup: {
-      opacity: 0.8,
+      opacity: 0.85,
+      fill: theme.palette.warning.light,
+      stroke: theme.palette.warning.light,
+    },
+    intervalWithEnoughData: {
+      fill: theme.palette.success.main,
+      stroke: theme.palette.success.main,
     },
     intervalEdge: {
-      stroke: theme.palette.grey[400],
       strokeWidth: 2,
-    },
-    intervalMiddle: {
-      fill: theme.palette.grey[400],
     },
   }),
 )
@@ -35,10 +40,12 @@ export default function CredibleIntervalVisualization({
   top,
   bottom,
   minDifference,
+  recommendation,
 }: {
   top: number
   bottom: number
   minDifference: number
+  recommendation: Recommendation
 }): JSX.Element {
   const classes = useStyles()
   const metric = {
@@ -79,9 +86,8 @@ export default function CredibleIntervalVisualization({
       />
       {/* middle black line */}
       <line x1={scale(0)} x2={scale(0)} y2={DIAGRAM_HEIGHT} stroke='#4e4e4e' strokeWidth={2} />
-      <g className={classes.intervalGroup}>
+      <g className={clsx(classes.intervalGroup, recommendation.strongEnoughData && classes.intervalWithEnoughData)}>
         <rect
-          className={classes.intervalMiddle}
           x={scale(metric.bottom)}
           width={scale(metric.top) - scale(metric.bottom)}
           height={15}

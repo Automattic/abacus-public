@@ -294,7 +294,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.Inconclusive,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
       statisticallySignificant: false,
     })
@@ -320,7 +320,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.VariantAhead,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Uncertain,
       statisticallySignificant: true,
@@ -347,7 +347,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.NoDifference,
-      strongEnoughForDeployment: true,
+      strongEnoughData: true,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: false,
     })
@@ -373,7 +373,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.NoDifference,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: false,
     })
@@ -399,7 +399,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.VariantBarelyAhead,
-      strongEnoughForDeployment: true,
+      strongEnoughData: true,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: true,
@@ -429,7 +429,7 @@ describe('getMetricAssignmentRecommendation', () => {
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.No,
       statisticallySignificant: true,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     })
 
     expect(
@@ -453,7 +453,7 @@ describe('getMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.VariantWinning,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
       chosenVariationId: 2,
       practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
       statisticallySignificant: true,
@@ -473,7 +473,7 @@ describe('getMetricAssignmentRecommendation', () => {
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
     decision: Recommendations.Decision.MissingAnalysis,
-    strongEnoughForDeployment: false,
+    strongEnoughData: false,
   })
 
   expect(
@@ -497,7 +497,7 @@ describe('getMetricAssignmentRecommendation', () => {
   ).toEqual({
     analysisStrategy: AnalysisStrategy.PpNaive,
     decision: Recommendations.Decision.VariantWinning,
-    strongEnoughForDeployment: true,
+    strongEnoughData: true,
     chosenVariationId: 1,
     practicallySignificant: Recommendations.PracticalSignificanceStatus.Yes,
     statisticallySignificant: true,
@@ -509,7 +509,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     expect(Recommendations.getAggregateMetricAssignmentRecommendation([], AnalysisStrategy.PpNaive)).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     })
 
     expect(
@@ -518,7 +518,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
           {
             analysisStrategy: AnalysisStrategy.PpNaive,
             decision: Recommendations.Decision.MissingAnalysis,
-            strongEnoughForDeployment: false,
+            strongEnoughData: false,
           },
         ],
         AnalysisStrategy.PpNaive,
@@ -526,7 +526,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     })
 
     expect(
@@ -542,7 +542,7 @@ describe('getAggregateMetricAssignmentRecommendation', () => {
     ).toEqual({
       analysisStrategy: AnalysisStrategy.PpNaive,
       decision: Recommendations.Decision.MissingAnalysis,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     })
   })
 

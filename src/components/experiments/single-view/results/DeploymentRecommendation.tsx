@@ -31,7 +31,7 @@ export default function DeploymentRecommendation({
     return <>Not analyzed yet</>
   }
 
-  if (analysis.strongEnoughForDeployment) {
+  if (analysis.strongEnoughData) {
     switch (analysis.decision) {
       case Decision.NoDifference: {
         return <>Deploy either variation</>

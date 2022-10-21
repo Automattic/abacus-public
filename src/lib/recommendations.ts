@@ -134,7 +134,7 @@ export interface Recommendation {
   chosenVariationId?: number
   statisticallySignificant?: boolean
   practicallySignificant?: PracticalSignificanceStatus
-  strongEnoughForDeployment?: boolean
+  strongEnoughData?: boolean
 }
 
 function getDecisionFromDiffCredibleIntervalStats(diffCredibleIntervalStats: DiffCredibleIntervalStats): Decision {
@@ -222,7 +222,7 @@ export function getMetricAssignmentRecommendation(
     return {
       analysisStrategy,
       decision: Decision.MissingAnalysis,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     }
   }
 
@@ -234,13 +234,7 @@ export function getMetricAssignmentRecommendation(
     chosenVariationId = isPositive === metric.higherIsBetter ? changeVariationId : baseVariationId
   }
 
-  const strongEnoughForDeployment = isDataStrongEnough(
-    analysis,
-    decision,
-    experiment,
-    metricAssignment,
-    variationDiffKey,
-  )
+  const strongEnoughData = isDataStrongEnough(analysis, decision, experiment, metricAssignment, variationDiffKey)
 
   return {
     analysisStrategy,
@@ -248,7 +242,7 @@ export function getMetricAssignmentRecommendation(
     chosenVariationId,
     statisticallySignificant,
     practicallySignificant,
-    strongEnoughForDeployment,
+    strongEnoughData,
   }
 }
 
@@ -267,7 +261,7 @@ export function getAggregateMetricAssignmentRecommendation(
     return {
       analysisStrategy: targetAnalysisStrategy,
       decision: Decision.MissingAnalysis,
-      strongEnoughForDeployment: false,
+      strongEnoughData: false,
     }
   }
 

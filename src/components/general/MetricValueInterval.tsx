@@ -41,6 +41,8 @@ export default function MetricValueInterval({
   displayPositiveSign = true,
   alignToCenter,
   ciPercent = 95,
+  isImpact = false,
+  className,
 }: {
   intervalName: string
   metricParameterType: MetricParameterType
@@ -51,10 +53,12 @@ export default function MetricValueInterval({
   displayPositiveSign?: boolean
   alignToCenter?: boolean
   ciPercent?: number
+  isImpact?: boolean
+  className?: string
 }): JSX.Element {
   const classes = useStyles()
   const decorationClasses = useDecorationStyles()
-  const metricValueFormat = getMetricValueFormatData({ metricParameterType, isDifference })
+  const metricValueFormat = getMetricValueFormatData({ metricParameterType, isDifference, isImpact })
   return (
     <Tooltip
       title={
@@ -67,6 +71,7 @@ export default function MetricValueInterval({
             metricParameterType={metricParameterType}
             isDifference={isDifference}
             displayPositiveSign={displayPositiveSign}
+            isImpact={isImpact}
           />{' '}
           and{' '}
           <MetricValue
@@ -74,15 +79,18 @@ export default function MetricValueInterval({
             metricParameterType={metricParameterType}
             isDifference={isDifference}
             displayPositiveSign={displayPositiveSign}
+            isImpact={isImpact}
           />
           .
         </>
       }
     >
       <span
+        aria-label={intervalName}
         className={clsx(
           displayTooltipHint && decorationClasses.tooltipped,
           alignToCenter && classes.metricValueIntervalCentered,
+          className,
         )}
       >
         <span className={classes.metricValueWrapper}>
@@ -92,6 +100,7 @@ export default function MetricValueInterval({
             isDifference={isDifference}
             displayUnit={false}
             displayPositiveSign={displayPositiveSign}
+            isImpact={isImpact}
           />
         </span>{' '}
         to{' '}
@@ -102,6 +111,7 @@ export default function MetricValueInterval({
             isDifference={isDifference}
             displayUnit={false}
             displayPositiveSign={displayPositiveSign}
+            isImpact={isImpact}
           />{' '}
           {metricValueFormat.unit}
         </span>

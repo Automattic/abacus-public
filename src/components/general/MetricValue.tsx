@@ -28,6 +28,16 @@ const standardNumberFormatter = (n: number): string => `${_.round(n, metricValue
 const usdFormatter = (n: number): string =>
   n.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })
 
+const impactNumberFormatter = (n: number): string => {
+  if (Math.abs(n) > 1000000) {
+    return `${(n / 1000000).toLocaleString(undefined, { maximumFractionDigits: 2 })}M`
+  }
+  if (Math.abs(n) > 1000) {
+    return `${(n / 1000).toLocaleString(undefined, { maximumFractionDigits: 2 })}K`
+  }
+  return _.round(n).toLocaleString(undefined)
+}
+
 /**
  * Metric Formatting Data
  */
@@ -57,6 +67,13 @@ export const metricValueFormatData: Record<string, MetricValueFormat> = {
     transform: (x: number): number => x * 100,
     formatter: standardNumberFormatter,
   },
+  conversion_impact: {
+    unit: '',
+    prefix: '',
+    postfix: ' conversions',
+    transform: identity,
+    formatter: impactNumberFormatter,
+  },
   revenue: {
     unit: 'USD',
     prefix: '',
@@ -71,16 +88,25 @@ export const metricValueFormatData: Record<string, MetricValueFormat> = {
     transform: identity,
     formatter: usdFormatter,
   },
+  revenue_impact: {
+    unit: 'USD',
+    prefix: '',
+    postfix: <>&nbsp;USD</>,
+    transform: identity,
+    formatter: impactNumberFormatter,
+  },
 }
 
 export function getMetricValueFormatData({
   metricParameterType,
   isDifference,
+  isImpact,
 }: {
   metricParameterType: MetricParameterType
   isDifference: boolean
+  isImpact: boolean
 }): MetricValueFormat {
-  return metricValueFormatData[`${metricParameterType}${isDifference ? '_difference' : ''}`]
+  return metricValueFormatData[`${metricParameterType}${isDifference ? '_difference' : ''}${isImpact ? '_impact' : ''}`]
 }
 
 /**
@@ -97,14 +123,16 @@ export default function MetricValue({
   isDifference = false,
   displayUnit = true,
   displayPositiveSign = false,
+  isImpact = false,
 }: {
   value: number
   metricParameterType: MetricParameterType
   isDifference?: boolean
   displayUnit?: boolean
   displayPositiveSign?: boolean
+  isImpact?: boolean
 }): JSX.Element {
-  const format = getMetricValueFormatData({ metricParameterType, isDifference })
+  const format = getMetricValueFormatData({ metricParameterType, isDifference, isImpact })
   return (
     <>
       {displayPositiveSign && 0 <= value && '+'}

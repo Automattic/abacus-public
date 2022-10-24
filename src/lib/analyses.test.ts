@@ -585,3 +585,51 @@ describe('getExperimentHealthIndicators', () => {
     `)
   })
 })
+
+describe('estimateTotalParticipantsInPeriod', () => {
+  it('should work correctly', () => {
+    const experimentRunTimeDays = 10
+    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    expect(
+      Analyses.estimateTotalParticipantsInPeriod(
+        Fixtures.createAnalysis({
+          participantStats: {
+            total: 100,
+          },
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          status: Status.Running,
+          variations: [
+            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
+            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
+          ],
+        }),
+        30,
+      ),
+    ).toBe(300)
+  })
+
+  it('should work for total allocated percentage less than 100', () => {
+    const experimentRunTimeDays = 10
+    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    expect(
+      Analyses.estimateTotalParticipantsInPeriod(
+        Fixtures.createAnalysis({
+          participantStats: {
+            total: 100,
+          },
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          status: Status.Running,
+          variations: [
+            { variationId: 1, allocatedPercentage: 10, isDefault: true, name: 'variation_name_1' },
+            { variationId: 2, allocatedPercentage: 40, isDefault: false, name: 'variation_name_2' },
+          ],
+        }),
+        30,
+      ),
+    ).toBe(600)
+  })
+})

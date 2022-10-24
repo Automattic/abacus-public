@@ -22,7 +22,7 @@ import Plot from 'react-plotly.js'
 import DatetimeText from 'src/components/general/DatetimeText'
 import MetricValue from 'src/components/general/MetricValue'
 import * as Analyses from 'src/lib/analyses'
-import { getChosenVariation } from 'src/lib/experiments'
+import { getChosenVariation, getExperimentRunHours } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
   Analysis,
@@ -219,6 +219,7 @@ export default function MetricAssignmentResults({
   experiment,
   recommendation,
   variationDiffKey,
+  impactIntervalInMonths,
 }: {
   strategy: AnalysisStrategy
   metricAssignment: MetricAssignment
@@ -227,6 +228,7 @@ export default function MetricAssignmentResults({
   experiment: ExperimentFull
   recommendation: Recommendations.Recommendation
   variationDiffKey: string
+  impactIntervalInMonths: number
 }): JSX.Element | null {
   const classes = useStyles()
 
@@ -438,6 +440,15 @@ export default function MetricAssignmentResults({
     }),
   ]
 
+  const estimatedTotalParticipantsForImpact = Analyses.estimateTotalParticipantsInPeriod(
+    latestAnalysis,
+    experiment,
+    impactIntervalInMonths * 30,
+  )
+
+  const changeVariationName = experiment.variations.find((variation) => variation.variationId === changeVariationId)
+    ?.name as string
+
   return (
     <div className={clsx(classes.root, 'analysis-detail-panel')}>
       <Typography className={classes.dataTableHeader}>Summary</Typography>
@@ -509,6 +520,39 @@ export default function MetricAssignmentResults({
                     displayPositiveSign
                   />
                   .
+                </Typography>
+                <Typography variant='body1' gutterBottom>
+                  Given the relative change (lift) between{' '}
+                  <MetricValue
+                    metricParameterType={MetricParameterType.Conversion}
+                    value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
+                    displayPositiveSign
+                  />{' '}
+                  and{' '}
+                  <MetricValue
+                    metricParameterType={MetricParameterType.Conversion}
+                    value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
+                    displayPositiveSign
+                  />{' '}
+                  and the experiment runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
+                  {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
+                  <MetricValue
+                    metricParameterType={metric.parameterType}
+                    value={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
+                    displayPositiveSign
+                    displayUnit={false}
+                    isImpact
+                  />{' '}
+                  to{' '}
+                  <MetricValue
+                    metricParameterType={metric.parameterType}
+                    value={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
+                    displayPositiveSign
+                    isImpact
+                  />
+                  . <strong>This is not a statistical forecast</strong> but a theoretical cumulative effect on the
+                  targeted audience, as if the experiment conditions were unchanged for one{' '}
+                  {impactIntervalInMonths === 1 ? 'month' : 'year'}.
                 </Typography>
                 <strong>Last analyzed:</strong>{' '}
                 <DatetimeText datetime={latestAnalysis.analysisDatetime} excludeTime={true} />.

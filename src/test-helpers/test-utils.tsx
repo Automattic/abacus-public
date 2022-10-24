@@ -132,3 +132,14 @@ export async function interactWithMinDiffCalculator(
     screen.getByRole('button', { name: /Apply min diff/ }).click()
   }
 }
+
+/**
+ * Change the Estimated impact interval in Experiment Results
+ */
+export async function changeEstimatedImpactInterval(fromMonths: number, toMonths: number) {
+  const estimatedImpactSelector = screen.getByRole('button', { name: fromMonths === 1 ? /months/ : /year/ })
+  fireEvent.focus(estimatedImpactSelector)
+  fireEvent.keyDown(estimatedImpactSelector, { key: 'Enter' })
+  const intervalOption = await screen.findByRole('option', { name: toMonths === 1 ? /month/ : /year/ })
+  fireEvent.click(intervalOption)
+}

@@ -51,6 +51,7 @@ import AnalysisDisplay from './AnalysisDisplay'
 import CredibleIntervalVisualization from './CredibleIntervalVisualization'
 import DeploymentRecommendation from './DeploymentRecommendation'
 import HealthIndicatorTable from './HealthIndicatorTable'
+import ImpactIntervalSelector from './ImpactIntervalSelector'
 import MetricAssignmentResults from './MetricAssignmentResults'
 
 type MetricAssignmentAnalysesData = {
@@ -168,6 +169,22 @@ const useStyles = makeStyles((theme: Theme) =>
     metricAssignmentNameSubtitle: {
       color: theme.palette.grey.A700,
     },
+    impactIntervalSelectWrapper: {
+      display: 'inline-block',
+    },
+    impactIntervalSelect: {
+      fontFamily: 'inherit',
+      fontWeight: 'inherit',
+      fontSize: 'inherit',
+      marginLeft: theme.spacing(1) / 2,
+    },
+    estimatedImpactWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    estimatedImpactInterval: {
+      fontWeight: 600,
+    },
   }),
 )
 
@@ -229,6 +246,8 @@ export default function ExperimentResults({
   }
   const variationDiffKey = `${changeVariationId}_${baseVariationId}`
   const isMultivariation = experiment.variations.length > 2
+
+  const [impactIntervalInMonths, setImpactIntervalInMonths] = useState<number>(12)
 
   const indexedMetrics = indexMetrics(metrics)
   const analysesByMetricAssignmentId = _.groupBy(analyses, 'metricAssignmentId')
@@ -427,38 +446,82 @@ export default function ExperimentResults({
       } as React.CSSProperties,
     },
     {
-      title: 'Relative change (lift)',
+      title: (
+        <span>
+          Estimated impact{' '}
+          <span className={classes.impactIntervalSelectWrapper}>
+            (per
+            <ImpactIntervalSelector
+              months={impactIntervalInMonths}
+              onSetMonths={setImpactIntervalInMonths}
+              className={classes.impactIntervalSelect}
+            />
+            )
+          </span>
+        </span>
+      ),
       render: ({
+        metric,
         strategy,
         analysesByStrategyDateAsc,
         recommendation,
+        experiment,
       }: {
+        metric: Metric
         strategy: AnalysisStrategy
         analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
         recommendation: Recommendations.Recommendation
+        experiment: ExperimentFull
       }) => {
-        const latestEstimates = _.last(analysesByStrategyDateAsc[strategy])?.metricEstimates
+        const latestAnalysis = _.last(analysesByStrategyDateAsc[strategy])
+        const latestEstimates = latestAnalysis?.metricEstimates
         if (
-          !latestEstimates?.ratios[variationDiffKey]?.top_95 ||
+          !latestAnalysis ||
+          !latestEstimates ||
           recommendation.decision === Recommendations.Decision.ManualAnalysisRequired ||
           recommendation.decision === Recommendations.Decision.MissingAnalysis
         ) {
           return null
         }
+        const changeVariationName = experiment.variations.find(
+          (variation) => variation.variationId === changeVariationId,
+        )?.name as string
+        const impactIntervalLabel = impactIntervalInMonths === 1 ? 'month' : 'year'
+        const estimatedTotalParticipantsForImpact = Analyses.estimateTotalParticipantsInPeriod(
+          latestAnalysis,
+          experiment,
+          impactIntervalInMonths * 30,
+        )
 
         return (
-          <MetricValueInterval
-            intervalName={'the relative change between variations'}
-            metricParameterType={MetricParameterType.Conversion}
-            bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
-            topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
-            displayTooltipHint={false}
-          />
+          <span className={classes.estimatedImpactWrapper}>
+            <MetricValueInterval
+              intervalName={`the estimated impact of '${changeVariationName}', in hypothetical unchanged conditions, over one ${impactIntervalLabel}, for the targeted audience,`}
+              metricParameterType={metric.parameterType}
+              bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
+              topValue={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
+              displayTooltipHint={false}
+              alignToCenter
+              isImpact
+              className={classes.estimatedImpactInterval}
+            />
+            <MetricValueInterval
+              intervalName={'the relative change between variations'}
+              metricParameterType={MetricParameterType.Conversion}
+              bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
+              topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
+              displayTooltipHint={false}
+              alignToCenter
+            />
+          </span>
         )
       },
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
         minWidth: 180,
+      } as React.CSSProperties,
+      headerStyle: {
+        textAlign: 'center',
       } as React.CSSProperties,
     },
     {
@@ -505,6 +568,7 @@ export default function ExperimentResults({
                 experiment,
                 recommendation,
                 variationDiffKey,
+                impactIntervalInMonths,
               }}
             />
           )
@@ -548,7 +612,7 @@ export default function ExperimentResults({
       expandPrimaryMetricPanelTimer.current && clearTimeout(expandPrimaryMetricPanelTimer.current)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tableRef.current, variationDiffKey, strategy])
+  }, [tableRef.current, variationDiffKey, strategy, impactIntervalInMonths])
 
   return (
     <div className='analysis-latest-results'>

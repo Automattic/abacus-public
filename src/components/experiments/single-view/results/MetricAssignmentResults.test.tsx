@@ -17,6 +17,20 @@ beforeEach(() => {
 })
 
 describe('MetricAssignmentResults', () => {
+  const emptyAnalysesByStrategyDateAsc = {
+    [AnalysisStrategy.PpNaive]: [],
+    [AnalysisStrategy.MittNoSpammersNoCrossovers]: [],
+    [AnalysisStrategy.MittNoSpammers]: [],
+    [AnalysisStrategy.MittNoCrossovers]: [],
+    [AnalysisStrategy.IttPure]: [],
+  }
+
+  const recommendation = {
+    analysisStrategy: AnalysisStrategy.PpNaive,
+    decision: Decision.NoDifference,
+    practicallySignificant: PracticalSignificanceStatus.Yes,
+  }
+
   it('highlights only the selected variations of A/B/n experiments', () => {
     const variations = Fixtures.createVariations(3)
     const abnExperiment = Fixtures.createExperimentFull({ variations })
@@ -27,19 +41,13 @@ describe('MetricAssignmentResults', () => {
         metricAssignment={Fixtures.createMetricAssignment({})}
         metric={Fixtures.createMetrics(1)[0]}
         analysesByStrategyDateAsc={{
+          ...emptyAnalysesByStrategyDateAsc,
           [AnalysisStrategy.PpNaive]: [Fixtures.createMultiVariationAnalysis({})],
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: [],
-          [AnalysisStrategy.MittNoSpammers]: [],
-          [AnalysisStrategy.MittNoCrossovers]: [],
-          [AnalysisStrategy.IttPure]: [],
         }}
         experiment={abnExperiment}
-        recommendation={{
-          analysisStrategy: AnalysisStrategy.PpNaive,
-          decision: Decision.NoDifference,
-          practicallySignificant: PracticalSignificanceStatus.Yes,
-        }}
+        recommendation={recommendation}
         variationDiffKey='2_1'
+        impactIntervalInMonths={12}
       />,
     )
 
@@ -55,21 +63,33 @@ describe('MetricAssignmentResults', () => {
         strategy={AnalysisStrategy.PpNaive}
         metricAssignment={Fixtures.createMetricAssignment({})}
         metric={Fixtures.createMetrics(1)[0]}
-        analysesByStrategyDateAsc={{
-          [AnalysisStrategy.PpNaive]: [],
-          [AnalysisStrategy.MittNoSpammersNoCrossovers]: [],
-          [AnalysisStrategy.MittNoSpammers]: [],
-          [AnalysisStrategy.MittNoCrossovers]: [],
-          [AnalysisStrategy.IttPure]: [],
-        }}
+        analysesByStrategyDateAsc={emptyAnalysesByStrategyDateAsc}
         experiment={experiment}
-        recommendation={{
-          analysisStrategy: AnalysisStrategy.PpNaive,
-          decision: Decision.NoDifference,
-        }}
+        recommendation={recommendation}
         variationDiffKey='2_1'
+        impactIntervalInMonths={12}
       />,
     )
     expect(container).toMatchSnapshot()
+  })
+
+  it('renders with estimated impact interval set to monthly', () => {
+    render(
+      <MetricAssignmentResults
+        strategy={AnalysisStrategy.PpNaive}
+        metricAssignment={Fixtures.createMetricAssignment({})}
+        metric={Fixtures.createMetrics(1)[0]}
+        analysesByStrategyDateAsc={{
+          ...emptyAnalysesByStrategyDateAsc,
+          [AnalysisStrategy.PpNaive]: [Fixtures.createAnalysis({})],
+        }}
+        experiment={Fixtures.createExperimentFull()}
+        recommendation={recommendation}
+        variationDiffKey='2_1'
+        impactIntervalInMonths={1}
+      />,
+    )
+    expect(screen.queryByText(/estimated monthly impact/)).toBeTruthy()
+    expect(screen.queryByText(/estimated yearly impact/)).toBeNull()
   })
 })

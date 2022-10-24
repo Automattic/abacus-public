@@ -51,6 +51,13 @@ function getParticipantCountsSetForParticipantStatsKey(
 }
 
 /**
+ * Get the total allocated percentage (between 2 and 100) for all variations of an experiment
+ */
+function getTotalAllocatedPercentage(experiment: ExperimentFull) {
+  return experiment.variations.map(({ allocatedPercentage }) => allocatedPercentage).reduce((acc, cur) => acc + cur)
+}
+
+/**
  * Gets participant counts for an Experiment
  */
 export function getParticipantCounts(
@@ -137,9 +144,7 @@ export function getExperimentParticipantStats(
     ),
   }
 
-  const totalAllocatedPercentage = experiment.variations
-    .map(({ allocatedPercentage }) => allocatedPercentage)
-    .reduce((acc, cur) => acc + cur)
+  const totalAllocatedPercentage = getTotalAllocatedPercentage(experiment)
   // The probability of an equal or a more extreme outcome occuring.
   // We use the Pearson Chi Squared Test, replacing the previous binomial test to allow for more than 2 variations.
   // The Pearson Chi Squared Test is recommended by Trustworthy Online Controlled Experiments (chapter 21: Sample Ratio Mismatch) and allows us to compare expected frequencies of categories against observed frequencies.
@@ -526,4 +531,20 @@ export function getExperimentHealthIndicators(experiment: ExperimentFull): Healt
  */
 export function ratioToDifferenceRatio(ratio: number): number {
   return ratio - 1
+}
+
+/**
+ * Returns the estimated total eligible population extrapolated for the given period (days)
+ */
+export function estimateTotalParticipantsInPeriod(
+  analysis: Analysis,
+  experiment: ExperimentFull,
+  periodInDays: number,
+): number {
+  const runtimeInDays = Experiments.getExperimentRunHours(experiment) / 24
+
+  // This includes also unallocated population as discussed in https://github.com/Automattic/abacus/pull/772#discussion_r957505000
+  const totalEligiblePopulation = analysis.participantStats['total'] / (getTotalAllocatedPercentage(experiment) / 100)
+
+  return (totalEligiblePopulation / runtimeInDays) * periodInDays
 }

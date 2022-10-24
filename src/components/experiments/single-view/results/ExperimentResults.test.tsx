@@ -1,13 +1,14 @@
 import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
+import { subDays } from 'date-fns'
 import React from 'react'
 import Plot from 'react-plotly.js'
 
 import ExperimentResults, {
   METRIC_DETAILS_AUTO_EXPAND_DELAY,
 } from 'src/components/experiments/single-view/results/ExperimentResults'
-import { AnalysisStrategy, MetricParameterType } from 'src/lib/schemas'
+import { AnalysisStrategy, MetricParameterType, Status } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
-import { changeAnalysisStrategy, render } from 'src/test-helpers/test-utils'
+import { changeAnalysisStrategy, changeEstimatedImpactInterval, render } from 'src/test-helpers/test-utils'
 import { toggleDebugMode } from 'src/utils/general'
 
 // Unfortunately Plotly doesn't produce graphs with deterministic IDs so we have to mock it
@@ -18,7 +19,10 @@ beforeEach(() => {
   jest.useFakeTimers()
 })
 
-const experiment = Fixtures.createExperimentFull()
+const experiment = Fixtures.createExperimentFull({
+  startDatetime: subDays(new Date(), 10),
+  status: Status.Running,
+})
 const metrics = Fixtures.createMetrics()
 const analyses = Fixtures.createAnalyses()
 
@@ -519,4 +523,17 @@ test('prevent closing the Detail Panel when changing the analysis strategy', asy
   // change the Analysis Strategy
   await changeAnalysisStrategy()
   expect(screen.queryByText(/This is metric 3/)).toBeTruthy()
+})
+
+test('renders correctly the estimated impact interval and selector', async () => {
+  render(<ExperimentResults analyses={analyses} experiment={experiment} metrics={metrics} />)
+
+  // Default yearly interval is selected
+  expect(screen.queryAllByRole('row', { name: /over one year/ }).length).toBeGreaterThanOrEqual(1)
+
+  // Selecting monthly interval for estimated impact should work
+  await changeEstimatedImpactInterval(12, 1)
+
+  expect(screen.queryByRole('row', { name: /over one year/ })).toBeNull()
+  expect(screen.queryAllByRole('row', { name: /over one month/ }).length).toBeGreaterThanOrEqual(1)
 })

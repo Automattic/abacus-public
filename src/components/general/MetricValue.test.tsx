@@ -130,4 +130,22 @@ test('renders metric values', () => {
        USD
     </div>
   `)
+
+  expect(render(<MetricValue value={1200} metricParameterType={MetricParameterType.Revenue} isImpact />).container)
+    .toMatchInlineSnapshot(`
+    <div>
+      
+      1.2K
+       USD
+    </div>
+  `)
+  expect(
+    render(<MetricValue value={1200000} metricParameterType={MetricParameterType.Conversion} isImpact />).container,
+  ).toMatchInlineSnapshot(`
+    <div>
+      
+      1.2M
+       conversions
+    </div>
+  `)
 })

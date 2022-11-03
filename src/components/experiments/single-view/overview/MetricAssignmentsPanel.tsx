@@ -14,7 +14,7 @@ import React, { useMemo, useState } from 'react'
 
 import MetricAssignmentForm from 'src/components/experiments/MetricAssignmentForm'
 import Attribute from 'src/components/general/Attribute'
-import MetricValue from 'src/components/general/MetricValue'
+import MetricValue, { getUnitType, UnitType } from 'src/components/general/MetricValue'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import * as MetricAssignments from 'src/lib/metric-assignments'
 import { ExperimentFull, Metric, MetricAssignment, Status } from 'src/lib/schemas'
@@ -170,8 +170,7 @@ function MetricAssignmentsPanel({
               <TableCell className={classes.monospace}>
                 <MetricValue
                   value={resolvedMetricAssignment.minDifference}
-                  metricParameterType={resolvedMetricAssignment.metric.parameterType}
-                  isDifference={true}
+                  unit={getUnitType(resolvedMetricAssignment.metric.parameterType, UnitType.RatioPoints)}
                 />
               </TableCell>
             </TableRow>

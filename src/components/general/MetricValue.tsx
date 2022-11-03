@@ -5,58 +5,62 @@ import React from 'react'
 
 import { MetricParameterType } from 'src/lib/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
+import {
+  localizeNumber,
+  localizeNumberToFixedDecimals,
+  NumberToString,
+  standardNumberFormatter,
+} from 'src/utils/formatters'
 
 function DashedTooltip(props: Parameters<typeof Tooltip>[0]) {
   const decorationClasses = useDecorationStyles()
   return <Tooltip className={clsx(decorationClasses.tooltipped, props.className)} {...props} />
 }
 
-/**
- * Precision to be inputed into _.round, to be used outside of graphs.
- */
-const metricValueFormatPrecision = 2
-
 interface MetricValueFormat {
   unit: React.ReactNode
   prefix: React.ReactNode
   postfix: React.ReactNode
   transform: (n: number) => number
-  formatter: (n: number) => string
+  formatter: NumberToString
 }
 
-const standardNumberFormatter = (n: number): string => `${_.round(n, metricValueFormatPrecision)}`
-const usdFormatter = (n: number): string =>
-  n.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 })
+export enum UnitType {
+  Proportion = 'proportion',
+  RatioPoints = 'ratio_points',
+  Count = 'count',
+  Usd = 'usd',
+}
 
-const impactNumberFormatter = (n: number): string => {
-  if (Math.abs(n) > 1000000) {
-    return `${(n / 1000000).toLocaleString(undefined, { maximumFractionDigits: 2 })}M`
+export const MetricParameterTypeToUnitType: Record<MetricParameterType, UnitType> = {
+  [MetricParameterType.Revenue]: UnitType.Usd,
+  [MetricParameterType.Conversion]: UnitType.Proportion,
+}
+
+/**
+ * MetricParameterType mapped to unit type
+ */
+export function getUnitType(metricParameterType: MetricParameterType, unitType?: UnitType): UnitType {
+  // if metricParameterType is 'Revenue', we are ignoring the explicitly set unitType
+  if (metricParameterType === MetricParameterType.Revenue || !unitType) {
+    return MetricParameterTypeToUnitType[metricParameterType]
   }
-  if (Math.abs(n) > 1000) {
-    return `${(n / 1000).toLocaleString(undefined, { maximumFractionDigits: 2 })}K`
-  }
-  return _.round(n).toLocaleString(undefined)
+
+  return unitType
 }
 
 /**
  * Metric Formatting Data
  */
-export const metricValueFormatData: Record<string, MetricValueFormat> = {
-  count: {
-    unit: '',
-    prefix: '',
-    postfix: '',
-    transform: identity,
-    formatter: (n: number): string => _.round(n, metricValueFormatPrecision).toLocaleString(undefined),
-  },
-  conversion: {
+export const metricValueFormatData: Record<UnitType, MetricValueFormat> = {
+  [UnitType.Proportion]: {
     unit: '%',
     prefix: '',
     postfix: '%',
     transform: (x: number): number => x * 100,
     formatter: standardNumberFormatter,
   },
-  conversion_difference: {
+  [UnitType.RatioPoints]: {
     unit: 'pp',
     prefix: '',
     postfix: (
@@ -67,77 +71,49 @@ export const metricValueFormatData: Record<string, MetricValueFormat> = {
     transform: (x: number): number => x * 100,
     formatter: standardNumberFormatter,
   },
-  conversion_impact: {
+  [UnitType.Count]: {
     unit: '',
     prefix: '',
     postfix: ' conversions',
     transform: identity,
-    formatter: impactNumberFormatter,
+    formatter: localizeNumber,
   },
-  revenue: {
+  [UnitType.Usd]: {
     unit: 'USD',
     prefix: '',
     postfix: <>&nbsp;USD</>,
     transform: identity,
-    formatter: usdFormatter,
+    formatter: localizeNumberToFixedDecimals,
   },
-  revenue_difference: {
-    unit: 'USD',
-    prefix: '',
-    postfix: <>&nbsp;USD</>,
-    transform: identity,
-    formatter: usdFormatter,
-  },
-  revenue_impact: {
-    unit: 'USD',
-    prefix: '',
-    postfix: <>&nbsp;USD</>,
-    transform: identity,
-    formatter: impactNumberFormatter,
-  },
-}
-
-export function getMetricValueFormatData({
-  metricParameterType,
-  isDifference,
-  isImpact,
-}: {
-  metricParameterType: MetricParameterType
-  isDifference: boolean
-  isImpact: boolean
-}): MetricValueFormat {
-  return metricValueFormatData[`${metricParameterType}${isDifference ? '_difference' : ''}${isImpact ? '_impact' : ''}`]
 }
 
 /**
  * Format a metric value to be used outside of a graph context.
  * @param value The metric value
- * @param metricParameterType
+ * @param unit The unit type
  * @param isDifference Is this an arithmetic difference between metric values
  * @param displayUnit Display the unit
  * @param displayPositiveSign Display the positive sign (+) when a value is positive.
  */
 export default function MetricValue({
   value,
-  metricParameterType,
-  isDifference = false,
+  unit,
   displayUnit = true,
   displayPositiveSign = false,
-  isImpact = false,
+  formatter,
 }: {
   value: number
-  metricParameterType: MetricParameterType
-  isDifference?: boolean
+  unit: UnitType
   displayUnit?: boolean
   displayPositiveSign?: boolean
-  isImpact?: boolean
+  formatter?: NumberToString
 }): JSX.Element {
-  const format = getMetricValueFormatData({ metricParameterType, isDifference, isImpact })
+  const format = metricValueFormatData[unit]
   return (
     <>
       {displayPositiveSign && 0 <= value && '+'}
       {displayUnit && format.prefix}
-      {format.formatter(format.transform(value))}
+      {formatter ? formatter(format.transform(value)) : format.formatter(format.transform(value))}
       {displayUnit && format.postfix}
     </>
   )

@@ -26,27 +26,22 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import Plot from 'react-plotly.js'
 
 import Attribute from 'src/components/general/Attribute'
+import MetricValue, { getUnitType, UnitType } from 'src/components/general/MetricValue'
+import MetricValueInterval from 'src/components/general/MetricValueInterval'
 import * as Analyses from 'src/lib/analyses'
 import * as Experiments from 'src/lib/experiments'
 import * as MetricAssignments from 'src/lib/metric-assignments'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { indexMetrics } from 'src/lib/normalizers'
 import * as Recommendations from 'src/lib/recommendations'
-import {
-  Analysis,
-  AnalysisStrategy,
-  ExperimentFull,
-  Metric,
-  MetricAssignment,
-  MetricParameterType,
-} from 'src/lib/schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from 'src/lib/schemas'
 import * as Visualizations from 'src/lib/visualizations'
 import { useDecorationStyles } from 'src/styles/styles'
+import { abbreviateNumber } from 'src/utils/formatters'
 import { isDebugMode } from 'src/utils/general'
 import { createStaticTableOptions } from 'src/utils/material-table'
 import { formatIsoDate } from 'src/utils/time'
 
-import MetricValueInterval from '../../../general/MetricValueInterval'
 import AnalysisDisplay from './AnalysisDisplay'
 import CredibleIntervalVisualization from './CredibleIntervalVisualization'
 import DeploymentRecommendation from './DeploymentRecommendation'
@@ -426,8 +421,7 @@ export default function ExperimentResults({
             />
             <MetricValueInterval
               intervalName={'the absolute change between variations'}
-              isDifference={true}
-              metricParameterType={metric.parameterType}
+              unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
               bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95}
               topValue={latestEstimates.diffs[variationDiffKey].top_95}
               displayTooltipHint={false}
@@ -497,17 +491,17 @@ export default function ExperimentResults({
           <span className={classes.estimatedImpactWrapper}>
             <MetricValueInterval
               intervalName={`the estimated impact of '${changeVariationName}', in hypothetical unchanged conditions, over one ${impactIntervalLabel}, for the targeted audience,`}
-              metricParameterType={metric.parameterType}
+              unit={getUnitType(metric.parameterType, UnitType.Count)}
+              formatter={abbreviateNumber}
               bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
               topValue={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
               displayTooltipHint={false}
               alignToCenter
-              isImpact
               className={classes.estimatedImpactInterval}
             />
             <MetricValueInterval
               intervalName={'the relative change between variations'}
-              metricParameterType={MetricParameterType.Conversion}
+              unit={UnitType.Proportion}
               bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
               topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
               displayTooltipHint={false}
@@ -697,7 +691,7 @@ export default function ExperimentResults({
                     <>
                       <div className={classes.summaryStatsPart}>
                         <Typography variant='h3' className={classes.summaryStatsStat} color='primary'>
-                          {totalParticipants.toLocaleString('en', { useGrouping: true })}
+                          <MetricValue value={totalParticipants} unit={UnitType.Count} displayUnit={false} />
                         </Typography>
                         <Typography variant='subtitle1'>
                           <strong>analyzed participants</strong> as at{' '}

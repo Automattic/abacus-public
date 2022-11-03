@@ -11,8 +11,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link as RouterLink, useHistory, useLocation } from 'react-router-dom'
 
 import DatetimeText from 'src/components/general/DatetimeText'
-import MetricValue from 'src/components/general/MetricValue'
-import { Analysis, ExperimentSummary, MetricParameterType, Status } from 'src/lib/schemas'
+import MetricValue, { UnitType } from 'src/components/general/MetricValue'
+import { Analysis, ExperimentSummary, Status } from 'src/lib/schemas'
 import { createIdSlug } from 'src/utils/general'
 
 import ExperimentStatus from '../ExperimentStatus'
@@ -265,7 +265,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               valueGetter: (params: { data: { analyses: Analysis[] } }) =>
                 params.data.analyses[0]?.participantStats.total || 0,
               cellRendererFramework: ({ value: participants }: { value: number }) => {
-                return <MetricValue value={participants} metricParameterType={MetricParameterType.Count} />
+                return <MetricValue value={participants} unit={UnitType.Count} displayUnit={false} />
               },
               sortable: true,
               filter: 'agNumberColumnFilter',

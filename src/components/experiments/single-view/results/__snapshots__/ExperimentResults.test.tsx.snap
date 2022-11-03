@@ -15224,14 +15224,19 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                of
                
               +
-              0.00
+              0
                
               to
                
               +
               
-              0.00
-               USD
+              0
+              <span
+                class="makeStyles-tooltipped-445"
+                title="Percentage points."
+              >
+                pp
+              </span>
                
               is 
                not 
@@ -15240,14 +15245,19 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               zero.
                
               With high certainty, there is no practical difference between the variations because the absolute change is inside the specified minimum difference between 
-              -0.10
+              -10
                
               to
                
               +
               
-              0.10
-               USD
+              10
+              <span
+                class="makeStyles-tooltipped-445"
+                title="Percentage points."
+              >
+                pp
+              </span>
               .
             </p>
             <p
@@ -15282,7 +15292,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               +
               
               0
-               USD
+               conversions
               . 
               <strong>
                 This is not a statistical forecast
@@ -15417,7 +15427,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 class="makeStyles-metricValueWrapper-459"
               >
                 +
-                0.00
+                0
               </span>
                
               to
@@ -15426,9 +15436,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 class="makeStyles-metricValueWrapper-459"
               >
                 +
-                0.00
+                0
                  
-                USD
+                pp
               </span>
             </span>
           </td>
@@ -15519,8 +15529,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
     </strong>
      
     
-    0.10
-     USD
+    10
+    <span
+      class="makeStyles-tooltipped-445"
+      title="Percentage points."
+    >
+      pp
+    </span>
     .
   </p>
   <div

@@ -53,7 +53,7 @@ function getParticipantCountsSetForParticipantStatsKey(
 /**
  * Get the total allocated percentage (between 2 and 100) for all variations of an experiment
  */
-function getTotalAllocatedPercentage(experiment: ExperimentFull) {
+export function getTotalAllocatedPercentage(experiment: ExperimentFull): number {
   return experiment.variations.map(({ allocatedPercentage }) => allocatedPercentage).reduce((acc, cur) => acc + cur)
 }
 

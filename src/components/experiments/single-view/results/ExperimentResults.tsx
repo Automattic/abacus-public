@@ -171,7 +171,8 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: -(theme.spacing(1) / 2),
     },
     impactIntervalSelectWrapper: {
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
     },
     impactIntervalSelect: {
       fontFamily: 'inherit',

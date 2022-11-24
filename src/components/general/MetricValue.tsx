@@ -72,7 +72,7 @@ export const metricValueFormatData: Record<UnitType, MetricValueFormat> = {
     formatter: standardNumberFormatter,
   },
   [UnitType.Count]: {
-    unit: '',
+    unit: 'conversions',
     prefix: '',
     postfix: ' conversions',
     transform: identity,

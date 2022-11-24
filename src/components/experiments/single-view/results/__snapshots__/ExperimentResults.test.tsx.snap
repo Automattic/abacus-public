@@ -521,7 +521,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                             +
                             ∞M
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -1572,7 +1572,13 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               0
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              1,000
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               0
                days, the estimated
                
@@ -2573,7 +2579,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                             +
                             ∞M
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -3936,7 +3942,7 @@ exports[`allows you to change analysis strategy 1`] = `
                               +
                               0
                                
-                              
+                              conversions
                             </span>
                           </span>
                           <span
@@ -6526,7 +6532,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                             +
                             36K
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -7573,7 +7579,13 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               0
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              1,000
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               10
                days, the estimated
                
@@ -8331,7 +8343,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                             +
                             36K
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -9381,7 +9393,13 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               0
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              1,000
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               10
                days, the estimated
                
@@ -11085,7 +11103,13 @@ exports[`renders correctly for conflicting analysis data 2`] = `
               0
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              1,000
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               10
                days, the estimated
                
@@ -11843,7 +11867,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             +
                             0
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -12196,7 +12220,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             +
                             0
                              
-                            
+                            conversions
                           </span>
                         </span>
                         <span
@@ -13046,7 +13070,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               -100
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              700
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               10
                days, the estimated
                
@@ -15580,7 +15610,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               -100
               %
                
-              and the experiment runtime of 
+              after analyzing
+               
+              700
+               
+              participants (
+              100
+              % allocation) over an experiment runtime of 
               10
                days, the estimated
                

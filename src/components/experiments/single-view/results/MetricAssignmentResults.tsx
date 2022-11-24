@@ -527,7 +527,14 @@ export default function MetricAssignmentResults({
                     value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
                     displayPositiveSign
                   />{' '}
-                  and the experiment runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
+                  after analyzing{' '}
+                  <MetricValue
+                    unit={UnitType.Count}
+                    value={latestAnalysis.participantStats['total']}
+                    displayUnit={false}
+                  />{' '}
+                  participants ({Analyses.getTotalAllocatedPercentage(experiment)}% allocation) over an experiment
+                  runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
                   {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
                   <MetricValue
                     unit={UnitType.Count}

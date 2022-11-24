@@ -1,5 +1,3 @@
-import { subDays } from 'date-fns'
-
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Analyses from './analyses'
@@ -553,14 +551,15 @@ describe('getExperimentHealthIndicators', () => {
   })
 
   it('should work for an experiment that ran too long', () => {
-    const experimentRunTimeDays = 50
-    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-05-21T00:00:00Z')
 
     expect(
       Analyses.getExperimentHealthIndicators(
         Fixtures.createExperimentFull({
           startDatetime,
-          status: Status.Running,
+          endDatetime,
+          status: Status.Completed,
           variations: [
             { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
             { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
@@ -579,7 +578,7 @@ describe('getExperimentHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time",
           "name": "Experiment run time",
           "unit": "days",
-          "value": 50.041666666666664,
+          "value": 50,
         },
       ]
     `)
@@ -588,8 +587,8 @@ describe('getExperimentHealthIndicators', () => {
 
 describe('estimateTotalParticipantsInPeriod', () => {
   it('should work correctly', () => {
-    const experimentRunTimeDays = 10
-    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-04-11T00:00:00Z')
     expect(
       Analyses.estimateTotalParticipantsInPeriod(
         Fixtures.createAnalysis({
@@ -599,7 +598,8 @@ describe('estimateTotalParticipantsInPeriod', () => {
         }),
         Fixtures.createExperimentFull({
           startDatetime,
-          status: Status.Running,
+          endDatetime,
+          status: Status.Completed,
           variations: [
             { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
             { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
@@ -611,8 +611,8 @@ describe('estimateTotalParticipantsInPeriod', () => {
   })
 
   it('should work for total allocated percentage less than 100', () => {
-    const experimentRunTimeDays = 10
-    const startDatetime = subDays(new Date(), experimentRunTimeDays)
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-04-11T00:00:00Z')
     expect(
       Analyses.estimateTotalParticipantsInPeriod(
         Fixtures.createAnalysis({
@@ -622,7 +622,8 @@ describe('estimateTotalParticipantsInPeriod', () => {
         }),
         Fixtures.createExperimentFull({
           startDatetime,
-          status: Status.Running,
+          endDatetime,
+          status: Status.Completed,
           variations: [
             { variationId: 1, allocatedPercentage: 10, isDefault: true, name: 'variation_name_1' },
             { variationId: 2, allocatedPercentage: 40, isDefault: false, name: 'variation_name_2' },

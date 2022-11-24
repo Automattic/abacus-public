@@ -1,5 +1,4 @@
 import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
-import { subDays } from 'date-fns'
 import React from 'react'
 import Plot from 'react-plotly.js'
 
@@ -20,8 +19,9 @@ beforeEach(() => {
 })
 
 const experiment = Fixtures.createExperimentFull({
-  startDatetime: subDays(new Date(), 10),
-  status: Status.Running,
+  startDatetime: new Date('2021-04-01T00:00:00Z'),
+  endDatetime: new Date('2021-04-11T00:00:00Z'),
+  status: Status.Completed,
 })
 const metrics = Fixtures.createMetrics()
 const analyses = Fixtures.createAnalyses()

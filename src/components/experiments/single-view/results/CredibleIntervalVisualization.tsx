@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     intervalGroup: {
       opacity: 0.85,
-      fill: theme.palette.warning.light,
-      stroke: theme.palette.warning.light,
+      fill: theme.palette.background.inactionableYellow,
+      stroke: theme.palette.background.inactionableYellow,
     },
     intervalWithEnoughData: {
-      fill: theme.palette.success.main,
-      stroke: theme.palette.success.main,
+      fill: theme.palette.background.actionableGreen,
+      stroke: theme.palette.background.actionableGreen,
     },
     intervalEdge: {
       strokeWidth: 2,

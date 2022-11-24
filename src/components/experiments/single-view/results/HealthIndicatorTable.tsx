@@ -37,13 +37,13 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(2),
     },
     [indicationSeverityClassSymbol(HealthIndicationSeverity.Ok)]: {
-      background: '#56ff564f',
+      background: theme.palette.background.neutral,
     },
     [indicationSeverityClassSymbol(HealthIndicationSeverity.Warning)]: {
-      background: '#fde799ab',
+      background: theme.palette.background.warning,
     },
     [indicationSeverityClassSymbol(HealthIndicationSeverity.Error)]: {
-      background: '#ff868661',
+      background: theme.palette.background.error,
     },
   }),
 )

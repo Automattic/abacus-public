@@ -1,9 +1,14 @@
+import { grey, red } from '@material-ui/core/colors'
 import { createMuiTheme } from '@material-ui/core/styles'
 import React from 'react'
 
 declare module '@material-ui/core/styles/createPalette' {
   interface TypeBackground {
     error: React.CSSProperties['color']
+    warning: React.CSSProperties['color']
+    neutral: React.CSSProperties['color']
+    inactionableYellow: React.CSSProperties['color']
+    actionableGreen: React.CSSProperties['color']
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Palette {
@@ -103,7 +108,11 @@ const theme = createMuiTheme({
   },
   palette: {
     background: {
-      error: '#f8d7da',
+      warning: '#fedb9d',
+      error: red[100],
+      inactionableYellow: '#fcb900',
+      actionableGreen: '#00d084',
+      neutral: grey[200],
     },
     primary: {
       main: '#194661',
@@ -112,13 +121,6 @@ const theme = createMuiTheme({
       main: '#2e7d32',
       light: '#60ad5e',
       dark: '#005005',
-    },
-    warning: {
-      ...baseTheme.palette.warning,
-      light: '#fcb900',
-    },
-    success: {
-      main: '#00d084',
     },
     disabled: {
       main: '#828282',

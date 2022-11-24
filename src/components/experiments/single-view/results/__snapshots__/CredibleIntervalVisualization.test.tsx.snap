@@ -9,45 +9,45 @@ exports[`renders CredibleIntervalVisualization correctly 1`] = `
       class="makeStyles-minDifference-2"
       x1="17"
       x2="17"
-      y1="10"
-      y2="35"
+      y1="2"
+      y2="17"
     />
     <line
       class="makeStyles-minDifference-2"
       x1="141"
       x2="141"
-      y1="10"
-      y2="35"
+      y1="2"
+      y2="17"
     />
     <line
       stroke="#4e4e4e"
       stroke-width="2"
       x1="79"
       x2="79"
-      y2="45"
+      y2="19"
     />
     <g
       class="makeStyles-intervalGroup-3 makeStyles-intervalWithEnoughData-4"
     >
       <rect
-        height="15"
+        height="10"
         width="109"
         x="47"
-        y="15"
+        y="4.5"
       />
       <line
         class="makeStyles-intervalEdge-5"
         x1="47"
         x2="47"
-        y1="12"
-        y2="33"
+        y1="2"
+        y2="17"
       />
       <line
         class="makeStyles-intervalEdge-5"
         x1="156"
         x2="156"
-        y1="12"
-        y2="33"
+        y1="2"
+        y2="17"
       />
     </g>
   </svg>

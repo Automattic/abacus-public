@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: '#1E77A5',
     },
     disabled: {
-      backgroundColor: '#828282',
+      backgroundColor: theme.palette.disabled.main,
     },
     statusDot: {
       display: 'inline-block',

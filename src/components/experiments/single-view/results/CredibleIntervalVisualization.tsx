@@ -6,7 +6,7 @@ import React from 'react'
 import { Recommendation } from 'src/lib/recommendations'
 
 const DIAGRAM_WIDTH = 150
-const DIAGRAM_HEIGHT = 45
+const DIAGRAM_HEIGHT = 19
 // We need an offset in order to avoid SVG elements having the stroke painted at the very edge of the element
 const OFFSET = 2
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     minDifference: {
       stroke: '#4e4e4e',
       strokeWidth: 2,
-      strokeDasharray: '4 3',
+      strokeDasharray: '3.5 2',
     },
     intervalGroup: {
       opacity: 0.85,
@@ -74,15 +74,15 @@ export default function CredibleIntervalVisualization({
         className={classes.minDifference}
         x1={scale(-metric.minDifference)}
         x2={scale(-metric.minDifference)}
-        y1={10}
-        y2={DIAGRAM_HEIGHT - 10}
+        y1={2}
+        y2={DIAGRAM_HEIGHT - 2}
       />
       <line
         className={classes.minDifference}
         x1={scale(metric.minDifference)}
         x2={scale(metric.minDifference)}
-        y1={10}
-        y2={DIAGRAM_HEIGHT - 10}
+        y1={2}
+        y2={DIAGRAM_HEIGHT - 2}
       />
       {/* middle black line */}
       <line x1={scale(0)} x2={scale(0)} y2={DIAGRAM_HEIGHT} stroke='#4e4e4e' strokeWidth={2} />
@@ -90,22 +90,22 @@ export default function CredibleIntervalVisualization({
         <rect
           x={scale(metric.bottom)}
           width={scale(metric.top) - scale(metric.bottom)}
-          height={15}
-          y={DIAGRAM_HEIGHT / 2 - 15 / 2}
+          height={10}
+          y={DIAGRAM_HEIGHT / 2 - 10 / 2}
         />
         <line
           className={classes.intervalEdge}
           x1={scale(metric.bottom)}
           x2={scale(metric.bottom)}
-          y1={12}
-          y2={DIAGRAM_HEIGHT - 12}
+          y1={2}
+          y2={DIAGRAM_HEIGHT - 2}
         />
         <line
           className={classes.intervalEdge}
           x1={scale(metric.top)}
           x2={scale(metric.top)}
-          y1={12}
-          y2={DIAGRAM_HEIGHT - 12}
+          y1={2}
+          y2={DIAGRAM_HEIGHT - 2}
         />
       </g>
     </svg>

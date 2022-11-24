@@ -1,10 +1,17 @@
-import { green, orange } from '@material-ui/core/colors'
 import { createMuiTheme } from '@material-ui/core/styles'
 import React from 'react'
 
 declare module '@material-ui/core/styles/createPalette' {
   interface TypeBackground {
     error: React.CSSProperties['color']
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface Palette {
+    disabled: Palette['primary']
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface PaletteOptions {
+    disabled: PaletteOptions['primary']
   }
 }
 
@@ -107,12 +114,14 @@ const theme = createMuiTheme({
       dark: '#005005',
     },
     warning: {
-      ...orange,
+      ...baseTheme.palette.warning,
       light: '#fcb900',
     },
     success: {
-      ...green,
       main: '#00d084',
+    },
+    disabled: {
+      main: '#828282',
     },
   },
   typography: {

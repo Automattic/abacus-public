@@ -152,6 +152,7 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: 'pre',
     },
     metricAssignmentNameLine: {
+      fontWeight: 600,
       wordBreak: 'break-word',
     },
     abnControls: {
@@ -163,6 +164,11 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     metricAssignmentNameSubtitle: {
       color: theme.palette.grey.A700,
+    },
+    estimatedDifferenceWrapper: {
+      paddingTop: theme.spacing(1),
+      paddingBottom: theme.spacing(1),
+      marginTop: -(theme.spacing(1) / 2),
     },
     impactIntervalSelectWrapper: {
       display: 'inline-block',
@@ -177,8 +183,18 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
     },
-    estimatedImpactInterval: {
-      fontWeight: 600,
+    baselineMetricInterval: {
+      fontSize: '.75rem',
+      color: theme.palette.disabled.main,
+    },
+    absoluteChangeInterval: {
+      fontSize: '.75rem',
+      color: theme.palette.disabled.main,
+    },
+    relativeChangeInterval: {
+      fontSize: '.75rem',
+      color: theme.palette.disabled.main,
+      fontWeight: 'normal',
     },
   }),
 )
@@ -365,30 +381,53 @@ export default function ExperimentResults({
   const tableColumns = [
     {
       title: 'Metric (attribution window)',
-      render: ({ metric, metricAssignment }: { metric: Metric; metricAssignment: MetricAssignment }) => (
-        <>
-          <span className={classes.metricAssignmentNameLine}>
-            <Tooltip title={metric.description}>
-              <span>{metric.name}</span>
-            </Tooltip>
-            &nbsp;({AttributionWindowSecondsToHuman[metricAssignment.attributionWindowSeconds]})
-          </span>
-          {metricAssignment.isPrimary && (
-            <>
-              <br />
-              <Attribute name='primary metric' className={classes.metricAssignmentNameSubtitle} />
-            </>
-          )}
-        </>
-      ),
+      render: ({
+        analysesByStrategyDateAsc,
+        metric,
+        metricAssignment,
+      }: {
+        analysesByStrategyDateAsc: Record<AnalysisStrategy, Analysis[]>
+        metric: Metric
+        metricAssignment: MetricAssignment
+      }) => {
+        const latestAnalysis = _.last(analysesByStrategyDateAsc[strategy])
+        const latestEstimates = latestAnalysis?.metricEstimates
+        return (
+          <>
+            <div className={classes.metricAssignmentNameLine}>
+              <Tooltip title={metric.description}>
+                <span>{metric.name}</span>
+              </Tooltip>
+              &nbsp;({AttributionWindowSecondsToHuman[metricAssignment.attributionWindowSeconds]})
+            </div>
+            {metricAssignment.isPrimary && (
+              <div>
+                <Attribute name='primary metric' className={classes.metricAssignmentNameSubtitle} />
+              </div>
+            )}
+            {latestEstimates && (
+              <div className={classes.baselineMetricInterval}>
+                Baseline: {'  '}
+                <MetricValueInterval
+                  intervalName={'the baseline metric value'}
+                  unit={getUnitType(metric.parameterType)}
+                  bottomValue={latestEstimates.variations[baseVariationId].bottom_95}
+                  topValue={latestEstimates.variations[baseVariationId].top_95}
+                  displayPositiveSign={false}
+                  displayTooltipHint={false}
+                />
+              </div>
+            )}
+          </>
+        )
+      },
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
-        fontWeight: 600,
         minWidth: 450,
       },
     },
     {
-      title: 'Absolute change',
+      title: 'Estimated difference',
       render: ({
         metric,
         metricAssignment,
@@ -412,7 +451,7 @@ export default function ExperimentResults({
         }
 
         return (
-          <>
+          <div className={classes.estimatedDifferenceWrapper}>
             <CredibleIntervalVisualization
               top={latestEstimates.diffs[variationDiffKey].top_95}
               bottom={latestEstimates.diffs[variationDiffKey].bottom_95}
@@ -426,8 +465,9 @@ export default function ExperimentResults({
               topValue={latestEstimates.diffs[variationDiffKey].top_95}
               displayTooltipHint={false}
               alignToCenter
+              className={classes.absoluteChangeInterval}
             />
-          </>
+          </div>
         )
       },
       cellStyle: {
@@ -488,7 +528,7 @@ export default function ExperimentResults({
         )
 
         return (
-          <span className={classes.estimatedImpactWrapper}>
+          <div className={classes.estimatedImpactWrapper}>
             <MetricValueInterval
               intervalName={`the estimated impact of '${changeVariationName}', in hypothetical unchanged conditions, over one ${impactIntervalLabel}, for the targeted audience,`}
               unit={getUnitType(metric.parameterType, UnitType.Count)}
@@ -497,7 +537,6 @@ export default function ExperimentResults({
               topValue={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
               displayTooltipHint={false}
               alignToCenter
-              className={classes.estimatedImpactInterval}
             />
             <MetricValueInterval
               intervalName={'the relative change between variations'}
@@ -506,12 +545,14 @@ export default function ExperimentResults({
               topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
               displayTooltipHint={false}
               alignToCenter
+              className={classes.relativeChangeInterval}
             />
-          </span>
+          </div>
         )
       },
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
+        fontWeight: theme.custom.fontWeights.monospaceBold,
         minWidth: 180,
       } as React.CSSProperties,
       headerStyle: {
@@ -531,6 +572,7 @@ export default function ExperimentResults({
       },
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
+        fontWeight: theme.custom.fontWeights.monospaceBold,
       },
     },
   ]

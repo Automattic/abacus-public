@@ -18,7 +18,7 @@ describe('Experiments', () => {
   it('should skip authentication and show the experiments page.', async () => {
     await page.goto('http://a8c-abacus-local:3001/experiments')
 
-    await expect(page.title()).resolves.toMatch('Experiments | Abacus')
+    await expect(page.title()).resolves.toMatch('Experiments | ExPlat: Abacus')
     // TODO: make more interesting assertions once there is more content to display
   })
 })

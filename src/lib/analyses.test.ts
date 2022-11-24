@@ -579,7 +579,7 @@ describe('getExperimentHealthIndicators', () => {
           "link": "https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time",
           "name": "Experiment run time",
           "unit": "days",
-          "value": 50,
+          "value": 50.041666666666664,
         },
       ]
     `)

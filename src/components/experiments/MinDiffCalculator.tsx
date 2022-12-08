@@ -2,7 +2,6 @@ import {
   Button,
   Checkbox,
   InputAdornment,
-  Link,
   Step,
   StepContent,
   StepLabel,
@@ -15,6 +14,7 @@ import { uniqueId } from 'lodash'
 import React, { useState } from 'react'
 
 import DebugOutput from 'src/components/general/DebugOutput'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { MetricParameterType } from 'src/lib/schemas'
 import { isDebugMode } from 'src/utils/general'
@@ -205,13 +205,13 @@ const MinDiffCalculator = ({
             <Step active key='cash-sales-2'>
               <StepLabel>
                 What is the baseline monthly{' '}
-                <Link
+                <PrivateLink
                   underline='always'
-                  href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#what-is-the-difference-between-cash-sales-and-revenue-metrics'
+                  href='https://wp.me/bxNRc#what-is-the-difference-between-cash-sales-and-revenue-metrics'
                   target='_blank'
                 >
                   cash sales
-                </Link>{' '}
+                </PrivateLink>{' '}
                 volume?
               </StepLabel>
               <StepContent>

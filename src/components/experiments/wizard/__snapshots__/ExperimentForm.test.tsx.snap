@@ -348,7 +348,6 @@ exports[`renders as expected 1`] = `
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/"
                     target="_blank"
                   >
                     FieldGuide
@@ -358,7 +357,6 @@ exports[`renders as expected 1`] = `
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/"
                     target="_blank"
                   >
                     documenting your experiment
@@ -368,7 +366,6 @@ exports[`renders as expected 1`] = `
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://a8cexperiments.wordpress.com/"
                     target="_blank"
                   >
                     a8cexperiments
@@ -789,7 +786,6 @@ exports[`sections should be browsable by the section buttons and show validation
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/"
                     target="_blank"
                   >
                     FieldGuide
@@ -799,7 +795,6 @@ exports[`sections should be browsable by the section buttons and show validation
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/"
                     target="_blank"
                   >
                     documenting your experiment
@@ -809,7 +804,6 @@ exports[`sections should be browsable by the section buttons and show validation
                    
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://a8cexperiments.wordpress.com/"
                     target="_blank"
                   >
                     a8cexperiments
@@ -1162,7 +1156,6 @@ exports[`sections should be browsable by the section buttons and show validation
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-checklist/"
                 target="_blank"
               >
                 experiment checklist
@@ -1717,7 +1710,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#8-define-primary-metric"
                     target="_blank"
                   >
                     How do I choose a Primary Metric?
@@ -1807,7 +1799,6 @@ exports[`sections should be browsable by the section buttons and show validation
                               <div>
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                                  href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#6-get-comfortable-with-metric-attribution-and-refund-windows"
                                   target="_blank"
                                 >
                                   An Attribution Window
@@ -1917,7 +1908,6 @@ exports[`sections should be browsable by the section buttons and show validation
                               <div>
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                                  href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#7-get-comfortable-with-minimum-differences"
                                   target="_blank"
                                 >
                                   Minimum Practical Difference values
@@ -1964,7 +1954,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#how-to-request-a-new-metric"
                     target="_blank"
                   >
                     Can't find a metric? Request one!
@@ -2056,7 +2045,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/model-experiment/#attribution-windows"
                     target="_blank"
                   >
                     What is an Exposure Event? And when do I need it?
@@ -3580,7 +3568,6 @@ exports[`sections should be browsable by the section buttons and show validation
                                        
                                       <a
                                         class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                                        href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#what-is-the-difference-between-cash-sales-and-revenue-metrics"
                                         target="_blank"
                                       >
                                         cash sales
@@ -4029,7 +4016,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#8-define-primary-metric"
                     target="_blank"
                   >
                     How do I choose a Primary Metric?
@@ -4119,7 +4105,6 @@ exports[`sections should be browsable by the section buttons and show validation
                               <div>
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                                  href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#6-get-comfortable-with-metric-attribution-and-refund-windows"
                                   target="_blank"
                                 >
                                   An Attribution Window
@@ -4229,7 +4214,6 @@ exports[`sections should be browsable by the section buttons and show validation
                               <div>
                                 <a
                                   class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                                  href="https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#7-get-comfortable-with-minimum-differences"
                                   target="_blank"
                                 >
                                   Minimum Practical Difference values
@@ -4276,7 +4260,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#how-to-request-a-new-metric"
                     target="_blank"
                   >
                     Can't find a metric? Request one!
@@ -4368,7 +4351,6 @@ exports[`sections should be browsable by the section buttons and show validation
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/model-experiment/#attribution-windows"
                     target="_blank"
                   >
                     What is an Exposure Event? And when do I need it?
@@ -5712,7 +5694,6 @@ exports[`skipping to submit should check all sections 1`] = `
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-checklist/"
                 target="_blank"
               >
                 experiment checklist

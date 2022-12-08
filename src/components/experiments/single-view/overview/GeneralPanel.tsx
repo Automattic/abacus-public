@@ -26,6 +26,7 @@ import { serverErrorMessage } from 'src/api/HttpResponseError'
 import ExperimentStatus from 'src/components/experiments/ExperimentStatus'
 import DatetimeText from 'src/components/general/DatetimeText'
 import LabelValueTable from 'src/components/general/LabelValueTable'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFull, experimentFullSchema, Status, yupPick } from 'src/lib/schemas'
 import { formatIsoDate } from 'src/utils/time'
 
@@ -109,14 +110,14 @@ function GeneralPanel({
       value: (
         <span className={classes.monospace}>
           {AssignmentCacheStatusToHuman[experiment.assignmentCacheStatus]}&nbsp;(
-          <Link
-            href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
+          <PrivateLink
+            href='https://wp.me/PCYsg-Fq9#logged-out-homepage-assignments-use-file-system-cache'
             rel='noopener noreferrer'
             target='_blank'
             underline='always'
           >
             learn more
-          </Link>
+          </PrivateLink>
           )
         </span>
       ),

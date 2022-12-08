@@ -18,7 +18,6 @@ exports[`renders as expected 1`] = `
        
       <a
         class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-        href="https://fieldguide.automattic.com/the-experimentation-platform/implement-code/"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -39,7 +38,6 @@ exports[`renders as expected 1`] = `
        
       <a
         class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-        href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache"
         rel="noopener noreferrer"
         target="_blank"
       >

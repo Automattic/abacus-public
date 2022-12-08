@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Link, Tooltip, Typography } from '@material-ui/core'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip, Typography } from '@material-ui/core'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import { useSnackbar } from 'notistack'
@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 import ExperimentsApi from 'src/api/ExperimentsApi'
 import { serverErrorMessage } from 'src/api/HttpResponseError'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFull, Status } from 'src/lib/schemas'
 import { useDangerStyles } from 'src/styles/styles'
 
@@ -90,13 +91,13 @@ const ExperimentDisableButton = ({
           {isDisablingDangerous && (
             <Typography variant='body2' gutterBottom>
               Disabling an experiment will <strong>trigger the default experience to all users</strong>. Due to{' '}
-              <Link
-                href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
+              <PrivateLink
+                href='https://wp.me/PCYsg-Fq9/#logged-out-homepage-assignments-use-file-system-cache'
                 rel='noopener noreferrer'
                 target='_blank'
               >
                 the file system assignment cache
-              </Link>
+              </PrivateLink>
               , changes may take up to ten minutes to propagate to all servers (and possibly longer to all clients).
               Consider deploying code changes if this is an emergency.
             </Typography>

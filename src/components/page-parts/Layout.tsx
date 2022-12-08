@@ -1,4 +1,4 @@
-import { AppBar, Container, Link as MuiLink, Theme, Typography } from '@material-ui/core'
+import { AppBar, Container, Theme, Typography } from '@material-ui/core'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React, { ReactNode, useEffect } from 'react'
@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 
 import { isTestingProductionConfigInDevelopment } from 'src/config'
 import { isDebugMode, toggleDebugMode } from 'src/utils/general'
+
+import PrivateLink from '../general/PrivateLink'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -149,9 +151,9 @@ const Layout = ({
                 /* istanbul ignore next; Development mode only */
                 isDebugMode() && <Link to='/tags'>Tags</Link>
               }
-              <MuiLink href='https://fieldguide.automattic.com/the-experimentation-platform/' target='_blank'>
+              <PrivateLink href='https://wp.me/PCYsg-tdK' target='_blank'>
                 Documentation
-              </MuiLink>
+              </PrivateLink>
             </nav>
           </Container>
         </div>

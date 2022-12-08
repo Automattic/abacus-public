@@ -1,9 +1,11 @@
-import { Link, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Alert } from '@material-ui/lab'
 import { Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import React from 'react'
+
+import PrivateLink from 'src/components/general/PrivateLink'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,25 +37,17 @@ const Beginning = (): JSX.Element => {
       </Typography>
       <Alert severity='info'>
         Our{' '}
-        <Link
-          underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/'
-          target='_blank'
-        >
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-Hs4' target='_blank'>
           FieldGuide
-        </Link>{' '}
+        </PrivateLink>{' '}
         is a great place to start, it will instruct you on{' '}
-        <Link
-          underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/'
-          target='_blank'
-        >
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-Gek' target='_blank'>
           documenting your experiment
-        </Link>{' '}
+        </PrivateLink>{' '}
         and creating a post on{' '}
-        <Link underline='always' href='https://a8cexperiments.wordpress.com/' target='_blank'>
+        <PrivateLink underline='always' href='https://wp.me/bxNRc' target='_blank'>
           a8cexperiments
-        </Link>{' '}
+        </PrivateLink>{' '}
         P2.
       </Alert>
       <Field

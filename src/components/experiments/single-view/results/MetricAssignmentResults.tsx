@@ -1,6 +1,5 @@
 import {
   createStyles,
-  Link,
   makeStyles,
   Paper,
   Table,
@@ -22,6 +21,7 @@ import Plot from 'react-plotly.js'
 import DatetimeText from 'src/components/general/DatetimeText'
 import MetricValue, { getUnitType, UnitType } from 'src/components/general/MetricValue'
 import MetricValueInterval from 'src/components/general/MetricValueInterval'
+import PrivateLink from 'src/components/general/PrivateLink'
 import * as Analyses from 'src/lib/analyses'
 import { getChosenVariation, getExperimentRunHours } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
@@ -468,13 +468,9 @@ export default function MetricAssignmentResults({
                 )}
                 <Typography variant='body1'>
                   {getOverviewMessage(experiment, recommendation)}{' '}
-                  <Link
-                    underline='always'
-                    href={`https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/`}
-                    target='_blank'
-                  >
+                  <PrivateLink underline='always' href={`https://wp.me/PCYsg-Fqg`} target='_blank'>
                     Learn more
-                  </Link>
+                  </PrivateLink>
                   .
                 </Typography>
               </TableCell>
@@ -747,9 +743,9 @@ export default function MetricAssignmentResults({
             </Table>
           </TableContainer>
           <Typography variant='caption' gutterBottom>
-            <Link href='https://wp.me/PCYsg-Fqg/#observed-data-uses-posterior-means' target='_blank'>
+            <PrivateLink href='https://wp.me/PCYsg-Fqg/#observed-data-uses-posterior-means' target='_blank'>
               <WarningAsterisk /> &quot;Observed&quot; data as produced from our model, not raw observed data.
-            </Link>{' '}
+            </PrivateLink>{' '}
             For illustrative purposes only.
           </Typography>
         </>

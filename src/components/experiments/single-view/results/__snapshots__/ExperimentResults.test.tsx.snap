@@ -841,7 +841,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -902,7 +902,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -963,7 +963,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -1024,7 +1024,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -1082,7 +1082,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -1140,7 +1140,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -1498,7 +1498,6 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more
@@ -2934,7 +2933,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -2995,7 +2994,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -3056,7 +3055,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -3117,7 +3116,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -3175,7 +3174,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -3233,7 +3232,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -4261,7 +4260,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                    href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                     target="_blank"
                   >
                     Assignment distribution
@@ -4322,7 +4321,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Assignment distribution without crossovers and spammers
@@ -4383,7 +4382,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Ratio of crossovers to assigned
@@ -4441,7 +4440,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Ratio of spammers to assigned
@@ -4499,7 +4498,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                    href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                     target="_blank"
                   >
                     Experiment run time
@@ -5374,7 +5373,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                    href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                     target="_blank"
                   >
                     Assignment distribution
@@ -5435,7 +5434,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Assignment distribution without crossovers and spammers
@@ -5496,7 +5495,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                    href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                     target="_blank"
                   >
                     Assignment distribution of exposed participants
@@ -5557,7 +5556,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Ratio of crossovers to assigned
@@ -5619,7 +5618,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                    href="https://wp.me/PCYsg-Fqh/#ratios"
                     target="_blank"
                   >
                     Ratio of spammers to assigned
@@ -5681,7 +5680,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 >
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                    href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                     target="_blank"
                   >
                     Experiment run time
@@ -6852,7 +6851,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -6913,7 +6912,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -6974,7 +6973,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -7035,7 +7034,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -7093,7 +7092,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -7151,7 +7150,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -7505,7 +7504,6 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more
@@ -8664,7 +8662,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -8725,7 +8723,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -8786,7 +8784,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -8847,7 +8845,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -8905,7 +8903,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -8963,7 +8961,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -9318,7 +9316,6 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more
@@ -10363,7 +10360,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -10424,7 +10421,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -10485,7 +10482,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -10546,7 +10543,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -10604,7 +10601,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -10662,7 +10659,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -11028,7 +11025,6 @@ exports[`renders correctly for conflicting analysis data 2`] = `
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more
@@ -12335,7 +12331,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -12396,7 +12392,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -12457,7 +12453,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -12518,7 +12514,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -12580,7 +12576,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -12642,7 +12638,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -12996,7 +12992,6 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more
@@ -14875,7 +14870,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution
@@ -14936,7 +14931,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Assignment distribution without crossovers and spammers
@@ -14997,7 +14992,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#assignment-distributions"
+                  href="https://wp.me/PCYsg-Fqh/#assignment-distributions"
                   target="_blank"
                 >
                   Assignment distribution of exposed participants
@@ -15058,7 +15053,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of crossovers to assigned
@@ -15120,7 +15115,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#ratios"
+                  href="https://wp.me/PCYsg-Fqh/#ratios"
                   target="_blank"
                 >
                   Ratio of spammers to assigned
@@ -15182,7 +15177,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               >
                 <a
                   class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://fieldguide.automattic.com/the-experimentation-platform/experiment-health/#experiment-run-time"
+                  href="https://wp.me/PCYsg-Fqh/#experiment-run-time"
                   target="_blank"
                 >
                   Experiment run time
@@ -15536,7 +15531,6 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-                href="https://fieldguide.automattic.com/the-experimentation-platform/analyze-results/"
                 target="_blank"
               >
                 Learn more

@@ -71,7 +71,6 @@ test('renders layout with declared title and children', () => {
             </a>
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://fieldguide.automattic.com/the-experimentation-platform/"
               target="_blank"
             >
               Documentation

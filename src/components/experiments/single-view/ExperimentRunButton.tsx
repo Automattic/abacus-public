@@ -5,7 +5,6 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Link,
   makeStyles,
   Tooltip,
   Typography,
@@ -15,6 +14,7 @@ import React, { useState } from 'react'
 
 import ExperimentsApi from 'src/api/ExperimentsApi'
 import { serverErrorMessage } from 'src/api/HttpResponseError'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFull, Status } from 'src/lib/schemas'
 import { useDangerStyles } from 'src/styles/styles'
 
@@ -94,13 +94,13 @@ const ExperimentRunButton = ({
           <Typography variant='body2' gutterBottom>
             Launching will <strong>release experiment code to our users.</strong> This may take up to ten minutes to
             propagate to all servers due to{' '}
-            <Link
-              href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-assignment-groups/#logged-out-homepage-assignments-use-file-system-cache'
+            <PrivateLink
+              href='https://wp.me/PCYsg-Fq9#logged-out-homepage-assignments-use-file-system-cache'
               rel='noopener noreferrer'
               target='_blank'
             >
               the file system assignment cache
-            </Link>
+            </PrivateLink>
             .
           </Typography>
           <Typography variant='body2' gutterBottom>

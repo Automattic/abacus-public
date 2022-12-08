@@ -1,4 +1,4 @@
-import { Button, Link, Paper, Step, StepButton, StepLabel, Stepper, Typography } from '@material-ui/core'
+import { Button, Paper, Step, StepButton, StepLabel, Stepper, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Formik, setNestedObjectValues } from 'formik'
 import _ from 'lodash'
@@ -7,6 +7,7 @@ import { Prompt } from 'react-router-dom'
 import * as yup from 'yup'
 
 import GeneralErrorAlert from 'src/components/general/GeneralErrorAlert'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { AutocompleteItem, experimentFullNewSchema, Metric, Segment } from 'src/lib/schemas'
 import { DataSourceResult } from 'src/utils/data-loading'
@@ -305,13 +306,9 @@ const ExperimentForm = ({
                       </Typography>
                       <Typography variant='body2' gutterBottom>
                         Now is a good time to review the{' '}
-                        <Link
-                          underline='always'
-                          href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-checklist/'
-                          target='_blank'
-                        >
+                        <PrivateLink underline='always' href='https://wp.me/PCYsg-FpY' target='_blank'>
                           experiment checklist
-                        </Link>{' '}
+                        </PrivateLink>{' '}
                         in the FG and confirm everything is in place.
                       </Typography>
 

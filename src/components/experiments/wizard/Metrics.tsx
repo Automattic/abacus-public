@@ -3,7 +3,6 @@ import {
   FormControl,
   FormHelperText,
   IconButton,
-  Link,
   MenuItem,
   Table,
   TableBody,
@@ -32,6 +31,7 @@ import CollapsibleAlert from 'src/components/general/CollapsibleAlert'
 import MetricAutocomplete from 'src/components/general/MetricAutocomplete'
 import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import MoreMenu from 'src/components/general/MoreMenu'
+import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFormData } from 'src/lib/form-data'
 import { AttributionWindowSecondsToHuman } from 'src/lib/metric-assignments'
 import { EventNew, Metric, MetricAssignment } from 'src/lib/schemas'
@@ -601,13 +601,9 @@ const Metrics = ({
       />
 
       <Alert severity='info' className={classes.metricsInfo}>
-        <Link
-          underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#8-define-primary-metric'
-          target='_blank'
-        >
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-FqB/#8-define-primary-metric' target='_blank'>
           How do I choose a Primary Metric?
-        </Link>
+        </PrivateLink>
       </Alert>
 
       <CollapsibleAlert
@@ -616,13 +612,13 @@ const Metrics = ({
         className={classes.attributionWindowInfo}
         summary={'What is an Attribution Window?'}
       >
-        <Link
+        <PrivateLink
           underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#6-get-comfortable-with-metric-attribution-and-refund-windows'
+          href='https://wp.me/PCYsg-FqB/#6-get-comfortable-with-metric-attribution-and-refund-windows'
           target='_blank'
         >
           An Attribution Window
-        </Link>{' '}
+        </PrivateLink>{' '}
         is the window of time after exposure to an experiment that we capture metric events for a participant (exposure
         can be from either assignment or specified exposure events). The refund window is the window of time after a
         purchase event. Cash sales metrics will automatically deduct transactions that have been refunded within the
@@ -640,13 +636,13 @@ const Metrics = ({
         className={classes.minDiffInfo}
         summary={'How do I choose a Minimum Difference?'}
       >
-        <Link
+        <PrivateLink
           underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/design-experiment/#7-get-comfortable-with-minimum-differences'
+          href='https://wp.me/PCYsg-FqB/#7-get-comfortable-with-minimum-differences'
           target='_blank'
         >
           Minimum Practical Difference values
-        </Link>{' '}
+        </PrivateLink>{' '}
         are absolute differences from the baseline (not relative). For example, if the baseline conversion rate is 5%, a
         minimum difference of 0.5 pp is equivalent to a 10% relative change.
         <br />
@@ -656,13 +652,9 @@ const Metrics = ({
       </CollapsibleAlert>
 
       <Alert severity='info' className={classes.requestMetricInfo}>
-        <Link
-          underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/experiment-metrics/#how-to-request-a-new-metric'
-          target='_blank'
-        >
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-Fqe/#how-to-request-a-new-metric' target='_blank'>
           {"Can't find a metric? Request one!"}
-        </Link>
+        </PrivateLink>
       </Alert>
 
       <Typography variant='h4' className={classes.exposureEventsTitle}>
@@ -724,13 +716,9 @@ const Metrics = ({
       />
 
       <Alert severity='info' className={classes.exposureEventsInfo}>
-        <Link
-          underline='always'
-          href='https://fieldguide.automattic.com/the-experimentation-platform/model-experiment/#attribution-windows'
-          target='_blank'
-        >
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-FpQ/#attribution-windows' target='_blank'>
           What is an Exposure Event? And when do I need it?
-        </Link>
+        </PrivateLink>
         <br />
         <span>Only validated events can be used as exposure events.</span>
       </Alert>

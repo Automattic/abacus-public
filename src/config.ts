@@ -5,6 +5,7 @@ const productionConfig = {
     authClientId: 68795,
     rootUrl: 'https://public-api.wordpress.com/wpcom/v2/experiments/0.1.0',
   },
+  showPrivateUrl: true,
 }
 
 const mockConfig = {
@@ -14,6 +15,7 @@ const mockConfig = {
     authClientId: 68797,
     rootUrl: 'https://virtserver.swaggerhub.com/yanir/experiments/0.1.0',
   },
+  showPrivateUrl: false,
 }
 
 /**

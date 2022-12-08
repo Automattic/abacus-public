@@ -97,6 +97,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "26.6.0",
     "jest-puppeteer": "^6.1.0",
+    "jest-watch-typeahead": "^0.6.5",
     "lint-staged": "^10.1.7",
     "mockdate": "^3.0.2",
     "prettier": "^2.0.5",

@@ -54,7 +54,6 @@ test('renders as expected', () => {
              
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-              href="https://fieldguide.automattic.com/the-experimentation-platform/how-to-run-an-a-b-experiment/"
               target="_blank"
             >
               FieldGuide
@@ -64,7 +63,6 @@ test('renders as expected', () => {
              
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-              href="https://fieldguide.automattic.com/the-experimentation-platform/document-experiment/"
               target="_blank"
             >
               documenting your experiment
@@ -74,7 +72,6 @@ test('renders as expected', () => {
              
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
-              href="https://a8cexperiments.wordpress.com/"
               target="_blank"
             >
               a8cexperiments

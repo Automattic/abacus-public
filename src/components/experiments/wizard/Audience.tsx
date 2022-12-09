@@ -185,11 +185,14 @@ const Audience = ({
             <MenuItem value='' disabled>
               Select a Platform
             </MenuItem>
-            {Object.values(Platform).map((platform) => (
-              <MenuItem key={platform} value={platform}>
-                {platform}: {PlatformToHuman[platform]}
-              </MenuItem>
-            ))}
+            {Object.values(Platform)
+              //Temporary remove LOHP. See https://github.com/Automattic/experimentation-platform/issues/814
+              .filter((platform) => platform !== Platform.Lohp)
+              .map((platform) => (
+                <MenuItem key={platform} value={platform}>
+                  {platform}: {PlatformToHuman[platform]}
+                </MenuItem>
+              ))}
           </Field>
           <FormHelperText error={!!platformError}>
             {_.isString(platformError) ? platformError : undefined}

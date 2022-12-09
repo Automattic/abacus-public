@@ -47,7 +47,7 @@ export const PlatformToHuman: Record<Platform, string> = {
   [Platform.Dayone]: 'Day One',
   [Platform.Email]: 'Guides and other email systems',
   [Platform.Jetpack]: 'Jetpack front-end',
-  // [Platform.Lohp]: 'WordPress.com logged out homepage',
+  [Platform.Lohp]: 'WordPress.com logged out homepage',
   [Platform.Mlsales]: 'Machine learning (ML) sales',
   [Platform.Pipe]: 'Machine learning pipeline',
   [Platform.Tumblr]: 'Tumblr',

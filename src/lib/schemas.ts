@@ -332,7 +332,7 @@ export enum Platform {
   Dayone = 'dayone',
   Email = 'email',
   Jetpack = 'jetpack',
-  // Lohp = 'lohp', (See https://github.com/Automattic/experimentation-platform/issues/814)
+  Lohp = 'lohp',
   Mlsales = 'mlsales',
   Pipe = 'pipe',
   Tumblr = 'tumblr',

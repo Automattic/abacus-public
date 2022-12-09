@@ -5,7 +5,7 @@ import Plot from 'react-plotly.js'
 import ExperimentResults, {
   METRIC_DETAILS_AUTO_EXPAND_DELAY,
 } from 'src/components/experiments/single-view/results/ExperimentResults'
-import { AnalysisStrategy, MetricParameterType, Status } from 'src/lib/schemas'
+import { AnalysisStrategy, MetricParameterType, Platform, Status } from 'src/lib/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { changeAnalysisStrategy, changeEstimatedImpactInterval, render } from 'src/test-helpers/test-utils'
 import { toggleDebugMode } from 'src/utils/general'
@@ -536,4 +536,14 @@ test('renders correctly the estimated impact interval and selector', async () =>
 
   expect(screen.queryByRole('row', { name: /over one year/ })).toBeNull()
   expect(screen.queryAllByRole('row', { name: /over one month/ }).length).toBeGreaterThanOrEqual(1)
+})
+
+test('renders correctly a one time experiment', async () => {
+  const experiment = Fixtures.createExperimentFull({
+    platform: Platform.Email,
+  })
+  render(<ExperimentResults analyses={analyses} experiment={experiment} metrics={metrics} />)
+
+  expect(screen.queryByRole('row', { name: /over one year/ })).toBeNull()
+  expect(screen.queryAllByRole('row', { name: /on the entire targeted audience/ }).length).toBeGreaterThanOrEqual(1)
 })

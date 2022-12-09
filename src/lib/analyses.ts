@@ -534,6 +534,13 @@ export function ratioToDifferenceRatio(ratio: number): number {
 }
 
 /**
+ * Returns the total eligible population of an experiment
+ */
+export function getTotalEligiblePopulation(analysis: Analysis, experiment: ExperimentFull): number {
+  return analysis.participantStats['total'] / (getTotalAllocatedPercentage(experiment) / 100)
+}
+
+/**
  * Returns the estimated total eligible population extrapolated for the given period (days)
  */
 export function estimateTotalParticipantsInPeriod(
@@ -544,7 +551,7 @@ export function estimateTotalParticipantsInPeriod(
   const runtimeInDays = Experiments.getExperimentRunHours(experiment) / 24
 
   // This includes also unallocated population as discussed in https://github.com/Automattic/abacus/pull/772#discussion_r957505000
-  const totalEligiblePopulation = analysis.participantStats['total'] / (getTotalAllocatedPercentage(experiment) / 100)
+  const totalEligiblePopulation = getTotalEligiblePopulation(analysis, experiment)
 
   return (totalEligiblePopulation / runtimeInDays) * periodInDays
 }

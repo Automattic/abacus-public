@@ -3,7 +3,7 @@ import MockDate from 'mockdate'
 import Fixtures from 'src/test-helpers/fixtures'
 
 import * as Experiments from './experiments'
-import { AnalysisStrategy, Status } from './schemas'
+import { AnalysisStrategy, Platform, Status } from './schemas'
 
 describe('lib/experiments.ts module', () => {
   describe('getDeployedVariation', () => {
@@ -99,6 +99,13 @@ describe('lib/experiments.ts module', () => {
           }),
         ),
       ).toBe(96)
+    })
+  })
+
+  describe('isOneTimeExperiment', () => {
+    it('returns true if the experiment is a one off', () => {
+      expect(Experiments.isOneTimeExperiment(Fixtures.createExperimentFull({ platform: Platform.Calypso }))).toBe(false)
+      expect(Experiments.isOneTimeExperiment(Fixtures.createExperimentFull({ platform: Platform.Email }))).toBe(true)
     })
   })
 })

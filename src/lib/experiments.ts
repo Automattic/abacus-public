@@ -78,6 +78,9 @@ export function getExperimentRunHours(experiment: ExperimentFull): number {
   return differenceInHours(maybeEndDate, experiment.startDatetime)
 }
 
+/**
+ * Returns the chosen (winning) variation of an experiment.
+ */
 export function getChosenVariation(experiment: ExperimentFull, recommendation: Recommendation): Variation {
   const chosenVariation = experiment.variations.find(
     (variation) => variation.variationId === recommendation.chosenVariationId,
@@ -86,4 +89,11 @@ export function getChosenVariation(experiment: ExperimentFull, recommendation: R
     throw new Error('No match for chosenVariationId among variations in experiment.')
   }
   return chosenVariation
+}
+
+/**
+ * Returns if an experiment is a one off.
+ */
+export function isOneTimeExperiment(experiment: ExperimentFull): boolean {
+  return experiment.platform === Platform.Email
 }

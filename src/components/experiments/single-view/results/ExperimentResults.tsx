@@ -377,8 +377,9 @@ export default function ExperimentResults({
     [Analyses.HealthIndicationSeverity.Error]: 'Serious issues',
   }
 
-  // ### Metric Assignments Table
+  const isOneTimeExperiment = Experiments.isOneTimeExperiment(experiment)
 
+  // ### Metric Assignments Table
   const tableColumns = [
     {
       title: 'Metric (attribution window)',
@@ -484,15 +485,17 @@ export default function ExperimentResults({
       title: (
         <span>
           Estimated impact{' '}
-          <span className={classes.impactIntervalSelectWrapper}>
-            (per
-            <ImpactIntervalSelector
-              months={impactIntervalInMonths}
-              onSetMonths={setImpactIntervalInMonths}
-              className={classes.impactIntervalSelect}
-            />
-            )
-          </span>
+          {!isOneTimeExperiment && (
+            <span className={classes.impactIntervalSelectWrapper}>
+              (per
+              <ImpactIntervalSelector
+                months={impactIntervalInMonths}
+                onSetMonths={setImpactIntervalInMonths}
+                className={classes.impactIntervalSelect}
+              />
+              )
+            </span>
+          )}
         </span>
       ),
       render: ({
@@ -522,16 +525,17 @@ export default function ExperimentResults({
           (variation) => variation.variationId === changeVariationId,
         )?.name as string
         const impactIntervalLabel = impactIntervalInMonths === 1 ? 'month' : 'year'
-        const estimatedTotalParticipantsForImpact = Analyses.estimateTotalParticipantsInPeriod(
-          latestAnalysis,
-          experiment,
-          impactIntervalInMonths * 30,
-        )
+        const estimatedTotalParticipantsForImpact = isOneTimeExperiment
+          ? Analyses.getTotalEligiblePopulation(latestAnalysis, experiment)
+          : Analyses.estimateTotalParticipantsInPeriod(latestAnalysis, experiment, impactIntervalInMonths * 30)
+        const impactIntervalName = isOneTimeExperiment
+          ? `the estimated impact of '${changeVariationName}', on the entire targeted audience,`
+          : `the estimated impact of '${changeVariationName}', in hypothetical unchanged conditions, over one ${impactIntervalLabel}, for the targeted audience,`
 
         return (
           <div className={classes.estimatedImpactWrapper}>
             <MetricValueInterval
-              intervalName={`the estimated impact of '${changeVariationName}', in hypothetical unchanged conditions, over one ${impactIntervalLabel}, for the targeted audience,`}
+              intervalName={impactIntervalName}
               unit={getUnitType(metric.parameterType, UnitType.Count)}
               formatter={abbreviateNumber}
               bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}

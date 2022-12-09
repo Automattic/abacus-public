@@ -23,7 +23,7 @@ import MetricValue, { getUnitType, UnitType } from 'src/components/general/Metri
 import MetricValueInterval from 'src/components/general/MetricValueInterval'
 import PrivateLink from 'src/components/general/PrivateLink'
 import * as Analyses from 'src/lib/analyses'
-import { getChosenVariation, getExperimentRunHours } from 'src/lib/experiments'
+import { getChosenVariation, getExperimentRunHours, isOneTimeExperiment } from 'src/lib/experiments'
 import * as Recommendations from 'src/lib/recommendations'
 import {
   Analysis,
@@ -510,46 +510,48 @@ export default function MetricAssignmentResults({
                   <MetricValue unit={UnitType.RatioPoints} value={metricAssignment.minDifference} displayPositiveSign />
                   .
                 </Typography>
-                <Typography variant='body1' gutterBottom>
-                  Given the relative change (lift) between{' '}
-                  <MetricValue
-                    unit={UnitType.Proportion}
-                    value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
-                    displayPositiveSign
-                  />{' '}
-                  and{' '}
-                  <MetricValue
-                    unit={UnitType.Proportion}
-                    value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
-                    displayPositiveSign
-                  />{' '}
-                  after analyzing{' '}
-                  <MetricValue
-                    unit={UnitType.Count}
-                    value={latestAnalysis.participantStats['total']}
-                    displayUnit={false}
-                  />{' '}
-                  participants ({Analyses.getTotalAllocatedPercentage(experiment)}% allocation) over an experiment
-                  runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
-                  {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
-                  <MetricValue
-                    unit={UnitType.Count}
-                    formatter={abbreviateNumber}
-                    value={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
-                    displayPositiveSign
-                    displayUnit={false}
-                  />{' '}
-                  to{' '}
-                  <MetricValue
-                    unit={UnitType.Count}
-                    formatter={abbreviateNumber}
-                    value={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
-                    displayPositiveSign
-                  />
-                  . <strong>This is not a statistical forecast</strong> but a theoretical cumulative effect on the
-                  targeted audience, as if the experiment conditions were unchanged for one{' '}
-                  {impactIntervalInMonths === 1 ? 'month' : 'year'}.
-                </Typography>
+                {!isOneTimeExperiment(experiment) && (
+                  <Typography variant='body1' gutterBottom>
+                    Given the relative change (lift) between{' '}
+                    <MetricValue
+                      unit={UnitType.Proportion}
+                      value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
+                      displayPositiveSign
+                    />{' '}
+                    and{' '}
+                    <MetricValue
+                      unit={UnitType.Proportion}
+                      value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
+                      displayPositiveSign
+                    />{' '}
+                    after analyzing{' '}
+                    <MetricValue
+                      unit={UnitType.Count}
+                      value={latestAnalysis.participantStats['total']}
+                      displayUnit={false}
+                    />{' '}
+                    participants ({Analyses.getTotalAllocatedPercentage(experiment)}% allocation) over an experiment
+                    runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
+                    {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
+                    <MetricValue
+                      unit={UnitType.Count}
+                      formatter={abbreviateNumber}
+                      value={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
+                      displayPositiveSign
+                      displayUnit={false}
+                    />{' '}
+                    to{' '}
+                    <MetricValue
+                      unit={UnitType.Count}
+                      formatter={abbreviateNumber}
+                      value={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
+                      displayPositiveSign
+                    />
+                    . <strong>This is not a statistical forecast</strong> but a theoretical cumulative effect on the
+                    targeted audience, as if the experiment conditions were unchanged for one{' '}
+                    {impactIntervalInMonths === 1 ? 'month' : 'year'}.
+                  </Typography>
+                )}
                 <strong>Last analyzed:</strong>{' '}
                 <DatetimeText datetime={latestAnalysis.analysisDatetime} excludeTime={true} />.
               </TableCell>

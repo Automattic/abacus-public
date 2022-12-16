@@ -4,7 +4,7 @@ import { AutocompleteProps, AutocompleteRenderInputParams, fieldToAutocomplete }
 import _ from 'lodash'
 import React, { useCallback } from 'react'
 
-import { AutocompleteItem } from 'src/lib/schemas'
+import { AutocompleteItem } from 'src/lib/explat/schemas'
 
 export const autocompleteInputProps = (params: AutocompleteRenderInputParams, loading: boolean): InputProps => {
   return {

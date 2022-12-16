@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import _, { identity } from 'lodash'
 import React from 'react'
 
-import { MetricParameterType } from 'src/lib/schemas'
+import { MetricParameterType } from 'src/lib/explat/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
 import {
   localizeNumber,

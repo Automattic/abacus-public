@@ -5,7 +5,7 @@ import { Autocomplete, AutocompleteRenderInputParams } from 'formik-material-ui-
 import React from 'react'
 
 import AbacusAutocomplete, { autocompleteInputProps } from 'src/components/general/Autocomplete'
-import { AutocompleteItem } from 'src/lib/schemas'
+import { AutocompleteItem } from 'src/lib/explat/schemas'
 import { changeFieldByRole, MockFormik } from 'src/test-helpers/test-utils'
 
 // Needed for testing the autocomplete popper

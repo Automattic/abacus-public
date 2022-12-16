@@ -1,4 +1,4 @@
-import SegmentsApi from 'src/api/SegmentsApi'
+import SegmentsApi from 'src/api/explat/SegmentsApi'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 
 describe('SegmentsApi.ts module', () => {

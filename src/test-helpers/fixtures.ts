@@ -26,7 +26,7 @@ import {
   TagBare,
   TransactionTypes,
   Variation,
-} from 'src/lib/schemas'
+} from 'src/lib/explat/schemas'
 
 function createDistributionStats(fieldOverrides?: Partial<DistributionStats>): DistributionStats {
   return {

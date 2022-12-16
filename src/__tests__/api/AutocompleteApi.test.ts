@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { StatusCodes } from 'http-status-codes'
 
-import { getEventNameCompletions, getPropNameCompletions, getUserCompletions } from 'src/api/AutocompleteApi'
+import { getEventNameCompletions, getPropNameCompletions, getUserCompletions } from 'src/api/explat/AutocompleteApi'
+import * as Utils from 'src/api/explat/utils'
 import HttpResponseError from 'src/api/HttpResponseError'
-import * as Utils from 'src/api/utils'
 
 // In order to not go over API limits on swagger we wait in-between tests:
 const apiLimitWait = 1000
@@ -11,7 +11,7 @@ beforeEach(async () => {
   return new Promise((resolve) => setTimeout(resolve, apiLimitWait))
 })
 
-jest.mock('src/api/utils')
+jest.mock('src/api/explat/utils')
 const mockedUtils = Utils as jest.Mocked<typeof Utils>
 
 test('it retrieves user list from the api', async () => {

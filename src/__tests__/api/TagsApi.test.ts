@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes'
 
+import TagsApi from 'src/api/explat/TagsApi'
 import HttpResponseError from 'src/api/HttpResponseError'
-import TagsApi from 'src/api/TagsApi'
-import { tagFullNewOutboundSchema } from 'src/lib/schemas'
+import { tagFullNewOutboundSchema } from 'src/lib/explat/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 

@@ -1,4 +1,4 @@
-import { idSchema } from 'src/lib/schemas'
+import { idSchema } from 'src/lib/explat/schemas'
 
 // TODO: Consider using a more extensive lib like Rambda that covers these
 /**

@@ -1,8 +1,8 @@
 import fetchMock from 'fetch-mock-jest'
 import { StatusCodes } from 'http-status-codes'
 
+import { fetchApi } from 'src/api/explat/utils'
 import HttpResponseError from 'src/api/HttpResponseError'
-import { fetchApi } from 'src/api/utils'
 
 fetchMock.config.overwriteRoutes = true
 

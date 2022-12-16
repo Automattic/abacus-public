@@ -1,7 +1,7 @@
 import MockDate from 'mockdate'
 
-import ExperimentsApi from 'src/api/ExperimentsApi'
-import { ExperimentFull, ExperimentFullNew, experimentFullNewOutboundSchema, Status } from 'src/lib/schemas'
+import ExperimentsApi from 'src/api/explat/ExperimentsApi'
+import { ExperimentFull, ExperimentFullNew, experimentFullNewOutboundSchema, Status } from 'src/lib/explat/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 import { formatIsoDate } from 'src/utils/time'

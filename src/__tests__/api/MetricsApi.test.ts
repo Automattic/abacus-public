@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes'
 
+import MetricsApi from 'src/api/explat/MetricsApi'
 import HttpResponseError from 'src/api/HttpResponseError'
-import MetricsApi from 'src/api/MetricsApi'
-import { metricNewOutboundSchema, TransactionTypes } from 'src/lib/schemas'
+import { metricNewOutboundSchema, TransactionTypes } from 'src/lib/explat/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { validationErrorDisplayer } from 'src/test-helpers/test-utils'
 

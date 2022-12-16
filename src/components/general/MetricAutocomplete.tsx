@@ -4,7 +4,7 @@ import _ from 'lodash'
 import React from 'react'
 
 import { autocompleteInputProps } from 'src/components/general/Autocomplete'
-import { Metric } from 'src/lib/schemas'
+import { Metric } from 'src/lib/explat/schemas'
 
 /**
  * An Autocomplete just for Metrics

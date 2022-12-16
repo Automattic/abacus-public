@@ -4,7 +4,7 @@ import { Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import React from 'react'
 
-import { MetricParameterType } from 'src/lib/schemas'
+import { MetricParameterType } from 'src/lib/explat/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
 import { formikFieldTransformer } from 'src/utils/formik'
 

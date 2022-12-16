@@ -6,7 +6,7 @@ import React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { ValidationError } from 'yup'
 
-import { MetricParameterType } from 'src/lib/schemas'
+import { MetricParameterType } from 'src/lib/explat/schemas'
 import ThemeProvider from 'src/styles/ThemeProvider'
 
 /**

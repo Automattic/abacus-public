@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 import AuthCallback from 'src/pages/AuthCallback'
-import Experiment from 'src/pages/experiments/Experiment'
-import ExperimentsAgGrid from 'src/pages/experiments/ExperimentsAgGrid'
-import ExperimentWizard, { ExperimentWizardMode } from 'src/pages/experiments/ExperimentWizard'
-import Metrics from 'src/pages/Metrics'
-import Tags from 'src/pages/Tags'
+import Experiment from 'src/pages/explat/experiments/Experiment'
+import ExperimentsAgGrid from 'src/pages/explat/experiments/ExperimentsAgGrid'
+import ExperimentWizard, { ExperimentWizardMode } from 'src/pages/explat/experiments/ExperimentWizard'
+import Metrics from 'src/pages/explat/Metrics'
+import Tags from 'src/pages/explat/Tags'
 
 /**
  * Let's keep routing simple and minimal.

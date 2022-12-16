@@ -585,13 +585,85 @@ describe('getExperimentHealthIndicators', () => {
   })
 })
 
+describe('getAnalysisRunHours', () => {
+  it('should work for an experiment without an enddate', () => {
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = undefined
+    const analysisDatetime = new Date('2021-04-01T00:00:00Z')
+    expect(
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      ),
+    ).toBe(24)
+  })
+
+  it('should work for an experiment with an enddate equal to the analysis datetime', () => {
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-04-02T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-01T00:00:00Z')
+    expect(
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      ),
+    ).toBe(24)
+  })
+
+  it('should work for an experiment with an enddate less than the analysis datetime', () => {
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-04-02T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-03T00:00:00Z')
+    expect(
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      ),
+    ).toBe(24)
+  })
+
+  it('should throw an error if the analysis datetime has a non-start-of-day time set', () => {
+    const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const endDatetime = new Date('2021-04-02T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-03T00:05:00Z')
+    expect(() => {
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      )
+    }).toThrowErrorMatchingInlineSnapshot(`"Expected analysisDatetime at start of the day."`)
+  })
+})
+
 describe('estimateTotalParticipantsInPeriod', () => {
   it('should work correctly', () => {
     const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-10T00:00:00Z')
     const endDatetime = new Date('2021-04-11T00:00:00Z')
     expect(
       Analyses.estimateTotalParticipantsInPeriod(
         Fixtures.createAnalysis({
+          analysisDatetime,
           participantStats: {
             total: 100,
           },
@@ -612,10 +684,12 @@ describe('estimateTotalParticipantsInPeriod', () => {
 
   it('should work for total allocated percentage less than 100', () => {
     const startDatetime = new Date('2021-04-01T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-10T00:00:00Z')
     const endDatetime = new Date('2021-04-11T00:00:00Z')
     expect(
       Analyses.estimateTotalParticipantsInPeriod(
         Fixtures.createAnalysis({
+          analysisDatetime,
           participantStats: {
             total: 100,
           },

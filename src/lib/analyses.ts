@@ -1,3 +1,6 @@
+import { add, differenceInHours } from 'date-fns'
+import _ from 'lodash'
+
 import { chiSquaredTestProbValue } from 'src/utils/math'
 
 import * as Experiments from './experiments'
@@ -540,6 +543,40 @@ export function getTotalEligiblePopulation(analysis: Analysis, experiment: Exper
   return analysis.participantStats['total'] / (getTotalAllocatedPercentage(experiment) / 100)
 }
 
+function utcStartOfDay(date: Date): Date {
+  // (I wish there was an easier way to do this...)
+  const startOfDay = new Date()
+  startOfDay.setUTCFullYear(date.getUTCFullYear())
+  startOfDay.setUTCMonth(date.getUTCMonth())
+  startOfDay.setUTCDate(date.getUTCDate())
+  startOfDay.setUTCHours(0)
+  startOfDay.setUTCMinutes(0)
+  startOfDay.setUTCSeconds(0)
+  startOfDay.setUTCMilliseconds(0)
+  return startOfDay
+}
+
+/**
+ * Returns the total run hours being analysed in the provided analysis.
+ */
+export function getAnalysisRunHours(analysis: Analysis, experiment: ExperimentFull): number {
+  // Analysis datetimes represents days not datetimes so the time of the day should be 00:00.0000.
+  if (analysis.analysisDatetime.getTime() !== utcStartOfDay(analysis.analysisDatetime).getTime()) {
+    throw new Error('Expected analysisDatetime at start of the day.')
+  }
+
+  // NOTE: Our analysisDatetimes are used as YMD, so the analysis includes the day of the analysis datetime.
+  //       Hence, we add 24 hours to the analysis datetime.
+  const analysisWindownEndDatetime = add(analysis.analysisDatetime, { hours: 24 })
+
+  let endDatetime = analysisWindownEndDatetime
+  if (experiment.endDatetime && experiment.endDatetime < analysisWindownEndDatetime) {
+    endDatetime = experiment.endDatetime
+  }
+
+  return differenceInHours(endDatetime, experiment.startDatetime)
+}
+
 /**
  * Returns the estimated total eligible population extrapolated for the given period (days)
  */
@@ -548,7 +585,7 @@ export function estimateTotalParticipantsInPeriod(
   experiment: ExperimentFull,
   periodInDays: number,
 ): number {
-  const runtimeInDays = Experiments.getExperimentRunHours(experiment) / 24
+  const runtimeInDays = getAnalysisRunHours(analysis, experiment) / 24
 
   // This includes also unallocated population as discussed in https://github.com/Automattic/abacus/pull/772#discussion_r957505000
   const totalEligiblePopulation = getTotalEligiblePopulation(analysis, experiment)

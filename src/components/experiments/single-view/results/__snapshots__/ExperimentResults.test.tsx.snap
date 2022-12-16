@@ -510,7 +510,8 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-195"
                           >
-                            -∞M
+                            +
+                            356
                           </span>
                            
                           to
@@ -518,8 +519,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-195"
                           >
-                            +
-                            ∞M
+                            -356
                              
                             conversions
                           </span>
@@ -1586,13 +1586,13 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               treatment1
                is between
                
-              -∞M
+              +
+              356
                
               to
                
-              +
               
-              ∞M
+              -356
                conversions
               . 
               <strong>
@@ -2567,7 +2567,8 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-195"
                           >
-                            -∞M
+                            +
+                            356
                           </span>
                            
                           to
@@ -2575,8 +2576,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-195"
                           >
-                            +
-                            ∞M
+                            -356
                              
                             conversions
                           </span>
@@ -3930,7 +3930,7 @@ exports[`allows you to change analysis strategy 1`] = `
                               class="makeStyles-metricValueWrapper-550"
                             >
                               +
-                              0
+                              -0
                             </span>
                              
                             to
@@ -3939,7 +3939,7 @@ exports[`allows you to change analysis strategy 1`] = `
                               class="makeStyles-metricValueWrapper-550"
                             >
                               +
-                              0
+                              -0
                                
                               conversions
                             </span>
@@ -6520,7 +6520,8 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                           <span
                             class="makeStyles-metricValueWrapper-123"
                           >
-                            -36K
+                            +
+                            1.11K
                           </span>
                            
                           to
@@ -6528,8 +6529,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                           <span
                             class="makeStyles-metricValueWrapper-123"
                           >
-                            +
-                            36K
+                            -1.11K
                              
                             conversions
                           </span>
@@ -7592,13 +7592,13 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               test
                is between
                
-              -36K
+              +
+              1.11K
                
               to
                
-              +
               
-              36K
+              -1.11K
                conversions
               . 
               <strong>
@@ -8329,8 +8329,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                           <span
                             class="makeStyles-metricValueWrapper-267"
                           >
-                            +
-                            18K
+                            -554
                           </span>
                            
                           to
@@ -8338,8 +8337,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                           <span
                             class="makeStyles-metricValueWrapper-267"
                           >
-                            +
-                            36K
+                            -1.11K
                              
                             conversions
                           </span>
@@ -9405,14 +9403,12 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               test
                is between
                
-              +
-              18K
+              -554
                
               to
                
-              +
               
-              36K
+              -1.11K
                conversions
               . 
               <strong>
@@ -11114,14 +11110,12 @@ exports[`renders correctly for conflicting analysis data 2`] = `
               test
                is between
                
-              +
-              18K
+              -554
                
               to
                
-              +
               
-              36K
+              -1.11K
                conversions
               . 
               <strong>
@@ -11852,7 +11846,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-406"
                           >
                             +
-                            0
+                            -0
                           </span>
                            
                           to
@@ -11861,7 +11855,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-406"
                           >
                             +
-                            0
+                            -0
                              
                             conversions
                           </span>
@@ -12205,7 +12199,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-406"
                           >
                             +
-                            0
+                            -0
                           </span>
                            
                           to
@@ -12214,7 +12208,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-406"
                           >
                             +
-                            0
+                            -0
                              
                             conversions
                           </span>
@@ -13081,13 +13075,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                is between
                
               +
-              0
+              -0
                
               to
                
               +
               
-              0
+              -0
                conversions
               . 
               <strong>
@@ -14391,7 +14385,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-478"
                           >
                             +
-                            0
+                            -0
                           </span>
                            
                           to
@@ -14400,7 +14394,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-478"
                           >
                             +
-                            0
+                            -0
                              
                             USD
                           </span>
@@ -14744,7 +14738,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-478"
                           >
                             +
-                            0
+                            -0
                           </span>
                            
                           to
@@ -14753,7 +14747,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-478"
                           >
                             +
-                            0
+                            -0
                              
                             USD
                           </span>
@@ -15620,13 +15614,13 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                is between
                
               +
-              0
+              -0
                
               to
                
               +
               
-              0
+              -0
                conversions
               . 
               <strong>

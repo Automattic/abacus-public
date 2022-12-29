@@ -1,4 +1,4 @@
-import { runtimeWhitelistedPlatforms } from './analyses'
+import { whitelistedPlatforms } from './analyses'
 import { getExperimentRunHours } from './experiments'
 import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from './schemas'
 
@@ -185,7 +185,7 @@ export function isDataStrongEnough(
 
   const runtimeInDays = getExperimentRunHours(experiment) / 24
   const hasEnoughRuntime =
-    runtimeWhitelistedPlatforms.includes(experiment.platform) || runtimeInDays > minSafeRuntimeInDays
+    whitelistedPlatforms.runtime.includes(experiment.platform) || runtimeInDays > minSafeRuntimeInDays
 
   switch (decision) {
     case Decision.VariantAhead:

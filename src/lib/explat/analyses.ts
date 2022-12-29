@@ -291,7 +291,7 @@ export function getExperimentParticipantHealthIndicators(
 ): HealthIndicator[] {
   const indicatorDefinitions: IndicatorDefinition[] = []
 
-  experiment.platform !== Platform.Mlsales &&
+  !whitelistedPlatforms.assignmentDistribution.includes(experiment.platform) &&
     indicatorDefinitions.push(
       {
         name: 'Assignment distribution',
@@ -359,7 +359,10 @@ export function getExperimentParticipantHealthIndicators(
       },
     )
 
-  if (experimentParticipantStats.ratios.overall.exposedToAssigned) {
+  if (
+    experimentParticipantStats.ratios.overall.exposedToAssigned &&
+    !whitelistedPlatforms.assignmentDistribution.includes(experiment.platform)
+  ) {
     const biasedExposuresRecommendation = `If not in combination with other distribution issues, exposure event being fired is linked to variation causing bias. Choose a different exposure event or use assignment analysis (contact @experiment-review to do so).`
     indicatorDefinitions.push({
       name: 'Assignment distribution of exposed participants',
@@ -466,7 +469,10 @@ export function getExperimentParticipantHealthIndicators(
   }))
 }
 
-export const runtimeWhitelistedPlatforms = [Platform.Email, Platform.Pipe, Platform.Mlsales]
+export const whitelistedPlatforms = {
+  runtime: [Platform.Email, Platform.Pipe, Platform.Mlsales],
+  assignmentDistribution: [Platform.Mlsales],
+}
 
 /**
  * Get experiment health indicators for a experiment.

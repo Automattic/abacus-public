@@ -550,16 +550,7 @@ export function getTotalEligiblePopulation(analysis: Analysis, experiment: Exper
 }
 
 function utcStartOfDay(date: Date): Date {
-  // (I wish there was an easier way to do this...)
-  const startOfDay = new Date()
-  startOfDay.setUTCFullYear(date.getUTCFullYear())
-  startOfDay.setUTCMonth(date.getUTCMonth())
-  startOfDay.setUTCDate(date.getUTCDate())
-  startOfDay.setUTCHours(0)
-  startOfDay.setUTCMinutes(0)
-  startOfDay.setUTCSeconds(0)
-  startOfDay.setUTCMilliseconds(0)
-  return startOfDay
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0, 0))
 }
 
 /**

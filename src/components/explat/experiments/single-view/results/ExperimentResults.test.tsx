@@ -1,4 +1,5 @@
 import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
+import MockDate from 'mockdate'
 import React from 'react'
 import Plot from 'react-plotly.js'
 
@@ -9,6 +10,8 @@ import { AnalysisStrategy, MetricParameterType, Platform, Status } from 'src/lib
 import Fixtures from 'src/test-helpers/fixtures'
 import { changeAnalysisStrategy, changeEstimatedImpactInterval, render } from 'src/test-helpers/test-utils'
 import { toggleDebugMode } from 'src/utils/general'
+
+MockDate.set('2022-12-20')
 
 // Unfortunately Plotly doesn't produce graphs with deterministic IDs so we have to mock it
 jest.mock('react-plotly.js')

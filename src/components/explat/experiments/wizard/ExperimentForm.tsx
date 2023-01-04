@@ -7,12 +7,12 @@ import { Prompt } from 'react-router-dom'
 import * as yup from 'yup'
 
 import GeneralErrorAlert from 'src/components/general/GeneralErrorAlert'
+import LoadingButtonContainer from 'src/components/general/LoadingButtonContainer'
 import PrivateLink from 'src/components/general/PrivateLink'
 import { ExperimentFormData } from 'src/lib/explat/form-data'
 import { AutocompleteItem, experimentFullNewSchema, Metric, Segment } from 'src/lib/explat/schemas'
 import { DataSourceResult } from 'src/utils/data-loading'
 
-import LoadingButtonContainer from '../../../general/LoadingButtonContainer'
 import Audience from './Audience'
 import BasicInfo from './BasicInfo'
 import Beginning from './Beginning'

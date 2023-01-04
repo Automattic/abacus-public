@@ -5,6 +5,7 @@ import AuthCallback from 'src/pages/AuthCallback'
 import Experiment from 'src/pages/explat/experiments/Experiment'
 import ExperimentsAgGrid from 'src/pages/explat/experiments/ExperimentsAgGrid'
 import ExperimentWizard, { ExperimentWizardMode } from 'src/pages/explat/experiments/ExperimentWizard'
+import Metric from 'src/pages/explat/Metric'
 import Metrics from 'src/pages/explat/Metrics'
 import Tags from 'src/pages/explat/Tags'
 
@@ -45,6 +46,9 @@ export default function Routes(): JSX.Element {
 
         <Route path='/metrics' exact>
           <Metrics />
+        </Route>
+        <Route path='/metrics/:metricIdSlug' exact>
+          <Metric />
         </Route>
 
         <Route path='/tags' exact>

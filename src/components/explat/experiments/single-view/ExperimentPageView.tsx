@@ -1,16 +1,5 @@
 // istanbul ignore file; Even though it sits with components this is a "page" component
-import {
-  Button,
-  createStyles,
-  LinearProgress,
-  makeStyles,
-  Tab,
-  Tabs,
-  Theme,
-  Tooltip,
-  Typography,
-} from '@material-ui/core'
-import { Skeleton } from '@material-ui/lab'
+import { Button, createStyles, LinearProgress, makeStyles, Tab, Tabs, Theme, Tooltip } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
@@ -22,7 +11,7 @@ import TagsApi from 'src/api/explat/TagsApi'
 import ExperimentCodeSetup from 'src/components/explat/experiments/single-view/ExperimentCodeSetup'
 import ExperimentDisableButton from 'src/components/explat/experiments/single-view/ExperimentDisableButton'
 import ExperimentDetails from 'src/components/explat/experiments/single-view/overview/ExperimentDetails'
-import ClipboardButton from 'src/components/general/ClipboardButton'
+import PageTitleWithSlug from 'src/components/general/PageTitleWithSlug'
 import Layout from 'src/components/page-parts/Layout'
 import * as Schemas from 'src/lib/explat/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
@@ -33,27 +22,6 @@ import ExperimentResults from './results/ExperimentResults'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    title: {
-      margin: theme.spacing(3, 0, 1, 0),
-      color: theme.palette.grey.A700,
-    },
-    titleHeader: {
-      display: 'flex',
-      maxWidth: '100%',
-      alignItems: 'baseline',
-    },
-    titleName: {
-      fontFamily: theme.custom.fonts.monospace,
-      color: '#000',
-      display: 'inline',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-      marginLeft: theme.spacing(1),
-    },
-    titleNameSkeleton: {
-      display: 'inline-block',
-    },
     topBar: {
       display: 'flex',
       marginBottom: theme.spacing(2),
@@ -158,22 +126,7 @@ export default function ExperimentPageView({
   return (
     <Layout headTitle={`${experiment?.name ?? 'unknown'} - Experiment`}>
       <>
-        <div className={classes.title}>
-          <Typography className={classes.titleHeader} variant='h2'>
-            Experiment:{' '}
-            {experiment ? (
-              <>
-                <Tooltip title={experiment.name ?? ''}>
-                  <span className={classes.titleName}>{experiment.name}</span>
-                </Tooltip>
-
-                <ClipboardButton text={experiment.name} targetName='Experiment name' />
-              </>
-            ) : (
-              <Skeleton className={classes.titleNameSkeleton} variant='text' width={200} />
-            )}
-          </Typography>
-        </div>
+        <PageTitleWithSlug label='Experiment' slug={experiment?.name ?? ''} isSlugLoading={!experiment} />
         <div className={classes.topBar}>
           <Tabs className={classes.topBarTabs} value={view || false}>
             <Tab

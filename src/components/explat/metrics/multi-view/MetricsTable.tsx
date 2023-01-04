@@ -1,93 +1,41 @@
-import {
-  createStyles,
-  LinearProgress,
-  makeStyles,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Theme,
-  useTheme,
-} from '@material-ui/core'
+import { useTheme } from '@material-ui/core'
+import { ChevronRight } from '@material-ui/icons'
 import debugFactory from 'debug'
 import _ from 'lodash'
 import MaterialTable from 'material-table'
-import React, { useMemo } from 'react'
+import React, { forwardRef, useEffect, useMemo } from 'react'
 
 import MetricsApi from 'src/api/explat/MetricsApi'
+import { stringifyMetricParams } from 'src/lib/explat/metrics'
 import { Metric, MetricParameterType } from 'src/lib/explat/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
-import { formatBoolean } from 'src/utils/formatters'
+import { createIdSlug } from 'src/utils/general'
 import { defaultTableOptions } from 'src/utils/material-table'
+
+import MetricDetails from './../MetricDetails'
 
 const debug = debugFactory('abacus:components/MetricsTable.tsx')
 
-const useMetricDetailStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      padding: theme.spacing(2, 8),
-      background: theme.palette.action.hover,
-    },
-    headerCell: {
-      fontWeight: 'bold',
-      width: '9rem',
-      verticalAlign: 'top',
-    },
-    dataCell: {
-      fontFamily: theme.custom.fonts.monospace,
-    },
-    pre: {
-      whiteSpace: 'pre',
-      maxHeight: '15rem',
-      overflow: 'scroll',
-      padding: theme.spacing(1),
-      borderWidth: 1,
-      borderColor: theme.palette.divider,
-      borderStyle: 'solid',
-      background: '#fff',
-    },
-  }),
-)
-
-const stringifyMetricParams = (metric: Metric): string =>
-  JSON.stringify(metric.parameterType === 'conversion' ? metric.eventParams : metric.revenueParams, null, 4)
-
-const MetricDetail = ({ metric: metricInitial }: { metric: Metric }) => {
-  const classes = useMetricDetailStyles()
+/**
+ * Renders details for one metric within the metric table.
+ *
+ * @param metric An object containing metric information
+ */
+const MetricDetailPanel = ({ metric: initialMetric }: { metric: Metric }): JSX.Element => {
+  useEffect(() => {
+    initialMetric &&
+      window.history.replaceState({}, '', `/metrics/${createIdSlug(initialMetric.metricId, initialMetric.name)}`)
+  }, [initialMetric])
 
   const {
     isLoading,
     data: metric,
     error,
-  } = useDataSource(() => MetricsApi.findById(metricInitial.metricId), [metricInitial.metricId])
+  } = useDataSource(() => MetricsApi.findById(initialMetric.metricId), [initialMetric.metricId])
   useDataLoadingError(error)
 
   const isReady = !isLoading && !error
-
-  return (
-    <>
-      {!isReady && <LinearProgress />}
-      {isReady && metric && (
-        <TableContainer className={classes.root}>
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableCell className={classes.headerCell}>Higher is Better:</TableCell>
-                <TableCell className={classes.dataCell}>{formatBoolean(metric.higherIsBetter)}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className={classes.headerCell}>Parameters:</TableCell>
-                <TableCell className={classes.dataCell}>
-                  <div className={classes.pre}>{stringifyMetricParams(metric)}</div>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
-    </>
-  )
+  return <MetricDetails metric={metric || undefined} isLoading={!isReady} isCompact />
 }
 
 /**
@@ -148,6 +96,9 @@ const MetricsTable = ({
       width: 0,
     },
   ]
+  const onRowClick = () => {
+    window.history.replaceState({}, '', '/metrics')
+  }
 
   return (
     <MaterialTable
@@ -166,12 +117,18 @@ const MetricsTable = ({
       }
       columns={tableColumns}
       data={processedMetrics}
-      onRowClick={(_event, _rowData, togglePanel) => togglePanel && togglePanel()}
+      onRowClick={(_event, _rowData, togglePanel) => {
+        onRowClick()
+        togglePanel && togglePanel()
+      }}
       options={{
         ...defaultTableOptions,
         actionsColumnIndex: 3,
       }}
-      detailPanel={(rowData) => <MetricDetail metric={rowData} />}
+      detailPanel={(rowData) => <MetricDetailPanel metric={rowData} />}
+      icons={{
+        DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} onClick={onRowClick} />),
+      }}
     />
   )
 }

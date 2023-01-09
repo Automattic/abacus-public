@@ -1519,18 +1519,26 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               conversion rate
                of
                
-              -100
-               
-              to
-               
-              +
-              
-              100
               <span
-                class="makeStyles-tooltipped-186"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  -100
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  +
+                  100
+                   
+                  pp
+                </span>
               </span>
                
               is 
@@ -1540,18 +1548,26 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               zero.
                
               Uncertainty is too high because the absolute change overlaps with the specified minimum practical difference between 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-186"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  -10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  +
+                  10
+                   
+                  pp
+                </span>
               </span>
               .
             </p>
@@ -1560,16 +1576,27 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
             >
               Given the relative change (lift) between
                
-              
-              -50
-              %
-               
-              and
-               
-              +
-              
-              0
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  -50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  +
+                  0
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -1586,14 +1613,27 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               treatment1
                is between
                
-              +
-              355
-               
-              to
-               
-              
-              -355
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  +
+                  355
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-195"
+                >
+                  -355
+                   
+                  conversions
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -7525,18 +7565,26 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               conversion rate
                of
                
-              -100
-               
-              to
-               
-              +
-              
-              100
               <span
-                class="makeStyles-tooltipped-114"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  -100
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  +
+                  100
+                   
+                  pp
+                </span>
               </span>
                
               is 
@@ -7546,18 +7594,26 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               zero.
                
               Uncertainty is too high because the absolute change overlaps with the specified minimum practical difference between 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-114"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  -10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  +
+                  10
+                   
+                  pp
+                </span>
               </span>
               .
             </p>
@@ -7566,16 +7622,27 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
             >
               Given the relative change (lift) between
                
-              
-              -50
-              %
-               
-              and
-               
-              +
-              
-              0
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  -50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  +
+                  0
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -7592,14 +7659,27 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               test
                is between
                
-              +
-              1.11K
-               
-              to
-               
-              
-              -1.11K
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  +
+                  1.11K
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-123"
+                >
+                  -1.11K
+                   
+                  conversions
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -9335,19 +9415,27 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               conversion rate
                of
                
-              +
-              50
-               
-              to
-               
-              +
-              
-              100
               <span
-                class="makeStyles-tooltipped-258"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  +
+                  50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  +
+                  100
+                   
+                  pp
+                </span>
               </span>
                
               is 
@@ -9357,18 +9445,26 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               zero.
                
               With high certainty, there is a practical difference between the variations because the absolute change is outside the minimum difference of 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-258"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  -10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  +
+                  10
+                   
+                  pp
+                </span>
               </span>
               .
             </p>
@@ -9377,16 +9473,27 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
             >
               Given the relative change (lift) between
                
-              
-              -50
-              %
-               
-              and
-               
-              +
-              
-              0
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  -50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  +
+                  0
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -9403,13 +9510,26 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
               test
                is between
                
-              -554
-               
-              to
-               
-              
-              -1.11K
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  -554
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-267"
+                >
+                  -1.11K
+                   
+                  conversions
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -11042,19 +11162,27 @@ exports[`renders correctly for conflicting analysis data 2`] = `
               conversion rate
                of
                
-              +
-              50
-               
-              to
-               
-              +
-              
-              100
               <span
-                class="makeStyles-tooltipped-330"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  +
+                  50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  +
+                  100
+                   
+                  pp
+                </span>
               </span>
                
               is 
@@ -11064,18 +11192,26 @@ exports[`renders correctly for conflicting analysis data 2`] = `
               zero.
                
               With high certainty, there is a practical difference between the variations because the absolute change is outside the minimum difference of 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-330"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  -10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  +
+                  10
+                   
+                  pp
+                </span>
               </span>
               .
             </p>
@@ -11084,16 +11220,27 @@ exports[`renders correctly for conflicting analysis data 2`] = `
             >
               Given the relative change (lift) between
                
-              
-              -50
-              %
-               
-              and
-               
-              +
-              
-              0
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  -50
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  +
+                  0
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -11110,13 +11257,26 @@ exports[`renders correctly for conflicting analysis data 2`] = `
               test
                is between
                
-              -554
-               
-              to
-               
-              
-              -1.11K
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  -554
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-339"
+                >
+                  -1.11K
+                   
+                  conversions
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -13007,19 +13167,27 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               conversion rate
                of
                
-              +
-              0
-               
-              to
-               
-              +
-              
-              0
               <span
-                class="makeStyles-tooltipped-397"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  +
+                  0
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  +
+                  0
+                   
+                  pp
+                </span>
               </span>
                
               is 
@@ -13029,18 +13197,26 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               zero.
                
               With high certainty, there is no practical difference between the variations because the absolute change is inside the specified minimum difference between 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-397"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  -10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  +
+                  10
+                   
+                  pp
+                </span>
               </span>
               .
             </p>
@@ -13049,15 +13225,26 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             >
               Given the relative change (lift) between
                
-              
-              -100
-              %
-               
-              and
-               
-              
-              -100
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  -100
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  -100
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -13074,15 +13261,28 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               test
                is between
                
-              +
-              -0
-               
-              to
-               
-              +
-              
-              -0
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  +
+                  -0
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-406"
+                >
+                  +
+                  -0
+                   
+                  conversions
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -15546,19 +15746,27 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               ACPU
                of
                
-              +
-              0
-               
-              to
-               
-              +
-              
-              0
               <span
-                class="makeStyles-tooltipped-469"
-                title="Percentage points."
+                aria-label="the absolute change"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  +
+                  0.00
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  +
+                  0.00
+                   
+                  USD
+                </span>
               </span>
                
               is 
@@ -15568,18 +15776,26 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               zero.
                
               With high certainty, there is no practical difference between the variations because the absolute change is inside the specified minimum difference between 
-              -10
-               
-              to
-               
-              +
-              
-              10
               <span
-                class="makeStyles-tooltipped-469"
-                title="Percentage points."
+                aria-label="the minimum practical difference interval"
+                class=""
               >
-                pp
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  -0.10
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  +
+                  0.10
+                   
+                  USD
+                </span>
               </span>
               .
             </p>
@@ -15588,15 +15804,26 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             >
               Given the relative change (lift) between
                
-              
-              -100
-              %
-               
-              and
-               
-              
-              -100
-              %
+              <span
+                aria-label="the relative change"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  -100
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  -100
+                   
+                  %
+                </span>
+              </span>
                
               after analyzing
                
@@ -15613,15 +15840,28 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               test
                is between
                
-              +
-              -0
-               
-              to
-               
-              +
-              
-              -0
-               conversions
+              <span
+                aria-label="the estimated impact"
+                class=""
+              >
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  +
+                  -0
+                </span>
+                 
+                to
+                 
+                <span
+                  class="makeStyles-metricValueWrapper-478"
+                >
+                  +
+                  -0
+                   
+                  USD
+                </span>
+              </span>
               . 
               <strong>
                 This is not a statistical forecast
@@ -15756,7 +15996,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 class="makeStyles-metricValueWrapper-478"
               >
                 +
-                0
+                0.00
               </span>
                
               to
@@ -15765,9 +16005,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                 class="makeStyles-metricValueWrapper-478"
               >
                 +
-                0
+                0.00
                  
-                pp
+                USD
               </span>
             </span>
           </td>
@@ -15858,13 +16098,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
     </strong>
      
     
-    10
-    <span
-      class="makeStyles-tooltipped-469"
-      title="Percentage points."
-    >
-      pp
-    </span>
+    0.10
+     USD
     .
   </p>
   <div

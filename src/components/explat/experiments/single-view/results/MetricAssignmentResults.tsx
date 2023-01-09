@@ -479,17 +479,12 @@ export default function MetricAssignmentResults({
               <TableCell>
                 <Typography variant='body1' gutterBottom>
                   The absolute change in the {isConversion ? 'conversion rate' : 'ACPU'} of{' '}
-                  <MetricValue
-                    unit={UnitType.RatioPoints}
-                    value={latestEstimates.diffs[variationDiffKey].bottom_95}
-                    displayPositiveSign
-                    displayUnit={false}
-                  />{' '}
-                  to{' '}
-                  <MetricValue
-                    unit={UnitType.RatioPoints}
-                    value={latestEstimates.diffs[variationDiffKey].top_95}
-                    displayPositiveSign
+                  <MetricValueInterval
+                    intervalName={'the absolute change'}
+                    unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+                    bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95}
+                    topValue={latestEstimates.diffs[variationDiffKey].top_95}
+                    displayTooltipHint={false}
                   />{' '}
                   is {recommendation.statisticallySignificant ? '' : ' not '}
                   statistically different from zero because the interval
@@ -500,29 +495,24 @@ export default function MetricAssignmentResults({
                       recommendation.practicallySignificant as Recommendations.PracticalSignificanceStatus
                     ]
                   }
-                  <MetricValue
-                    unit={UnitType.RatioPoints}
-                    value={-metricAssignment.minDifference}
-                    displayPositiveSign
-                    displayUnit={false}
-                  />{' '}
-                  to{' '}
-                  <MetricValue unit={UnitType.RatioPoints} value={metricAssignment.minDifference} displayPositiveSign />
+                  <MetricValueInterval
+                    intervalName={'the minimum practical difference interval'}
+                    unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+                    bottomValue={-metricAssignment.minDifference}
+                    topValue={metricAssignment.minDifference}
+                    displayTooltipHint={false}
+                  />
                   .
                 </Typography>
                 {!isOneTimeExperiment(experiment) && (
                   <Typography variant='body1' gutterBottom>
                     Given the relative change (lift) between{' '}
-                    <MetricValue
+                    <MetricValueInterval
+                      intervalName={'the relative change'}
                       unit={UnitType.Proportion}
-                      value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
-                      displayPositiveSign
-                    />{' '}
-                    and{' '}
-                    <MetricValue
-                      unit={UnitType.Proportion}
-                      value={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
-                      displayPositiveSign
+                      bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
+                      topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
+                      displayTooltipHint={false}
                     />{' '}
                     after analyzing{' '}
                     <MetricValue
@@ -533,19 +523,15 @@ export default function MetricAssignmentResults({
                     participants ({Analyses.getTotalAllocatedPercentage(experiment)}% allocation) over an experiment
                     runtime of {_.round(getExperimentRunHours(experiment) / 24, 2)} days, the estimated{' '}
                     {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
-                    <MetricValue
-                      unit={UnitType.Count}
+                    <MetricValueInterval
+                      intervalName={'the estimated impact'}
+                      unit={getUnitType(metric.parameterType, UnitType.Count)}
+                      bottomValue={
+                        latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact
+                      }
+                      topValue={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
                       formatter={abbreviateNumber}
-                      value={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
-                      displayPositiveSign
-                      displayUnit={false}
-                    />{' '}
-                    to{' '}
-                    <MetricValue
-                      unit={UnitType.Count}
-                      formatter={abbreviateNumber}
-                      value={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
-                      displayPositiveSign
+                      displayTooltipHint={false}
                     />
                     . <strong>This is not a statistical forecast</strong> but a theoretical cumulative effect on the
                     targeted audience, as if the experiment conditions were unchanged for one{' '}
@@ -610,7 +596,7 @@ export default function MetricAssignmentResults({
                     ) : (
                       <MetricValueInterval
                         intervalName={'the absolute change between variations'}
-                        unit={UnitType.RatioPoints}
+                        unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
                         bottomValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].bottom_95}
                         topValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].top_95}
                       />
@@ -640,7 +626,11 @@ export default function MetricAssignmentResults({
       </TableContainer>
       <Typography className={classes.analysisFinePrint}>
         95% Credible Intervals (CIs). <strong> Experimenter-set minimum practical difference: </strong>{' '}
-        <MetricValue value={metricAssignment.minDifference} unit={UnitType.RatioPoints} />.
+        <MetricValue
+          value={metricAssignment.minDifference}
+          unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+        />
+        .
       </Typography>
       {dates.length > 1 ? (
         <div className={classes.metricEstimatePlots}>

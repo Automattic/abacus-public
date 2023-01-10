@@ -1243,6 +1243,34 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               >
                 registration_start
               </span>
+              <a
+                href="/metrics/2-registration-start"
+                target="_blank"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
               <br />
               <span
                 class="makeStyles-root-71 makeStyles-monospaced-40"
@@ -1337,79 +1365,83 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDiffExpanded-61"
             >
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
+              <span
+                class="makeStyles-minDifferenceFieldWrapper-44"
               >
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-43"
                 >
-                  <input
-                    aria-invalid="false"
-                    aria-label="Minimum Difference"
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    id="experiment.metricAssignments[0].minDifference"
-                    max="100"
-                    min="0"
-                    name="experiment.metricAssignments[0].minDifference"
-                    placeholder="0.03"
-                    step="0.01"
-                    type="number"
-                    value="1"
-                  />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                   >
-                    <p
-                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
-                      title="Percentage Points"
-                    >
-                      pp
-                    </p>
-                  </div>
-                  <fieldset
-                    aria-hidden="true"
-                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
-                    style="padding-left: 8px;"
-                  >
-                    <legend
-                      class="PrivateNotchedOutline-legend-73"
-                      style="width: 0.01px;"
-                    >
-                      <span>
-                        ​
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-              <button
-                aria-pressed="true"
-                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
-                tabindex="0"
-                title="Minimum Difference Calculator"
-                type="button"
-                value="check"
-              >
-                <span
-                  class="MuiToggleButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
+                    <input
+                      aria-invalid="false"
+                      aria-label="Minimum Difference"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                      id="experiment.metricAssignments[0].minDifference"
+                      max="100"
+                      min="0"
+                      name="experiment.metricAssignments[0].minDifference"
+                      placeholder="0.03"
+                      step="0.01"
+                      type="number"
+                      value="1"
                     />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
+                    <div
+                      class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    >
+                      <p
+                        class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                        title="Percentage Points"
+                      >
+                        pp
+                      </p>
+                    </div>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                      style="padding-left: 8px;"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legend-73"
+                        style="width: 0.01px;"
+                      >
+                        <span>
+                          ​
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  aria-pressed="true"
+                  class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                  tabindex="0"
+                  title="Minimum Difference Calculator"
+                  type="button"
+                  value="check"
+                >
+                  <span
+                    class="MuiToggleButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </span>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -2499,6 +2531,34 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               >
                 registration_start
               </span>
+              <a
+                href="/metrics/2-registration-start"
+                target="_blank"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
               <br />
               <span
                 class="makeStyles-root-71 makeStyles-monospaced-40"
@@ -2593,79 +2653,83 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDiffExpanded-61"
             >
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
+              <span
+                class="makeStyles-minDifferenceFieldWrapper-44"
               >
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-43"
                 >
-                  <input
-                    aria-invalid="false"
-                    aria-label="Minimum Difference"
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    id="experiment.metricAssignments[0].minDifference"
-                    max="100"
-                    min="0"
-                    name="experiment.metricAssignments[0].minDifference"
-                    placeholder="0.03"
-                    step="0.01"
-                    type="number"
-                    value="0.01"
-                  />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                   >
-                    <p
-                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
-                      title="Percentage Points"
-                    >
-                      pp
-                    </p>
-                  </div>
-                  <fieldset
-                    aria-hidden="true"
-                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
-                    style="padding-left: 8px;"
-                  >
-                    <legend
-                      class="PrivateNotchedOutline-legend-73"
-                      style="width: 0.01px;"
-                    >
-                      <span>
-                        ​
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-              <button
-                aria-pressed="true"
-                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
-                tabindex="0"
-                title="Minimum Difference Calculator"
-                type="button"
-                value="check"
-              >
-                <span
-                  class="MuiToggleButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
+                    <input
+                      aria-invalid="false"
+                      aria-label="Minimum Difference"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                      id="experiment.metricAssignments[0].minDifference"
+                      max="100"
+                      min="0"
+                      name="experiment.metricAssignments[0].minDifference"
+                      placeholder="0.03"
+                      step="0.01"
+                      type="number"
+                      value="0.01"
                     />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
+                    <div
+                      class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    >
+                      <p
+                        class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                        title="Percentage Points"
+                      >
+                        pp
+                      </p>
+                    </div>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                      style="padding-left: 8px;"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legend-73"
+                        style="width: 0.01px;"
+                      >
+                        <span>
+                          ​
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  aria-pressed="true"
+                  class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                  tabindex="0"
+                  title="Minimum Difference Calculator"
+                  type="button"
+                  value="check"
+                >
+                  <span
+                    class="MuiToggleButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </span>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -3753,6 +3817,34 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               >
                 registration_start
               </span>
+              <a
+                href="/metrics/2-registration-start"
+                target="_blank"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
               <br />
               <span
                 class="makeStyles-root-71 makeStyles-monospaced-40"
@@ -3847,79 +3939,83 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43 makeStyles-minDiffExpanded-61"
+              class="MuiTableCell-root MuiTableCell-body makeStyles-minDiffExpanded-61"
             >
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-44"
+              <span
+                class="makeStyles-minDifferenceFieldWrapper-44"
               >
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-root-80 makeStyles-minDifferenceField-43"
                 >
-                  <input
-                    aria-invalid="false"
-                    aria-label="Minimum Difference"
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    id="experiment.metricAssignments[0].minDifference"
-                    max="100"
-                    min="0"
-                    name="experiment.metricAssignments[0].minDifference"
-                    placeholder="0.03"
-                    step="0.01"
-                    type="number"
-                    value="0.01"
-                  />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                   >
-                    <p
-                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
-                      title="Percentage Points"
-                    >
-                      pp
-                    </p>
-                  </div>
-                  <fieldset
-                    aria-hidden="true"
-                    class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
-                    style="padding-left: 8px;"
-                  >
-                    <legend
-                      class="PrivateNotchedOutline-legend-73"
-                      style="width: 0.01px;"
-                    >
-                      <span>
-                        ​
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-              <button
-                aria-pressed="true"
-                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
-                tabindex="0"
-                title="Minimum Difference Calculator"
-                type="button"
-                value="check"
-              >
-                <span
-                  class="MuiToggleButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
+                    <input
+                      aria-invalid="false"
+                      aria-label="Minimum Difference"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                      id="experiment.metricAssignments[0].minDifference"
+                      max="100"
+                      min="0"
+                      name="experiment.metricAssignments[0].minDifference"
+                      placeholder="0.03"
+                      step="0.01"
+                      type="number"
+                      value="0.01"
                     />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
+                    <div
+                      class="MuiInputAdornment-root makeStyles-adornment-81 MuiInputAdornment-positionEnd"
+                    >
+                      <p
+                        class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                        title="Percentage Points"
+                      >
+                        pp
+                      </p>
+                    </div>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-72 MuiOutlinedInput-notchedOutline"
+                      style="padding-left: 8px;"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legend-73"
+                        style="width: 0.01px;"
+                      >
+                        <span>
+                          ​
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  aria-pressed="true"
+                  class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 Mui-selected MuiToggleButton-sizeSmall"
+                  tabindex="0"
+                  title="Minimum Difference Calculator"
+                  type="button"
+                  value="check"
+                >
+                  <span
+                    class="MuiToggleButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </span>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -5595,6 +5691,34 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               >
                 registration_start
               </span>
+              <a
+                href="/metrics/2-registration-start"
+                target="_blank"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
               <br />
               <span
                 class="makeStyles-root-89 makeStyles-monospaced-40"
@@ -5689,79 +5813,83 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body makeStyles-minDifferenceColumn-43"
+              class="MuiTableCell-root MuiTableCell-body"
             >
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-root-98 makeStyles-minDifferenceField-44"
+              <span
+                class="makeStyles-minDifferenceFieldWrapper-44"
               >
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-root-98 makeStyles-minDifferenceField-43"
                 >
-                  <input
-                    aria-invalid="false"
-                    aria-label="Minimum Difference"
-                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                    id="experiment.metricAssignments[0].minDifference"
-                    max="100"
-                    min="0"
-                    name="experiment.metricAssignments[0].minDifference"
-                    placeholder="0.03"
-                    step="0.01"
-                    type="number"
-                    value="0"
-                  />
                   <div
-                    class="MuiInputAdornment-root makeStyles-adornment-99 MuiInputAdornment-positionEnd"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                   >
-                    <p
-                      class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
-                      title="Percentage Points"
-                    >
-                      pp
-                    </p>
-                  </div>
-                  <fieldset
-                    aria-hidden="true"
-                    class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
-                    style="padding-left: 8px;"
-                  >
-                    <legend
-                      class="PrivateNotchedOutline-legend-91"
-                      style="width: 0.01px;"
-                    >
-                      <span>
-                        ​
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
-              <button
-                aria-pressed="false"
-                class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 MuiToggleButton-sizeSmall"
-                tabindex="0"
-                title="Minimum Difference Calculator"
-                type="button"
-                value="check"
-              >
-                <span
-                  class="MuiToggleButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M7 10l5 5 5-5z"
+                    <input
+                      aria-invalid="false"
+                      aria-label="Minimum Difference"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                      id="experiment.metricAssignments[0].minDifference"
+                      max="100"
+                      min="0"
+                      name="experiment.metricAssignments[0].minDifference"
+                      placeholder="0.03"
+                      step="0.01"
+                      type="number"
+                      value="0"
                     />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
+                    <div
+                      class="MuiInputAdornment-root makeStyles-adornment-99 MuiInputAdornment-positionEnd"
+                    >
+                      <p
+                        class="MuiTypography-root makeStyles-tooltipped-68 MuiTypography-body1 MuiTypography-colorTextSecondary"
+                        title="Percentage Points"
+                      >
+                        pp
+                      </p>
+                    </div>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline"
+                      style="padding-left: 8px;"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legend-91"
+                        style="width: 0.01px;"
+                      >
+                        <span>
+                          ​
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  aria-pressed="false"
+                  class="MuiButtonBase-root MuiToggleButton-root makeStyles-minDifferenceCalculatorToggle-45 MuiToggleButton-sizeSmall"
+                  tabindex="0"
+                  title="Minimum Difference Calculator"
+                  type="button"
+                  value="check"
+                >
+                  <span
+                    class="MuiToggleButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </span>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body"

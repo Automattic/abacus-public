@@ -28,7 +28,7 @@ export default function ClipboardButton({
   }
 
   return (
-    <Button className='btn-clipboard' onClick={setClipboard}>
+    <Button onClick={setClipboard}>
       {wasTextCopied ? <AssignmentTurnedIn /> : <Assignment />}
       Copy
     </Button>

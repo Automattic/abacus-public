@@ -15,13 +15,14 @@ import {
   Typography,
 } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { Add, ArrowDropDown, Clear } from '@material-ui/icons'
+import { Add, ArrowDropDown, Clear, OpenInNew } from '@material-ui/icons'
 import { Alert, AutocompleteRenderInputParams, ToggleButton } from '@material-ui/lab'
 import clsx from 'clsx'
 import { Field, FieldArray, FormikProps, useField } from 'formik'
 import { Select, Switch, TextField } from 'formik-material-ui'
 import _ from 'lodash'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { getPropNameCompletions } from 'src/api/explat/AutocompleteApi'
 import MinDiffCalculator from 'src/components/explat/experiments/MinDiffCalculator'
@@ -37,6 +38,7 @@ import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignmen
 import { EventNew, Metric, MetricAssignment } from 'src/lib/explat/schemas'
 import { useDecorationStyles } from 'src/styles/styles'
 import { useDataSource } from 'src/utils/data-loading'
+import { createIdSlug } from 'src/utils/general'
 
 import { ExperimentFormCompletionBag } from './ExperimentForm'
 import { ReactComponent as AttributionWindowDiagram } from './img/attribution_window.svg'
@@ -61,19 +63,18 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     metricNameCell: {
       maxWidth: '24rem',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
+      wordBreak: 'break-word',
     },
     metricName: {
       fontFamily: theme.custom.fonts.monospace,
       fontWeight: theme.custom.fontWeights.monospaceBold,
     },
-    minDifferenceColumn: {
-      display: 'flex',
-    },
     minDifferenceField: {
       maxWidth: '14rem',
       marginRight: theme.spacing(1),
+    },
+    minDifferenceFieldWrapper: {
+      display: 'flex',
     },
     minDifferenceCalculatorToggle: {
       alignSelf: 'start',
@@ -471,6 +472,17 @@ const Metrics = ({
                                   {indexedMetrics[metricAssignment.metricId].name}
                                 </span>
                               </Tooltip>
+                              <Link
+                                to={`/metrics/${createIdSlug(
+                                  metricAssignment.metricId,
+                                  indexedMetrics[metricAssignment.metricId].name,
+                                )}`}
+                                target='_blank'
+                              >
+                                <IconButton size='small'>
+                                  <OpenInNew />
+                                </IconButton>
+                              </Link>
                               <br />
                               {metricAssignment.isPrimary && (
                                 <Attribute name='primary' className={classes.monospaced} />
@@ -514,28 +526,25 @@ const Metrics = ({
                                 variant='outlined'
                               />
                             </TableCell>
-                            <TableCell
-                              className={clsx(
-                                classes.minDifferenceColumn,
-                                activeMinDiffCalculatorList[index] && classes.minDiffExpanded,
-                              )}
-                            >
-                              <MetricDifferenceField
-                                className={classes.minDifferenceField}
-                                name={`experiment.metricAssignments[${index}].minDifference`}
-                                id={`experiment.metricAssignments[${index}].minDifference`}
-                                metricParameterType={indexedMetrics[metricAssignment.metricId].parameterType}
-                              />
-                              <ToggleButton
-                                value='check'
-                                selected={activeMinDiffCalculatorList[index]}
-                                onChange={handleMinDiffCalculatorToggle.bind(null, index)}
-                                className={classes.minDifferenceCalculatorToggle}
-                                title='Minimum Difference Calculator'
-                                size='small'
-                              >
-                                <ArrowDropDown />
-                              </ToggleButton>
+                            <TableCell className={clsx(activeMinDiffCalculatorList[index] && classes.minDiffExpanded)}>
+                              <span className={classes.minDifferenceFieldWrapper}>
+                                <MetricDifferenceField
+                                  className={classes.minDifferenceField}
+                                  name={`experiment.metricAssignments[${index}].minDifference`}
+                                  id={`experiment.metricAssignments[${index}].minDifference`}
+                                  metricParameterType={indexedMetrics[metricAssignment.metricId].parameterType}
+                                />
+                                <ToggleButton
+                                  value='check'
+                                  selected={activeMinDiffCalculatorList[index]}
+                                  onChange={handleMinDiffCalculatorToggle.bind(null, index)}
+                                  className={classes.minDifferenceCalculatorToggle}
+                                  title='Minimum Difference Calculator'
+                                  size='small'
+                                >
+                                  <ArrowDropDown />
+                                </ToggleButton>
+                              </span>
                             </TableCell>
                             <TableCell>
                               <MoreMenu>

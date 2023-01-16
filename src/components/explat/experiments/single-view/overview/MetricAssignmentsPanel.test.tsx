@@ -111,6 +111,34 @@ test('renders as expected with all metrics resolvable', () => {
                 >
                   metric_1
                 </strong>
+                <a
+                  href="/metrics/1-metric-1"
+                  target="_blank"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </a>
                 <br />
                 <small
                   class="makeStyles-monospace-33"
@@ -159,6 +187,34 @@ test('renders as expected with all metrics resolvable', () => {
                 >
                   metric_2
                 </strong>
+                <a
+                  href="/metrics/2-metric-2"
+                  target="_blank"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </a>
                 <br />
                 <small
                   class="makeStyles-monospace-33"
@@ -197,6 +253,34 @@ test('renders as expected with all metrics resolvable', () => {
                 >
                   metric_2
                 </strong>
+                <a
+                  href="/metrics/2-metric-2"
+                  target="_blank"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </a>
                 <br />
                 <small
                   class="makeStyles-monospace-33"
@@ -235,6 +319,34 @@ test('renders as expected with all metrics resolvable', () => {
                 >
                   metric_3
                 </strong>
+                <a
+                  href="/metrics/3-metric-3"
+                  target="_blank"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </a>
                 <br />
                 <small
                   class="makeStyles-monospace-33"

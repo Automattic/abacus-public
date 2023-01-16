@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogTitle, Toolbar, Tooltip } from '@material-ui/core'
+import { Button, Dialog, DialogTitle, IconButton, Toolbar, Tooltip } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -7,10 +7,11 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
-import { Add } from '@material-ui/icons'
+import { Add, OpenInNew } from '@material-ui/icons'
 import clsx from 'clsx'
 import _ from 'lodash'
 import React, { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import MetricAssignmentForm from 'src/components/explat/experiments/MetricAssignmentForm'
 import Attribute from 'src/components/general/Attribute'
@@ -19,6 +20,7 @@ import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignmen
 import * as MetricAssignments from 'src/lib/explat/metric-assignments'
 import { ExperimentFull, Metric, MetricAssignment, Status } from 'src/lib/explat/schemas'
 import { formatBoolean } from 'src/utils/formatters'
+import { createIdSlug } from 'src/utils/general'
 
 /**
  * Resolves the metric ID of the metric assignment with the actual metric. If the
@@ -67,11 +69,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '10%',
     },
     metricName: {
-      maxWidth: '100%',
-      display: 'inline-block',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
+      maxWidth: '24rem',
+      wordBreak: 'break-word',
     },
     metricAssignmentDialog: {
       minWidth: 600,
@@ -156,6 +155,17 @@ function MetricAssignmentsPanel({
                     {resolvedMetricAssignment.metric.name}
                   </strong>
                 </Tooltip>
+                <Link
+                  to={`/metrics/${createIdSlug(
+                    resolvedMetricAssignment.metricId,
+                    resolvedMetricAssignment.metric.name,
+                  )}`}
+                  target='_blank'
+                >
+                  <IconButton size='small'>
+                    <OpenInNew />
+                  </IconButton>
+                </Link>
                 <br />
                 <small className={classes.monospace}>{resolvedMetricAssignment.metric.description}</small>
                 <br />

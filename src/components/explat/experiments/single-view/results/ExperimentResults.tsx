@@ -6,6 +6,7 @@ import {
   createStyles,
   FormControl,
   FormHelperText,
+  IconButton,
   InputLabel,
   makeStyles,
   MenuItem,
@@ -16,7 +17,7 @@ import {
   Typography,
   useTheme,
 } from '@material-ui/core'
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
+import { ExpandMore as ExpandMoreIcon, OpenInNew } from '@material-ui/icons'
 import { Alert } from '@material-ui/lab'
 import clsx from 'clsx'
 import _ from 'lodash'
@@ -24,6 +25,7 @@ import MaterialTable, { MTableBody } from 'material-table'
 import { PlotData } from 'plotly.js'
 import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import Plot from 'react-plotly.js'
+import { Link } from 'react-router-dom'
 
 import Attribute from 'src/components/general/Attribute'
 import MetricValue, { getUnitType, UnitType } from 'src/components/general/MetricValue'
@@ -38,7 +40,7 @@ import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } 
 import * as Visualizations from 'src/lib/explat/visualizations'
 import { useDecorationStyles } from 'src/styles/styles'
 import { abbreviateNumber } from 'src/utils/formatters'
-import { isDebugMode } from 'src/utils/general'
+import { createIdSlug, isDebugMode } from 'src/utils/general'
 import { createStaticTableOptions } from 'src/utils/material-table'
 import { formatIsoDate } from 'src/utils/time'
 
@@ -401,6 +403,11 @@ export default function ExperimentResults({
                 <span>{metric.name}</span>
               </Tooltip>
               &nbsp;({AttributionWindowSecondsToHuman[metricAssignment.attributionWindowSeconds]})
+              <Link to={`/metrics/${createIdSlug(metric.metricId, metric.name)}`} target='_blank'>
+                <IconButton size='small'>
+                  <OpenInNew />
+                </IconButton>
+              </Link>
             </div>
             {metricAssignment.isPrimary && (
               <div>

@@ -156,9 +156,34 @@ export const metricRevenueParamsSchema = yup
   .camelCase()
 export interface MetricRevenueParams extends yup.InferType<typeof metricRevenueParamsSchema> {}
 
+export enum PipeModels {
+  ChurnUntimed = 'churn_untimed',
+}
+
+export enum PipeValueFields {
+  Prediction = 'prediction',
+}
+
+export enum PipeBlogToUserAggregationMethod {
+  Max = 'max',
+  Min = 'min',
+}
+
+export const metricPipeParamsSchema = yup
+  .object({
+    model: yup.string().oneOf(Object.values(PipeModels)).defined(),
+    valueField: yup.string().oneOf(Object.values(PipeValueFields)).defined(),
+    blogToUserAggregationMethod: yup.string().oneOf(Object.values(PipeBlogToUserAggregationMethod)).defined(),
+    extraAnalysisWindowDays: yup.number().integer().positive().defined(),
+  })
+  .defined()
+  .camelCase()
+export interface MetricPipeParams extends yup.InferType<typeof metricPipeParamsSchema> {}
+
 export enum MetricParameterType {
   Conversion = 'conversion',
   Revenue = 'revenue',
+  Pipe = 'pipe',
 }
 
 export const metricSchema = yup
@@ -176,6 +201,11 @@ export const metricSchema = yup
     revenueParams: yup.mixed().when('parameterType', {
       is: MetricParameterType.Revenue,
       then: metricRevenueParamsSchema.defined(),
+      otherwise: yup.mixed().oneOf([null]),
+    }),
+    pipeParams: yup.mixed().when('parameterType', {
+      is: MetricParameterType.Pipe,
+      then: metricPipeParamsSchema.defined(),
       otherwise: yup.mixed().oneOf([null]),
     }),
   })

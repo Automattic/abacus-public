@@ -35,6 +35,7 @@ export enum UnitType {
 export const MetricParameterTypeToUnitType: Record<MetricParameterType, UnitType> = {
   [MetricParameterType.Revenue]: UnitType.Usd,
   [MetricParameterType.Conversion]: UnitType.Proportion,
+  [MetricParameterType.Pipe]: UnitType.Proportion,
 }
 
 /**

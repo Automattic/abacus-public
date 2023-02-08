@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import _, { identity } from 'lodash'
 import React from 'react'
 
-import { MetricParameterType } from 'src/lib/explat/schemas'
+import { UnitType } from 'src/lib/explat/metrics'
 import { useDecorationStyles } from 'src/styles/styles'
 import {
   localizeNumber,
@@ -23,31 +23,6 @@ interface MetricValueFormat {
   postfix: React.ReactNode
   transform: (n: number) => number
   formatter: NumberToString
-}
-
-export enum UnitType {
-  Proportion = 'proportion',
-  RatioPoints = 'ratio_points',
-  Count = 'count',
-  Usd = 'usd',
-}
-
-export const MetricParameterTypeToUnitType: Record<MetricParameterType, UnitType> = {
-  [MetricParameterType.Revenue]: UnitType.Usd,
-  [MetricParameterType.Conversion]: UnitType.Proportion,
-  [MetricParameterType.Pipe]: UnitType.Proportion,
-}
-
-/**
- * MetricParameterType mapped to unit type
- */
-export function getUnitType(metricParameterType: MetricParameterType, unitType?: UnitType): UnitType {
-  // if metricParameterType is 'Revenue', we are ignoring the explicitly set unitType
-  if (metricParameterType === MetricParameterType.Revenue || !unitType) {
-    return MetricParameterTypeToUnitType[metricParameterType]
-  }
-
-  return unitType
 }
 
 /**

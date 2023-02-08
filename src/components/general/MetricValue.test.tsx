@@ -1,10 +1,11 @@
 /* eslint-disable no-irregular-whitespace */
 import React from 'react'
 
+import { UnitType } from 'src/lib/explat/metrics'
 import { render } from 'src/test-helpers/test-utils'
 import { abbreviateNumber } from 'src/utils/formatters'
 
-import MetricValue, { UnitType } from './MetricValue'
+import MetricValue from './MetricValue'
 
 test('renders metric values', () => {
   expect(render(<MetricValue value={1} unit={UnitType.Proportion} />).container).toMatchInlineSnapshot(`

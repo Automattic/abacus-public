@@ -11,7 +11,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link as RouterLink, useHistory, useLocation } from 'react-router-dom'
 
 import DatetimeText from 'src/components/general/DatetimeText'
-import MetricValue, { UnitType } from 'src/components/general/MetricValue'
+import MetricValue from 'src/components/general/MetricValue'
+import { UnitType } from 'src/lib/explat/metrics'
 import { Analysis, ExperimentSummary, Status } from 'src/lib/explat/schemas'
 import { createIdSlug } from 'src/utils/general'
 

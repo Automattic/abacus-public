@@ -19,11 +19,12 @@ import React, { useState } from 'react'
 import Plot from 'react-plotly.js'
 
 import DatetimeText from 'src/components/general/DatetimeText'
-import MetricValue, { getUnitType, UnitType } from 'src/components/general/MetricValue'
+import MetricValue from 'src/components/general/MetricValue'
 import MetricValueInterval from 'src/components/general/MetricValueInterval'
 import PrivateLink from 'src/components/general/PrivateLink'
 import * as Analyses from 'src/lib/explat/analyses'
 import { getChosenVariation, getExperimentRunHours, isOneTimeExperiment } from 'src/lib/explat/experiments'
+import { getUnitType, UnitType } from 'src/lib/explat/metrics'
 import * as Recommendations from 'src/lib/explat/recommendations'
 import {
   Analysis,

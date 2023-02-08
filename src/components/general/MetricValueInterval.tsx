@@ -2,7 +2,8 @@ import { createStyles, makeStyles, Theme, Tooltip } from '@material-ui/core'
 import clsx from 'clsx'
 import React from 'react'
 
-import MetricValue, { metricValueFormatData, UnitType } from 'src/components/general/MetricValue'
+import MetricValue, { metricValueFormatData } from 'src/components/general/MetricValue'
+import { UnitType } from 'src/lib/explat/metrics'
 import { useDecorationStyles } from 'src/styles/styles'
 import { NumberToString } from 'src/utils/formatters'
 

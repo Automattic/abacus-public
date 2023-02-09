@@ -531,7 +531,7 @@ const Metrics = ({
                                   className={classes.minDifferenceField}
                                   name={`experiment.metricAssignments[${index}].minDifference`}
                                   id={`experiment.metricAssignments[${index}].minDifference`}
-                                  metricParameterType={indexedMetrics[metricAssignment.metricId].parameterType}
+                                  metric={indexedMetrics[metricAssignment.metricId]}
                                 />
                                 <ToggleButton
                                   value='check'

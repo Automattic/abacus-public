@@ -28,13 +28,7 @@ import MetricDifferenceField from 'src/components/general/MetricDifferenceField'
 import { experimentToFormData } from 'src/lib/explat/form-data'
 import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignments'
 import { indexMetrics } from 'src/lib/explat/normalizers'
-import {
-  ExperimentFull,
-  Metric,
-  MetricAssignmentNew,
-  metricAssignmentNewSchema,
-  MetricParameterType,
-} from 'src/lib/explat/schemas'
+import { ExperimentFull, Metric, MetricAssignmentNew, metricAssignmentNewSchema } from 'src/lib/explat/schemas'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -112,6 +106,10 @@ function MetricAssignmentForm({
       validationSchema={yup.object({ metricAssignment: metricAssignmentNewSchema })}
     >
       {(formikProps) => {
+        const metric =
+          (formikProps.values.metricAssignment.metricId &&
+            indexedMetrics[formikProps.values.metricAssignment.metricId as unknown as number]) ||
+          undefined
         const parameterType =
           formikProps.values.metricAssignment.metricId &&
           indexedMetrics[formikProps.values.metricAssignment.metricId as unknown as number].parameterType
@@ -211,7 +209,7 @@ function MetricAssignmentForm({
                   <MetricDifferenceField
                     name={`metricAssignment.minDifference`}
                     id={`metricAssignment.minDifference`}
-                    metricParameterType={parameterType || MetricParameterType.Conversion}
+                    metric={metric}
                   />
                 </FormControl>
                 <ToggleButton

@@ -71,8 +71,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
-            "Event Params is required and must be valid JSON.",
-            "Exactly one of eventParams or revenueParams must be defined.",
+            "Missing expected params field for parameter type.",
           ]
         `)
       }
@@ -93,8 +92,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
-            "Revenue Params is required and must be valid JSON.",
-            "Exactly one of eventParams or revenueParams must be defined.",
+            "Missing expected params field for parameter type.",
           ]
         `)
       }
@@ -136,7 +134,8 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field must be one of the following values: ",
-            "Revenue Params is required and must be valid JSON.",
+            "Missing expected params field for parameter type.",
+            "Unexpected params found not matching parameter type.",
           ]
         `)
       }
@@ -158,7 +157,8 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field must be one of the following values: ",
-            "Event Params is required and must be valid JSON.",
+            "Missing expected params field for parameter type.",
+            "Unexpected params found not matching parameter type.",
           ]
         `)
       }
@@ -208,7 +208,8 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field must be one of the following values: ",
             "This field must be one of the following values: ",
-            "Exactly one of eventParams or revenueParams must be defined.",
+            "Missing expected params field for parameter type.",
+            "Unexpected params found not matching parameter type.",
           ]
         `)
       }
@@ -229,7 +230,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
-            "Exactly one of eventParams or revenueParams must be defined.",
+            "Missing expected params field for parameter type.",
           ]
         `)
       }

@@ -186,7 +186,8 @@ export enum MetricParameterType {
   Pipe = 'pipe',
 }
 
-export const metricSchema = yup
+// We are defining a noTest version of the metric schema due to the interdependencies in the the types for the tests:
+const noTestMetricSchema = yup
   .object({
     metricId: idSchema.defined(),
     name: nameSchema.defined(),
@@ -211,20 +212,30 @@ export const metricSchema = yup
   })
   .defined()
   .camelCase()
-  .test('event-params-required', 'Event Params is required and must be valid JSON.', (metric) => {
+export interface Metric extends yup.InferType<typeof noTestMetricSchema> {}
+
+export const metricParameterTypeToParameterField: Record<MetricParameterType, keyof Omit<Metric, 'metricId'>> = {
+  [MetricParameterType.Conversion]: 'eventParams',
+  [MetricParameterType.Revenue]: 'revenueParams',
+  [MetricParameterType.Pipe]: 'pipeParams',
+} as const
+
+export const metricSchema = noTestMetricSchema
+  // Note: Ignoring no-unsafe-member-access is fine here, as exceptions will turn into validation errors.
+  .test('expected-params', 'Missing expected params field for parameter type.', (metric) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return !(metric.parameterType === MetricParameterType.Conversion && !metric.eventParams)
+    return !!metric[metricParameterTypeToParameterField[metric.parameterType as string as MetricParameterType]]
   })
-  .test('revenue-params-required', 'Revenue Params is required and must be valid JSON.', (metric) => {
+  .test('unexpected-params', 'Unexpected params found not matching parameter type.', (metric) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return !(metric.parameterType === MetricParameterType.Revenue && !metric.revenueParams)
+    return (
+      Object.values(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        _.omit(metricParameterTypeToParameterField, metric.parameterType),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      ).filter((parameterField) => metric[parameterField as string]).length === 0
+    )
   })
-  .test('exactly-one-params', 'Exactly one of eventParams or revenueParams must be defined.', (metric) => {
-    // (Logical XOR)
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return !!metric.eventParams !== !!metric.revenueParams
-  })
-export interface Metric extends yup.InferType<typeof metricSchema> {}
 export const metricNewSchema = metricSchema.shape({
   metricId: idSchema.nullable(),
 })
@@ -240,14 +251,13 @@ export const metricNewOutboundSchema = metricNewSchema.snakeCase().transform(
       ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         metricRevenueParamsSchema.snakeCase().cast(currentValue.revenue_params)
       : undefined,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    pipe_params: currentValue.pipe_params
+      ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        metricPipeParamsSchema.snakeCase().cast(currentValue.pipe_params)
+      : undefined,
   }),
 )
-
-export const metricParameterTypeToParameterField: Record<MetricParameterType, keyof Omit<Metric, 'metricId'>> = {
-  [MetricParameterType.Conversion]: 'eventParams',
-  [MetricParameterType.Revenue]: 'revenueParams',
-  [MetricParameterType.Pipe]: 'pipeParams',
-} as const
 
 export enum AttributionWindowSeconds {
   OneHour = 3600,

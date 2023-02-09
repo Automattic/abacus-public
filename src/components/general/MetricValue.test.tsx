@@ -8,28 +8,29 @@ import { abbreviateNumber } from 'src/utils/formatters'
 import MetricValue from './MetricValue'
 
 test('renders metric values', () => {
-  expect(render(<MetricValue value={1} unit={UnitType.Proportion} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={1} unit={{ unitType: UnitType.Ratio }} />).container).toMatchInlineSnapshot(`
     <div>
       
       100
       %
     </div>
   `)
-  expect(render(<MetricValue value={0.01} unit={UnitType.Proportion} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.01} unit={{ unitType: UnitType.Ratio }} />).container).toMatchInlineSnapshot(`
     <div>
       
       1
       %
     </div>
   `)
-  expect(render(<MetricValue value={0.123456789} unit={UnitType.Proportion} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.123456789} unit={{ unitType: UnitType.Ratio }} />).container)
+    .toMatchInlineSnapshot(`
     <div>
       
       12.35
       %
     </div>
   `)
-  expect(render(<MetricValue value={1} unit={UnitType.RatioPoints} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={1} unit={{ unitType: UnitType.RatioPoints }} />).container).toMatchInlineSnapshot(`
     <div>
       
       100
@@ -41,7 +42,8 @@ test('renders metric values', () => {
       </span>
     </div>
   `)
-  expect(render(<MetricValue value={0.01} unit={UnitType.RatioPoints} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.01} unit={{ unitType: UnitType.RatioPoints }} />).container)
+    .toMatchInlineSnapshot(`
     <div>
       
       1
@@ -53,7 +55,8 @@ test('renders metric values', () => {
       </span>
     </div>
   `)
-  expect(render(<MetricValue value={0.123456789} unit={UnitType.RatioPoints} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.123456789} unit={{ unitType: UnitType.RatioPoints }} />).container)
+    .toMatchInlineSnapshot(`
     <div>
       
       12.35
@@ -66,42 +69,44 @@ test('renders metric values', () => {
     </div>
   `)
 
-  expect(render(<MetricValue value={1} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={1} unit={{ unitType: UnitType.Usd }} />).container).toMatchInlineSnapshot(`
     <div>
       
       1.00
        USD
     </div>
   `)
-  expect(render(<MetricValue value={0.01} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.01} unit={{ unitType: UnitType.Usd }} />).container).toMatchInlineSnapshot(`
     <div>
       
       0.01
        USD
     </div>
   `)
-  expect(render(<MetricValue value={0.123456789} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.123456789} unit={{ unitType: UnitType.Usd }} />).container)
+    .toMatchInlineSnapshot(`
     <div>
       
       0.12
        USD
     </div>
   `)
-  expect(render(<MetricValue value={1} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={1} unit={{ unitType: UnitType.Usd }} />).container).toMatchInlineSnapshot(`
     <div>
       
       1.00
        USD
     </div>
   `)
-  expect(render(<MetricValue value={0.01} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.01} unit={{ unitType: UnitType.Usd }} />).container).toMatchInlineSnapshot(`
     <div>
       
       0.01
        USD
     </div>
   `)
-  expect(render(<MetricValue value={0.123456789} unit={UnitType.Usd} />).container).toMatchInlineSnapshot(`
+  expect(render(<MetricValue value={0.123456789} unit={{ unitType: UnitType.Usd }} />).container)
+    .toMatchInlineSnapshot(`
     <div>
       
       0.12
@@ -109,7 +114,7 @@ test('renders metric values', () => {
     </div>
   `)
 
-  expect(render(<MetricValue value={1200} unit={UnitType.Usd} formatter={abbreviateNumber} />).container)
+  expect(render(<MetricValue value={1200} unit={{ unitType: UnitType.Usd }} formatter={abbreviateNumber} />).container)
     .toMatchInlineSnapshot(`
     <div>
       
@@ -117,8 +122,9 @@ test('renders metric values', () => {
        USD
     </div>
   `)
-  expect(render(<MetricValue value={1200000} unit={UnitType.Proportion} formatter={abbreviateNumber} />).container)
-    .toMatchInlineSnapshot(`
+  expect(
+    render(<MetricValue value={1200000} unit={{ unitType: UnitType.Ratio }} formatter={abbreviateNumber} />).container,
+  ).toMatchInlineSnapshot(`
     <div>
       
       120M

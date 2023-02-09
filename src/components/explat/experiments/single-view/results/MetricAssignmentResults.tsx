@@ -24,7 +24,7 @@ import MetricValueInterval from 'src/components/general/MetricValueInterval'
 import PrivateLink from 'src/components/general/PrivateLink'
 import * as Analyses from 'src/lib/explat/analyses'
 import { getChosenVariation, getExperimentRunHours, isOneTimeExperiment } from 'src/lib/explat/experiments'
-import { getUnitType, UnitType } from 'src/lib/explat/metrics'
+import { getUnitInfo, UnitDerivationType, UnitInfo, UnitType } from 'src/lib/explat/metrics'
 import * as Recommendations from 'src/lib/explat/recommendations'
 import {
   Analysis,
@@ -207,7 +207,7 @@ interface CredibleIntervalLine {
   name: string
   distributionStats?: DistributionStats
   intervalName: string
-  unit: UnitType
+  unit: UnitInfo
 }
 
 /**
@@ -414,7 +414,7 @@ export default function MetricAssignmentResults({
       name: variation.name,
       distributionStats: _.get(latestEstimates, ['variations', variation.variationId]) as DistributionStats | undefined,
       intervalName: 'the metric value',
-      unit: getUnitType(metric.parameterType),
+      unit: getUnitInfo(metric),
     })),
 
     // Absolute diffs
@@ -424,7 +424,7 @@ export default function MetricAssignmentResults({
         | DistributionStats
         | undefined,
       intervalName: 'the absolute change between variations',
-      unit: getUnitType(metric.parameterType),
+      unit: getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference]),
     })),
 
     // Relative diffs
@@ -437,7 +437,7 @@ export default function MetricAssignmentResults({
         name: `(${variationA.name} - ${variationB.name}) / ${variationB.name}`,
         distributionStats: relDiffs as DistributionStats | undefined,
         intervalName: 'the relative change between variations',
-        unit: UnitType.Proportion,
+        unit: getUnitInfo(metric, [UnitDerivationType.RelativeDifference]),
       }
     }),
   ]
@@ -482,7 +482,7 @@ export default function MetricAssignmentResults({
                   The absolute change in the {isConversion ? 'conversion rate' : 'ACPU'} of{' '}
                   <MetricValueInterval
                     intervalName={'the absolute change'}
-                    unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+                    unit={getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])}
                     bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95}
                     topValue={latestEstimates.diffs[variationDiffKey].top_95}
                     displayTooltipHint={false}
@@ -498,7 +498,7 @@ export default function MetricAssignmentResults({
                   }
                   <MetricValueInterval
                     intervalName={'the minimum practical difference interval'}
-                    unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+                    unit={getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])}
                     bottomValue={-metricAssignment.minDifference}
                     topValue={metricAssignment.minDifference}
                     displayTooltipHint={false}
@@ -510,14 +510,14 @@ export default function MetricAssignmentResults({
                     Given the relative change (lift) between{' '}
                     <MetricValueInterval
                       intervalName={'the relative change'}
-                      unit={UnitType.Proportion}
+                      unit={getUnitInfo(metric, [UnitDerivationType.RelativeDifference])}
                       bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
                       topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
                       displayTooltipHint={false}
                     />{' '}
                     after analyzing{' '}
                     <MetricValue
-                      unit={UnitType.Count}
+                      unit={{ unitType: UnitType.Count }}
                       value={latestAnalysis.participantStats['total']}
                       displayUnit={false}
                     />{' '}
@@ -526,7 +526,7 @@ export default function MetricAssignmentResults({
                     {impactIntervalInMonths === 1 ? 'monthly' : 'yearly'} impact of {changeVariationName} is between{' '}
                     <MetricValueInterval
                       intervalName={'the estimated impact'}
-                      unit={getUnitType(metric.parameterType, UnitType.Count)}
+                      unit={getUnitInfo(metric, [UnitDerivationType.ImpactScaled])}
                       bottomValue={
                         latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact
                       }
@@ -585,7 +585,7 @@ export default function MetricAssignmentResults({
                   <TableCell className={classes.monospace} align='right'>
                     <MetricValueInterval
                       intervalName={'the metric value'}
-                      unit={getUnitType(metric.parameterType)}
+                      unit={getUnitInfo(metric)}
                       bottomValue={latestEstimates.variations[variation.variationId].bottom_95}
                       topValue={latestEstimates.variations[variation.variationId].top_95}
                       displayPositiveSign={false}
@@ -597,7 +597,7 @@ export default function MetricAssignmentResults({
                     ) : (
                       <MetricValueInterval
                         intervalName={'the absolute change between variations'}
-                        unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+                        unit={getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])}
                         bottomValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].bottom_95}
                         topValue={latestEstimates.diffs[`${variation.variationId}_${baseVariationId}`].top_95}
                       />
@@ -609,7 +609,7 @@ export default function MetricAssignmentResults({
                     ) : (
                       <MetricValueInterval
                         intervalName={'the relative change between variations'}
-                        unit={UnitType.Proportion}
+                        unit={getUnitInfo(metric, [UnitDerivationType.RelativeDifference])}
                         bottomValue={Analyses.ratioToDifferenceRatio(
                           latestEstimates.ratios[`${variation.variationId}_${baseVariationId}`].bottom_95,
                         )}
@@ -629,7 +629,7 @@ export default function MetricAssignmentResults({
         95% Credible Intervals (CIs). <strong> Experimenter-set minimum practical difference: </strong>{' '}
         <MetricValue
           value={metricAssignment.minDifference}
-          unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+          unit={getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])}
         />
         .
       </Typography>
@@ -709,7 +709,7 @@ export default function MetricAssignmentResults({
                       <TableCell className={classes.monospace} align='right'>
                         <MetricValue
                           value={latestAnalysis.participantStats[`variation_${variation.variationId}`]}
-                          unit={UnitType.Count}
+                          unit={{ unitType: UnitType.Count }}
                           displayUnit={false}
                         />
                       </TableCell>
@@ -719,14 +719,14 @@ export default function MetricAssignmentResults({
                             latestAnalysis.participantStats[`variation_${variation.variationId}`] *
                             latestEstimates.variations[variation.variationId].mean
                           }
-                          unit={UnitType.Count}
+                          unit={{ unitType: UnitType.Count }}
                           displayUnit={false}
                         />
                       </TableCell>
                       <TableCell className={classes.monospace} align='right'>
                         <MetricValue
                           value={latestEstimates.variations[variation.variationId].mean}
-                          unit={getUnitType(metric.parameterType)}
+                          unit={getUnitInfo(metric)}
                         />
                       </TableCell>
                     </TableRow>

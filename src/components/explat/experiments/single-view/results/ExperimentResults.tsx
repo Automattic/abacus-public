@@ -34,7 +34,7 @@ import * as Analyses from 'src/lib/explat/analyses'
 import * as Experiments from 'src/lib/explat/experiments'
 import * as MetricAssignments from 'src/lib/explat/metric-assignments'
 import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignments'
-import { getUnitType, UnitType } from 'src/lib/explat/metrics'
+import { getUnitInfo, UnitDerivationType, UnitType } from 'src/lib/explat/metrics'
 import { indexMetrics } from 'src/lib/explat/normalizers'
 import * as Recommendations from 'src/lib/explat/recommendations'
 import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from 'src/lib/explat/schemas'
@@ -420,7 +420,7 @@ export default function ExperimentResults({
                 Baseline: {'  '}
                 <MetricValueInterval
                   intervalName={'the baseline metric value'}
-                  unit={getUnitType(metric.parameterType)}
+                  unit={getUnitInfo(metric)}
                   bottomValue={latestEstimates.variations[baseVariationId].bottom_95}
                   topValue={latestEstimates.variations[baseVariationId].top_95}
                   displayPositiveSign={false}
@@ -470,7 +470,7 @@ export default function ExperimentResults({
             />
             <MetricValueInterval
               intervalName={'the absolute change between variations'}
-              unit={getUnitType(metric.parameterType, UnitType.RatioPoints)}
+              unit={getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])}
               bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95}
               topValue={latestEstimates.diffs[variationDiffKey].top_95}
               displayTooltipHint={false}
@@ -544,7 +544,7 @@ export default function ExperimentResults({
           <div className={classes.estimatedImpactWrapper}>
             <MetricValueInterval
               intervalName={impactIntervalName}
-              unit={getUnitType(metric.parameterType, UnitType.Count)}
+              unit={getUnitInfo(metric, [UnitDerivationType.ImpactScaled])}
               formatter={abbreviateNumber}
               bottomValue={latestEstimates.diffs[variationDiffKey].bottom_95 * estimatedTotalParticipantsForImpact}
               topValue={latestEstimates.diffs[variationDiffKey].top_95 * estimatedTotalParticipantsForImpact}
@@ -553,7 +553,7 @@ export default function ExperimentResults({
             />
             <MetricValueInterval
               intervalName={'the relative change between variations'}
-              unit={UnitType.Proportion}
+              unit={getUnitInfo(metric, [UnitDerivationType.RelativeDifference])}
               bottomValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].bottom_95)}
               topValue={Analyses.ratioToDifferenceRatio(latestEstimates.ratios[variationDiffKey].top_95)}
               displayTooltipHint={false}
@@ -746,7 +746,11 @@ export default function ExperimentResults({
                     <>
                       <div className={classes.summaryStatsPart}>
                         <Typography variant='h3' className={classes.summaryStatsStat} color='primary'>
-                          <MetricValue value={totalParticipants} unit={UnitType.Count} displayUnit={false} />
+                          <MetricValue
+                            value={totalParticipants}
+                            unit={{ unitType: UnitType.Count }}
+                            displayUnit={false}
+                          />
                         </Typography>
                         <Typography variant='subtitle1'>
                           <strong>analyzed participants</strong> as at{' '}

@@ -266,7 +266,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               valueGetter: (params: { data: { analyses: Analysis[] } }) =>
                 params.data.analyses[0]?.participantStats.total || 0,
               cellRendererFramework: ({ value: participants }: { value: number }) => {
-                return <MetricValue value={participants} unit={UnitType.Count} displayUnit={false} />
+                return <MetricValue value={participants} unit={{ unitType: UnitType.Count }} displayUnit={false} />
               },
               sortable: true,
               filter: 'agNumberColumnFilter',

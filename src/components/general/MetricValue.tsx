@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import _, { identity } from 'lodash'
 import React from 'react'
 
-import { UnitType } from 'src/lib/explat/metrics'
+import { UnitInfo, UnitType } from 'src/lib/explat/metrics'
 import { useDecorationStyles } from 'src/styles/styles'
 import {
   localizeNumber,
@@ -29,7 +29,7 @@ interface MetricValueFormat {
  * Metric Formatting Data
  */
 export const metricValueFormatData: Record<UnitType, MetricValueFormat> = {
-  [UnitType.Proportion]: {
+  [UnitType.Ratio]: {
     unit: '%',
     prefix: '',
     postfix: '%',
@@ -79,12 +79,12 @@ export default function MetricValue({
   formatter,
 }: {
   value: number
-  unit: UnitType
+  unit: UnitInfo
   displayUnit?: boolean
   displayPositiveSign?: boolean
   formatter?: NumberToString
 }): JSX.Element {
-  const format = metricValueFormatData[unit]
+  const format = metricValueFormatData[unit.unitType]
   return (
     <>
       {displayPositiveSign && 0 <= value && '+'}

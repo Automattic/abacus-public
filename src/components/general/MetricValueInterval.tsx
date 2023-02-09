@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 
 import MetricValue, { metricValueFormatData } from 'src/components/general/MetricValue'
-import { UnitType } from 'src/lib/explat/metrics'
+import { UnitInfo } from 'src/lib/explat/metrics'
 import { useDecorationStyles } from 'src/styles/styles'
 import { NumberToString } from 'src/utils/formatters'
 
@@ -47,7 +47,7 @@ export default function MetricValueInterval({
   intervalName: string
   bottomValue: number
   topValue: number
-  unit: UnitType
+  unit: UnitInfo
   formatter?: NumberToString
   displayTooltipHint?: boolean
   displayPositiveSign?: boolean
@@ -57,7 +57,7 @@ export default function MetricValueInterval({
 }): JSX.Element {
   const classes = useStyles()
   const decorationClasses = useDecorationStyles()
-  const metricValueFormat = metricValueFormatData[unit]
+  const metricValueFormat = metricValueFormatData[unit.unitType]
   return (
     <Tooltip
       title={

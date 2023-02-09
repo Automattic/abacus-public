@@ -18,7 +18,7 @@ import Attribute from 'src/components/general/Attribute'
 import MetricValue from 'src/components/general/MetricValue'
 import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignments'
 import * as MetricAssignments from 'src/lib/explat/metric-assignments'
-import { getUnitType, UnitType } from 'src/lib/explat/metrics'
+import { getUnitInfo, UnitDerivationType } from 'src/lib/explat/metrics'
 import { ExperimentFull, Metric, MetricAssignment, Status } from 'src/lib/explat/schemas'
 import { formatBoolean } from 'src/utils/formatters'
 import { createIdSlug } from 'src/utils/general'
@@ -181,7 +181,7 @@ function MetricAssignmentsPanel({
               <TableCell className={classes.monospace}>
                 <MetricValue
                   value={resolvedMetricAssignment.minDifference}
-                  unit={getUnitType(resolvedMetricAssignment.metric.parameterType, UnitType.RatioPoints)}
+                  unit={getUnitInfo(resolvedMetricAssignment.metric, [UnitDerivationType.AbsoluteDifference])}
                 />
               </TableCell>
             </TableRow>

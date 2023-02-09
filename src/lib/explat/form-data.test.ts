@@ -3,6 +3,7 @@ import MockDate from 'mockdate'
 import Fixtures from 'src/test-helpers/fixtures'
 
 import { experimentToFormData, metricToFormData } from './form-data'
+import { MetricParameterType, PipeBlogToUserAggregationMethod, PipeModels, PipeValueFields } from './schemas'
 
 MockDate.set('2020-08-13')
 
@@ -139,6 +140,7 @@ describe('lib/form-data.test.ts module', () => {
           "higherIsBetter": true,
           "name": "",
           "parameterType": "conversion",
+          "pipeParams": undefined,
           "revenueParams": undefined,
         }
       `)
@@ -159,6 +161,7 @@ describe('lib/form-data.test.ts module', () => {
           "higherIsBetter": false,
           "name": "metric_1",
           "parameterType": "conversion",
+          "pipeParams": undefined,
           "revenueParams": undefined,
         }
       `)
@@ -170,6 +173,7 @@ describe('lib/form-data.test.ts module', () => {
           "higherIsBetter": false,
           "name": "metric_2",
           "parameterType": "revenue",
+          "pipeParams": undefined,
           "revenueParams": "{
           \\"refundDays\\": 4,
           \\"productSlugs\\": [
@@ -179,6 +183,37 @@ describe('lib/form-data.test.ts module', () => {
             \\"new purchase\\"
           ]
         }",
+        }
+      `)
+
+      expect(
+        metricToFormData(
+          Fixtures.createMetric(2, {
+            parameterType: MetricParameterType.Pipe,
+            revenueParams: undefined,
+            eventParams: undefined,
+            pipeParams: {
+              model: PipeModels.ChurnUntimed,
+              fieldValue: PipeValueFields.Prediction,
+              blogToUserAggregationMethod: PipeBlogToUserAggregationMethod.Max,
+              extraAnalysisWindowDays: 10,
+            },
+          }),
+        ),
+      ).toMatchInlineSnapshot(`
+        Object {
+          "description": "This is metric 2",
+          "eventParams": undefined,
+          "higherIsBetter": false,
+          "name": "metric_2",
+          "parameterType": "pipe",
+          "pipeParams": "{
+          \\"model\\": \\"churn_untimed\\",
+          \\"fieldValue\\": \\"prediction\\",
+          \\"blogToUserAggregationMethod\\": \\"max\\",
+          \\"extraAnalysisWindowDays\\": 10
+        }",
+          "revenueParams": undefined,
         }
       `)
     })

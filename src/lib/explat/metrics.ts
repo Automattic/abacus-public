@@ -15,11 +15,11 @@ export enum UnitType {
   Usd = 'usd',
 }
 
-export const MetricParameterTypeToUnitType: Record<MetricParameterType, UnitType> = {
-  [MetricParameterType.Revenue]: UnitType.Usd,
-  [MetricParameterType.Conversion]: UnitType.Ratio,
-  [MetricParameterType.Pipe]: UnitType.Ratio,
-}
+export const metricParameterTypeName: Record<MetricParameterType, string> = {
+  [MetricParameterType.Revenue]: 'Cash Sales',
+  [MetricParameterType.Conversion]: 'Conversion',
+  [MetricParameterType.Pipe]: 'Pipe Model',
+} as const
 
 export interface UnitInfo {
   unitType: UnitType

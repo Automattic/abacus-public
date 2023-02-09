@@ -119,9 +119,10 @@ export type ExperimentFormData = ReturnType<typeof experimentToFormData>
 export const metricToFormData: (metric: Partial<Metric>) => {
   parameterType: MetricParameterType
   name: string
-  eventParams: string | undefined
   description: string
+  eventParams: string | undefined
   revenueParams: string | undefined
+  pipeParams: string | undefined
   higherIsBetter: boolean
 } = (metric: Partial<Metric>) => ({
   name: metric.name ?? '',
@@ -130,6 +131,7 @@ export const metricToFormData: (metric: Partial<Metric>) => {
   higherIsBetter: metric.higherIsBetter ?? true,
   eventParams: metric.eventParams ? JSON.stringify(metric.eventParams, null, 2) : undefined,
   revenueParams: metric.revenueParams ? JSON.stringify(metric.revenueParams, null, 2) : undefined,
+  pipeParams: metric.pipeParams ? JSON.stringify(metric.pipeParams, null, 2) : undefined,
 })
 export type MetricFormData = ReturnType<typeof metricToFormData>
 

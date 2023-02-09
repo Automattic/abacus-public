@@ -6,7 +6,7 @@ import MaterialTable from 'material-table'
 import React, { forwardRef, useEffect, useMemo } from 'react'
 
 import MetricsApi from 'src/api/explat/MetricsApi'
-import { stringifyMetricParams } from 'src/lib/explat/metrics'
+import { metricParameterTypeName, stringifyMetricParams } from 'src/lib/explat/metrics'
 import { Metric, MetricParameterType } from 'src/lib/explat/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 import { createIdSlug } from 'src/utils/general'
@@ -83,8 +83,7 @@ const MetricsTable = ({
     {
       title: 'Parameter Type',
       field: 'parameterType',
-      render: ({ parameterType }: { parameterType: MetricParameterType }) =>
-        parameterType === MetricParameterType.Revenue ? 'Cash Sales' : _.capitalize(parameterType),
+      render: ({ parameterType }: { parameterType: MetricParameterType }) => metricParameterTypeName[parameterType],
       cellStyle: {
         fontFamily: theme.custom.fonts.monospace,
       },

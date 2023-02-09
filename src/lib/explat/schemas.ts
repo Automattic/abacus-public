@@ -243,6 +243,12 @@ export const metricNewOutboundSchema = metricNewSchema.snakeCase().transform(
   }),
 )
 
+export const metricParameterTypeToParameterField: Record<MetricParameterType, keyof Omit<Metric, 'metricId'>> = {
+  [MetricParameterType.Conversion]: 'eventParams',
+  [MetricParameterType.Revenue]: 'revenueParams',
+  [MetricParameterType.Pipe]: 'pipeParams',
+} as const
+
 export enum AttributionWindowSeconds {
   OneHour = 3600,
   SixHours = 21600,

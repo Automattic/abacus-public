@@ -12,8 +12,8 @@ import {
 import _ from 'lodash'
 import React from 'react'
 
-import { stringifyMetricParams } from 'src/lib/explat/metrics'
-import { Metric, MetricParameterType } from 'src/lib/explat/schemas'
+import { metricParameterTypeName, stringifyMetricParams } from 'src/lib/explat/metrics'
+import { Metric } from 'src/lib/explat/schemas'
 import { formatBoolean } from 'src/utils/formatters'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -69,11 +69,7 @@ export default function MetricDetails({
                   </TableRow>
                   <TableRow>
                     <TableCell className={classes.headerCell}>Parameter Type:</TableCell>
-                    <TableCell className={classes.dataCell}>
-                      {metric.parameterType === MetricParameterType.Revenue
-                        ? 'Cash Sales'
-                        : _.capitalize(metric.parameterType)}
-                    </TableCell>
+                    <TableCell className={classes.dataCell}>{metricParameterTypeName[metric.parameterType]}</TableCell>
                   </TableRow>
                 </>
               )}

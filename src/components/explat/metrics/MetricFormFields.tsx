@@ -2,10 +2,12 @@ import { FormControl, FormControlLabel, FormLabel, Radio, TextField as MuiTextFi
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Field, FormikProps } from 'formik'
 import { fieldToTextField, RadioGroup, Switch, TextField, TextFieldProps } from 'formik-material-ui'
+import _ from 'lodash'
 import React, { useEffect } from 'react'
 
 import { MetricFormData } from 'src/lib/explat/form-data'
-import { MetricParameterType } from 'src/lib/explat/schemas'
+import { metricParameterTypeName } from 'src/lib/explat/metrics'
+import { metricParameterTypeToParameterField } from 'src/lib/explat/schemas'
 
 import DebugOutput from '../../general/DebugOutput'
 
@@ -48,29 +50,26 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
 
   // Here we reset the params field after parameterType changes
   useEffect(() => {
-    if (formikProps.values.metric.parameterType === MetricParameterType.Conversion) {
-      const eventParams = formikProps.values.metric.eventParams
-      formikProps.setValues({
-        ...formikProps.values,
-        metric: {
-          ...formikProps.values.metric,
-          revenueParams: undefined,
-          eventParams: eventParams ?? '[]',
-        },
-      })
-    } else {
-      const revenueParams = formikProps.values.metric.revenueParams
-      formikProps.setValues({
-        ...formikProps.values,
-        metric: {
-          ...formikProps.values.metric,
-          revenueParams: revenueParams ?? '{}',
-          eventParams: undefined,
-        },
-      })
-    }
+    const paramsField = metricParameterTypeToParameterField[formikProps.values.metric.parameterType]
+    const params = formikProps.values.metric[paramsField]
+    formikProps.setValues({
+      ...formikProps.values,
+      metric: {
+        ...formikProps.values.metric,
+        [metricParameterTypeToParameterField[formikProps.values.metric.parameterType]]: params ?? '',
+        // Set the other parameterFields to undefined:
+        ...(Object.fromEntries(
+          Object.values(_.omit(metricParameterTypeToParameterField, formikProps.values.metric.parameterType)).map(
+            (parameterField) => [parameterField, undefined],
+          ),
+        ) as Partial<MetricFormData>),
+      },
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formikProps.values.metric.parameterType])
+
+  const paramsField = metricParameterTypeToParameterField[formikProps.values.metric.parameterType]
+  const metricTypeName = metricParameterTypeName[formikProps.values.metric.parameterType]
 
   return (
     <>
@@ -134,58 +133,34 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
             required
             aria-labelledby='metric-form-radio-metric-type-label'
           >
-            <FormControlLabel
-              value={MetricParameterType.Conversion}
-              label='Conversion'
-              aria-label='Conversion'
-              control={<Radio disabled={formikProps.isSubmitting} />}
-              disabled={formikProps.isSubmitting}
-            />
-            <FormControlLabel
-              value={MetricParameterType.Revenue}
-              label='Cash Sales'
-              aria-label='Cash Sales'
-              control={<Radio disabled={formikProps.isSubmitting} />}
-              disabled={formikProps.isSubmitting}
-            />
+            {Object.entries(metricParameterTypeName).map(([parameterType, name]) => (
+              <FormControlLabel
+                key={parameterType}
+                value={parameterType}
+                label={name}
+                aria-label={name}
+                control={<Radio disabled={formikProps.isSubmitting} />}
+                disabled={formikProps.isSubmitting}
+              />
+            ))}
           </Field>
         </FormControl>
       </div>
       <div className={classes.row}>
-        {formikProps.values.metric.parameterType === MetricParameterType.Conversion && (
-          <Field
-            component={JsonTextField}
-            name='metric.eventParams'
-            id='metric.eventParams'
-            label='Event Parameters'
-            variant='outlined'
-            fullWidth
-            required
-            multiline
-            rows={8}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        )}
-      </div>
-      <div className={classes.row}>
-        {formikProps.values.metric.parameterType === MetricParameterType.Revenue && (
-          <Field
-            component={JsonTextField}
-            name='metric.revenueParams'
-            id='metric.revenueParams'
-            label='Cash Sales Parameters'
-            variant='outlined'
-            fullWidth
-            required
-            multiline
-            rows={8}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        )}
+        <Field
+          component={JsonTextField}
+          name={`metric.${paramsField}`}
+          id={`metric.${paramsField}`}
+          label={`${metricTypeName} Parameters`}
+          variant='outlined'
+          fullWidth
+          required
+          multiline
+          rows={8}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
       </div>
       <DebugOutput label='Validation Errors' content={formikProps.errors} />
     </>

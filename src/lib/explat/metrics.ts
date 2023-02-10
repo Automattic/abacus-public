@@ -1,12 +1,18 @@
 import { match, P } from 'ts-pattern'
 
-import { Metric, MetricParameterType, PipeModels, PipeValueFields } from './schemas'
+import {
+  Metric,
+  MetricParameterType,
+  metricParameterTypeToParameterField,
+  PipeModels,
+  PipeValueFields,
+} from './schemas'
 
 /**
  * Return a stringified version of the metric params object
  */
 export const stringifyMetricParams = (metric: Metric): string =>
-  JSON.stringify(metric.parameterType === 'conversion' ? metric.eventParams : metric.revenueParams, null, 4)
+  JSON.stringify(metric[metricParameterTypeToParameterField[metric.parameterType]], null, 4)
 
 export enum UnitType {
   Ratio = 'ratio',

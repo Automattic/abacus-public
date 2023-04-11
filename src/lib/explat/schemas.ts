@@ -114,6 +114,29 @@ export const extendedNumberSchema = yup
   // eslint-disable-next-line no-template-curly-in-string
   .test('is-number', '${path} is not a number', (value: unknown) => value === undefined || typeof value === 'number')
 
+export enum TagNamespace {
+  ExclusionGroup = 'exclusion_group',
+}
+
+export const tagBareSchema = yup
+  .object({
+    tagId: idSchema.defined(),
+    namespace: nameSchema.defined(),
+    name: nameSchema.defined(),
+    description: yup.string().defined(),
+  })
+  .defined()
+  .camelCase()
+export interface TagBare extends yup.InferType<typeof tagBareSchema> {}
+// For consistency and openness:
+export const tagFullSchema = tagBareSchema
+export interface TagFull extends yup.InferType<typeof tagFullSchema> {}
+export const tagFullNewSchema = tagFullSchema.shape({
+  tagId: idSchema.nullable(),
+})
+export interface TagFullNew extends yup.InferType<typeof tagFullNewSchema> {}
+export const tagFullNewOutboundSchema = tagFullNewSchema.snakeCase()
+
 export const eventSchema = yup
   .object({
     event: yup.string().defined(),
@@ -209,6 +232,7 @@ const noTestMetricSchema = yup
       then: metricPipeParamsSchema.defined(),
       otherwise: yup.mixed().oneOf([null]),
     }),
+    tags: yup.array(tagFullSchema),
   })
   .defined()
   .camelCase()
@@ -238,26 +262,34 @@ export const metricSchema = noTestMetricSchema
   })
 export const metricNewSchema = metricSchema.shape({
   metricId: idSchema.nullable(),
+  // Used by Formik and AbacusAutocomplete when editing assigned tags.
+  tags: yup.array(idSchema.defined()).defined(),
 })
 export interface MetricNew extends yup.InferType<typeof metricNewSchema> {}
-export const metricNewOutboundSchema = metricNewSchema.snakeCase().transform(
-  // istanbul ignore next; Tested by integration
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  (currentValue) => ({
-    ...currentValue,
-    revenueParams: undefined,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    revenue_params: currentValue.revenue_params
-      ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        metricRevenueParamsSchema.snakeCase().cast(currentValue.revenue_params)
-      : undefined,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    pipe_params: currentValue.pipe_params
-      ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        metricPipeParamsSchema.snakeCase().cast(currentValue.pipe_params)
-      : undefined,
-  }),
-)
+export const metricNewOutboundSchema = metricNewSchema
+  .snakeCase()
+  .transform(
+    // istanbul ignore next; Tested by integration
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    (currentValue) => ({
+      ...currentValue,
+      revenueParams: undefined,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      revenue_params: currentValue.revenue_params
+        ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          metricRevenueParamsSchema.snakeCase().cast(currentValue.revenue_params)
+        : undefined,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      pipe_params: currentValue.pipe_params
+        ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          metricPipeParamsSchema.snakeCase().cast(currentValue.pipe_params)
+        : undefined,
+    }),
+  )
+  .shape({
+    tags: yup.array(yupPick(tagFullSchema, ['tagId']).snakeCase()),
+  })
+export interface MetricNewOutbound extends yup.InferType<typeof metricNewOutboundSchema> {}
 
 export enum AttributionWindowSeconds {
   OneHour = 3600,
@@ -296,29 +328,6 @@ export const metricAssignmentSchema = metricAssignmentNewSchema
   .defined()
   .camelCase()
 export interface MetricAssignment extends yup.InferType<typeof metricAssignmentSchema> {}
-
-export enum TagNamespace {
-  ExclusionGroup = 'exclusion_group',
-}
-
-export const tagBareSchema = yup
-  .object({
-    tagId: idSchema.defined(),
-    namespace: nameSchema.defined(),
-    name: nameSchema.defined(),
-    description: yup.string().defined(),
-  })
-  .defined()
-  .camelCase()
-export interface TagBare extends yup.InferType<typeof tagBareSchema> {}
-// For consistency and openness:
-export const tagFullSchema = tagBareSchema
-export interface TagFull extends yup.InferType<typeof tagFullSchema> {}
-export const tagFullNewSchema = tagFullSchema.shape({
-  tagId: idSchema.nullable(),
-})
-export interface TagFullNew extends yup.InferType<typeof tagFullNewSchema> {}
-export const tagFullNewOutboundSchema = tagFullNewSchema.snakeCase()
 
 export enum SegmentType {
   Country = 'country',

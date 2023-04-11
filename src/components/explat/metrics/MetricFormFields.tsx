@@ -1,13 +1,18 @@
-import { FormControl, FormControlLabel, FormLabel, Radio, TextField as MuiTextField } from '@material-ui/core'
+import { Chip, FormControl, FormControlLabel, FormLabel, Radio, TextField as MuiTextField } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Field, FormikProps } from 'formik'
 import { fieldToTextField, RadioGroup, Switch, TextField, TextFieldProps } from 'formik-material-ui'
+import { AutocompleteRenderInputParams } from 'formik-material-ui-lab'
 import _ from 'lodash'
 import React, { useEffect } from 'react'
 
+import TagsApi from 'src/api/explat/TagsApi'
+import AbacusAutocomplete, { autocompleteInputProps } from 'src/components/general/Autocomplete'
 import { MetricFormData } from 'src/lib/explat/form-data'
 import { metricParameterTypeName } from 'src/lib/explat/metrics'
-import { metricParameterTypeToParameterField } from 'src/lib/explat/schemas'
+import { AutocompleteItem, metricParameterTypeToParameterField } from 'src/lib/explat/schemas'
+import { DIVISION_KPI_TAG_NAMESPACES } from 'src/lib/explat/tags'
+import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 
 import DebugOutput from '../../general/DebugOutput'
 
@@ -71,6 +76,21 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
   const paramsField = metricParameterTypeToParameterField[formikProps.values.metric.parameterType]
   const metricTypeName = metricParameterTypeName[formikProps.values.metric.parameterType]
 
+  const {
+    isLoading: tagOptionsLoading,
+    data: tagOptions,
+    error: tagOptionsError,
+  } = useDataSource(async () => {
+    const tags = await TagsApi.findAll()
+    return tags
+      .filter((tag) => DIVISION_KPI_TAG_NAMESPACES.includes(tag.namespace))
+      .map((tag) => ({
+        name: tag.name,
+        value: tag.tagId,
+      }))
+  }, [])
+  useDataLoadingError(tagOptionsError, 'Tags')
+
   return (
     <>
       <div className={classes.row}>
@@ -104,6 +124,33 @@ const MetricFormFields = ({ formikProps }: { formikProps: FormikProps<{ metric: 
           InputLabelProps={{
             shrink: true,
           }}
+        />
+      </div>
+      <div className={classes.row}>
+        <Field
+          component={AbacusAutocomplete}
+          name='metric.tags'
+          id='metric.tags'
+          fullWidth
+          options={
+            // istanbul ignore next; trivial
+            tagOptions ?? []
+          }
+          loading={tagOptionsLoading}
+          multiple
+          renderOption={(option: AutocompleteItem) => <Chip label={option.name} />}
+          renderInput={(params: AutocompleteRenderInputParams) => (
+            <MuiTextField
+              {...params}
+              variant='outlined'
+              InputProps={{
+                ...autocompleteInputProps(params, tagOptionsLoading),
+              }}
+              label='Tags'
+            />
+          )}
+          noOptionsText='No tags found'
+          openText='Open tags list'
         />
       </div>
       <div className={classes.row}>

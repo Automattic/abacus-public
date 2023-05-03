@@ -6,7 +6,6 @@ module.exports = {
   collectCoverageFrom: [
     // Note: Dot directories (e.g., .storybook) are also excluded automatically.
     '<rootDir>/src/**/*.{ts,tsx}',
-    '!**/*stories.tsx',
     '!**/node_modules/**',
     '!<rootDir>/e2e/**',
     '!<rootDir>/templates/**',

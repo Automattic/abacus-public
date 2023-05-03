@@ -46,21 +46,9 @@
     "yup": "^0.29.1"
   },
   "@comment devDependencies": {
-    "@package babel-loader": "Required by @storybook/react",
-    "@package isomorphic-fetch": "Added to make `fetch` available in integration tests. Hence the reason it is a dev dependency.",
-    "@package @storebook/react": "Requires `babel-loader`."
+    "@package isomorphic-fetch": "Added to make `fetch` available in integration tests. Hence the reason it is a dev dependency."
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.5",
-    "@storybook/addon-essentials": "^6.5.5",
-    "@storybook/addon-interactions": "^6.5.5",
-    "@storybook/addon-links": "^6.5.5",
-    "@storybook/builder-webpack4": "^6.5.5",
-    "@storybook/manager-webpack4": "^6.5.5",
-    "@storybook/node-logger": "^6.5.5",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.5.5",
-    "@storybook/testing-library": "0.0.11",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^11.0.4",
     "@testing-library/react-hooks": "^3.3.0",
@@ -76,7 +64,6 @@
     "@types/yup": "^0.29.3",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
-    "babel-loader": "^8.1.0",
     "babel-plugin-remove-debug": "0.0.4",
     "cross-env": "^7.0.2",
     "css-mediaquery": "^0.1.2",
@@ -91,7 +78,6 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-simple-import-sort": "^5.0.3",
-    "eslint-plugin-storybook": "^0.5.12",
     "fetch-mock-jest": "^1.5.1",
     "full-icu": "^1.3.1",
     "husky": "^4.3.8",
@@ -132,7 +118,6 @@
     "lint:ts": "eslint . --ext .ts,.tsx",
     "lint:ts:fix": "eslint . --ext .ts,.tsx --fix",
     "start": "serve -s build -l 3000",
-    "storybook": "start-storybook -p 6006 -s public",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "@comment test:e2e": "Runs the e2e tests. It will spawn Chromium to run the tests.",
     "test:e2e": "npm run jest -- --config=jest.e2e.config.js --runInBand",
@@ -140,8 +125,7 @@
     "test:integration": "npm run jest -- --config=jest.integration.config.js --runInBand",
     "test:unit": "npm run jest",
     "type-check": "tsc",
-    "verify": "npm run format:check && npm run lint && npm run test:all",
-    "build-storybook": "build-storybook -s public"
+    "verify": "npm run format:check && npm run lint && npm run test:all"
   },
   "browserslist": {
     "production": [
@@ -153,18 +137,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
     ]
   },
   "volta": {

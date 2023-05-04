@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { ValidationError } from 'yup'
+
 import * as Schemas from './schemas'
 
 describe('lib/schemas.ts module', () => {
@@ -65,6 +67,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -86,6 +91,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -107,6 +115,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -127,6 +138,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -150,6 +164,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -173,6 +190,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -199,6 +219,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -223,6 +246,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -245,6 +271,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -265,6 +294,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
             "This field is required",
@@ -292,6 +324,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(String(e.inner)).toContain('End date must be after start date.')
       }
     })
@@ -307,6 +342,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(String(e.inner)).not.toContain('End date must be within 12 months of start date.')
       }
     })
@@ -324,6 +362,9 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
+        if (!(e instanceof ValidationError)) {
+          throw Error('Bad error')
+        }
         expect(e.inner).toMatchInlineSnapshot(`
           Array [
             [ValidationError: This field is required],

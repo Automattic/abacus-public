@@ -42,7 +42,7 @@ export function useDataSource<Data, Deps extends DependencyList | undefined, E e
         }
       } catch (error) {
         if (isSubscribed) {
-          setError(error)
+          setError(error as E)
         }
       } finally {
         if (isSubscribed) {

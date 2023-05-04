@@ -1779,7 +1779,7 @@ exports[`sections should be browsable by the section buttons and show validation
                       </div>
                     </div>
                     <div
-                      class="MuiCollapse-container MuiCollapse-hidden"
+                      class="MuiCollapse-root MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -1888,7 +1888,7 @@ exports[`sections should be browsable by the section buttons and show validation
                       </div>
                     </div>
                     <div
-                      class="MuiCollapse-container MuiCollapse-hidden"
+                      class="MuiCollapse-root MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -3490,7 +3490,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   icon="1"
                                 >
                                   <div
-                                    class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                                    class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                                     style="min-height: 0px;"
                                   >
                                     <div
@@ -3505,8 +3505,8 @@ exports[`sections should be browsable by the section buttons and show validation
                                           <label
                                             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                             data-shrink="true"
-                                            for="samples-per-month-10"
-                                            id="samples-per-month-10-label"
+                                            for="samples-per-month-12"
+                                            id="samples-per-month-12-label"
                                           >
                                             Users / month
                                             <span
@@ -3523,7 +3523,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                             <input
                                               aria-invalid="false"
                                               class="MuiInputBase-input MuiOutlinedInput-input"
-                                              id="samples-per-month-10"
+                                              id="samples-per-month-12"
                                               placeholder="15000"
                                               required=""
                                               type="number"
@@ -3610,7 +3610,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   icon="2"
                                 >
                                   <div
-                                    class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                                    class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                                     style="min-height: 0px;"
                                   >
                                     <div
@@ -3625,8 +3625,8 @@ exports[`sections should be browsable by the section buttons and show validation
                                           <label
                                             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                             data-shrink="true"
-                                            for="baseline-revenue-10"
-                                            id="baseline-revenue-10-label"
+                                            for="baseline-revenue-12"
+                                            id="baseline-revenue-12-label"
                                           >
                                             Baseline cash sales / month
                                             <span
@@ -3641,10 +3641,10 @@ exports[`sections should be browsable by the section buttons and show validation
                                             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                           >
                                             <input
-                                              aria-describedby="baseline-revenue-10-helper-text"
+                                              aria-describedby="baseline-revenue-12-helper-text"
                                               aria-invalid="false"
                                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                              id="baseline-revenue-10"
+                                              id="baseline-revenue-12"
                                               max="100"
                                               min="0"
                                               placeholder="9800"
@@ -3677,7 +3677,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                           </div>
                                           <p
                                             class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                            id="baseline-revenue-10-helper-text"
+                                            id="baseline-revenue-12-helper-text"
                                           >
                                             = 0 USD ACPU
                                           </p>
@@ -3739,7 +3739,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                   icon="3"
                                 >
                                   <div
-                                    class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                                    class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                                     style="min-height: 0px;"
                                   >
                                     <div
@@ -3754,8 +3754,8 @@ exports[`sections should be browsable by the section buttons and show validation
                                           <label
                                             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                             data-shrink="true"
-                                            for="extra-cash-sales-10"
-                                            id="extra-cash-sales-10-label"
+                                            for="extra-cash-sales-12"
+                                            id="extra-cash-sales-12-label"
                                           >
                                             Extra cash sales / month
                                             <span
@@ -3770,10 +3770,10 @@ exports[`sections should be browsable by the section buttons and show validation
                                             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                           >
                                             <input
-                                              aria-describedby="extra-cash-sales-10-helper-text"
+                                              aria-describedby="extra-cash-sales-12-helper-text"
                                               aria-invalid="false"
                                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                              id="extra-cash-sales-10"
+                                              id="extra-cash-sales-12"
                                               min="0"
                                               placeholder="1500"
                                               required=""
@@ -3805,7 +3805,7 @@ exports[`sections should be browsable by the section buttons and show validation
                                           </div>
                                           <p
                                             class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                            id="extra-cash-sales-10-helper-text"
+                                            id="extra-cash-sales-12-helper-text"
                                           >
                                             = 0% lift
                                           </p>
@@ -4115,7 +4115,7 @@ exports[`sections should be browsable by the section buttons and show validation
                       </div>
                     </div>
                     <div
-                      class="MuiCollapse-container MuiCollapse-hidden"
+                      class="MuiCollapse-root MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -4224,7 +4224,7 @@ exports[`sections should be browsable by the section buttons and show validation
                       </div>
                     </div>
                     <div
-                      class="MuiCollapse-container MuiCollapse-hidden"
+                      class="MuiCollapse-root MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div

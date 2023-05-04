@@ -127,6 +127,7 @@ const MetricsTable = ({
         onRowClick()
         togglePanel && togglePanel()
       }}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       options={{
         ...defaultTableOptions,
         actionsColumnIndex: 4,

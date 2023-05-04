@@ -65,7 +65,7 @@ exports[`renders as collapsed alert 1`] = `
           </div>
         </div>
         <div
-          class="MuiCollapse-container MuiCollapse-hidden"
+          class="MuiCollapse-root MuiCollapse-hidden"
           style="min-height: 0px;"
         >
           <div
@@ -161,7 +161,7 @@ exports[`renders as expanded alert 1`] = `
           </div>
         </div>
         <div
-          class="MuiCollapse-container"
+          class="MuiCollapse-root"
           style="min-height: 0px; height: 0px; transition-duration: 0ms;"
         >
           <div

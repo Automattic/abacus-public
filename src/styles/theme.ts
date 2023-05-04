@@ -1,5 +1,5 @@
 import { grey, red } from '@material-ui/core/colors'
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 import React from 'react'
 
 declare module '@material-ui/core/styles/createPalette' {
@@ -45,9 +45,9 @@ const monospaceFontStack = `'Roboto Mono', monospace`
 // The base theme is used to provide defaults for other themes to depend on.
 // Idea came from
 // https://stackoverflow.com/questions/47977618/accessing-previous-theme-variables-in-createmuitheme.
-const baseTheme = createMuiTheme()
+const baseTheme = createTheme()
 
-const theme = createMuiTheme({
+const theme = createTheme({
   overrides: {
     MuiInputBase: {
       root: {

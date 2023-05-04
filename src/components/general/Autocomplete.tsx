@@ -63,7 +63,7 @@ export default function AbacusAutocomplete<Multiple extends boolean>(
     ? outerSingleToInnerSingle(outerValue as OuterValueSingle)
     : emptyInnerValue
   const onChange = useCallback(
-    (_event, newInnerValue: AutocompleteItem | AutocompleteItem[] | null) => {
+    (_event: unknown, newInnerValue: AutocompleteItem | AutocompleteItem[] | null) => {
       if (newInnerValue === null) {
         // This happens on clear, it should never occur on multiple as we receive a []
         setFieldValue(name, '')

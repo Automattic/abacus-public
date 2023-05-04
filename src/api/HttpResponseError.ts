@@ -43,7 +43,7 @@ export function wretcherErrorToHttpResponseError(wretcherError: WretcherError): 
   return wretcherError
 }
 
-export function serverErrorMessage(error: Error | undefined | null): string {
+export function serverErrorMessage(error: unknown): string {
   if (!(error instanceof HttpResponseError)) {
     return ''
   }

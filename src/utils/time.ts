@@ -6,5 +6,5 @@ export function formatIsoDate(date: Date): string {
   // ISOString: 2015-02-20T13:59:31.238Z
   //            012345678901234567890123
   //            |<------>|
-  return date.toISOString().substr(0, 10)
+  return date.toISOString().slice(0, 10)
 }

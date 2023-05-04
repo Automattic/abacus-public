@@ -188,6 +188,12 @@ module.exports = {
         format: ['snake_case', 'strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
         trailingUnderscore: 'allow', // For non-canonical extensions to objects, eg. for adding metadata to objects
       },
+      // We need to allow any format for quoted object properties for CSS-in-JS:
+      {
+        selector: 'property',
+        modifiers: ['requiresQuotes'],
+        format: null,
+      },
       {
         selector: 'variable',
         format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
@@ -202,6 +208,13 @@ module.exports = {
       {
         selector: 'typeLike',
         format: ['StrictPascalCase'],
+      },
+    ],
+
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
       },
     ],
 

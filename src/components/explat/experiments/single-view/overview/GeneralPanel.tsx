@@ -142,7 +142,7 @@ function GeneralPanel({
         'future-end-date',
         'End date (UTC) must be in the future.',
         // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-        (date) => dateFns.isBefore(new Date(), date),
+        (date) => dateFns.isBefore(new Date(), date as Date),
       ),
     }),
   })

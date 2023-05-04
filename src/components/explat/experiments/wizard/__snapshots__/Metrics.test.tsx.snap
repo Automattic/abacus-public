@@ -279,7 +279,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -388,7 +388,7 @@ exports[`allows adding, editing and removing a Metric Assignment 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -867,7 +867,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -976,7 +976,7 @@ exports[`allows adding, editing and removing a Metric Assignment 2`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -1542,7 +1542,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                         icon="1"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -1653,7 +1653,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                         icon="2"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -1782,7 +1782,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
                         icon="3"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -2149,7 +2149,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -2258,7 +2258,7 @@ exports[`allows adding, editing and removing a Metric Assignment 3`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -2826,7 +2826,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                         icon="1"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -2841,8 +2841,8 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="samples-per-month-14"
-                                  id="samples-per-month-14-label"
+                                  for="samples-per-month-16"
+                                  id="samples-per-month-16-label"
                                 >
                                   Users / month
                                   <span
@@ -2859,7 +2859,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                   <input
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="samples-per-month-14"
+                                    id="samples-per-month-16"
                                     placeholder="15000"
                                     required=""
                                     type="number"
@@ -2937,7 +2937,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                         icon="2"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -2952,8 +2952,8 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="baseline-conversion-rate-14"
-                                  id="baseline-conversion-rate-14-label"
+                                  for="baseline-conversion-rate-16"
+                                  id="baseline-conversion-rate-16-label"
                                 >
                                   Baseline conversion rate
                                   <span
@@ -2968,10 +2968,10 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                 >
                                   <input
-                                    aria-describedby="baseline-conversion-rate-14-helper-text"
+                                    aria-describedby="baseline-conversion-rate-16-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                    id="baseline-conversion-rate-14"
+                                    id="baseline-conversion-rate-16"
                                     max="100"
                                     min="0"
                                     placeholder="27.5"
@@ -3004,7 +3004,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="baseline-conversion-rate-14-helper-text"
+                                  id="baseline-conversion-rate-16-helper-text"
                                 >
                                   = 250000 conversions per month
                                 </p>
@@ -3066,7 +3066,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                         icon="3"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -3081,8 +3081,8 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="extra-conversions-per-month-14"
-                                  id="extra-conversions-per-month-14-label"
+                                  for="extra-conversions-per-month-16"
+                                  id="extra-conversions-per-month-16-label"
                                 >
                                   Extra conversions / month
                                   <span
@@ -3097,10 +3097,10 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
                                 >
                                   <input
-                                    aria-describedby="extra-conversions-per-month-14-helper-text"
+                                    aria-describedby="extra-conversions-per-month-16-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="extra-conversions-per-month-14"
+                                    id="extra-conversions-per-month-16"
                                     min="0"
                                     placeholder="100"
                                     required=""
@@ -3123,7 +3123,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="extra-conversions-per-month-14-helper-text"
+                                  id="extra-conversions-per-month-16-helper-text"
                                 >
                                   = 2% lift
                                 </p>
@@ -3433,7 +3433,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -3542,7 +3542,7 @@ exports[`allows adding, editing and removing a Metric Assignment 4`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -4108,7 +4108,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                         icon="1"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -4123,8 +4123,8 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="samples-per-month-15"
-                                  id="samples-per-month-15-label"
+                                  for="samples-per-month-18"
+                                  id="samples-per-month-18-label"
                                 >
                                   Users / month
                                   <span
@@ -4141,7 +4141,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                   <input
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="samples-per-month-15"
+                                    id="samples-per-month-18"
                                     placeholder="15000"
                                     required=""
                                     type="number"
@@ -4219,7 +4219,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                         icon="2"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -4234,8 +4234,8 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="baseline-conversion-rate-15"
-                                  id="baseline-conversion-rate-15-label"
+                                  for="baseline-conversion-rate-18"
+                                  id="baseline-conversion-rate-18-label"
                                 >
                                   Baseline conversion rate
                                   <span
@@ -4250,10 +4250,10 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                 >
                                   <input
-                                    aria-describedby="baseline-conversion-rate-15-helper-text"
+                                    aria-describedby="baseline-conversion-rate-18-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                    id="baseline-conversion-rate-15"
+                                    id="baseline-conversion-rate-18"
                                     max="100"
                                     min="0"
                                     placeholder="27.5"
@@ -4286,7 +4286,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="baseline-conversion-rate-15-helper-text"
+                                  id="baseline-conversion-rate-18-helper-text"
                                 >
                                   = 250000 conversions per month
                                 </p>
@@ -4348,7 +4348,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                         icon="3"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -4363,8 +4363,8 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="extra-conversions-per-month-15"
-                                  id="extra-conversions-per-month-15-label"
+                                  for="extra-conversions-per-month-18"
+                                  id="extra-conversions-per-month-18-label"
                                 >
                                   Extra conversions / month
                                   <span
@@ -4379,10 +4379,10 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
                                 >
                                   <input
-                                    aria-describedby="extra-conversions-per-month-15-helper-text"
+                                    aria-describedby="extra-conversions-per-month-18-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="extra-conversions-per-month-15"
+                                    id="extra-conversions-per-month-18"
                                     min="0"
                                     placeholder="100"
                                     required=""
@@ -4405,7 +4405,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="extra-conversions-per-month-15-helper-text"
+                                  id="extra-conversions-per-month-18-helper-text"
                                 >
                                   = 2% lift
                                 </p>
@@ -4715,7 +4715,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -4824,7 +4824,7 @@ exports[`allows adding, editing and removing a Metric Assignment 5`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -5303,7 +5303,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -5412,7 +5412,7 @@ exports[`allows adding, editing and removing a Metric Assignment 6`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -5978,7 +5978,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                         icon="1"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -5993,8 +5993,8 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="samples-per-month-20"
-                                  id="samples-per-month-20-label"
+                                  for="samples-per-month-23"
+                                  id="samples-per-month-23-label"
                                 >
                                   Users / month
                                   <span
@@ -6011,7 +6011,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                   <input
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="samples-per-month-20"
+                                    id="samples-per-month-23"
                                     placeholder="15000"
                                     required=""
                                     type="number"
@@ -6089,7 +6089,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                         icon="2"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -6104,8 +6104,8 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="baseline-conversion-rate-20"
-                                  id="baseline-conversion-rate-20-label"
+                                  for="baseline-conversion-rate-23"
+                                  id="baseline-conversion-rate-23-label"
                                 >
                                   Baseline conversion rate
                                   <span
@@ -6120,10 +6120,10 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                                 >
                                   <input
-                                    aria-describedby="baseline-conversion-rate-20-helper-text"
+                                    aria-describedby="baseline-conversion-rate-23-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                                    id="baseline-conversion-rate-20"
+                                    id="baseline-conversion-rate-23"
                                     max="100"
                                     min="0"
                                     placeholder="27.5"
@@ -6156,7 +6156,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="baseline-conversion-rate-20-helper-text"
+                                  id="baseline-conversion-rate-23-helper-text"
                                 >
                                   = 0 conversions per month
                                 </p>
@@ -6218,7 +6218,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                         icon="3"
                       >
                         <div
-                          class="MuiCollapse-container MuiStepContent-transition MuiCollapse-entered"
+                          class="MuiCollapse-root MuiStepContent-transition MuiCollapse-entered"
                           style="min-height: 0px;"
                         >
                           <div
@@ -6233,8 +6233,8 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                 <label
                                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                                   data-shrink="true"
-                                  for="extra-conversions-per-month-20"
-                                  id="extra-conversions-per-month-20-label"
+                                  for="extra-conversions-per-month-23"
+                                  id="extra-conversions-per-month-23-label"
                                 >
                                   Extra conversions / month
                                   <span
@@ -6249,10 +6249,10 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
                                 >
                                   <input
-                                    aria-describedby="extra-conversions-per-month-20-helper-text"
+                                    aria-describedby="extra-conversions-per-month-23-helper-text"
                                     aria-invalid="false"
                                     class="MuiInputBase-input MuiOutlinedInput-input"
-                                    id="extra-conversions-per-month-20"
+                                    id="extra-conversions-per-month-23"
                                     min="0"
                                     placeholder="100"
                                     required=""
@@ -6275,7 +6275,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
                                 </div>
                                 <p
                                   class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
-                                  id="extra-conversions-per-month-20-helper-text"
+                                  id="extra-conversions-per-month-23-helper-text"
                                 >
                                   = 0% lift
                                 </p>
@@ -6583,7 +6583,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -6692,7 +6692,7 @@ exports[`allows adding, editing and removing a Metric Assignment 7`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -7171,7 +7171,7 @@ exports[`renders as expected 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -7280,7 +7280,7 @@ exports[`renders as expected 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div

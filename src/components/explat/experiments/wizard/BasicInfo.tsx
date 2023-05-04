@@ -58,11 +58,16 @@ const BasicInfo = ({
   const [startDateField] = useField('experiment.startDatetime')
   const minStartDate = new Date()
   const maxStartDate = dateFns.addMonths(new Date(), MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)
-  const minEndDate = startDateField.value && new Date(startDateField.value)
-  const maxEndDate =
-    startDateField.value &&
-    dateFns.addMonths(new Date(startDateField.value), MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS)
-  const formatDateForInput = (date: Date) => (date ? formatIsoDate(date) : undefined)
+  const minEndDate: Date | undefined = startDateField.value
+    ? new Date(startDateField.value as string | number)
+    : undefined
+  const maxEndDate: Date | undefined = startDateField.value
+    ? dateFns.addMonths(
+        new Date(startDateField.value as string | number),
+        MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS,
+      )
+    : undefined
+  const formatDateForInput = (date: Date | undefined) => (date !== undefined ? formatIsoDate(date) : undefined)
 
   return (
     <div className={classes.root}>

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return,@typescript-eslint/explicit-module-boundary-types */
-import { act, fireEvent, Queries, render as actualRender, RenderOptions, screen } from '@testing-library/react'
+import { act, fireEvent, render as actualRender, RenderOptions, screen } from '@testing-library/react'
 import mediaQuery from 'css-mediaquery'
 import { Formik, FormikValues } from 'formik'
 import React from 'react'
@@ -12,7 +12,7 @@ import ThemeProvider from 'src/styles/ThemeProvider'
 /**
  * A wrapped unit-test react-renderer, useful for adding React Contexts globally.
  */
-export const render: typeof actualRender = <Q extends Queries>(ui: React.ReactElement, options?: RenderOptions<Q>) =>
+export const render = (ui: React.ReactElement, options?: Omit<RenderOptions, 'queries'>) =>
   actualRender(
     (
       <StaticRouter>
@@ -20,7 +20,7 @@ export const render: typeof actualRender = <Q extends Queries>(ui: React.ReactEl
       </StaticRouter>
     ) as React.ReactElement,
     options,
-  ) as ReturnType<typeof actualRender>
+  )
 
 /**
  * Create a `matchMedia` function that will match a query based on the specified

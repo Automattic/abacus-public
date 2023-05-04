@@ -53,6 +53,7 @@ const TagsTable = ({ tags, onEditTag }: { tags: TagBare[]; onEditTag?: (tagId: n
       }
       columns={tableColumns}
       data={tags}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       options={{
         ...defaultTableOptions,
         actionsColumnIndex: 3,

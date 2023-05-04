@@ -18,10 +18,12 @@ export default function GeneralErrorAlert({ error }: { error?: Error }): JSX.Ele
   if (error instanceof HttpResponseError) {
     return (
       <Alert severity='error' className={classes.root}>
-        <AlertTitle>
-          Error Response: {error.status} {error.response.statusText}
-        </AlertTitle>
-        {error.json && typeof error.json === 'object' && (error?.json as Record<string | number, unknown>).message}
+        <>
+          <AlertTitle>
+            Error Response: {error.status} {error.response.statusText}
+          </AlertTitle>
+          {error.json && typeof error.json === 'object' && (error?.json as Record<string | number, unknown>).message}
+        </>
       </Alert>
     )
   } else if (error instanceof Error) {

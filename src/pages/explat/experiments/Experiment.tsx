@@ -9,11 +9,10 @@ import { isDebugMode, parseIdSlug } from 'src/utils/general'
 const debug = debugFactory('abacus:pages/experiments/Experiment.tsx')
 
 export default function Experiment(): JSX.Element | null {
-  const { experimentIdSlug, view: viewRaw } =
-    useParams<{
-      experimentIdSlug: string
-      view: string
-    }>()
+  const { experimentIdSlug, view: viewRaw } = useParams<{
+    experimentIdSlug: string
+    view: string
+  }>()
   const experimentId = parseIdSlug(experimentIdSlug)
   const view = yup.string().oneOf(Object.values(ExperimentView)).validateSync(viewRaw)
   const debugMode = isDebugMode()

@@ -94,20 +94,20 @@ test('with some metrics, allow searching by metric name and metric params', asyn
   render(<MetricsTable metrics={metrics} />)
 
   // start with all the results
-  expect(screen.queryAllByText(`1-2 of 2`)[0]).toBeInTheDocument()
+  screen.getAllByText(`1-2 of 2`)
 
   // search by metric name
   await changeFieldByRole('textbox', /Search/, mockMetricName)
   await waitFor(() => expect(screen.queryByText(/metric_1/)).toBeNull())
-  expect(screen.queryByText(mockMetricName)).toBeInTheDocument()
+  screen.getByText(mockMetricName)
 
   // no results
   await changeFieldByRole('textbox', /Search/, 'some other name')
   await waitFor(() => expect(screen.queryByText(mockMetricName)).toBeNull())
-  expect(screen.queryAllByText('1-0 of 0')[0]).toBeInTheDocument()
+  screen.getAllByText('0-0 of 0')
 
   // search by metric params
   await changeFieldByRole('textbox', /Search/, mockEventName)
   await waitFor(() => expect(screen.queryByText(mockMetricName)).toBeInTheDocument())
-  expect(screen.queryAllByText('1-1 of 1')[0]).toBeInTheDocument()
+  screen.getAllByText('1-1 of 1')
 })

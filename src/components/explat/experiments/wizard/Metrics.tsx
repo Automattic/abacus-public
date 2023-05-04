@@ -66,6 +66,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     metricName: {
       fontFamily: theme.custom.fonts.monospace,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore; typing bug somewhere
       fontWeight: theme.custom.fontWeights.monospaceBold,
     },
     minDifferenceField: {

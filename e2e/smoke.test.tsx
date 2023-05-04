@@ -10,7 +10,7 @@ describe('Experiments', () => {
     await page.goto('http://a8c-abacus-local:3001')
     // This is because we expect that the user has not authenticated yet and they
     // should be redirected to the WP.com log-in page.
-    expect(page.url()).toMatch(/^https:\/\/wordpress.com\/log-in/)
+    await expect(page.url()).toMatch(/^https:\/\/wordpress.com\/log-in/)
     await expect(page).toMatch('Abacus - Testing')
   })
 

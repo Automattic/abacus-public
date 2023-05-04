@@ -797,8 +797,10 @@ export default function ExperimentResults({
             </Typography>
             <MaterialTable
               tableRef={tableRef}
+              // @ts-ignore; Material Table is badly typed
               columns={tableColumns}
               data={metricAssignmentSummaryData}
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               options={createStaticTableOptions(metricAssignmentSummaryData.length)}
               onRowClick={(_event, rowData, togglePanel) => {
                 const { recommendation } = rowData as {

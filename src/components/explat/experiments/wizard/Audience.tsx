@@ -111,12 +111,14 @@ const SegmentsAutocomplete = (
     [segmentExclusionState],
   )
   const onChange = useCallback(
-    (_event, value: Segment[]) => {
+    (_event: unknown, value: Segment[]) => {
       setFieldValue(name, value.map(segmentToSegmentAssignment))
     },
     [setFieldValue, name, segmentToSegmentAssignment],
   )
-  const value = outerValue && (outerValue as SegmentAssignmentNew[]).map(segmentAssignmentToSegment)
+  const value: Segment[] | undefined =
+    (outerValue as SegmentAssignmentNew[] | undefined) &&
+    (outerValue as SegmentAssignmentNew[]).map(segmentAssignmentToSegment)
 
   return (
     <Autocomplete

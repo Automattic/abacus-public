@@ -5,7 +5,8 @@ import theme from 'src/styles/theme'
 /**
  * Default table options for dynamic MaterialTable instances.
  */
-export const defaultTableOptions: Options = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const defaultTableOptions: Options<any> = {
   emptyRowsWhenPaging: false,
   pageSize: 25,
   showEmptyDataSourceMessage: false,
@@ -29,7 +30,8 @@ export const defaultTableOptions: Options = {
  *
  * @param numRows the exact number of rows that the table should have.
  */
-export function createStaticTableOptions(numRows: number): Options {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function createStaticTableOptions(numRows: number): Options<any> {
   return {
     ...defaultTableOptions,
     pageSize: numRows,

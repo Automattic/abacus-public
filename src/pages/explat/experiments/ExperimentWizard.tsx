@@ -107,7 +107,7 @@ export default function WizardEdit({
         enqueueSnackbar('Experiment Created!', { variant: 'success' })
         history.push(`/experiments/${receivedExperiment.experimentId}/code-setup`)
       } catch (error) {
-        setFormSubmissionError(error)
+        setFormSubmissionError(error as Error)
         enqueueSnackbar('Failed to create experiment 😨', { variant: 'error' })
         console.error(error)
         console.info('Form data:', formData)
@@ -120,7 +120,7 @@ export default function WizardEdit({
         enqueueSnackbar('Experiment cloned!', { variant: 'success' })
         history.push(`/experiments/${receivedExperiment.experimentId}/code-setup`)
       } catch (error) {
-        setFormSubmissionError(error)
+        setFormSubmissionError(error as Error)
         enqueueSnackbar('Failed to clone experiment 😨', { variant: 'error' })
         console.error(error)
         console.info('Form data:', formData)
@@ -136,7 +136,7 @@ export default function WizardEdit({
         enqueueSnackbar('Experiment Updated!', { variant: 'success' })
         history.push(`/experiments/${experimentId}`)
       } catch (error) {
-        setFormSubmissionError(error)
+        setFormSubmissionError(error as Error)
         enqueueSnackbar(`Failed to update experiment 😨`, { variant: 'error' })
         console.error(error)
         console.info('Form data:', formData)

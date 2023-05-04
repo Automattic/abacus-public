@@ -15,12 +15,14 @@ const indexedMetrics: Record<number, Metric> = {
     name: 'asdf_7d_refund',
     description: 'string',
     parameterType: MetricParameterType.Revenue,
+    higherIsBetter: true,
   },
   2: {
     metricId: 2,
     name: 'registration_start',
     description: 'string',
     parameterType: MetricParameterType.Conversion,
+    higherIsBetter: true,
   },
 }
 const completionBag: ExperimentFormCompletionBag = {

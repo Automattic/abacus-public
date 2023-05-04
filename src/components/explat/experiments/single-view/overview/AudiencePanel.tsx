@@ -107,7 +107,9 @@ function ExposureEventsTable({ experiment: { exposureEvents } }: { experiment: E
             {ev.props &&
               Object.entries(ev.props).map(([key, val]) => (
                 <span key={key} className={classes.entry}>
-                  {key}: {val}
+                  <>
+                    {key}: {val}
+                  </>
                 </span>
               ))}
           </Typography>

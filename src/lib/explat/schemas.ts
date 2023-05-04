@@ -75,7 +75,7 @@ export const nameSchema = yup
 const dateSchema = yup
   .date()
   // As yup's default transform sets a local timezone and we want it to be in UTC:
-  .transform(function (_value, originalValue) {
+  .transform(function (_value, originalValue: Date | string | number) {
     return new Date(originalValue)
   })
 
@@ -248,16 +248,16 @@ export const metricSchema = noTestMetricSchema
   // Note: Ignoring no-unsafe-member-access is fine here, as exceptions will turn into validation errors.
   .test('expected-params', 'Missing expected params field for parameter type.', (metric) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return !!metric[metricParameterTypeToParameterField[metric.parameterType as string as MetricParameterType]]
+    return (
+      !!metric && !!metric[metricParameterTypeToParameterField[metric.parameterType as string as MetricParameterType]]
+    )
   })
   .test('unexpected-params', 'Unexpected params found not matching parameter type.', (metric) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return (
-      Object.values(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        _.omit(metricParameterTypeToParameterField, metric.parameterType),
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      ).filter((parameterField) => metric[parameterField as string]).length === 0
+      !!metric &&
+      Object.values(_.omit(metricParameterTypeToParameterField, metric.parameterType)).filter(
+        (parameterField) => metric[parameterField as keyof Metric],
+      ).length === 0
     )
   })
 export const metricNewSchema = metricSchema.shape({
@@ -449,7 +449,7 @@ export enum AnalysisStrategy {
 export const analysisSchema = yup
   .object({
     metricAssignmentId: idSchema.defined(),
-    analysisDatetime: dateSchema.defined(),
+    analysisDatetime: dateSchema.defined().required(),
     analysisStrategy: yup.string().oneOf(Object.values(AnalysisStrategy)).defined(),
     // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
@@ -458,7 +458,9 @@ export const analysisSchema = yup
   })
   .defined()
   .camelCase()
-export interface Analysis extends yup.InferType<typeof analysisSchema> {}
+export interface Analysis extends yup.InferType<typeof analysisSchema> {
+  analysisDatetime: Date
+}
 
 export const analysisResponseSchema = yup
   .object({
@@ -536,7 +538,7 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       'future-start-date',
       'Start date (UTC) must be in the future.',
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-      (date) => date === null || dateFns.isBefore(new Date(), date),
+      (date) => date === null || (!!date && dateFns.isBefore(new Date(), date)),
     )
     .test(
       'bounded-start-date',
@@ -544,7 +546,7 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
       (date) =>
         date === null ||
-        dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
+        (!!date && dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS))),
     ),
   endDatetime: dateSchema
     .defined()
@@ -568,8 +570,10 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
     .test(
       'primary-metric-assignment',
       `One primary metric assignment is required.`,
-      (metricAssignments: MetricAssignmentNew[]) =>
-        Array.isArray(metricAssignments) && metricAssignments.some((metricAssignment) => metricAssignment.isPrimary),
+      (metricAssignments: MetricAssignmentNew[] | null | undefined) =>
+        !!metricAssignments &&
+        Array.isArray(metricAssignments) &&
+        metricAssignments.some((metricAssignment) => metricAssignment.isPrimary),
     ),
   segmentAssignments: yup.array(segmentAssignmentNewSchema).defined(),
   variations: yup
@@ -579,18 +583,20 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
     .test(
       'default-variation-exists',
       'A default variation is required.',
-      (variations: VariationNew[]) => variations && variations.some((variation) => variation.isDefault),
+      (variations: VariationNew[] | null | undefined) =>
+        !!variations && variations.some((variation) => variation.isDefault),
     )
     .test(
       'max-total',
       'The sum of allocated percentages must be less than or equal to 100.',
-      (variations: VariationNew[]) =>
-        variations && variations.reduce((acc, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
+      (variations: VariationNew[] | null | undefined) =>
+        !!variations && variations.reduce((acc, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
     )
     .test(
       'unique-names',
       'Variation names must be unique.',
-      (variations: VariationNew[]) => variations && new Set(variations.map((x) => x.name)).size === variations.length,
+      (variations: VariationNew[] | null | undefined) =>
+        !!variations && new Set(variations.map((x) => x.name)).size === variations.length,
     ),
 })
 export interface ExperimentFullNew extends yup.InferType<typeof experimentFullNewSchema> {}

@@ -32,7 +32,7 @@ const analyses = Fixtures.createAnalyses()
 test('renders an appropriate message with no analyses', async () => {
   const { container } = render(<ExperimentResults analyses={[]} experiment={experiment} metrics={metrics} />)
   expect(container).toMatchSnapshot()
-  await expect(container.textContent).toMatch('No results are available at the moment')
+  expect(container.textContent).toMatch('No results are available at the moment')
 })
 
 test('renders an appropriate message for analyses missing analysis data due to an ETL bug', async () => {
@@ -49,7 +49,7 @@ test('renders an appropriate message for analyses missing analysis data due to a
     />,
   )
   expect(container).toMatchSnapshot()
-  await expect(container.textContent).toMatch('Not analyzed yet')
+  expect(container.textContent).toMatch('Not analyzed yet')
 })
 
 test('renders correctly for 1 analysis datapoint, not statistically significant', async () => {

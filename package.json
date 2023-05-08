@@ -75,7 +75,7 @@
     "mockdate": "^3.0.2",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
-    "serve": "^11.3.2",
+    "serve": "^14.2.0",
     "typescript": "4.9.5",
     "web-vitals": "^2.1.4"
   },

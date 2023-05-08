@@ -123,6 +123,8 @@ test('renders correctly for 1 analysis datapoint, not statistically significant'
 
 test('A/B/n: renders correctly for 1 analysis datapoint, not statistically significant', async () => {
   const experiment = Fixtures.createExperimentFull({
+    startDatetime: new Date('2021-04-01T00:00:00Z'),
+    endDatetime: new Date('2021-04-11T00:00:00Z'),
     variations: [
       Fixtures.createVariation({
         variationId: 1,

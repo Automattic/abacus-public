@@ -562,6 +562,11 @@ export function getAnalysisRunHours(analysis: Analysis, experiment: ExperimentFu
     throw new Error('Missing experiment startDatetime, this experiment should be running')
   }
 
+  // istanbul ignore next; shouldn't occur
+  if (analysis.analysisDatetime < experiment.startDatetime) {
+    throw new Error('Assert: analysisDatetime must be greater than startDatetime')
+  }
+
   // Analysis datetimes represents days not datetimes so the time of the day should be 00:00.0000.
   if (analysis.analysisDatetime.getTime() !== utcStartOfDay(analysis.analysisDatetime).getTime()) {
     throw new Error('Expected analysisDatetime at start of the day.')
@@ -576,7 +581,14 @@ export function getAnalysisRunHours(analysis: Analysis, experiment: ExperimentFu
     endDatetime = experiment.endDatetime
   }
 
-  return differenceInHours(endDatetime, experiment.startDatetime)
+  const analysisRunHours = differenceInHours(endDatetime, experiment.startDatetime)
+
+  // istanbul ignore next; shouldn't occur
+  if (analysisRunHours < 0) {
+    throw new Error('Assert: analysisRunHours must be non-negative')
+  }
+
+  return analysisRunHours
 }
 
 /**

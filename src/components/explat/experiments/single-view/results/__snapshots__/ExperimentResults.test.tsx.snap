@@ -178,7 +178,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -538,8 +538,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-196"
                           >
-                            +
-                            314
+                            -36K
                           </span>
                            
                           to
@@ -547,7 +546,8 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-196"
                           >
-                            -314
+                            +
+                            36K
                              
                             conversions
                           </span>
@@ -1732,8 +1732,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                 <span
                   class="makeStyles-metricValueWrapper-196"
                 >
-                  +
-                  314
+                  -36K
                 </span>
                  
                 to
@@ -1741,7 +1740,8 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                 <span
                   class="makeStyles-metricValueWrapper-196"
                 >
-                  -314
+                  +
+                  36K
                    
                   conversions
                 </span>
@@ -1761,9 +1761,9 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
              
             <span
               class="makeStyles-root-227"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -2142,7 +2142,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
             "name": "control",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               400,
@@ -2156,7 +2156,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
             "name": "treatment1",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               400,
@@ -2170,7 +2170,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
             "name": "treatment2",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               200,
@@ -2387,7 +2387,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -2747,8 +2747,7 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-196"
                           >
-                            +
-                            314
+                            -36K
                           </span>
                            
                           to
@@ -2756,7 +2755,8 @@ exports[`A/B/n: renders correctly for 1 analysis datapoint, not statistically si
                           <span
                             class="makeStyles-metricValueWrapper-196"
                           >
-                            -314
+                            +
+                            36K
                              
                             conversions
                           </span>
@@ -3860,7 +3860,7 @@ exports[`allows you to change analysis strategy 1`] = `
                 </strong>
                  as at
                  
-                2020-05-10
+                2021-04-10
               </h6>
             </div>
             <div
@@ -4222,7 +4222,7 @@ exports[`allows you to change analysis strategy 1`] = `
                               class="makeStyles-metricValueWrapper-556"
                             >
                               +
-                              -0
+                              0
                             </span>
                              
                             to
@@ -4231,7 +4231,7 @@ exports[`allows you to change analysis strategy 1`] = `
                               class="makeStyles-metricValueWrapper-556"
                             >
                               +
-                              -0
+                              0
                                
                               conversions
                             </span>
@@ -5234,7 +5234,7 @@ exports[`renders an appropriate message for analyses missing analysis data due t
                 </strong>
                  as at
                  
-                2020-05-10
+                2021-04-10
               </h6>
             </div>
             <div
@@ -6676,7 +6676,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -7036,8 +7036,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                           <span
                             class="makeStyles-metricValueWrapper-123"
                           >
-                            +
-                            1.11K
+                            -36K
                           </span>
                            
                           to
@@ -7045,7 +7044,8 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                           <span
                             class="makeStyles-metricValueWrapper-123"
                           >
-                            -1.11K
+                            +
+                            36K
                              
                             conversions
                           </span>
@@ -8226,8 +8226,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                 <span
                   class="makeStyles-metricValueWrapper-123"
                 >
-                  +
-                  1.11K
+                  -36K
                 </span>
                  
                 to
@@ -8235,7 +8234,8 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
                 <span
                   class="makeStyles-metricValueWrapper-123"
                 >
-                  -1.11K
+                  +
+                  36K
                    
                   conversions
                 </span>
@@ -8255,9 +8255,9 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
              
             <span
               class="makeStyles-root-154"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -8540,7 +8540,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
             "name": "test",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               400,
@@ -8554,7 +8554,7 @@ exports[`renders correctly for 1 analysis datapoint, not statistically significa
             "name": "control",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               600,
@@ -8634,7 +8634,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -8997,7 +8997,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                           <span
                             class="makeStyles-metricValueWrapper-269"
                           >
-                            -554
+                            +
+                            18K
                           </span>
                            
                           to
@@ -9005,7 +9006,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 1
                           <span
                             class="makeStyles-metricValueWrapper-269"
                           >
-                            -1.11K
+                            +
+                            36K
                              
                             conversions
                           </span>
@@ -10189,7 +10191,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
                 <span
                   class="makeStyles-metricValueWrapper-269"
                 >
-                  -554
+                  +
+                  18K
                 </span>
                  
                 to
@@ -10197,7 +10200,8 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
                 <span
                   class="makeStyles-metricValueWrapper-269"
                 >
-                  -1.11K
+                  +
+                  36K
                    
                   conversions
                 </span>
@@ -10217,9 +10221,9 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 2
              
             <span
               class="makeStyles-root-300"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -10503,7 +10507,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 3
             "name": "test",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               400,
@@ -10517,7 +10521,7 @@ exports[`renders correctly for 1 analysis datapoint, statistically significant 3
             "name": "control",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               600,
@@ -10597,7 +10601,7 @@ exports[`renders correctly for conflicting analysis data 1`] = `
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -12048,7 +12052,8 @@ exports[`renders correctly for conflicting analysis data 2`] = `
                 <span
                   class="makeStyles-metricValueWrapper-342"
                 >
-                  -554
+                  +
+                  18K
                 </span>
                  
                 to
@@ -12056,7 +12061,8 @@ exports[`renders correctly for conflicting analysis data 2`] = `
                 <span
                   class="makeStyles-metricValueWrapper-342"
                 >
-                  -1.11K
+                  +
+                  36K
                    
                   conversions
                 </span>
@@ -12076,9 +12082,9 @@ exports[`renders correctly for conflicting analysis data 2`] = `
              
             <span
               class="makeStyles-root-368"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -12362,7 +12368,7 @@ exports[`renders correctly for conflicting analysis data 3`] = `
             "name": "test",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               400,
@@ -12376,7 +12382,7 @@ exports[`renders correctly for conflicting analysis data 3`] = `
             "name": "control",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               600,
@@ -12456,7 +12462,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -12818,7 +12824,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-410"
                           >
                             +
-                            -0
+                            0
                           </span>
                            
                           to
@@ -12827,7 +12833,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-410"
                           >
                             +
-                            -0
+                            0
                              
                             conversions
                           </span>
@@ -13255,7 +13261,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-410"
                           >
                             +
-                            -0
+                            0
                           </span>
                            
                           to
@@ -13264,7 +13270,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-410"
                           >
                             +
-                            -0
+                            0
                              
                             conversions
                           </span>
@@ -14165,7 +14171,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                   class="makeStyles-metricValueWrapper-410"
                 >
                   +
-                  -0
+                  0
                 </span>
                  
                 to
@@ -14174,7 +14180,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                   class="makeStyles-metricValueWrapper-410"
                 >
                   +
-                  -0
+                  0
                    
                   conversions
                 </span>
@@ -14194,9 +14200,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
              
             <span
               class="makeStyles-root-441"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -14478,7 +14484,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               28,
@@ -14494,7 +14500,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               42,
@@ -14537,7 +14543,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14555,7 +14561,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14571,7 +14577,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14589,7 +14595,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14636,7 +14642,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14657,7 +14663,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14676,7 +14682,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14697,7 +14703,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14716,7 +14722,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14737,7 +14743,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14754,7 +14760,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               -10,
@@ -14771,7 +14777,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               10,
@@ -14814,8 +14820,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "control: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14832,8 +14838,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "control: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14848,8 +14854,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "test: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14866,8 +14872,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "test: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14913,8 +14919,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14934,8 +14940,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 99% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14953,8 +14959,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 95% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14974,8 +14980,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 95% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -14993,8 +14999,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 50% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -15014,8 +15020,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -15031,8 +15037,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "ROPE: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               -1200,
@@ -15048,8 +15054,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "ROPE: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               1200,
@@ -15147,7 +15153,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
               </strong>
                as at
                
-              2020-05-10
+              2021-04-10
             </h6>
           </div>
           <div
@@ -15509,7 +15515,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-483"
                           >
                             +
-                            -0
+                            0
                           </span>
                            
                           to
@@ -15518,7 +15524,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-483"
                           >
                             +
-                            -0
+                            0
                              
                             USD
                           </span>
@@ -15946,7 +15952,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-483"
                           >
                             +
-                            -0
+                            0
                           </span>
                            
                           to
@@ -15955,7 +15961,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                             class="makeStyles-metricValueWrapper-483"
                           >
                             +
-                            -0
+                            0
                              
                             USD
                           </span>
@@ -16856,7 +16862,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                   class="makeStyles-metricValueWrapper-483"
                 >
                   +
-                  -0
+                  0
                 </span>
                  
                 to
@@ -16865,7 +16871,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
                   class="makeStyles-metricValueWrapper-483"
                 >
                   +
-                  -0
+                  0
                    
                   USD
                 </span>
@@ -16885,9 +16891,9 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
              
             <span
               class="makeStyles-root-514"
-              title="09/05/2020, 20:00:00"
+              title="09/04/2021, 20:00:00"
             >
-              2020-05-10
+              2021-04-10
             </span>
             .
           </td>
@@ -17164,7 +17170,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               28,
@@ -17180,7 +17186,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               42,
@@ -17223,7 +17229,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17241,7 +17247,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17257,7 +17263,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17275,7 +17281,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17322,7 +17328,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17343,7 +17349,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17362,7 +17368,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17383,7 +17389,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17402,7 +17408,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17423,7 +17429,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17440,7 +17446,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               -0.1,
@@ -17457,7 +17463,7 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "type": "scatter",
             "x": Array [
               "2020-05-09T00:00:00.000Z",
-              "2020-05-10T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0.1,
@@ -17500,8 +17506,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "control: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17518,8 +17524,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "control: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17534,8 +17540,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "test: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17552,8 +17558,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "test: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17599,8 +17605,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 99% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17620,8 +17626,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 99% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17639,8 +17645,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 95% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17660,8 +17666,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 95% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17679,8 +17685,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 50% lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17700,8 +17706,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "difference: 50% upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               0,
@@ -17717,8 +17723,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "ROPE: lower bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               -12,
@@ -17734,8 +17740,8 @@ exports[`renders the condensed table with some analyses in non-debug mode for a 
             "name": "ROPE: upper bound",
             "type": "scatter",
             "x": Array [
-              "2020-05-10T00:00:00.000Z",
               "2020-06-11T00:00:00.000Z",
+              "2021-04-10T00:00:00.000Z",
             ],
             "y": Array [
               12,

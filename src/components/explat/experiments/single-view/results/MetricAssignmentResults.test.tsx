@@ -33,7 +33,11 @@ describe('MetricAssignmentResults', () => {
 
   it('highlights only the selected variations of A/B/n experiments', () => {
     const variations = Fixtures.createVariations(3)
-    const abnExperiment = Fixtures.createExperimentFull({ variations })
+    const abnExperiment = Fixtures.createExperimentFull({
+      startDatetime: new Date('2021-04-01T00:00:00Z'),
+      endDatetime: new Date('2021-04-11T00:00:00Z'),
+      variations,
+    })
 
     const { container } = render(
       <MetricAssignmentResults
@@ -83,7 +87,10 @@ describe('MetricAssignmentResults', () => {
           ...emptyAnalysesByStrategyDateAsc,
           [AnalysisStrategy.PpNaive]: [Fixtures.createAnalysis({})],
         }}
-        experiment={Fixtures.createExperimentFull()}
+        experiment={Fixtures.createExperimentFull({
+          startDatetime: new Date('2021-04-01T00:00:00Z'),
+          endDatetime: new Date('2021-04-11T00:00:00Z'),
+        })}
         recommendation={recommendation}
         variationDiffKey='2_1'
         impactIntervalInMonths={1}

@@ -70,7 +70,7 @@ function createAnalysis(fieldOverrides: Partial<Analysis>): Analysis {
       variation_2: 400,
     },
     metricEstimates: createMetricEstimates(),
-    analysisDatetime: new Date(Date.UTC(2020, 4, 10)),
+    analysisDatetime: new Date('2021-04-10T00:00:00Z'),
     ...fieldOverrides,
   }
 }
@@ -168,7 +168,7 @@ function createMultiVariationAnalysis(fieldOverrides: Partial<Analysis>): Analys
         }),
       },
     },
-    analysisDatetime: new Date(Date.UTC(2020, 4, 10)),
+    analysisDatetime: new Date('2021-04-10T00:00:00Z'),
     ...fieldOverrides,
   }
 }

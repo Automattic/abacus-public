@@ -161,6 +161,9 @@ const useStyles = makeStyles((theme: Theme) =>
     abnControls: {
       padding: theme.spacing(2),
       marginBottom: theme.spacing(2),
+      position: 'sticky',
+      top: 0,
+      zIndex: 20,
     },
     abnVariationsSelector: {
       display: 'flex',

@@ -79,7 +79,7 @@ export default function ExperimentPageView({
     isLoading: metricsIsLoading,
     data: metrics,
     error: metricsError,
-  } = useDataSource(() => MetricsApi.findAll(), [])
+  } = useDataSource(() => MetricsApi.findAll({ includeDebug: true }), [])
   useDataLoadingError(metricsError, 'Metrics')
 
   const {

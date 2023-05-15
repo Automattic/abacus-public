@@ -42,7 +42,12 @@ const MetricsIndexPage = (): JSX.Element => {
   debug('MetricsIndexPage#render')
   const classes = useStyles()
 
-  const { isLoading, data: metrics, error, reloadRef } = useDataSource(() => MetricsApi.findAll(), [])
+  const {
+    isLoading,
+    data: metrics,
+    error,
+    reloadRef,
+  } = useDataSource(() => MetricsApi.findAll({ includeDebug: isDebugMode() }), [])
   useDataLoadingError(error, 'Metrics')
 
   const debugMode = isDebugMode()

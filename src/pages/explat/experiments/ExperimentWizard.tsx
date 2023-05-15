@@ -16,7 +16,7 @@ import { experimentToFormData } from 'src/lib/explat/form-data'
 import * as Normalizers from 'src/lib/explat/normalizers'
 import { ExperimentFull, ExperimentFullNew, TagNamespace } from 'src/lib/explat/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
-import { or, parseIdSlug } from 'src/utils/general'
+import { isDebugMode, or, parseIdSlug } from 'src/utils/general'
 
 const debug = debugFactory('abacus:pages/experiments/[id]/wizard-edit.tsx')
 
@@ -63,7 +63,7 @@ export default function WizardEdit({
     isLoading: metricsIsLoading,
     data: indexedMetrics,
     error: metricsError,
-  } = useDataSource(async () => Normalizers.indexMetrics(await MetricsApi.findAll()), [])
+  } = useDataSource(async () => Normalizers.indexMetrics(await MetricsApi.findAll({ includeDebug: isDebugMode() })), [])
   useDataLoadingError(metricsError, 'Metrics')
 
   const {

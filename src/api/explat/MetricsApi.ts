@@ -9,7 +9,6 @@ import {
   metricNewSchema,
   metricSchema,
 } from 'src/lib/explat/schemas'
-import { isDebugMode } from 'src/utils/general'
 
 import { fetchApi } from './utils'
 
@@ -58,12 +57,12 @@ async function put(metricId: number, newMetric: MetricNew): Promise<Metric> {
  *
  * @throws UnauthorizedError
  */
-async function findAll(): Promise<Metric[]> {
+async function findAll(options: { includeDebug: boolean } = { includeDebug: false }): Promise<Metric[]> {
   // istanbul ignore next; debug only
   const { metrics } = await yup
     .object({ metrics: yup.array(metricSchema).defined() })
     .defined()
-    .validate(await fetchApi('GET', isDebugMode() ? '/metrics?debug=true' : '/metrics'), {
+    .validate(await fetchApi('GET', options.includeDebug ? '/metrics?debug=true' : '/metrics'), {
       abortEarly: false,
     })
   return metrics

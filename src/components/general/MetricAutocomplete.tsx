@@ -5,6 +5,7 @@ import React from 'react'
 
 import { autocompleteInputProps } from 'src/components/general/Autocomplete'
 import { Metric } from 'src/lib/explat/schemas'
+import { isDebugMode } from 'src/utils/general'
 
 /**
  * An Autocomplete just for Metrics
@@ -19,7 +20,7 @@ export default function MetricAutocomplete<
   },
 ): ReturnType<typeof Autocomplete> {
   const processedOptions = props.options
-    .filter((a) => !a.name.startsWith('archived_'))
+    .filter((a) => !a.name.startsWith('archived_') && (!a.name.startsWith('explat_test_') || isDebugMode()))
     .sort((a, b) => a.name.localeCompare(b.name, 'en'))
   return (
     <Autocomplete<Metric, Multiple, DisableClearable, FreeSolo>

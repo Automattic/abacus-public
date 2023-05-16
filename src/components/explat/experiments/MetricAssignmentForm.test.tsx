@@ -1,11 +1,16 @@
-import { act, fireEvent, getByRole, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import _ from 'lodash'
 import React from 'react'
 
 import ExperimentsApi from 'src/api/explat/ExperimentsApi'
 import { MetricParameterType, Status } from 'src/lib/explat/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
-import { changeFieldByRole, interactWithMinDiffCalculator, render } from 'src/test-helpers/test-utils'
+import {
+  changeFieldByRole,
+  interactWithMinDiffCalculator,
+  openMetricAutocomplete,
+  render,
+} from 'src/test-helpers/test-utils'
 
 import MetricAssignmentForm from './MetricAssignmentForm'
 
@@ -14,16 +19,14 @@ const mockedExperimentsApi = ExperimentsApi as jest.Mocked<typeof ExperimentsApi
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function fillMetricAssignmentForm() {
-  const metricSearchField = screen.getByRole('combobox', { name: /Select a metric/ })
-  const metricSearchFieldMoreButton = getByRole(metricSearchField, 'button', { name: 'Open' })
-  fireEvent.click(metricSearchFieldMoreButton)
+  openMetricAutocomplete()
   fireEvent.click(await screen.findByRole('option', { name: /metric_3/ }))
   expect(screen.queryByRole('button', { name: /Minimum Difference Calculator/ })).toBeEnabled()
 
   // The min-diff calculator toggle should be disabled when the metric is cleared
   fireEvent.click(screen.getByTitle('Clear'))
   expect(screen.queryByRole('button', { name: /Minimum Difference Calculator/ })).toBeDisabled()
-  fireEvent.click(metricSearchFieldMoreButton)
+  openMetricAutocomplete()
   fireEvent.click(await screen.findByRole('option', { name: /metric_3/ }))
 
   const attributionWindowField = await screen.findByLabelText(/Attribution Window/)

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return,@typescript-eslint/explicit-module-boundary-types */
-import { act, fireEvent, render as actualRender, RenderOptions, screen } from '@testing-library/react'
+import { act, fireEvent, getByRole, render as actualRender, RenderOptions, screen } from '@testing-library/react'
 import mediaQuery from 'css-mediaquery'
 import { Formik, FormikValues } from 'formik'
 import React from 'react'
@@ -142,4 +142,13 @@ export async function changeEstimatedImpactInterval(fromMonths: number, toMonths
   fireEvent.keyDown(estimatedImpactSelector, { key: 'Enter' })
   const intervalOption = await screen.findByRole('option', { name: toMonths === 1 ? /month/ : /year/ })
   fireEvent.click(intervalOption)
+}
+
+/**
+ * Open the Metric autocomplete in Metric Assignment Form
+ */
+export function openMetricAutocomplete() {
+  const metricSearchField = screen.getByRole('combobox', { name: /Select a metric/ })
+  const metricSearchFieldMoreButton = getByRole(metricSearchField, 'button', { name: 'Open' })
+  fireEvent.click(metricSearchFieldMoreButton)
 }

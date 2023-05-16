@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import * as tinyCase from 'tiny-case'
 import * as yup from 'yup'
 
 import {
@@ -16,6 +17,7 @@ import {
   yupPick,
 } from 'src/lib/explat/schemas'
 import { isDebugMode } from 'src/utils/general'
+import { transformSchemaFieldNames } from 'src/utils/yup'
 
 import { fetchApi } from './utils'
 
@@ -54,7 +56,10 @@ async function patch(experimentId: number, experimentPatch: Partial<ExperimentFu
   const validatedExperimentPatch = await dynamicValidationSchema.validate(experimentPatch, { abortEarly: false })
 
   // Similarly we dynamically construct a schema for outbound casting
-  const dynamicOutboundCastSchema = yupPick(experimentFullSchema, Object.keys(experimentPatch)).snakeCase()
+  const dynamicOutboundCastSchema = transformSchemaFieldNames(
+    yupPick(experimentFullSchema, Object.keys(experimentPatch)),
+    tinyCase.snakeCase,
+  ).snakeCase()
   const outboundExperimentPatch = dynamicOutboundCastSchema.cast(validatedExperimentPatch)
 
   return await experimentFullSchema.validate(

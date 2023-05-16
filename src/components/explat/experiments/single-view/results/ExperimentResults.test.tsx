@@ -459,7 +459,7 @@ test('allows you to change analysis strategy', async () => {
         Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
         Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
       ]}
-      experiment={{ ...experiment, exposureEvents: undefined }}
+      experiment={{ ...experiment, exposureEvents: null }}
       metrics={metrics}
     />,
   )

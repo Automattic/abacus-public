@@ -76,7 +76,7 @@ describe('ExperimentsApi.ts module', () => {
       expect(newExperiment).toEqual({
         description: 'experiment description',
         end_datetime: formatIsoDate(nextWeek),
-        existing_users_allowed: 'true',
+        existing_users_allowed: true,
         exposure_events: [
           {
             event: 'event_name',
@@ -87,7 +87,7 @@ describe('ExperimentsApi.ts module', () => {
         ],
         metric_assignments: [
           {
-            attribution_window_seconds: '86400',
+            attribution_window_seconds: 86400,
             change_expected: false,
             is_primary: true,
             metric_id: 10,
@@ -97,7 +97,6 @@ describe('ExperimentsApi.ts module', () => {
         name: 'test_experiment_name',
         owner_login: 'owner-nickname',
         p2_url: 'http://example.com/',
-        p_2_url: undefined,
         platform: 'wpcom',
         segment_assignments: [
           {

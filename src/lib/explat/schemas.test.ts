@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { ValidationError } from 'yup'
+import * as yup from 'yup'
 
 import * as Schemas from './schemas'
 
@@ -67,8 +67,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -76,6 +76,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
+            "eventParams cannot be null",
             "Missing expected params field for parameter type.",
           ]
         `)
@@ -91,8 +92,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -100,6 +101,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
+            "revenueParams cannot be null",
             "Missing expected params field for parameter type.",
           ]
         `)
@@ -115,8 +117,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -138,8 +140,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -148,6 +150,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field must be one of the following values: ",
+            "revenueParams cannot be null",
             "Missing expected params field for parameter type.",
             "Unexpected params found not matching parameter type.",
           ]
@@ -164,8 +167,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -173,6 +176,7 @@ describe('lib/schemas.ts module', () => {
             "This field is required",
             "This field is required",
             "This field is required",
+            "eventParams cannot be null",
             "This field must be one of the following values: ",
             "Missing expected params field for parameter type.",
             "Unexpected params found not matching parameter type.",
@@ -190,8 +194,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -219,8 +223,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -246,8 +250,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -271,8 +275,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -294,8 +298,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.errors).toMatchInlineSnapshot(`
           Array [
@@ -324,8 +328,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(String(e.inner)).toContain('End date must be after start date.')
       }
@@ -342,8 +346,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(String(e.inner)).not.toContain('End date must be within 12 months of start date.')
       }
@@ -362,8 +366,8 @@ describe('lib/schemas.ts module', () => {
           { abortEarly: false },
         )
       } catch (e) {
-        if (!(e instanceof ValidationError)) {
-          throw Error('Bad error')
+        if (!(e instanceof yup.ValidationError)) {
+          throw new Error('Unexpected error')
         }
         expect(e.inner).toMatchInlineSnapshot(`
           Array [
@@ -376,12 +380,8 @@ describe('lib/schemas.ts module', () => {
             [ValidationError: This field is required],
             [ValidationError: This field is required],
             [ValidationError: This field is required],
-            [ValidationError: One primary metric assignment is required.],
             [ValidationError: This field is required],
             [ValidationError: This field is required],
-            [ValidationError: A default variation is required.],
-            [ValidationError: The sum of allocated percentages must be less than or equal to 100.],
-            [ValidationError: Variation names must be unique.],
           ]
         `)
       }
@@ -407,29 +407,44 @@ describe('lib/schemas.ts module', () => {
     })
     it('should throw validation errors for non extended-numbers', () => {
       expect(() => Schemas.extendedNumberSchema.validateSync('')).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
       expect(() => Schemas.extendedNumberSchema.validateSync('asdf')).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
       expect(() => Schemas.extendedNumberSchema.validateSync({})).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
       expect(() => Schemas.extendedNumberSchema.validateSync(true)).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
       expect(() => Schemas.extendedNumberSchema.validateSync(false)).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
       expect(() => Schemas.extendedNumberSchema.validateSync(null)).toThrowErrorMatchingInlineSnapshot(
-        `"this is not a number"`,
+        `"this cannot be null"`,
       )
     })
-    it('should respect undefined', () => {
-      expect(Schemas.extendedNumberSchema.validateSync(undefined)).toBe(undefined)
-      expect(() => Schemas.extendedNumberSchema.defined().validateSync(undefined)).toThrowErrorMatchingInlineSnapshot(
+  })
+
+  describe('dateSchema', () => {
+    it('should work as expected', () => {
+      expect(Schemas.dateSchema.validateSync('2023-05-15')).toEqual(new Date('2023-05-15T00:00:00Z'))
+      expect(Schemas.dateSchema.validateSync('2023-05-15T01:00Z')).toEqual(new Date('2023-05-15T01:00:00Z'))
+      expect(() => Schemas.dateSchema.validateSync({})).toThrowErrorMatchingInlineSnapshot(
+        `"Invalid originalValue for date"`,
+      )
+      expect(() => Schemas.dateSchema.validateSync('invalid-date')).toThrowErrorMatchingInlineSnapshot(
+        `"this must be a \`date\` type, but the final value was: \`Invalid Date\` (cast from the value \`\\"invalid-date\\"\`)."`,
+      )
+      expect(() => Schemas.dateSchema.validateSync(null)).toThrowErrorMatchingInlineSnapshot(`"this cannot be null"`)
+      expect(() => Schemas.dateSchema.validateSync(undefined)).toThrowErrorMatchingInlineSnapshot(
         `"This field is required"`,
       )
+    })
+    it('should work as expected for nullable/notrequired datetimes', () => {
+      expect(Schemas.dateSchema.nullable().validateSync(null)).toBe(null)
+      expect(Schemas.dateSchema.notRequired().validateSync(undefined)).toBe(undefined)
     })
   })
 })

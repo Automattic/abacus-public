@@ -658,6 +658,7 @@ test('form submits an edited experiment without any changes', async () => {
   // @ts-ignore
   newShapedExperiment.variations.forEach((variation) => delete variation.variationId)
   newShapedExperiment.exposureEvents?.forEach((exposureEvent) => {
+    // @ts-ignore
     exposureEvent.props = _.toPairs(exposureEvent.props || {}).map(([key, value]) => ({ key, value }))
   })
 

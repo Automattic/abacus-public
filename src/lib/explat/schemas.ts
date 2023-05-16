@@ -5,8 +5,11 @@
 
 import * as dateFns from 'date-fns'
 import _ from 'lodash'
+import * as tinyCase from 'tiny-case'
 import * as yup from 'yup'
-import { ObjectSchema } from 'yup'
+import { ArraySchema, DateSchema, MixedSchema, NumberSchema, ObjectSchema } from 'yup'
+
+import { transformSchemaFieldNames } from 'src/utils/yup'
 
 /**
  * Setup Yup UI Validation messages
@@ -67,17 +70,32 @@ const yupLocale = {
 }
 yup.setLocale(yupLocale as yup.LocaleObject)
 
-export const idSchema = yup.number().integer().positive()
+// The following definition is a bit hacky, but it effectively undefines some fields from the parent schema.
+const yupUndefined = yup.mixed().oneOf([]).optional()
+const yupNullOnly = yup.mixed().nullable().oneOf([null])
+
+export type IdType = number
+export const idSchema: NumberSchema<IdType> = yup.number().integer().positive().defined()
+export type NameType = string
 export const nameSchema = yup
   .string()
   .max(128)
   .matches(/^[a-z][a-z0-9_]*[a-z0-9]$/, 'This field must use a basic snake_case.')
-const dateSchema = yup
+  .defined()
+export type DateType = Date
+export const dateSchema: DateSchema<DateType> = yup
   .date()
   // As yup's default transform sets a local timezone and we want it to be in UTC:
-  .transform(function (_value, originalValue: Date | string | number) {
+  .transform(function (_value, originalValue: unknown) {
+    if (originalValue === undefined || originalValue === null) {
+      return originalValue
+    }
+    if (!(typeof originalValue === 'string' || typeof originalValue === 'number' || originalValue instanceof Date)) {
+      throw new Error('Invalid originalValue for date')
+    }
     return new Date(originalValue)
   })
+  .defined()
 
 /**
  * A new number schema:
@@ -89,9 +107,10 @@ const dateSchema = yup
  * Unfortunately I couldn't extend yup's number schema to allow NaN.
  * See https://github.com/jquense/yup/issues/1330
  */
-export const extendedNumberSchema = yup
-  .mixed<number | undefined>()
-  .transform((value: unknown, originalValue: unknown) => {
+export type ExtendedNumber = number
+export const extendedNumberSchema: MixedSchema<ExtendedNumber> = yup
+  .mixed<number>()
+  .transform((_value: unknown, originalValue: unknown) => {
     if (originalValue === 'nan' || (typeof originalValue === 'number' && isNaN(originalValue))) {
       return NaN
     }
@@ -111,14 +130,21 @@ export const extendedNumberSchema = yup
     }
     return maybeNumber
   })
+  .defined()
   // eslint-disable-next-line no-template-curly-in-string
-  .test('is-number', '${path} is not a number', (value: unknown) => value === undefined || typeof value === 'number')
+  .test('is-number', '${path} is not a number', (value: unknown) => typeof value === 'number')
 
 export enum TagNamespace {
   ExclusionGroup = 'exclusion_group',
 }
 
-export const tagBareSchema = yup
+export interface TagBare {
+  tagId: IdType
+  namespace: NameType
+  name: NameType
+  description: string
+}
+export const tagBareSchema: ObjectSchema<TagBare> = yup
   .object({
     tagId: idSchema.defined(),
     namespace: nameSchema.defined(),
@@ -127,33 +153,50 @@ export const tagBareSchema = yup
   })
   .defined()
   .camelCase()
-export interface TagBare extends yup.InferType<typeof tagBareSchema> {}
 // For consistency and openness:
-export const tagFullSchema = tagBareSchema
-export interface TagFull extends yup.InferType<typeof tagFullSchema> {}
-export const tagFullNewSchema = tagFullSchema.shape({
-  tagId: idSchema.nullable(),
+export interface TagFull extends TagBare {}
+export const tagFullSchema: ObjectSchema<TagFull> = tagBareSchema
+export type TagFullNew = Omit<TagFull, 'tagId'> & {
+  tagId?: IdType | null
+}
+export const tagFullNewSchema: ObjectSchema<TagFullNew> = tagFullSchema.shape({
+  tagId: idSchema.optional().nullable(),
 })
-export interface TagFullNew extends yup.InferType<typeof tagFullNewSchema> {}
-export const tagFullNewOutboundSchema = tagFullNewSchema.snakeCase()
+export const tagFullNewOutboundSchema = transformSchemaFieldNames(tagFullNewSchema, tinyCase.snakeCase).snakeCase()
 
-export const eventSchema = yup
+export interface Event {
+  event: string
+  props?: Record<string, string> | undefined | null
+}
+export const eventSchema: ObjectSchema<Event> = yup
   .object({
     event: yup.string().defined(),
-    props: yup.mixed().notRequired(),
+    props: yup.mixed<Record<string, string>>().notRequired(),
   })
   .defined()
   .camelCase()
-export interface Event extends yup.InferType<typeof eventSchema> {}
 
-export const eventNewSchema = yup
+interface EventNewProp {
+  key: string
+  value: string
+}
+export interface EventNew {
+  event: string
+  props: EventNewProp[]
+}
+const eventNewPropSchema: ObjectSchema<EventNewProp> = yup
+  .object({
+    key: yup.string().defined(),
+    value: yup.string().defined(),
+  })
+  .defined()
+export const eventNewSchema: ObjectSchema<EventNew> = yup
   .object({
     event: yup.string().defined(),
-    props: yup.array(yup.object({ key: yup.string().defined(), value: yup.string().defined() }).defined()).defined(),
+    props: yup.array(eventNewPropSchema).defined() as ArraySchema<EventNewProp[], yup.AnyObject, undefined, ''>,
   })
   .defined()
   .camelCase()
-export interface EventNew extends yup.InferType<typeof eventNewSchema> {}
 
 export enum TransactionTypes {
   NewPurchase = 'new purchase',
@@ -169,15 +212,20 @@ export enum TransactionTypes {
   Reactivation = 'reactivation',
 }
 
-export const metricRevenueParamsSchema = yup
+export interface MetricRevenueParams {
+  refundDays: number
+  productSlugs: string[]
+  transactionTypes: TransactionTypes[]
+}
+export const metricRevenueParamsSchema: ObjectSchema<MetricRevenueParams> = yup
   .object({
     refundDays: yup.number().integer().positive().defined(),
     productSlugs: yup.array(yup.string().defined()).defined(),
     transactionTypes: yup.array(yup.string().oneOf(Object.values(TransactionTypes)).defined()).defined(),
   })
+  .json()
   .defined()
   .camelCase()
-export interface MetricRevenueParams extends yup.InferType<typeof metricRevenueParamsSchema> {}
 
 export enum PipeModels {
   ChurnUntimed = 'churn_untimed',
@@ -192,16 +240,22 @@ export enum PipeBlogToUserAggregationMethod {
   Min = 'min',
 }
 
-export const metricPipeParamsSchema = yup
+export interface MetricPipeParams {
+  model: PipeModels
+  valueField: PipeValueFields
+  blogToUserAggregationMethod: PipeBlogToUserAggregationMethod
+  extraAnalysisWindowDays: number
+}
+export const metricPipeParamsSchema: ObjectSchema<MetricPipeParams> = yup
   .object({
     model: yup.string().oneOf(Object.values(PipeModels)).defined(),
     valueField: yup.string().oneOf(Object.values(PipeValueFields)).defined(),
     blogToUserAggregationMethod: yup.string().oneOf(Object.values(PipeBlogToUserAggregationMethod)).defined(),
     extraAnalysisWindowDays: yup.number().integer().positive().defined(),
   })
+  .json()
   .defined()
   .camelCase()
-export interface MetricPipeParams extends yup.InferType<typeof metricPipeParamsSchema> {}
 
 export enum MetricParameterType {
   Conversion = 'conversion',
@@ -210,7 +264,19 @@ export enum MetricParameterType {
 }
 
 // We are defining a noTest version of the metric schema due to the interdependencies in the the types for the tests:
-const noTestMetricSchema = yup
+export type Metric = {
+  metricId: IdType
+  name: NameType
+  description: string
+  higherIsBetter: boolean
+  parameterType: MetricParameterType
+  eventParams?: Event[] | null
+  revenueParams?: MetricRevenueParams | null
+  pipeParams?: MetricPipeParams | null
+  tags?: TagFull[]
+}
+type MetricParamsField = 'eventParams' | 'revenueParams' | 'pipeParams'
+const noTestMetricSchema: ObjectSchema<Metric> = yup
   .object({
     metricId: idSchema.defined(),
     name: nameSchema.defined(),
@@ -219,24 +285,25 @@ const noTestMetricSchema = yup
     higherIsBetter: yup.boolean().defined(),
     eventParams: yup.mixed().when('parameterType', {
       is: MetricParameterType.Conversion,
-      then: yup.array(eventSchema).defined(),
-      otherwise: yup.mixed().oneOf([null]),
-    }),
+      then: (_schema) => yup.array(eventSchema).defined().json(),
+      otherwise: (_schema) => yupNullOnly,
+    }) as MixedSchema<Event[] | undefined | null>,
     revenueParams: yup.mixed().when('parameterType', {
       is: MetricParameterType.Revenue,
-      then: metricRevenueParamsSchema.defined(),
-      otherwise: yup.mixed().oneOf([null]),
-    }),
+      then: (_schema) => metricRevenueParamsSchema.defined(),
+      otherwise: (_schema) => yupNullOnly,
+    }) as MixedSchema<MetricRevenueParams | undefined | null>,
     pipeParams: yup.mixed().when('parameterType', {
       is: MetricParameterType.Pipe,
-      then: metricPipeParamsSchema.defined(),
-      otherwise: yup.mixed().oneOf([null]),
-    }),
-    tags: yup.array(tagFullSchema),
+      then:
+        // istanbul ignore next; trivial
+        (_schema) => metricPipeParamsSchema.defined(),
+      otherwise: (_schema) => yupNullOnly,
+    }) as MixedSchema<MetricPipeParams | undefined | null>,
+    tags: yup.array(tagFullSchema) as ArraySchema<TagFull[] | undefined, yup.AnyObject, undefined, ''>,
   })
   .defined()
   .camelCase()
-export interface Metric extends yup.InferType<typeof noTestMetricSchema> {}
 
 export const metricParameterTypeToParameterField: Record<MetricParameterType, keyof Omit<Metric, 'metricId'>> = {
   [MetricParameterType.Conversion]: 'eventParams',
@@ -244,29 +311,32 @@ export const metricParameterTypeToParameterField: Record<MetricParameterType, ke
   [MetricParameterType.Pipe]: 'pipeParams',
 } as const
 
-export const metricSchema = noTestMetricSchema
+export const metricSchema: ObjectSchema<Metric> = noTestMetricSchema
   // Note: Ignoring no-unsafe-member-access is fine here, as exceptions will turn into validation errors.
   .test('expected-params', 'Missing expected params field for parameter type.', (metric) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return (
-      !!metric && !!metric[metricParameterTypeToParameterField[metric.parameterType as string as MetricParameterType]]
-    )
+    return !!metric[metricParameterTypeToParameterField[metric.parameterType as string as MetricParameterType]]
   })
   .test('unexpected-params', 'Unexpected params found not matching parameter type.', (metric) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return (
-      !!metric &&
-      Object.values(_.omit(metricParameterTypeToParameterField, metric.parameterType)).filter(
-        (parameterField) => metric[parameterField as keyof Metric],
-      ).length === 0
+      Object.values(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        _.omit(metricParameterTypeToParameterField, metric.parameterType),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      ).filter((parameterField) => metric[parameterField as MetricParamsField]).length === 0
     )
   })
-export const metricNewSchema = metricSchema.shape({
-  metricId: idSchema.nullable(),
+export type MetricNew = Omit<Metric, 'metricId' | 'tags'> & {
+  metricId?: IdType | null
+  tags: IdType[]
+}
+export const metricNewSchema: ObjectSchema<MetricNew> = metricSchema.shape({
+  metricId: idSchema.nullable().notRequired(),
   // Used by Formik and AbacusAutocomplete when editing assigned tags.
   tags: yup.array(idSchema.defined()).defined(),
 })
-export interface MetricNew extends yup.InferType<typeof metricNewSchema> {}
-export const metricNewOutboundSchema = metricNewSchema
+export const metricNewOutboundSchema = transformSchemaFieldNames(metricNewSchema, tinyCase.snakeCase)
   .snakeCase()
   .transform(
     // istanbul ignore next; Tested by integration
@@ -276,18 +346,22 @@ export const metricNewOutboundSchema = metricNewSchema
       revenueParams: undefined,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       revenue_params: currentValue.revenue_params
-        ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          metricRevenueParamsSchema.snakeCase().cast(currentValue.revenue_params)
+        ? transformSchemaFieldNames(metricRevenueParamsSchema, tinyCase.snakeCase)
+            .snakeCase()
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            .cast(currentValue.revenue_params)
         : undefined,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       pipe_params: currentValue.pipe_params
-        ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          metricPipeParamsSchema.snakeCase().cast(currentValue.pipe_params)
+        ? transformSchemaFieldNames(metricPipeParamsSchema, tinyCase.snakeCase)
+            .snakeCase()
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            .cast(currentValue.pipe_params)
         : undefined,
     }),
   )
   .shape({
-    tags: yup.array(yupPick(tagFullSchema, ['tagId']).snakeCase()),
+    tags: yup.array(transformSchemaFieldNames(yupPick(tagFullSchema, ['tagId']), tinyCase.snakeCase).snakeCase()),
   })
 export interface MetricNewOutbound extends yup.InferType<typeof metricNewOutboundSchema> {}
 
@@ -303,7 +377,14 @@ export enum AttributionWindowSeconds {
   FourWeeks = 2419200,
 }
 
-export const metricAssignmentNewSchema = yup
+export interface MetricAssignmentNew {
+  attributionWindowSeconds: AttributionWindowSeconds
+  changeExpected: boolean
+  isPrimary: boolean
+  metricId: IdType
+  minDifference: number
+}
+export const metricAssignmentNewSchema: ObjectSchema<MetricAssignmentNew> = yup
   .object({
     attributionWindowSeconds: yup
       .number()
@@ -318,23 +399,32 @@ export const metricAssignmentNewSchema = yup
   })
   .defined()
   .camelCase()
-export interface MetricAssignmentNew extends yup.InferType<typeof metricAssignmentNewSchema> {}
-export const metricAssignmentNewOutboundSchema = metricAssignmentNewSchema.snakeCase()
+export const metricAssignmentNewOutboundSchema = transformSchemaFieldNames(
+  metricAssignmentNewSchema,
+  tinyCase.snakeCase,
+).snakeCase()
 
-export const metricAssignmentSchema = metricAssignmentNewSchema
+export type MetricAssignment = MetricAssignmentNew & {
+  metricAssignmentId: IdType
+}
+export const metricAssignmentSchema: ObjectSchema<MetricAssignment> = metricAssignmentNewSchema
   .shape({
     metricAssignmentId: idSchema.defined(),
   })
   .defined()
   .camelCase()
-export interface MetricAssignment extends yup.InferType<typeof metricAssignmentSchema> {}
 
 export enum SegmentType {
   Country = 'country',
   Locale = 'locale',
 }
 
-export const segmentSchema = yup
+export interface Segment {
+  segmentId: IdType
+  name: string
+  type: SegmentType
+}
+export const segmentSchema: ObjectSchema<Segment> = yup
   .object({
     segmentId: idSchema.defined(),
     name: yup.string().defined(),
@@ -342,27 +432,39 @@ export const segmentSchema = yup
   })
   .defined()
   .camelCase()
-export interface Segment extends yup.InferType<typeof segmentSchema> {}
 
-export const segmentAssignmentNewSchema = yup
+export interface SegmentAssignmentNew {
+  segmentId: IdType
+  isExcluded: boolean
+}
+export const segmentAssignmentNewSchema: ObjectSchema<SegmentAssignmentNew> = yup
   .object({
     segmentId: idSchema.defined(),
     isExcluded: yup.bool().defined(),
   })
   .defined()
   .camelCase()
-export interface SegmentAssignmentNew extends yup.InferType<typeof segmentAssignmentNewSchema> {}
-export const segmentAssignmentNewOutboundSchema = segmentAssignmentNewSchema.snakeCase()
+export const segmentAssignmentNewOutboundSchema = transformSchemaFieldNames(
+  segmentAssignmentNewSchema,
+  tinyCase.snakeCase,
+).snakeCase()
 
+export type SegmentAssignment = SegmentAssignmentNew & {
+  segmentAssignmentId: IdType
+}
 export const segmentAssignmentSchema = segmentAssignmentNewSchema
   .shape({
     segmentAssignmentId: idSchema.defined(),
   })
   .defined()
   .camelCase()
-export interface SegmentAssignment extends yup.InferType<typeof segmentAssignmentSchema> {}
 
-export const variationNewSchema = yup
+export interface VariationNew {
+  name: string
+  isDefault: boolean
+  allocatedPercentage: number
+}
+export const variationNewSchema: ObjectSchema<VariationNew> = yup
   .object({
     name: nameSchema.defined(),
     isDefault: yup.bool().defined(),
@@ -370,16 +472,17 @@ export const variationNewSchema = yup
   })
   .defined()
   .camelCase()
-export interface VariationNew extends yup.InferType<typeof variationNewSchema> {}
-export const variationNewOutboundSchema = variationNewSchema.snakeCase()
+export const variationNewOutboundSchema = transformSchemaFieldNames(variationNewSchema, tinyCase.snakeCase).snakeCase()
 
+export type Variation = VariationNew & {
+  variationId: IdType
+}
 export const variationSchema = variationNewSchema
   .shape({
     variationId: idSchema.defined(),
   })
   .defined()
   .camelCase()
-export interface Variation extends yup.InferType<typeof variationSchema> {}
 
 export enum Platform {
   Akismet = 'akismet',
@@ -414,29 +517,42 @@ export enum AssignmentCacheStatus {
   Stale = 'stale',
 }
 
-export const distributionStatsSchema = yup
+export interface DistributionStats {
+  mean: ExtendedNumber
+  top_99: ExtendedNumber | null
+  bottom_99: ExtendedNumber | null
+  top_95: ExtendedNumber
+  bottom_95: ExtendedNumber
+  top_50: ExtendedNumber | null
+  bottom_50: ExtendedNumber | null
+}
+export const distributionStatsSchema: ObjectSchema<DistributionStats> = yup
   .object({
-    mean: extendedNumberSchema.defined(),
-    top_99: extendedNumberSchema.defined().nullable(),
-    bottom_99: extendedNumberSchema.defined().nullable(),
-    top_95: extendedNumberSchema.defined(),
-    bottom_95: extendedNumberSchema.defined(),
-    top_50: extendedNumberSchema.defined().nullable(),
-    bottom_50: extendedNumberSchema.defined().nullable(),
+    mean: extendedNumberSchema,
+    top_99: extendedNumberSchema.nullable(),
+    bottom_99: extendedNumberSchema.nullable(),
+    top_95: extendedNumberSchema,
+    bottom_95: extendedNumberSchema,
+    top_50: extendedNumberSchema.nullable(),
+    bottom_50: extendedNumberSchema.nullable(),
   })
   .defined()
   .camelCase()
-export interface DistributionStats extends yup.InferType<typeof distributionStatsSchema> {}
 
-export const metricEstimatesSchema = yup
-  .object({
-    variations: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
-    diffs: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
-    ratios: yup.object().defined() as yup.Schema<Record<string, DistributionStats>>,
-  })
+export interface MetricEstimates {
+  variations: Record<string, DistributionStats>
+  diffs: Record<string, DistributionStats>
+  ratios: Record<string, DistributionStats>
+}
+export const metricEstimatesSchema: ObjectSchema<MetricEstimates> = (
+  yup.object({
+    variations: yup.object().defined(),
+    diffs: yup.object().defined(),
+    ratios: yup.object().defined(),
+  }) as ObjectSchema<MetricEstimates>
+)
   .defined()
   .camelCase()
-export interface MetricEstimates extends yup.InferType<typeof metricEstimatesSchema> {}
 
 export enum AnalysisStrategy {
   IttPure = 'itt_pure',
@@ -446,10 +562,17 @@ export enum AnalysisStrategy {
   PpNaive = 'pp_naive',
 }
 
-export const analysisSchema = yup
+export interface Analysis {
+  metricAssignmentId: IdType
+  analysisDatetime: DateType
+  analysisStrategy: AnalysisStrategy
+  participantStats: Record<string, number>
+  metricEstimates: MetricEstimates | null
+}
+export const analysisSchema: ObjectSchema<Analysis> = yup
   .object({
     metricAssignmentId: idSchema.defined(),
-    analysisDatetime: dateSchema.defined().required(),
+    analysisDatetime: dateSchema.defined(),
     analysisStrategy: yup.string().oneOf(Object.values(AnalysisStrategy)).defined(),
     // These can be validated further in yup but it isn't performant to do it simply (using lazy) and although
     // there is a performant way to do so (higher up lazy) it isn't worth it complexity wise.
@@ -458,20 +581,29 @@ export const analysisSchema = yup
   })
   .defined()
   .camelCase()
-export interface Analysis extends yup.InferType<typeof analysisSchema> {
-  analysisDatetime: Date
-}
 
-export const analysisResponseSchema = yup
+interface AnalysisResponse {
+  analyses: Analysis[]
+}
+export const analysisResponseSchema: ObjectSchema<AnalysisResponse> = yup
   .object({
-    analyses: yup.array(analysisSchema).defined(),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    analyses: yup.array(analysisSchema).defined() as yup.ArraySchema<Analysis[], yup.AnyObject, any, ''>,
   })
   .defined()
-export interface AnalysisResponse extends yup.InferType<typeof analysisResponseSchema> {}
 
 export const MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS = 12
 export const MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS = 12
-export const experimentBareSchema = yup
+export interface ExperimentBare {
+  experimentId: IdType
+  name: NameType
+  startDatetime: DateType | null
+  endDatetime: DateType | null
+  status: Status
+  platform: Platform
+  ownerLogin: string
+}
+export const experimentBareSchema: ObjectSchema<ExperimentBare> = yup
   .object({
     experimentId: idSchema.defined(),
     name: nameSchema.defined(),
@@ -479,10 +611,9 @@ export const experimentBareSchema = yup
     endDatetime: dateSchema
       .defined()
       .nullable()
-      .when(
-        'startDatetime',
-        (startDatetime: Date, schema: yup.DateSchema) =>
-          startDatetime && schema.min(startDatetime, 'End date must be after start date.'),
+      .when('startDatetime', ([startDatetime], schema) =>
+        // istanbul ignore next; trivial
+        startDatetime ? schema.min(startDatetime, 'End date must be after start date.') : schema,
       ),
     status: yup.string().oneOf(Object.values(Status)).defined(),
     platform: yup.string().oneOf(Object.values(Platform)).defined(),
@@ -490,22 +621,40 @@ export const experimentBareSchema = yup
   })
   .defined()
   .camelCase()
-export interface ExperimentBare extends yup.InferType<typeof experimentBareSchema> {}
 
+export type ExperimentSummary = ExperimentBare & {
+  analyses: Analysis[]
+  description: string
+}
 export const experimentSummarySchema = experimentBareSchema.shape({
   analyses: yup.array(analysisSchema).defined(),
   description: yup.string().defined(),
 })
-export interface ExperimentSummary extends yup.InferType<typeof experimentSummarySchema> {}
 
+export interface ExperimentSummaryResponse {
+  experiments: ExperimentSummary[]
+}
 export const experimentSummaryResponse = yup
   .object({
     experiments: yup.array(experimentSummarySchema).defined(),
   })
   .defined()
-// The following definition is a bit hacky, but it effectively undefines some fields from the parent schema.
-const yupUndefined = yup.mixed().oneOf([]).notRequired()
-export const experimentFullSchema = experimentBareSchema
+
+export type ExperimentFull = ExperimentBare & {
+  description: string
+  existingUsersAllowed: boolean
+  p2Url: string
+  endReason?: string | null
+  conclusionUrl?: string | null
+  deployedVariationId?: number | null
+  exposureEvents: Event[] | null
+  metricAssignments: MetricAssignment[]
+  segmentAssignments: SegmentAssignment[]
+  variations: Variation[]
+  exclusionGroupTagIds?: IdType[] | undefined
+  assignmentCacheStatus: AssignmentCacheStatus
+}
+export const experimentFullSchema: ObjectSchema<ExperimentFull> = experimentBareSchema
   .shape({
     analyses: yupUndefined,
     description: yup.string().defined(),
@@ -514,23 +663,24 @@ export const experimentFullSchema = experimentBareSchema
     endReason: yup.string().nullable(),
     conclusionUrl: yup.string().url().nullable(),
     deployedVariationId: idSchema.nullable().notRequired(),
-    exposureEvents: yup.array<Event>(eventSchema).nullable(),
+    exposureEvents: yup.array(eventSchema).defined().nullable(),
     metricAssignments: yup.array(metricAssignmentSchema).defined().min(1),
     segmentAssignments: yup.array(segmentAssignmentSchema).defined(),
-    variations: yup.array<Variation>(variationSchema).defined().min(2),
+    variations: yup.array(variationSchema).defined().min(2),
     exclusionGroupTagIds: yup.array(idSchema.defined()),
     assignmentCacheStatus: yup.string().oneOf(Object.values(AssignmentCacheStatus)).defined(),
   })
   .defined()
   .camelCase()
-export interface ExperimentFull extends yup.InferType<typeof experimentFullSchema> {}
 
 const now = new Date()
 
 export const experimentFullNewSchema = experimentFullSchema.shape({
-  experimentId: idSchema.nullable(),
+  experimentId: idSchema.nullable().notRequired(),
   status: yupUndefined,
   assignmentCacheStatus: yupUndefined,
+  conclusionUrl: yup.string().url().nullable().notRequired(),
+  endReason: yup.string().nullable().notRequired(),
   startDatetime: dateSchema
     .defined()
     .nullable()
@@ -538,7 +688,7 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       'future-start-date',
       'Start date (UTC) must be in the future.',
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-      (date) => date === null || (!!date && dateFns.isBefore(new Date(), date)),
+      (date) => date === null || dateFns.isBefore(new Date(), date),
     )
     .test(
       'bounded-start-date',
@@ -546,21 +696,20 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
       (date) =>
         date === null ||
-        (!!date && dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS))),
+        dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
     ),
   endDatetime: dateSchema
     .defined()
     .nullable()
-    .when(
-      'startDatetime',
-      (startDatetime: Date, schema: yup.DateSchema) =>
-        startDatetime &&
-        schema
-          .min(startDatetime, 'End date must be after start date.')
-          .max(
-            dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
-            `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
-          ),
+    .when('startDatetime', ([startDatetime], schema) =>
+      startDatetime && startDatetime instanceof Date
+        ? schema
+            .min(startDatetime, 'End date must be after start date.')
+            .max(
+              dateFns.addMonths(startDatetime, MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS),
+              `End date must be within ${MAX_DISTANCE_BETWEEN_START_AND_END_DATE_IN_MONTHS} months of start date.`,
+            )
+        : schema,
     ),
   exposureEvents: yup.array(eventNewSchema).notRequired(),
   metricAssignments: yup
@@ -570,43 +719,47 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
     .test(
       'primary-metric-assignment',
       `One primary metric assignment is required.`,
-      (metricAssignments: MetricAssignmentNew[] | null | undefined) =>
-        !!metricAssignments &&
-        Array.isArray(metricAssignments) &&
-        metricAssignments.some((metricAssignment) => metricAssignment.isPrimary),
+      (metricAssignments: MetricAssignmentNew[]) =>
+        Array.isArray(metricAssignments) && metricAssignments.some((metricAssignment) => metricAssignment.isPrimary),
     ),
   segmentAssignments: yup.array(segmentAssignmentNewSchema).defined(),
   variations: yup
-    .array<VariationNew>(variationNewSchema)
+    .array(variationNewSchema)
     .defined()
     .min(2)
     .test(
       'default-variation-exists',
       'A default variation is required.',
-      (variations: VariationNew[] | null | undefined) =>
-        !!variations && variations.some((variation) => variation.isDefault),
+      (variations: VariationNew[]) => variations && variations.some((variation) => variation.isDefault),
     )
     .test(
       'max-total',
       'The sum of allocated percentages must be less than or equal to 100.',
-      (variations: VariationNew[] | null | undefined) =>
-        !!variations && variations.reduce((acc, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
+      (variations: VariationNew[]) =>
+        variations &&
+        variations.reduce((acc: number, variation) => acc + Number(variation.allocatedPercentage), 0) <= 100,
     )
     .test(
       'unique-names',
       'Variation names must be unique.',
-      (variations: VariationNew[] | null | undefined) =>
-        !!variations && new Set(variations.map((x) => x.name)).size === variations.length,
+      (variations: VariationNew[]) => variations && new Set(variations.map((x) => x.name)).size === variations.length,
     ),
 })
 export interface ExperimentFullNew extends yup.InferType<typeof experimentFullNewSchema> {}
 /**
  * For casting use only.
  */
-export const experimentFullNewOutboundSchema = experimentFullNewSchema
+export const experimentFullNewOutboundSchema = transformSchemaFieldNames(experimentFullNewSchema, tinyCase.snakeCase)
   .shape({
-    // Seems to work here but not below?
-    variations: yup.array<VariationNew>(variationNewOutboundSchema).defined(),
+    exposure_events: yup.array(eventSchema).defined().nullable(),
+    // Due to the snakeCase function we end up with p_2_url instead of p2_url, so we fix that here:
+    p_2_url: yupUndefined,
+    p2_url: yup.string().url().defined(),
+    start_datetime: yup.string().defined(),
+    end_datetime: yup.string().defined(),
+    metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined(),
+    segment_assignments: yup.array(segmentAssignmentNewOutboundSchema).defined(),
+    variations: yup.array(variationNewOutboundSchema).defined(),
   })
   .snakeCase()
   .transform(
@@ -614,18 +767,26 @@ export const experimentFullNewOutboundSchema = experimentFullNewSchema
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     (currentValue) => ({
       ...currentValue,
-      // The P2 field gets incorrectly snake_cased so we fix it here
+      // Due to the snakeCase function we end up with p_2_url instead of p2_url, so we fix that here:
       p_2_url: undefined,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
       p2_url: currentValue.p_2_url,
-      // These two only seem to work down here rather then above?
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined().cast(currentValue.metric_assignments),
-      segment_assignments: yup
-        .array(segmentAssignmentNewOutboundSchema)
-        .defined()
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        .cast(currentValue.segment_assignments),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+      start_datetime:
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+        currentValue?.start_datetime instanceof Date
+          ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+            currentValue.start_datetime.toISOString()
+          : // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+            currentValue?.start_datetime,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+      end_datetime:
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+        currentValue?.end_datetime instanceof Date
+          ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+            currentValue.end_datetime.toISOString()
+          : // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+            currentValue?.end_datetime,
       // Converting EventNew to Event
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
       exposure_events: currentValue.exposure_events.map(
@@ -653,7 +814,7 @@ export interface AutocompleteItem extends yup.InferType<typeof autocompleteItemS
  */
 export const autocompleteSchema = yup
   .object({
-    completions: yup.array<AutocompleteItem>(autocompleteItemSchema).defined(),
+    completions: yup.array(autocompleteItemSchema).defined(),
   })
   .defined()
 
@@ -672,7 +833,7 @@ export const eventDetailsSchema = yup
     owner: yup.string().defined(),
     is_registered: yup.boolean().defined(),
     is_validated: yup.boolean().defined(),
-    props: yup.array<EventProp>(eventPropsSchema).defined(),
+    props: yup.array(eventPropsSchema).defined(),
   })
   .defined()
 export interface EventDetails extends yup.InferType<typeof eventDetailsSchema> {}
@@ -686,7 +847,7 @@ export interface EventDetails extends yup.InferType<typeof eventDetailsSchema> {
  * @param context See yup.reach
  */
 export function yupPick(
-  schema: yup.ObjectSchema,
+  schema: yup.ObjectSchema<yup.AnyObject>,
   props: string[],
   value?: unknown,
   context?: unknown,

@@ -531,7 +531,7 @@ function createExperimentFull(fieldOverrides: Partial<ExperimentFull> = {}): Exp
     exclusionGroupTagIds: [1],
     assignmentCacheStatus: AssignmentCacheStatus.Fresh,
     ...existingExperimentFieldOverrides,
-  }
+  } as ExperimentFull
 }
 
 function createMetric(id: number, override?: Partial<Metric>): Metric {

@@ -201,7 +201,7 @@ describe('lib/form-data.test.ts module', () => {
             eventParams: undefined,
             pipeParams: {
               model: PipeModels.ChurnUntimed,
-              fieldValue: PipeValueFields.Prediction,
+              valueField: PipeValueFields.Prediction,
               blogToUserAggregationMethod: PipeBlogToUserAggregationMethod.Max,
               extraAnalysisWindowDays: 10,
             },
@@ -216,7 +216,7 @@ describe('lib/form-data.test.ts module', () => {
           "parameterType": "pipe",
           "pipeParams": "{
           \\"model\\": \\"churn_untimed\\",
-          \\"fieldValue\\": \\"prediction\\",
+          \\"valueField\\": \\"prediction\\",
           \\"blogToUserAggregationMethod\\": \\"max\\",
           \\"extraAnalysisWindowDays\\": 10
         }",

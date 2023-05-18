@@ -1,18 +1,21 @@
 import {
   Button,
+  Checkbox,
   createStyles,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
+  FormLabel,
   LinearProgress,
   makeStyles,
   Theme,
+  Typography,
 } from '@material-ui/core'
 import debugFactory from 'debug'
 import { Formik, FormikProps } from 'formik'
 import { useSnackbar } from 'notistack'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import * as yup from 'yup'
 
 import MetricsApi from 'src/api/explat/MetricsApi'
@@ -35,6 +38,20 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'flex-end',
     },
+    titleWrapper: {
+      margin: theme.spacing(3, 0, 0, 0),
+      color: theme.palette.grey.A700,
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    metricsToggleGroup: {
+      marginTop: theme.spacing(2),
+      display: 'flex',
+    },
+    metricsToggleItem: {
+      display: 'flex',
+      alignItems: 'center',
+    },
   }),
 )
 
@@ -47,7 +64,7 @@ const MetricsIndexPage = (): JSX.Element => {
     data: metrics,
     error,
     reloadRef,
-  } = useDataSource(() => MetricsApi.findAll({ includeDebug: isDebugMode() }), [])
+  } = useDataSource(() => MetricsApi.findAll({ includeDebug: true }), [])
   useDataLoadingError(error, 'Metrics')
 
   const debugMode = isDebugMode()
@@ -108,12 +125,45 @@ const MetricsIndexPage = (): JSX.Element => {
     }
   }
 
+  const [showArchivedMetrics, setShowArchivedMetrics] = useState(false)
+  const onArchivedMetricsCheckboxChange = () => setShowArchivedMetrics(!showArchivedMetrics)
+
+  const [showDebugMetrics, setShowDebugMetrics] = useState(false)
+  const onDebugMetricsCheckboxChange = () => setShowDebugMetrics(!showDebugMetrics)
+
+  const filteredMetrics = useMemo(
+    () =>
+      metrics?.filter(
+        (metric) =>
+          (!metric.name.startsWith('archived_') || showArchivedMetrics) &&
+          (!metric.name.startsWith('explat_test_') || isDebugMode() || showDebugMetrics),
+      ),
+    [metrics, showArchivedMetrics, showDebugMetrics],
+  )
+
   return (
-    <Layout title='Metrics'>
+    <Layout headTitle='Metrics'>
+      <div className={classes.titleWrapper}>
+        <Typography variant='h2'>Metrics</Typography>
+        <div className={classes.metricsToggleGroup}>
+          <div className={classes.metricsToggleItem}>
+            <Checkbox
+              checked={showArchivedMetrics}
+              onChange={onArchivedMetricsCheckboxChange}
+              id='archived-metrics-toggle'
+            />
+            <FormLabel htmlFor='archived-metrics-toggle'>Show archived metrics</FormLabel>
+          </div>
+          <div className={classes.metricsToggleItem}>
+            <Checkbox checked={showDebugMetrics} onChange={onDebugMetricsCheckboxChange} id='debug-metrics-toggle' />
+            <FormLabel htmlFor='debug-metrics-toggle'>Show debug metrics</FormLabel>
+          </div>
+        </div>
+      </div>
       {isLoading && <LinearProgress />}
       {metrics && (
         <>
-          <MetricsTable metrics={metrics || []} onEditMetric={debugMode ? onEditMetric : undefined} />
+          <MetricsTable metrics={filteredMetrics || []} onEditMetric={debugMode ? onEditMetric : undefined} />
           {debugMode && (
             <div className={classes.actions}>
               <Button variant='contained' color='secondary' onClick={onAddMetric}>

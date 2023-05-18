@@ -637,6 +637,40 @@ describe('getAnalysisRunHours', () => {
     ).toBe(24)
   })
 
+  it('should work for an experiment with a startdatetime greater than the analysis datetime but in the same day', () => {
+    const startDatetime = new Date('2021-04-01T01:00:00Z')
+    const endDatetime = new Date('2021-04-02T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-01T00:00:00Z')
+    expect(
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      ),
+    ).toBe(23)
+  })
+
+  it('should throw an error if the startdatetime is in the next day compared to analysis datetime', () => {
+    const startDatetime = new Date('2021-04-02T00:05:00Z')
+    const endDatetime = new Date('2021-04-02T00:00:00Z')
+    const analysisDatetime = new Date('2021-04-01T23:59:00Z')
+    expect(() => {
+      Analyses.getAnalysisRunHours(
+        Fixtures.createAnalysis({
+          analysisDatetime,
+        }),
+        Fixtures.createExperimentFull({
+          startDatetime,
+          endDatetime,
+        }),
+      )
+    }).toThrowErrorMatchingInlineSnapshot(`"Assert: analysisDatetime must be greater than startDatetime"`)
+  })
+
   it('should throw an error if the analysis datetime has a non-start-of-day time set', () => {
     const startDatetime = new Date('2021-04-01T00:00:00Z')
     const endDatetime = new Date('2021-04-02T00:00:00Z')

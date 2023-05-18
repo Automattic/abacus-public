@@ -563,9 +563,9 @@ export function getAnalysisRunHours(analysis: Analysis, experiment: ExperimentFu
   }
 
   // istanbul ignore next; shouldn't occur
-  // Add 1 day to this check because it was crashing the results page in the first day of the experiment.
-  // See: https://a8c.slack.com/archives/C7HH3V5AS/p1683914537625449
-  if (add(analysis.analysisDatetime, { hours: 24 }) < experiment.startDatetime) {
+  // Use the date, allowing the experiment to start in the first 24h after the 'analysis_datetime' returned by the backend.
+  // This should prevent crashing the results page in the first day of the experiment (https://a8c.slack.com/archives/C7HH3V5AS/p1683914537625449)
+  if (analysis.analysisDatetime.getTime() < utcStartOfDay(experiment.startDatetime).getTime()) {
     throw new Error('Assert: analysisDatetime must be greater than startDatetime')
   }
 

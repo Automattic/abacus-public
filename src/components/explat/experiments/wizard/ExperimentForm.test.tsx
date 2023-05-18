@@ -16,7 +16,6 @@ import {
   render,
   validationErrorDisplayer,
 } from 'src/test-helpers/test-utils'
-import { formatIsoDate } from 'src/utils/time'
 
 import ExperimentForm, { ExperimentFormCompletionBag } from './ExperimentForm'
 
@@ -344,8 +343,6 @@ test('skipping to submit should check all sections', async () => {
 })
 
 test('form submits with valid fields', async () => {
-  MockDate.set('2020-08-13')
-
   let submittedData: unknown = null
   const onSubmit = async (formData: unknown): Promise<undefined> => {
     // We need to add a timeout here so the loading indicator renders
@@ -375,17 +372,6 @@ test('form submits with valid fields', async () => {
   screen.getAllByText(/Basic Info/)
   await changeFieldByRole('textbox', /Experiment name/, 'test_experiment_name')
   await changeFieldByRole('textbox', /Experiment description/, 'experiment description')
-  // We need to make some dates relative to today since mocking the schema to work with MockDate is a pain!
-  const now = new Date()
-  now.setDate(now.getDate() + 1)
-  const nextWeek = new Date()
-  nextWeek.setDate(now.getDate() + 7)
-  await act(async () => {
-    fireEvent.change(screen.getByLabelText(/Start date/), { target: { value: formatIsoDate(now) } })
-  })
-  await act(async () => {
-    fireEvent.change(screen.getByLabelText(/End date/), { target: { value: formatIsoDate(nextWeek) } })
-  })
   // search for the user
   await act(async () => {
     await changeFieldByRole('textbox', /Owner/, 'testing')
@@ -529,8 +515,8 @@ test('form submits with valid fields', async () => {
       p2Url: 'http://example.com/',
       name: 'test_experiment_name',
       description: 'experiment description',
-      startDatetime: formatIsoDate(now),
-      endDatetime: formatIsoDate(nextWeek),
+      startDatetime: '',
+      endDatetime: '',
       exclusionGroupTagIds: [],
       ownerLogin: 'owner-nickname',
       platform: 'wpcom',

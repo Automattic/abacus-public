@@ -47,13 +47,7 @@ const stages: Stage[] = [
   {
     id: StageId.BasicInfo,
     title: 'Basic Info',
-    validatableFields: [
-      'experiment.name',
-      'experiment.description',
-      'experiment.startDatetime',
-      'experiment.endDatetime',
-      'experiment.ownerLogin',
-    ],
+    validatableFields: ['experiment.name', 'experiment.description', 'experiment.ownerLogin'],
   },
   {
     id: StageId.Audience,

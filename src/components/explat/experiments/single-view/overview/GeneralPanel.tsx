@@ -27,7 +27,7 @@ import ExperimentStatus from 'src/components/explat/experiments/ExperimentStatus
 import DatetimeText from 'src/components/general/DatetimeText'
 import LabelValueTable from 'src/components/general/LabelValueTable'
 import PrivateLink from 'src/components/general/PrivateLink'
-import { ExperimentFull, experimentFullSchema, Status, yupPick } from 'src/lib/explat/schemas'
+import { ExperimentFull, experimentFullNewSchema, experimentFullSchema, Status, yupPick } from 'src/lib/explat/schemas'
 import { formatIsoDate } from 'src/utils/time'
 
 import { AssignmentCacheStatusToHuman } from '../../../../../lib/explat/experiments'
@@ -138,11 +138,11 @@ function GeneralPanel({
   const generalEditValidationSchema = yupPick(experimentFullSchema, ['description', 'ownerLogin']).shape({
     ...(canEditEndDate && {
       // We need to ensure the end date is in the future
-      endDatetime: (yup.reach(experimentFullSchema, 'endDatetime') as unknown as yup.MixedSchema).test(
+      endDatetime: (yup.reach(experimentFullNewSchema, 'endDatetime') as unknown as yup.MixedSchema).test(
         'future-end-date',
         'End date (UTC) must be in the future.',
         // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-        (date) => dateFns.isBefore(new Date(), date as Date),
+        (date) => !date || dateFns.isBefore(new Date(), date as Date),
       ),
     }),
   })
@@ -220,7 +220,7 @@ function GeneralPanel({
                     label='End date'
                     disabled={!canEditEndDate}
                     helperText={
-                      canEditEndDate ? 'Use the UTC timezone.' : `Cannot be changed as the experiment has finished.`
+                      canEditEndDate ? 'Use the UTC timezone.' : `Cannot be changed as the experiment has completed.`
                     }
                     type='date'
                     variant='outlined'

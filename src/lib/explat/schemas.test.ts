@@ -434,6 +434,7 @@ describe('lib/schemas.ts module', () => {
       expect(() => Schemas.dateSchema.validateSync({})).toThrowErrorMatchingInlineSnapshot(
         `"Invalid originalValue for date"`,
       )
+      expect(() => Schemas.dateSchema.validateSync('')).toThrowErrorMatchingInlineSnapshot(`"this cannot be null"`)
       expect(() => Schemas.dateSchema.validateSync('invalid-date')).toThrowErrorMatchingInlineSnapshot(
         `"this must be a \`date\` type, but the final value was: \`Invalid Date\` (cast from the value \`\\"invalid-date\\"\`)."`,
       )
@@ -444,6 +445,7 @@ describe('lib/schemas.ts module', () => {
     })
     it('should work as expected for nullable/notrequired datetimes', () => {
       expect(Schemas.dateSchema.nullable().validateSync(null)).toBe(null)
+      expect(Schemas.dateSchema.nullable().validateSync('')).toBe(null)
       expect(Schemas.dateSchema.notRequired().validateSync(undefined)).toBe(undefined)
     })
   })

@@ -25,27 +25,502 @@ exports[`renders as expected 1`] = `
 `;
 
 exports[`runs an experiment 1`] = `
-<div
-  aria-hidden="true"
+<body
+  style="padding-right: 0px; overflow: hidden;"
 >
-  <span
-    class=""
-    title=""
+  <div
+    aria-hidden="true"
   >
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-6"
-      tabindex="0"
-      type="button"
+    <span
+      class=""
+      title=""
     >
-      <span
-        class="MuiButton-label"
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-6"
+        tabindex="0"
+        type="button"
       >
-        1. Launch
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-  </span>
-</div>
+        <span
+          class="MuiButton-label"
+        >
+          1. Launch
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </span>
+  </div>
+  <div
+    class="MuiDialog-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root makeStyles-dangerBackdrop-8"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper"
+      role="none presentation"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        aria-labelledby="confirm-run-experiment-dialog-title"
+        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        role="dialog"
+      >
+        <div
+          class="MuiDialogTitle-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-h5"
+            >
+              Are you sure you want to 
+              <strong>
+                launch
+              </strong>
+               this experiment?
+            </div>
+          </h2>
+        </div>
+        <div
+          class="MuiDialogContent-root"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+          >
+            Launching will 
+            <strong>
+              release experiment code to our users.
+            </strong>
+             This may take up to ten minutes to propagate to all servers due to
+             
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              the file system assignment cache
+            </a>
+            .
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+          >
+            Launching also changes the experiment's status to running, which is 
+            <strong>
+              irreversible
+            </strong>
+            .
+          </p>
+          <div
+            class="makeStyles-dangerImage-5"
+          >
+            <img
+              alt="DANGER!"
+              src="/img/danger.gif"
+            />
+          </div>
+        </div>
+        <form
+          novalidate=""
+        >
+          <div
+            class="MuiDialogContent-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              An eventual end date is 
+              <strong>
+                required
+              </strong>
+               to prevent experiments running forever:
+            </p>
+            <br />
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+                for="experiment.endDatetime"
+                id="experiment.endDatetime-label"
+              >
+                End date
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-describedby="experiment.endDatetime-helper-text"
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  id="experiment.endDatetime"
+                  name="experiment.endDatetime"
+                  required=""
+                  type="date"
+                  value="2020-11-21"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
+                  >
+                    <span>
+                      End date
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+              <p
+                class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                id="experiment.endDatetime-helper-text"
+              >
+                Use the UTC timezone.
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiDialogActions-root MuiDialogActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Cancel
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="makeStyles-root-13"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-dangerButtonContained-7"
+                tabindex="0"
+                type="submit"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Launch
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`runs an experiment 2`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <span
+      class=""
+      title=""
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-6"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          1. Launch
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </span>
+  </div>
+  <div
+    class="MuiDialog-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root makeStyles-dangerBackdrop-8"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper"
+      role="none presentation"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        aria-labelledby="confirm-run-experiment-dialog-title"
+        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        role="dialog"
+      >
+        <div
+          class="MuiDialogTitle-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            <div
+              class="MuiTypography-root MuiTypography-h5"
+            >
+              Are you sure you want to 
+              <strong>
+                launch
+              </strong>
+               this experiment?
+            </div>
+          </h2>
+        </div>
+        <div
+          class="MuiDialogContent-root"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+          >
+            Launching will 
+            <strong>
+              release experiment code to our users.
+            </strong>
+             This may take up to ten minutes to propagate to all servers due to
+             
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              the file system assignment cache
+            </a>
+            .
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+          >
+            Launching also changes the experiment's status to running, which is 
+            <strong>
+              irreversible
+            </strong>
+            .
+          </p>
+          <div
+            class="makeStyles-dangerImage-5"
+          >
+            <img
+              alt="DANGER!"
+              src="/img/danger.gif"
+            />
+          </div>
+        </div>
+        <form
+          novalidate=""
+        >
+          <div
+            class="MuiDialogContent-root"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              An eventual end date is 
+              <strong>
+                required
+              </strong>
+               to prevent experiments running forever:
+            </p>
+            <br />
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+                for="experiment.endDatetime"
+                id="experiment.endDatetime-label"
+              >
+                End date
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-describedby="experiment.endDatetime-helper-text"
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  id="experiment.endDatetime"
+                  name="experiment.endDatetime"
+                  required=""
+                  type="date"
+                  value="1999-12-31"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-15 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-17 PrivateNotchedOutline-legendNotched-18"
+                  >
+                    <span>
+                      End date
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+              <p
+                class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                id="experiment.endDatetime-helper-text"
+              >
+                Use the UTC timezone.
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiDialogActions-root MuiDialogActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Cancel
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="makeStyles-root-19"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-dangerButtonContained-7 Mui-disabled Mui-disabled"
+                disabled=""
+                tabindex="-1"
+                type="submit"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Launch
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`runs an experiment 3`] = `
+Object {
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "logTestingPlaygroundURL": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+}
 `;

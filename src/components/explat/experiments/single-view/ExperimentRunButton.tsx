@@ -9,14 +9,19 @@ import {
   Tooltip,
   Typography,
 } from '@material-ui/core'
+import * as dateFns from 'date-fns'
+import { Field, Formik } from 'formik'
+import { TextField } from 'formik-material-ui'
 import { useSnackbar } from 'notistack'
 import React, { useState } from 'react'
+import * as yup from 'yup'
 
 import ExperimentsApi from 'src/api/explat/ExperimentsApi'
 import { serverErrorMessage } from 'src/api/HttpResponseError'
 import PrivateLink from 'src/components/general/PrivateLink'
-import { ExperimentFull, Status } from 'src/lib/explat/schemas'
+import { ExperimentFull, experimentFullNewSchema, Status } from 'src/lib/explat/schemas'
 import { useDangerStyles } from 'src/styles/styles'
+import { formatIsoDate } from 'src/utils/time'
 
 import LoadingButtonContainer from '../../../general/LoadingButtonContainer'
 
@@ -39,28 +44,74 @@ const ExperimentRunButton = ({
   const dangerClasses = useDangerStyles()
   const { enqueueSnackbar } = useSnackbar()
 
+  // Dialog Management
   const canRunExperiment = experiment && experiment.status === Status.Staging
   const [isAskingToConfirmRunExperiment, setIsAskingToConfirmRunExperiment] = useState<boolean>(false)
   const onAskToConfirmRunExperiment = () => setIsAskingToConfirmRunExperiment(true)
   const onCancelRunExperiment = () => setIsAskingToConfirmRunExperiment(false)
-  const [isSubmittingRunExperiment, setIsSubmittingRunExperiment] = useState<boolean>(false)
-  const onConfirmRunExperiment = async () => {
+
+  const launchExperiment = async () => {
     try {
       // istanbul ignore next; Shouldn't occur
       if (!experiment) {
         throw Error('Missing experiment, this should not happen')
       }
 
-      setIsSubmittingRunExperiment(true)
       await ExperimentsApi.changeStatus(experiment.experimentId, Status.Running)
-      enqueueSnackbar('Experiment Running!', { variant: 'success' })
+      enqueueSnackbar('Experiment Launched!', { variant: 'success' })
       experimentReloadRef.current()
-      setIsAskingToConfirmRunExperiment(false)
     } catch (e) /* istanbul ignore next; Shouldn't occur */ {
       console.log(e)
       enqueueSnackbar(`Oops! Something went wrong while trying to run your experiment. ${serverErrorMessage(e)}`, {
         variant: 'error',
       })
+      throw e
+    }
+  }
+
+  const editValidationSchema = yup
+    .object({
+      // We need to ensure the end date is in the future
+      endDatetime: (yup.reach(experimentFullNewSchema, 'endDatetime') as unknown as yup.MixedSchema)
+        .defined()
+        .required()
+        .test(
+          'future-end-date',
+          'End date (UTC must be in the future.',
+          // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
+          (date) => !!date && dateFns.isBefore(new Date(), date as Date),
+        ),
+    })
+    .required()
+  const editInitialExperiment = {
+    endDatetime: experiment && experiment.endDatetime ? formatIsoDate(experiment.endDatetime) : '',
+  }
+  const updateExperimentEndDate = async (formData: { experiment: typeof editInitialExperiment }) => {
+    // istanbul ignore next; Shouldn't occur
+    if (!experiment) {
+      throw new Error('Missing experiment')
+    }
+
+    try {
+      await ExperimentsApi.patch(experiment.experimentId, formData.experiment as unknown as Partial<ExperimentFull>)
+      enqueueSnackbar('Experiment end datetime updated', { variant: 'success' })
+      experimentReloadRef.current()
+    } catch (e) /* istanbul ignore next; Shouldn't happen */ {
+      console.error(e)
+      enqueueSnackbar(`Oops! Something went wrong while trying to update your experiment. ${serverErrorMessage(e)}`, {
+        variant: 'error',
+      })
+      throw e
+    }
+  }
+
+  const [isSubmittingRunExperiment, setIsSubmittingRunExperiment] = useState<boolean>(false)
+  const onSubmit = async (formData: { experiment: typeof editInitialExperiment }) => {
+    try {
+      setIsSubmittingRunExperiment(true)
+      await launchExperiment()
+      await updateExperimentEndDate(formData)
+      setIsAskingToConfirmRunExperiment(false)
     } finally {
       setIsSubmittingRunExperiment(false)
     }
@@ -110,21 +161,52 @@ const ExperimentRunButton = ({
             <img src='/img/danger.gif' alt='DANGER!' />
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button variant='contained' color='primary' onClick={onCancelRunExperiment}>
-            Cancel
-          </Button>
-          <LoadingButtonContainer isLoading={isSubmittingRunExperiment}>
-            <Button
-              variant='contained'
-              classes={{ contained: dangerClasses.dangerButtonContained }}
-              disabled={isSubmittingRunExperiment}
-              onClick={onConfirmRunExperiment}
-            >
-              Launch
-            </Button>
-          </LoadingButtonContainer>
-        </DialogActions>
+        <Formik
+          initialValues={{ experiment: editInitialExperiment }}
+          validationSchema={yup.object({ experiment: editValidationSchema }).required()}
+          validateOnMount
+          onSubmit={onSubmit}
+        >
+          {(formikProps) => (
+            <form onSubmit={formikProps.handleSubmit} noValidate>
+              <DialogContent>
+                <Typography variant='body2' gutterBottom>
+                  An eventual end date is <strong>required</strong> to prevent experiments running forever:
+                </Typography>
+                <br />
+                <Field
+                  component={TextField}
+                  name='experiment.endDatetime'
+                  id='experiment.endDatetime'
+                  label='End date'
+                  helperText={'Use the UTC timezone.'}
+                  type='date'
+                  variant='outlined'
+                  fullWidth
+                  required
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button variant='contained' onClick={onCancelRunExperiment} color='primary'>
+                  Cancel
+                </Button>
+                <LoadingButtonContainer isLoading={formikProps.isSubmitting}>
+                  <Button
+                    variant='contained'
+                    type='submit'
+                    classes={{ contained: dangerClasses.dangerButtonContained }}
+                    disabled={isSubmittingRunExperiment || formikProps.isSubmitting || !formikProps.isValid}
+                  >
+                    Launch
+                  </Button>
+                </LoadingButtonContainer>
+              </DialogActions>
+            </form>
+          )}
+        </Formik>
       </Dialog>
     </>
   )

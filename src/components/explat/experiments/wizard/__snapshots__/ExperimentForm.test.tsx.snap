@@ -2525,122 +2525,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 </div>
               </div>
               <div
-                class="makeStyles-row-163"
-              >
-                <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-165"
-                >
-                  <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error Mui-required Mui-required"
-                    data-shrink="true"
-                    for="experiment.startDatetime"
-                    id="experiment.startDatetime-label"
-                  >
-                    Start date (UTC)
-                    <span
-                      aria-hidden="true"
-                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error Mui-error"
-                    >
-                       
-                      *
-                    </span>
-                  </label>
-                  <div
-                    class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl"
-                  >
-                    <input
-                      aria-describedby="experiment.startDatetime-helper-text"
-                      aria-invalid="true"
-                      class="MuiInputBase-input MuiOutlinedInput-input"
-                      id="experiment.startDatetime"
-                      max="2021-08-13"
-                      min="2020-08-13"
-                      name="experiment.startDatetime"
-                      required=""
-                      type="date"
-                      value=""
-                    />
-                    <fieldset
-                      aria-hidden="true"
-                      class="PrivateNotchedOutline-root-145 MuiOutlinedInput-notchedOutline"
-                    >
-                      <legend
-                        class="PrivateNotchedOutline-legendLabelled-147 PrivateNotchedOutline-legendNotched-148"
-                      >
-                        <span>
-                          Start date (UTC)
-                           *
-                        </span>
-                      </legend>
-                    </fieldset>
-                  </div>
-                  <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error Mui-required"
-                    id="experiment.startDatetime-helper-text"
-                  >
-                    This field is required
-                  </p>
-                </div>
-                <span
-                  class="makeStyles-through-164"
-                >
-                   through 
-                </span>
-                <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-datePicker-165"
-                >
-                  <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error Mui-required Mui-required"
-                    data-shrink="true"
-                    for="experiment.endDatetime"
-                    id="experiment.endDatetime-label"
-                  >
-                    End date (UTC)
-                    <span
-                      aria-hidden="true"
-                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error Mui-error"
-                    >
-                       
-                      *
-                    </span>
-                  </label>
-                  <div
-                    class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl"
-                  >
-                    <input
-                      aria-describedby="experiment.endDatetime-helper-text"
-                      aria-invalid="true"
-                      class="MuiInputBase-input MuiOutlinedInput-input"
-                      id="experiment.endDatetime"
-                      name="experiment.endDatetime"
-                      required=""
-                      type="date"
-                      value=""
-                    />
-                    <fieldset
-                      aria-hidden="true"
-                      class="PrivateNotchedOutline-root-145 MuiOutlinedInput-notchedOutline"
-                    >
-                      <legend
-                        class="PrivateNotchedOutline-legendLabelled-147 PrivateNotchedOutline-legendNotched-148"
-                      >
-                        <span>
-                          End date (UTC)
-                           *
-                        </span>
-                      </legend>
-                    </fieldset>
-                  </div>
-                  <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error Mui-required"
-                    id="experiment.endDatetime-helper-text"
-                  >
-                    This field is required
-                  </p>
-                </div>
-              </div>
-              <div
-                class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo MuiPaper-elevation0"
+                class="MuiPaper-root MuiAlert-root MuiAlert-standardWarning MuiPaper-elevation0"
                 role="alert"
               >
                 <div
@@ -2653,18 +2538,14 @@ exports[`sections should be browsable by the section buttons and show validation
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                      d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
                     />
                   </svg>
                 </div>
                 <div
                   class="MuiAlert-message"
                 >
-                  The experiment will 
-                  <strong>
-                    start and end automatically
-                  </strong>
-                   around 00:10 UTC on these dates.
+                  Experiments are no longer schedulable, and must be started/stopped manually via the buttons on the experiment page.
                 </div>
               </div>
               <div

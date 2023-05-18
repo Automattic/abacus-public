@@ -87,6 +87,9 @@ export const dateSchema: DateSchema<DateType> = yup
   .date()
   // As yup's default transform sets a local timezone and we want it to be in UTC:
   .transform(function (_value, originalValue: unknown) {
+    if (originalValue === '') {
+      return null
+    }
     if (originalValue === undefined || originalValue === null) {
       return originalValue
     }
@@ -682,13 +685,13 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
   conclusionUrl: yup.string().url().nullable().notRequired(),
   endReason: yup.string().nullable().notRequired(),
   startDatetime: dateSchema
-    .defined()
+    .notRequired()
     .nullable()
     .test(
       'future-start-date',
       'Start date (UTC) must be in the future.',
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
-      (date) => date === null || dateFns.isBefore(new Date(), date),
+      (date) => date === null || date === undefined || dateFns.isBefore(new Date(), date),
     )
     .test(
       'bounded-start-date',
@@ -696,10 +699,11 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
       // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
       (date) =>
         date === null ||
+        date === undefined ||
         dateFns.isBefore(date, dateFns.addMonths(now, MAX_DISTANCE_BETWEEN_NOW_AND_START_DATE_IN_MONTHS)),
     ),
   endDatetime: dateSchema
-    .defined()
+    .notRequired()
     .nullable()
     .when('startDatetime', ([startDatetime], schema) =>
       startDatetime && startDatetime instanceof Date
@@ -755,8 +759,8 @@ export const experimentFullNewOutboundSchema = transformSchemaFieldNames(experim
     // Due to the snakeCase function we end up with p_2_url instead of p2_url, so we fix that here:
     p_2_url: yupUndefined,
     p2_url: yup.string().url().defined(),
-    start_datetime: yup.string().defined(),
-    end_datetime: yup.string().defined(),
+    start_datetime: yup.string().defined().nullable(),
+    end_datetime: yup.string().defined().nullable(),
     metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined(),
     segment_assignments: yup.array(segmentAssignmentNewOutboundSchema).defined(),
     variations: yup.array(variationNewOutboundSchema).defined(),

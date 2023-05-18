@@ -147,7 +147,11 @@ export default function WizardEdit({
 
   const initialExperiment =
     experiment &&
-    experimentToFormData(experimentWizardMode === ExperimentWizardMode.Clone ? { ...experiment, name: '' } : experiment)
+    experimentToFormData(
+      experimentWizardMode === ExperimentWizardMode.Clone
+        ? { ...experiment, name: '', startDatetime: null, endDatetime: null }
+        : experiment,
+    )
 
   const titleByExperimentWizardMode: Record<ExperimentWizardMode, string> = {
     [ExperimentWizardMode.Create]: 'Create an Experiment',

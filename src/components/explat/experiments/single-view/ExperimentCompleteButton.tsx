@@ -28,7 +28,7 @@ const useStyles = makeStyles(() =>
   }),
 )
 
-const ExperimentRunButton = ({
+const ExperimentCompleteButton = ({
   experiment,
   experimentReloadRef,
 }: {
@@ -39,61 +39,71 @@ const ExperimentRunButton = ({
   const dangerClasses = useDangerStyles()
   const { enqueueSnackbar } = useSnackbar()
 
-  const canRunExperiment = experiment && experiment.status === Status.Staging
-  const [isAskingToConfirmRunExperiment, setIsAskingToConfirmRunExperiment] = useState<boolean>(false)
-  const onAskToConfirmRunExperiment = () => setIsAskingToConfirmRunExperiment(true)
-  const onCancelRunExperiment = () => setIsAskingToConfirmRunExperiment(false)
-  const [isSubmittingRunExperiment, setIsSubmittingRunExperiment] = useState<boolean>(false)
-  const onConfirmRunExperiment = async () => {
+  const canCompleteExperiment = experiment && experiment.status === Status.Running
+  const [isAskingToConfirmCompleteExperiment, setIsAskingToConfirmCompleteExperiment] = useState<boolean>(false)
+  const onAskToConfirmCompleteExperiment = () => setIsAskingToConfirmCompleteExperiment(true)
+  const onCancelCompleteExperiment = () => setIsAskingToConfirmCompleteExperiment(false)
+  const [isSubmittingCompleteExperiment, setIsSubmittingCompleteExperiment] = useState<boolean>(false)
+  const onConfirmCompleteExperiment = async () => {
     try {
       // istanbul ignore next; Shouldn't occur
       if (!experiment) {
         throw Error('Missing experiment, this should not happen')
       }
 
-      setIsSubmittingRunExperiment(true)
-      await ExperimentsApi.changeStatus(experiment.experimentId, Status.Running)
-      enqueueSnackbar('Experiment Running!', { variant: 'success' })
+      setIsSubmittingCompleteExperiment(true)
+      await ExperimentsApi.changeStatus(experiment.experimentId, Status.Completed)
+      enqueueSnackbar('Experiment Completed!', { variant: 'success' })
       experimentReloadRef.current()
-      setIsAskingToConfirmRunExperiment(false)
+      setIsAskingToConfirmCompleteExperiment(false)
     } catch (e) /* istanbul ignore next; Shouldn't occur */ {
       console.log(e)
-      enqueueSnackbar(`Oops! Something went wrong while trying to run your experiment. ${serverErrorMessage(e)}`, {
+      enqueueSnackbar(`Oops! Something went wrong while trying to complete your experiment. ${serverErrorMessage(e)}`, {
         variant: 'error',
       })
     } finally {
-      setIsSubmittingRunExperiment(false)
+      setIsSubmittingCompleteExperiment(false)
     }
   }
 
   return (
     <>
-      <Tooltip title={canRunExperiment ? '' : `This experiment is ${experiment?.status ?? 'undefined status'}.`}>
+      <Tooltip
+        title={
+          canCompleteExperiment
+            ? 'Stop new user assignments. Current assignments remain active.'
+            : `This experiment is ${experiment?.status ?? 'undefined status'}.`
+        }
+      >
         <span>
           <Button
             variant='outlined'
             classes={{ outlined: dangerClasses.dangerButtonOutlined }}
-            disabled={!canRunExperiment}
-            onClick={onAskToConfirmRunExperiment}
+            disabled={!canCompleteExperiment}
+            onClick={onAskToConfirmCompleteExperiment}
           >
-            1. Launch
+            2. Complete
           </Button>
         </span>
       </Tooltip>
       <Dialog
-        open={isAskingToConfirmRunExperiment}
-        aria-labelledby='confirm-run-experiment-dialog-title'
+        open={isAskingToConfirmCompleteExperiment}
+        aria-labelledby='confirm-complete-experiment-dialog-title'
         BackdropProps={{ className: dangerClasses.dangerBackdrop }}
       >
         <DialogTitle>
           <Typography variant='h5' component='div'>
-            Are you sure you want to <strong>launch</strong> this experiment?
+            Are you sure you want to <strong>complete</strong> this experiment?
           </Typography>
         </DialogTitle>
         <DialogContent>
           <Typography variant='body2' gutterBottom>
-            Launching will <strong>release experiment code to our users.</strong> This may take up to ten minutes to
-            propagate to all servers due to{' '}
+            Completing will{' '}
+            <strong>
+              prevent new users from being assigned to the experiment, users that have already been assigned will
+              continue with their assigned experience.
+            </strong>{' '}
+            This may take up to ten minutes to propagate to all servers due to{' '}
             <PrivateLink
               href='https://wp.me/PCYsg-Fq9#logged-out-homepage-assignments-use-file-system-cache'
               rel='noopener noreferrer'
@@ -104,24 +114,24 @@ const ExperimentRunButton = ({
             .
           </Typography>
           <Typography variant='body2' gutterBottom>
-            Launching also changes the experiment&apos;s status to running, which is <strong>irreversible</strong>.
+            Completing also changes the experiment&apos;s status to completed, which is <strong>irreversible</strong>.
           </Typography>
           <div className={classes.dangerImage}>
             <img src='/img/danger.gif' alt='DANGER!' />
           </div>
         </DialogContent>
         <DialogActions>
-          <Button variant='contained' color='primary' onClick={onCancelRunExperiment}>
+          <Button variant='contained' color='primary' onClick={onCancelCompleteExperiment}>
             Cancel
           </Button>
-          <LoadingButtonContainer isLoading={isSubmittingRunExperiment}>
+          <LoadingButtonContainer isLoading={isSubmittingCompleteExperiment}>
             <Button
               variant='contained'
               classes={{ contained: dangerClasses.dangerButtonContained }}
-              disabled={isSubmittingRunExperiment}
-              onClick={onConfirmRunExperiment}
+              disabled={isSubmittingCompleteExperiment}
+              onClick={onConfirmCompleteExperiment}
             >
-              Launch
+              Complete
             </Button>
           </LoadingButtonContainer>
         </DialogActions>
@@ -130,4 +140,4 @@ const ExperimentRunButton = ({
   )
 }
 
-export default ExperimentRunButton
+export default ExperimentCompleteButton

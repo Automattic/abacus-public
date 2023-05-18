@@ -17,6 +17,7 @@ import * as Schemas from 'src/lib/explat/schemas'
 import { useDataLoadingError, useDataSource } from 'src/utils/data-loading'
 import { createIdSlug, createUnresolvingPromise, or } from 'src/utils/general'
 
+import ExperimentCompleteButton from './ExperimentCompleteButton'
 import ExperimentRunButton from './ExperimentRunButton'
 import ExperimentResults from './results/ExperimentResults'
 
@@ -161,7 +162,8 @@ export default function ExperimentPageView({
             />
           </Tabs>
           <div className={classes.topBarActions}>
-            <ExperimentRunButton {...{ experiment, experimentReloadRef }} />{' '}
+            <ExperimentRunButton {...{ experiment, experimentReloadRef }} />
+            <ExperimentCompleteButton {...{ experiment, experimentReloadRef }} />{' '}
             <ExperimentDisableButton {...{ experiment, experimentReloadRef }} className={classes.disableButton} />
             <Tooltip title={canEditInWizard ? '' : 'Only available for staging experiments.'}>
               <span>

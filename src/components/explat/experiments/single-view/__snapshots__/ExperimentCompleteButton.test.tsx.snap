@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`disables an experiment 1`] = `
+exports[`completes an experiment 1`] = `
 <div
   aria-hidden="true"
 >
   <span
     class=""
-    title="Revert all users to control"
+    title="Stop new user assignments. Current assignments remain active."
   >
     <button
       class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-6"
@@ -16,7 +16,7 @@ exports[`disables an experiment 1`] = `
       <span
         class="MuiButton-label"
       >
-        3. Disable
+        2. Complete
       </span>
       <span
         class="MuiTouchRipple-root"
@@ -30,21 +30,19 @@ exports[`renders as expected 1`] = `
 <div>
   <span
     class=""
-    title="Revert all users to control"
+    title="This experiment is staging."
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-2"
-      tabindex="0"
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-dangerButtonOutlined-2 Mui-disabled Mui-disabled"
+      disabled=""
+      tabindex="-1"
       type="button"
     >
       <span
         class="MuiButton-label"
       >
-        3. Disable
+        2. Complete
       </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
     </button>
   </span>
 </div>

@@ -128,7 +128,7 @@ const MetricsIndexPage = (): JSX.Element => {
   const [showArchivedMetrics, setShowArchivedMetrics] = useState(false)
   const onArchivedMetricsCheckboxChange = () => setShowArchivedMetrics(!showArchivedMetrics)
 
-  const [showDebugMetrics, setShowDebugMetrics] = useState(false)
+  const [showDebugMetrics, setShowDebugMetrics] = useState(debugMode)
   const onDebugMetricsCheckboxChange = () => setShowDebugMetrics(!showDebugMetrics)
 
   const filteredMetrics = useMemo(
@@ -136,7 +136,7 @@ const MetricsIndexPage = (): JSX.Element => {
       metrics?.filter(
         (metric) =>
           (!metric.name.startsWith('archived_') || showArchivedMetrics) &&
-          (!metric.name.startsWith('explat_test_') || isDebugMode() || showDebugMetrics),
+          (!metric.name.startsWith('explat_test_') || showDebugMetrics),
       ),
     [metrics, showArchivedMetrics, showDebugMetrics],
   )

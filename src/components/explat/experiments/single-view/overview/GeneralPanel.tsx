@@ -100,9 +100,13 @@ function GeneralPanel({
     {
       label: 'P2 Link',
       value: (
-        <Link href={experiment.p2Url} rel='noopener noreferrer' target='_blank' className={classes.monospace}>
-          {experiment.p2Url}
-        </Link>
+        <>
+          {experiment.p2Url && (
+            <Link href={experiment.p2Url} rel='noopener noreferrer' target='_blank' className={classes.monospace}>
+              {experiment.p2Url}
+            </Link>
+          )}
+        </>
       ),
     },
     {

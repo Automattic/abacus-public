@@ -263,24 +263,31 @@ test('section should be validated after change', async () => {
 
   screen.getByRole('textbox', { name: /Experiment name/ })
 
-  expect(isSectionError(startSectionButton)).toBe(true)
-  expect(isSectionError(basicInfoSectionButton)).toBe(false)
-  expect(isSectionError(audienceSectionButton)).toBe(false)
-  expect(isSectionError(metricsSectionButton)).toBe(false)
-  expect(isSectionError(submitSectionButton)).toBe(false)
-
-  expect(isSectionComplete(startSectionButton)).toBe(false)
-  expect(isSectionComplete(basicInfoSectionButton)).toBe(false)
-  expect(isSectionComplete(audienceSectionButton)).toBe(false)
-  expect(isSectionComplete(metricsSectionButton)).toBe(false)
-  expect(isSectionComplete(submitSectionButton)).toBe(false)
+  // section validated by leaving the p2 post url empty
+  expect(isSectionError(startSectionButton)).toBe(false)
+  expect(isSectionComplete(startSectionButton)).toBe(true)
 
   await act(async () => {
     fireEvent.click(startSectionButton)
   })
 
-  const postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
+  let postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
+  await act(async () => {
+    fireEvent.change(postUrlInput, { target: { value: 'random invalid text' } })
+  })
 
+  await act(async () => {
+    fireEvent.click(basicInfoSectionButton)
+  })
+
+  expect(isSectionError(startSectionButton)).toBe(true)
+  expect(isSectionComplete(startSectionButton)).toBe(false)
+
+  await act(async () => {
+    fireEvent.click(startSectionButton)
+  })
+
+  postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
   await act(async () => {
     fireEvent.change(postUrlInput, { target: { value: 'http://example.com/' } })
   })
@@ -290,16 +297,7 @@ test('section should be validated after change', async () => {
   })
 
   expect(isSectionError(startSectionButton)).toBe(false)
-  expect(isSectionError(basicInfoSectionButton)).toBe(false)
-  expect(isSectionError(audienceSectionButton)).toBe(false)
-  expect(isSectionError(metricsSectionButton)).toBe(false)
-  expect(isSectionError(submitSectionButton)).toBe(false)
-
   expect(isSectionComplete(startSectionButton)).toBe(true)
-  expect(isSectionComplete(basicInfoSectionButton)).toBe(false)
-  expect(isSectionComplete(audienceSectionButton)).toBe(false)
-  expect(isSectionComplete(metricsSectionButton)).toBe(false)
-  expect(isSectionComplete(submitSectionButton)).toBe(false)
 })
 
 test('skipping to submit should check all sections', async () => {
@@ -329,13 +327,13 @@ test('skipping to submit should check all sections', async () => {
 
   expect(container).toMatchSnapshot()
 
-  expect(isSectionError(startSectionButton)).toBe(true)
+  expect(isSectionError(startSectionButton)).toBe(false) // we allow p2Url is optional
   expect(isSectionError(basicInfoSectionButton)).toBe(true)
   expect(isSectionError(audienceSectionButton)).toBe(true)
   expect(isSectionError(metricsSectionButton)).toBe(true)
   expect(isSectionError(submitSectionButton)).toBe(false)
 
-  expect(isSectionComplete(startSectionButton)).toBe(false)
+  expect(isSectionComplete(startSectionButton)).toBe(true)
   expect(isSectionComplete(basicInfoSectionButton)).toBe(false)
   expect(isSectionComplete(audienceSectionButton)).toBe(false)
   expect(isSectionComplete(metricsSectionButton)).toBe(false)

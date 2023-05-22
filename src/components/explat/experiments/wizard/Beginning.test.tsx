@@ -95,6 +95,7 @@ test('renders as expected', () => {
             class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
             <input
+              aria-describedby="experiment.p2Url-helper-text"
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input"
               id="experiment.p2Url"
@@ -116,6 +117,12 @@ test('renders as expected', () => {
               </legend>
             </fieldset>
           </div>
+          <p
+            class="MuiFormHelperText-root MuiFormHelperText-contained"
+            id="experiment.p2Url-helper-text"
+          >
+            Can be added later. Required for launching the experiment.
+          </p>
         </div>
       </div>
     </div>

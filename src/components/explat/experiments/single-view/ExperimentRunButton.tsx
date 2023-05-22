@@ -19,7 +19,8 @@ import * as yup from 'yup'
 import ExperimentsApi from 'src/api/explat/ExperimentsApi'
 import { serverErrorMessage } from 'src/api/HttpResponseError'
 import PrivateLink from 'src/components/general/PrivateLink'
-import { ExperimentFull, experimentFullNewSchema, Status } from 'src/lib/explat/schemas'
+import { experimentToFormData } from 'src/lib/explat/form-data'
+import { ExperimentFull, ExperimentFullNew, experimentFullNewSchema, Status } from 'src/lib/explat/schemas'
 import { useDangerStyles } from 'src/styles/styles'
 import { formatIsoDate } from 'src/utils/time'
 
@@ -81,20 +82,27 @@ const ExperimentRunButton = ({
           // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
           (date) => !!date && dateFns.isBefore(new Date(), date as Date),
         ),
+      p2Url: (yup.reach(experimentFullNewSchema, 'p2Url') as unknown as yup.MixedSchema).defined().required(),
     })
     .required()
   const editInitialExperiment = {
     endDatetime: experiment && experiment.endDatetime ? formatIsoDate(experiment.endDatetime) : '',
+    p2Url: experiment && experiment.p2Url ? experiment.p2Url : '',
   }
-  const updateExperimentEndDate = async (formData: { experiment: typeof editInitialExperiment }) => {
+  const updateExperiment = async (formData: { experiment: typeof editInitialExperiment }) => {
     // istanbul ignore next; Shouldn't occur
     if (!experiment) {
       throw new Error('Missing experiment')
     }
 
+    const experimentData = {
+      ...experimentToFormData(experiment),
+      ...formData.experiment,
+    } as unknown as ExperimentFullNew
+
     try {
-      await ExperimentsApi.patch(experiment.experimentId, formData.experiment as unknown as Partial<ExperimentFull>)
-      enqueueSnackbar('Experiment end datetime updated', { variant: 'success' })
+      await ExperimentsApi.put(experiment.experimentId, experimentData)
+      enqueueSnackbar('Experiment updated', { variant: 'success' })
       experimentReloadRef.current()
     } catch (e) /* istanbul ignore next; Shouldn't happen */ {
       console.error(e)
@@ -109,8 +117,8 @@ const ExperimentRunButton = ({
   const onSubmit = async (formData: { experiment: typeof editInitialExperiment }) => {
     try {
       setIsSubmittingRunExperiment(true)
+      await updateExperiment(formData)
       await launchExperiment()
-      await updateExperimentEndDate(formData)
       setIsAskingToConfirmRunExperiment(false)
     } finally {
       setIsSubmittingRunExperiment(false)
@@ -181,6 +189,26 @@ const ExperimentRunButton = ({
                   label='End date'
                   helperText={'Use the UTC timezone.'}
                   type='date'
+                  variant='outlined'
+                  fullWidth
+                  required
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <br />
+                <br />
+                <Typography variant='body2' gutterBottom>
+                  A P2 post URL is <strong>required</strong> for launching the experiment:
+                </Typography>
+                <br />
+                <Field
+                  component={TextField}
+                  name='experiment.p2Url'
+                  id='experiment.p2Url'
+                  label='Your a8cexperiments P2 post URL'
+                  placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
+                  type='url'
                   variant='outlined'
                   fullWidth
                   required

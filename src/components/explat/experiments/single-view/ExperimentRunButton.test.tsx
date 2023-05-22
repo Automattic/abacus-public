@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/require-await */
 import { act, fireEvent, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
+import { add } from 'date-fns'
 import MockDate from 'mockdate'
 import React from 'react'
 
 import ExperimentsApi from 'src/api/explat/ExperimentsApi'
+import { experimentToFormData } from 'src/lib/explat/form-data'
 import Fixtures from 'src/test-helpers/fixtures'
 import { render } from 'src/test-helpers/test-utils'
 
@@ -54,22 +56,40 @@ test('runs an experiment', async () => {
 
   const endDateInput = screen.getByLabelText(/End date/)
   const initialEndDatetime = (endDateInput as HTMLInputElement).value
+  const newEndDatetime = add(new Date(initialEndDatetime), { days: 1 }).toISOString().substring(0, 10)
+
+  const allRunButtons = screen.getAllByRole('button', { name: /Launch/ })
 
   // Invalid endDatetime
   await act(async () => {
     fireEvent.change(endDateInput, { target: { value: '1999-12-31' } })
   })
   expect(baseElement).toMatchSnapshot()
-  const allRunButtons = screen.getAllByRole('button', { name: /Launch/ })
   expect((allRunButtons as HTMLButtonElement[]).some((button) => !!button?.disabled)).toBe(true)
 
   // Valid endDatetime
   await act(async () => {
-    fireEvent.change(endDateInput, { target: { value: initialEndDatetime } })
+    fireEvent.change(endDateInput, { target: { value: newEndDatetime } })
   })
   expect(screen).toMatchSnapshot()
   expect((allRunButtons as HTMLButtonElement[]).every((button) => !button.disabled)).toBe(true)
 
+  const p2UrlInput = screen.getByLabelText(/Your a8cexperiments P2 post URL/)
+  const newP2Url = 'http://www.example_2.com'
+
+  // Invalid p2Url
+  await act(async () => {
+    fireEvent.change(p2UrlInput, { target: { value: 'bad url' } })
+  })
+  expect((allRunButtons as HTMLButtonElement[]).some((button) => !!button?.disabled)).toBe(true)
+
+  // Valid p2Url
+  await act(async () => {
+    fireEvent.change(p2UrlInput, { target: { value: newP2Url } })
+  })
+  expect((allRunButtons as HTMLButtonElement[]).every((button) => !button.disabled)).toBe(true)
+
+  // Launch
   allRunButtons.forEach((button) => fireEvent.click(button))
 
   await waitForElementToBeRemoved(cancelButton2nd)
@@ -92,13 +112,99 @@ test('runs an experiment', async () => {
       ],
     }
   `)
-  expect(mockedExperimentsApi.patch).toMatchInlineSnapshot(`
+  expect(mockedExperimentsApi.put).toHaveBeenCalledWith(1, {
+    ...experimentToFormData(experiment),
+    endDatetime: newEndDatetime,
+    p2Url: newP2Url,
+  })
+  expect(mockedExperimentsApi.put).toMatchInlineSnapshot(`
     [MockFunction] {
       "calls": Array [
         Array [
           1,
           Object {
-            "endDatetime": "2020-11-21",
+            "description": "Experiment with things. Change stuff. Profit.",
+            "endDatetime": "2020-11-22",
+            "exclusionGroupTagIds": Array [
+              1,
+            ],
+            "existingUsersAllowed": "false",
+            "exposureEvents": Array [
+              Object {
+                "event": "event_name",
+                "props": Array [
+                  Object {
+                    "key": "additionalProp1",
+                    "value": "prop1Value",
+                  },
+                  Object {
+                    "key": "additionalProp2",
+                    "value": "prop2Value",
+                  },
+                  Object {
+                    "key": "additionalProp3",
+                    "value": "prop3Value",
+                  },
+                ],
+              },
+              Object {
+                "event": "event_without_props",
+                "props": Array [],
+              },
+            ],
+            "metricAssignments": Array [
+              Object {
+                "attributionWindowSeconds": "604800",
+                "changeExpected": true,
+                "isPrimary": true,
+                "metricId": "1",
+                "minDifference": "0.1",
+              },
+              Object {
+                "attributionWindowSeconds": "2419200",
+                "changeExpected": false,
+                "isPrimary": false,
+                "metricId": "2",
+                "minDifference": "10.5",
+              },
+              Object {
+                "attributionWindowSeconds": "3600",
+                "changeExpected": true,
+                "isPrimary": false,
+                "metricId": "2",
+                "minDifference": "0.5",
+              },
+              Object {
+                "attributionWindowSeconds": "21600",
+                "changeExpected": true,
+                "isPrimary": false,
+                "metricId": "3",
+                "minDifference": "12",
+              },
+            ],
+            "name": "experiment_1",
+            "ownerLogin": "owner-nickname",
+            "p2Url": "http://www.example_2.com",
+            "platform": "calypso",
+            "segmentAssignments": Array [
+              Object {
+                "isExcluded": true,
+                "segmentId": 1,
+              },
+            ],
+            "startDatetime": "2020-09-21",
+            "variations": Array [
+              Object {
+                "allocatedPercentage": "40",
+                "isDefault": false,
+                "name": "test",
+              },
+              Object {
+                "allocatedPercentage": "60",
+                "isDefault": true,
+                "name": "control",
+              },
+            ],
           },
         ],
       ],

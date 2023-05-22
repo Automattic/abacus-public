@@ -381,7 +381,6 @@ describe('lib/schemas.ts module', () => {
             [ValidationError: This field is required],
             [ValidationError: This field is required],
             [ValidationError: This field is required],
-            [ValidationError: This field is required],
           ]
         `)
       }

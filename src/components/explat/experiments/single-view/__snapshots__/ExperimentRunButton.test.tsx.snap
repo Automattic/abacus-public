@@ -200,6 +200,64 @@ exports[`runs an experiment 1`] = `
                 Use the UTC timezone.
               </p>
             </div>
+            <br />
+            <br />
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              A P2 post URL is 
+              <strong>
+                required
+              </strong>
+               for launching the experiment:
+            </p>
+            <br />
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+                for="experiment.p2Url"
+                id="experiment.p2Url-label"
+              >
+                Your a8cexperiments P2 post URL
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  id="experiment.p2Url"
+                  name="experiment.p2Url"
+                  placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
+                  required=""
+                  type="url"
+                  value="https://wordpress.com/experiment_1"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
+                  >
+                    <span>
+                      Your a8cexperiments P2 post URL
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
           </div>
           <div
             class="MuiDialogActions-root MuiDialogActions-spacing"
@@ -423,6 +481,64 @@ exports[`runs an experiment 2`] = `
               >
                 Use the UTC timezone.
               </p>
+            </div>
+            <br />
+            <br />
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              A P2 post URL is 
+              <strong>
+                required
+              </strong>
+               for launching the experiment:
+            </p>
+            <br />
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+                for="experiment.p2Url"
+                id="experiment.p2Url-label"
+              >
+                Your a8cexperiments P2 post URL
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  id="experiment.p2Url"
+                  name="experiment.p2Url"
+                  placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
+                  required=""
+                  type="url"
+                  value="https://wordpress.com/experiment_1"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-15 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-17 PrivateNotchedOutline-legendNotched-18"
+                  >
+                    <span>
+                      Your a8cexperiments P2 post URL
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
             </div>
           </div>
           <div

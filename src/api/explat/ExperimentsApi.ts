@@ -59,7 +59,19 @@ async function patch(experimentId: number, experimentPatch: Partial<ExperimentFu
   const dynamicOutboundCastSchema = transformSchemaFieldNames(
     yupPick(experimentFullSchema, Object.keys(experimentPatch)),
     tinyCase.snakeCase,
-  ).snakeCase()
+  )
+    .snakeCase()
+    .transform(
+      // istanbul ignore next; Tested by integration
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      (currentValue) => ({
+        ...currentValue,
+        // Due to the snakeCase function we end up with p_2_url instead of p2_url, so we fix that here:
+        p_2_url: undefined,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
+        p2_url: currentValue.p_2_url,
+      }),
+    )
   const outboundExperimentPatch = dynamicOutboundCastSchema.cast(validatedExperimentPatch)
 
   return await experimentFullSchema.validate(

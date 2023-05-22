@@ -646,7 +646,7 @@ export const experimentSummaryResponse = yup
 export type ExperimentFull = ExperimentBare & {
   description: string
   existingUsersAllowed: boolean
-  p2Url: string
+  p2Url?: string | null
   endReason?: string | null
   conclusionUrl?: string | null
   deployedVariationId?: number | null
@@ -662,7 +662,7 @@ export const experimentFullSchema: ObjectSchema<ExperimentFull> = experimentBare
     analyses: yupUndefined,
     description: yup.string().defined(),
     existingUsersAllowed: yup.boolean().defined(),
-    p2Url: yup.string().url().defined(),
+    p2Url: yup.string().url().nullable(),
     endReason: yup.string().nullable(),
     conclusionUrl: yup.string().url().nullable(),
     deployedVariationId: idSchema.nullable().notRequired(),
@@ -682,6 +682,7 @@ export const experimentFullNewSchema = experimentFullSchema.shape({
   experimentId: idSchema.nullable().notRequired(),
   status: yupUndefined,
   assignmentCacheStatus: yupUndefined,
+  p2Url: yup.string().url().nullable().notRequired(),
   conclusionUrl: yup.string().url().nullable().notRequired(),
   endReason: yup.string().nullable().notRequired(),
   startDatetime: dateSchema
@@ -758,7 +759,7 @@ export const experimentFullNewOutboundSchema = transformSchemaFieldNames(experim
     exposure_events: yup.array(eventSchema).defined().nullable(),
     // Due to the snakeCase function we end up with p_2_url instead of p2_url, so we fix that here:
     p_2_url: yupUndefined,
-    p2_url: yup.string().url().defined(),
+    p2_url: yup.string().url().defined().nullable(),
     start_datetime: yup.string().defined().nullable(),
     end_datetime: yup.string().defined().nullable(),
     metric_assignments: yup.array(metricAssignmentNewOutboundSchema).defined(),

@@ -56,7 +56,8 @@ const Beginning = (): JSX.Element => {
         id='experiment.p2Url'
         name='experiment.p2Url'
         placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
-        label={`Your a8cexperiments P2 post URL`}
+        label='Your a8cexperiments P2 post URL'
+        helperText='Can be added later. Required for launching the experiment.'
         variant='outlined'
         InputLabelProps={{
           shrink: true,

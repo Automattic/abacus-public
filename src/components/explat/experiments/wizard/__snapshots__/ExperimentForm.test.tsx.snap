@@ -389,6 +389,7 @@ exports[`renders as expected 1`] = `
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
                 >
                   <input
+                    aria-describedby="experiment.p2Url-helper-text"
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     id="experiment.p2Url"
@@ -410,6 +411,12 @@ exports[`renders as expected 1`] = `
                     </legend>
                   </fieldset>
                 </div>
+                <p
+                  class="MuiFormHelperText-root MuiFormHelperText-contained"
+                  id="experiment.p2Url-helper-text"
+                >
+                  Can be added later. Required for launching the experiment.
+                </p>
               </div>
             </div>
           </div>
@@ -827,6 +834,7 @@ exports[`sections should be browsable by the section buttons and show validation
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
                 >
                   <input
+                    aria-describedby="experiment.p2Url-helper-text"
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     id="experiment.p2Url"
@@ -848,6 +856,12 @@ exports[`sections should be browsable by the section buttons and show validation
                     </legend>
                   </fieldset>
                 </div>
+                <p
+                  class="MuiFormHelperText-root MuiFormHelperText-contained"
+                  id="experiment.p2Url-helper-text"
+                >
+                  Can be added later. Required for launching the experiment.
+                </p>
               </div>
             </div>
           </div>
@@ -888,7 +902,7 @@ exports[`sections should be browsable by the section buttons and show validation
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -896,19 +910,19 @@ exports[`sections should be browsable by the section buttons and show validation
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -916,7 +930,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -1229,7 +1243,7 @@ exports[`sections should be browsable by the section buttons and show validation
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -1237,19 +1251,19 @@ exports[`sections should be browsable by the section buttons and show validation
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -1257,7 +1271,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -2137,7 +2151,7 @@ exports[`sections should be browsable by the section buttons and show validation
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -2145,19 +2159,19 @@ exports[`sections should be browsable by the section buttons and show validation
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -2165,7 +2179,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -2731,7 +2745,7 @@ exports[`sections should be browsable by the section buttons and show validation
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -2739,19 +2753,19 @@ exports[`sections should be browsable by the section buttons and show validation
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -2759,7 +2773,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -4354,7 +4368,7 @@ exports[`sections should be browsable by the section buttons and show validation
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -4362,19 +4376,19 @@ exports[`sections should be browsable by the section buttons and show validation
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -4382,7 +4396,7 @@ exports[`sections should be browsable by the section buttons and show validation
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -5328,16 +5342,16 @@ exports[`sections should be browsable by the section buttons and show validation
 exports[`skipping to submit should check all sections 1`] = `
 <div>
   <div
-    class="makeStyles-root-252"
+    class="makeStyles-root-259"
   >
     <div
-      class="MuiPaper-root makeStyles-navigation-253 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-navigation-260 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
       >
         <div
-          class="MuiStep-root MuiStep-horizontal"
+          class="MuiStep-root MuiStep-horizontal MuiStep-completed"
         >
           <button
             class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"
@@ -5345,19 +5359,19 @@ exports[`skipping to submit should check all sections 1`] = `
             type="button"
           >
             <span
-              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-error"
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
             >
               <span
                 class="MuiStepLabel-iconContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiStepIcon-root Mui-error"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-completed"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
                   />
                 </svg>
               </span>
@@ -5365,7 +5379,7 @@ exports[`skipping to submit should check all sections 1`] = `
                 class="MuiStepLabel-labelContainer"
               >
                 <span
-                  class="MuiTypography-root MuiStepLabel-label Mui-error MuiTypography-body2 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
                 >
                   Start
                 </span>
@@ -5578,7 +5592,7 @@ exports[`skipping to submit should check all sections 1`] = `
     </div>
     <div>
       <form
-        class="makeStyles-form-254"
+        class="makeStyles-form-261"
         novalidate=""
       >
         <button
@@ -5588,10 +5602,10 @@ exports[`skipping to submit should check all sections 1`] = `
           type="submit"
         />
         <div
-          class="makeStyles-formPart-255"
+          class="makeStyles-formPart-262"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-257 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-264 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
@@ -5626,7 +5640,7 @@ exports[`skipping to submit should check all sections 1`] = `
             </p>
           </div>
           <div
-            class="makeStyles-formPartActions-256"
+            class="makeStyles-formPartActions-263"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -5643,7 +5657,7 @@ exports[`skipping to submit should check all sections 1`] = `
               />
             </button>
             <div
-              class="makeStyles-root-266"
+              class="makeStyles-root-273"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary Mui-disabled Mui-disabled"

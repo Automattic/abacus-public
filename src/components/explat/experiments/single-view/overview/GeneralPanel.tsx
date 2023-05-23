@@ -136,6 +136,7 @@ function GeneralPanel({
     endDatetime: experiment.endDatetime ? formatIsoDate(experiment.endDatetime) : '',
     // Needed for endDatetime validation
     startDatetime: experiment.startDatetime,
+    p2Url: experiment.p2Url,
   }
   const canEdit = experiment.status !== Status.Staging
   const canEditEndDate = experiment.status === Status.Running
@@ -148,6 +149,7 @@ function GeneralPanel({
         // We need to refer to new Date() instead of using dateFns.isFuture so MockDate works with this in the tests.
         (date) => !date || dateFns.isBefore(new Date(), date as Date),
       ),
+      p2Url: (yup.reach(experimentFullNewSchema, 'p2Url') as unknown as yup.MixedSchema).defined().required(),
     }),
   })
   const onEdit = () => setIsEditing(true)
@@ -156,7 +158,7 @@ function GeneralPanel({
     try {
       const experimentPatch = _.pick(
         formData.experiment,
-        canEditEndDate ? ['description', 'ownerLogin', 'endDatetime'] : ['description', 'ownerLogin'],
+        canEditEndDate ? ['description', 'ownerLogin', 'endDatetime', 'p2Url'] : ['description', 'ownerLogin', 'p2Url'],
       )
       await ExperimentsApi.patch(experiment.experimentId, experimentPatch as unknown as Partial<ExperimentFull>)
       enqueueSnackbar('Experiment Updated!', { variant: 'success' })
@@ -214,7 +216,6 @@ function GeneralPanel({
                     }}
                   />
                 </div>
-
                 <div className={classes.row}>
                   <Field
                     component={TextField}
@@ -235,7 +236,22 @@ function GeneralPanel({
                     }}
                   />
                 </div>
-
+                <div className={classes.row}>
+                  <Field
+                    component={TextField}
+                    name='experiment.p2Url'
+                    id='experiment.p2Url'
+                    label='P2 post URL'
+                    placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
+                    helperText='Your a8cexperiments P2 post URL.'
+                    variant='outlined'
+                    fullWidth
+                    required
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                </div>
                 <div className={classes.row}>
                   <Field
                     component={TextField}

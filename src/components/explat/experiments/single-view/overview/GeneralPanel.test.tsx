@@ -268,6 +268,7 @@ test('opens, submits and cancels edit dialog with running experiment', async () 
             "description": "Edited description.",
             "endDatetime": "2020-10-20",
             "ownerLogin": "changed_owner-nickname",
+            "p2Url": "https://wordpress.com/experiment_1",
           },
         ],
       ],
@@ -306,6 +307,7 @@ test('checks edit dialog does not allow end datetime changes with disabled exper
   await changeFieldByRole('textbox', /Experiment description/, 'Edited description.')
   expect(screen.getByLabelText(/End date/)).toBeDisabled()
   await changeFieldByRole('textbox', /Owner/, 'changed_owner-nickname')
+  await changeFieldByRole('textbox', /P2 post URL/, 'https://wordpress.com/experiment_changed')
 
   const saveButton = screen.getByRole('button', { name: /Save/ })
   fireEvent.click(saveButton)
@@ -320,6 +322,7 @@ test('checks edit dialog does not allow end datetime changes with disabled exper
           Object {
             "description": "Edited description.",
             "ownerLogin": "changed_owner-nickname",
+            "p2Url": "https://wordpress.com/experiment_changed",
           },
         ],
       ],

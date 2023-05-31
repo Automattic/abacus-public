@@ -9,6 +9,9 @@ import Metric from 'src/pages/explat/Metric'
 import Metrics from 'src/pages/explat/Metrics'
 import Tags from 'src/pages/explat/Tags'
 
+import { ExperimentView } from './components/explat/experiments/single-view/ExperimentPageView'
+import { NotFound } from './pages/explat/NotFound'
+
 /**
  * Let's keep routing simple and minimal.
  * - Do not use dynamic or nested routing!
@@ -40,9 +43,18 @@ export default function Routes(): JSX.Element {
         <Route path='/experiments/:experimentIdSlug/clone' exact>
           <ExperimentWizard experimentWizardMode={ExperimentWizardMode.Clone} />
         </Route>
-        <Route path='/experiments/:experimentIdSlug/:view?' exact>
+        <Route path='/experiments/:experimentIdSlug/' exact>
           <Experiment />
         </Route>
+        {Object.values(ExperimentView).map((view) => (
+          <Route
+            key={`/experiments/:experimentIdSlug/:view(${view})`}
+            path={`/experiments/:experimentIdSlug/:view(${view})`}
+            exact
+          >
+            <Experiment />
+          </Route>
+        ))}
 
         <Route path='/metrics' exact>
           <Metrics />
@@ -53,6 +65,10 @@ export default function Routes(): JSX.Element {
 
         <Route path='/tags' exact>
           <Tags />
+        </Route>
+
+        <Route path='*'>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

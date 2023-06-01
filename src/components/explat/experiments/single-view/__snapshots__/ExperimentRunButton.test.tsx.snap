@@ -234,6 +234,7 @@ exports[`runs an experiment 1`] = `
                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
               >
                 <input
+                  aria-describedby="experiment.p2Url-helper-text"
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input"
                   id="experiment.p2Url"
@@ -257,6 +258,12 @@ exports[`runs an experiment 1`] = `
                   </legend>
                 </fieldset>
               </div>
+              <p
+                class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                id="experiment.p2Url-helper-text"
+              >
+                The Systems team will thank you for making debugging easier.
+              </p>
             </div>
           </div>
           <div
@@ -516,6 +523,7 @@ exports[`runs an experiment 2`] = `
                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
               >
                 <input
+                  aria-describedby="experiment.p2Url-helper-text"
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input"
                   id="experiment.p2Url"
@@ -539,6 +547,12 @@ exports[`runs an experiment 2`] = `
                   </legend>
                 </fieldset>
               </div>
+              <p
+                class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled Mui-required"
+                id="experiment.p2Url-helper-text"
+              >
+                The Systems team will thank you for making debugging easier.
+              </p>
             </div>
           </div>
           <div

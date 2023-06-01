@@ -208,6 +208,7 @@ const ExperimentRunButton = ({
                   id='experiment.p2Url'
                   label='Your a8cexperiments P2 post URL'
                   placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
+                  helperText='The Systems team will thank you for making debugging easier.'
                   type='url'
                   variant='outlined'
                   fullWidth

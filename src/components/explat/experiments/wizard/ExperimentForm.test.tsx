@@ -116,19 +116,15 @@ test('sections should be browsable by the next and prev buttons', async () => {
     />,
   )
 
-  screen.getByText(/Design and Document Your Experiment/)
+  screen.getByText(/Start designing your experiment/)
   await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: /Begin/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Next/ }))
   })
-  screen.getAllByText(/Basic Info/)
+  screen.getByText(/Define Your Audience/)
   await act(async () => {
     fireEvent.click(screen.getByRole('button', { name: /Previous/ }))
   })
-  screen.getByText(/Design and Document Your Experiment/)
-  await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: /Begin/ }))
-  })
-  screen.getAllByText(/Basic Info/)
+  screen.getByText(/Start designing your experiment/)
   await act(async () => {
     fireEvent.click(screen.getByRole('button', { name: /Next/ }))
   })
@@ -158,14 +154,14 @@ test('sections should be browsable by the section buttons and show validation er
     />,
   )
 
-  const basicInfoSectionButton = screen.getByRole('button', { name: /Basic Info/ })
+  const startSectionButton = screen.getByRole('button', { name: /Start/ })
   const audienceSectionButton = screen.getByRole('button', { name: /Audience/ })
   const metricsSectionButton = screen.getByRole('button', { name: /Metrics/ })
   const submitSectionButton = screen.getByRole('button', { name: /Submit/ })
 
   // The order of these is such that it triggers all validation error paths
 
-  screen.getByText(/Design and Document Your Experiment/)
+  screen.getByText(/Start designing your experiment/)
   expect(container).toMatchSnapshot()
 
   await act(async () => {
@@ -196,10 +192,10 @@ test('sections should be browsable by the section buttons and show validation er
   })
 
   await act(async () => {
-    fireEvent.click(basicInfoSectionButton)
+    fireEvent.click(startSectionButton)
   })
 
-  screen.getAllByText(/Basic Info/)
+  screen.getAllByText(/Start/)
   expect(container).toMatchSnapshot()
 
   await act(async () => {
@@ -240,64 +236,28 @@ test('section should be validated after change', async () => {
   )
 
   const startSectionButton = screen.getByRole('button', { name: /Start/ })
-  const basicInfoSectionButton = screen.getByRole('button', { name: /Basic Info/ })
   const audienceSectionButton = screen.getByRole('button', { name: /Audience/ })
   const metricsSectionButton = screen.getByRole('button', { name: /Metrics/ })
   const submitSectionButton = screen.getByRole('button', { name: /Submit/ })
 
   expect(isSectionError(startSectionButton)).toBe(false)
-  expect(isSectionError(basicInfoSectionButton)).toBe(false)
   expect(isSectionError(audienceSectionButton)).toBe(false)
   expect(isSectionError(metricsSectionButton)).toBe(false)
   expect(isSectionError(submitSectionButton)).toBe(false)
 
   expect(isSectionComplete(startSectionButton)).toBe(false)
-  expect(isSectionComplete(basicInfoSectionButton)).toBe(false)
   expect(isSectionComplete(audienceSectionButton)).toBe(false)
   expect(isSectionComplete(metricsSectionButton)).toBe(false)
   expect(isSectionComplete(submitSectionButton)).toBe(false)
 
-  await act(async () => {
-    fireEvent.click(basicInfoSectionButton)
-  })
-
   screen.getByRole('textbox', { name: /Experiment name/ })
 
-  // section validated by leaving the p2 post url empty
-  expect(isSectionError(startSectionButton)).toBe(false)
-  expect(isSectionComplete(startSectionButton)).toBe(true)
-
   await act(async () => {
-    fireEvent.click(startSectionButton)
-  })
-
-  let postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
-  await act(async () => {
-    fireEvent.change(postUrlInput, { target: { value: 'random invalid text' } })
-  })
-
-  await act(async () => {
-    fireEvent.click(basicInfoSectionButton)
+    fireEvent.click(audienceSectionButton)
   })
 
   expect(isSectionError(startSectionButton)).toBe(true)
   expect(isSectionComplete(startSectionButton)).toBe(false)
-
-  await act(async () => {
-    fireEvent.click(startSectionButton)
-  })
-
-  postUrlInput = screen.getByRole('textbox', { name: /Your a8cexperiments P2 post URL/ })
-  await act(async () => {
-    fireEvent.change(postUrlInput, { target: { value: 'http://example.com/' } })
-  })
-
-  await act(async () => {
-    fireEvent.click(basicInfoSectionButton)
-  })
-
-  expect(isSectionError(startSectionButton)).toBe(false)
-  expect(isSectionComplete(startSectionButton)).toBe(true)
 })
 
 test('skipping to submit should check all sections', async () => {
@@ -316,7 +276,6 @@ test('skipping to submit should check all sections', async () => {
   )
 
   const startSectionButton = screen.getByRole('button', { name: /Start/ })
-  const basicInfoSectionButton = screen.getByRole('button', { name: /Basic Info/ })
   const audienceSectionButton = screen.getByRole('button', { name: /Audience/ })
   const metricsSectionButton = screen.getByRole('button', { name: /Metrics/ })
   const submitSectionButton = screen.getByRole('button', { name: /Submit/ })
@@ -327,14 +286,12 @@ test('skipping to submit should check all sections', async () => {
 
   expect(container).toMatchSnapshot()
 
-  expect(isSectionError(startSectionButton)).toBe(false) // we allow p2Url is optional
-  expect(isSectionError(basicInfoSectionButton)).toBe(true)
+  expect(isSectionError(startSectionButton)).toBe(true)
   expect(isSectionError(audienceSectionButton)).toBe(true)
   expect(isSectionError(metricsSectionButton)).toBe(true)
   expect(isSectionError(submitSectionButton)).toBe(false)
 
-  expect(isSectionComplete(startSectionButton)).toBe(true)
-  expect(isSectionComplete(basicInfoSectionButton)).toBe(false)
+  expect(isSectionComplete(startSectionButton)).toBe(false)
   expect(isSectionComplete(audienceSectionButton)).toBe(false)
   expect(isSectionComplete(metricsSectionButton)).toBe(false)
   expect(isSectionComplete(submitSectionButton)).toBe(false)
@@ -360,14 +317,14 @@ test('form submits with valid fields', async () => {
   )
 
   // ### Start
-  screen.getByText(/Design and Document Your Experiment/)
+  screen.getByText(/Start designing your experiment/)
   await changeFieldByRole('textbox', /Your a8cexperiments P2 post URL/, 'http://example.com/')
   await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: /Begin/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Start/ }))
   })
 
   // ### Basic Info
-  screen.getAllByText(/Basic Info/)
+  screen.getAllByText(/Start/)
   await changeFieldByRole('textbox', /Experiment name/, 'test_experiment_name')
   await changeFieldByRole('textbox', /Experiment description/, 'experiment description')
   // search for the user
@@ -596,7 +553,7 @@ test('form submits an edited experiment without any changes', async () => {
 
   // ### Move through the form stages
   await act(async () => {
-    fireEvent.click(screen.getByRole('button', { name: /Begin/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Start/ }))
   })
   await act(async () => {
     fireEvent.click(screen.getByRole('button', { name: /Next/ }))

@@ -8,8 +8,31 @@ exports[`renders as expected 1`] = `
     <h4
       class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
     >
-      Basic Info
+      Start designing your experiment
     </h4>
+    <p
+      class="MuiTypography-root MuiTypography-body2"
+    >
+      Our
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        target="_blank"
+      >
+        FieldGuide
+      </a>
+       
+      is a great place to start, it will instruct you on how to
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        target="_blank"
+      >
+        design your experiment.
+      </a>
+      <br />
+      <br />
+    </p>
     <div
       class="makeStyles-row-2"
     >
@@ -275,6 +298,86 @@ exports[`renders as expected 1`] = `
             Use WordPress.com username.
           </p>
         </div>
+      </div>
+    </div>
+    <div
+      class="makeStyles-row-2"
+    >
+      <div
+        class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+          data-shrink="true"
+          for="experiment.p2Url"
+          id="experiment.p2Url-label"
+        >
+          Your a8cexperiments P2 post URL
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-describedby="experiment.p2Url-helper-text"
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            id="experiment.p2Url"
+            name="experiment.p2Url"
+            placeholder="https://a8cexperiments.wordpress.com/your-experiment-url"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
+            >
+              <span>
+                Your a8cexperiments P2 post URL
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-contained"
+          id="experiment.p2Url-helper-text"
+        >
+          Optional for now, but a URL is required for experiment launch.
+        </p>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiAlert-root MuiAlert-standardInfo MuiPaper-elevation0"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message"
+      >
+        After submitting your experiment, Abacus will provide a pre-filled P2 experiment template in the Setup tab to get you started on
+         
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          target="_blank"
+        >
+          experiment documentation
+        </a>
+        .
       </div>
     </div>
   </div>

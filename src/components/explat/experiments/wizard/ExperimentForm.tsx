@@ -15,7 +15,6 @@ import { DataSourceResult } from 'src/utils/data-loading'
 
 import Audience from './Audience'
 import BasicInfo from './BasicInfo'
-import Beginning from './Beginning'
 import Metrics from './Metrics'
 
 export interface ExperimentFormCompletionBag {
@@ -25,7 +24,6 @@ export interface ExperimentFormCompletionBag {
 }
 
 enum StageId {
-  Beginning,
   BasicInfo,
   Audience,
   Metrics,
@@ -40,14 +38,9 @@ interface Stage {
 
 const stages: Stage[] = [
   {
-    id: StageId.Beginning,
-    title: 'Start',
-    validatableFields: ['experiment.p2Url'],
-  },
-  {
     id: StageId.BasicInfo,
-    title: 'Basic Info',
-    validatableFields: ['experiment.name', 'experiment.description', 'experiment.ownerLogin'],
+    title: 'Start',
+    validatableFields: ['experiment.name', 'experiment.description', 'experiment.ownerLogin', 'experiment.p2Url'],
   },
   {
     id: StageId.Audience,
@@ -130,7 +123,7 @@ const ExperimentForm = ({
 
   const rootRef = useRef<HTMLDivElement>(null)
 
-  const [currentStageId, setActiveStageId] = useState<StageId>(StageId.Beginning)
+  const [currentStageId, setActiveStageId] = useState<StageId>(StageId.BasicInfo)
   const currentStageIndex = stages.findIndex((stage) => stage.id === currentStageId)
 
   const [completeStages, setCompleteStages] = useState<StageId[]>([])
@@ -241,18 +234,6 @@ const ExperimentForm = ({
                 {/* Prevent implicit submission of the form on enter. */}
                 {/* See https://stackoverflow.com/a/51507806 */}
                 <button type='submit' disabled style={{ display: 'none' }} aria-hidden='true'></button>
-                {currentStageId === StageId.Beginning && (
-                  <div className={classes.formPart}>
-                    <Paper className={classes.paper}>
-                      <Beginning />
-                    </Paper>
-                    <div className={classes.formPartActions}>
-                      <Button onClick={nextStage} variant='contained' color='primary'>
-                        Begin
-                      </Button>
-                    </div>
-                  </div>
-                )}
                 {currentStageId === StageId.BasicInfo && (
                   <div className={classes.formPart}>
                     <Paper className={classes.paper}>
@@ -305,11 +286,18 @@ const ExperimentForm = ({
                         </PrivateLink>{' '}
                         in the FG and confirm everything is in place.
                       </Typography>
-
                       <Typography variant='body2' gutterBottom>
-                        Once you submit your experiment, it will be in staging and can be edited up until the start date
-                        or manually launched.
+                        Once you submit your experiment, it will be in staging. The following are required in order to
+                        launch:
                       </Typography>
+                      <ul>
+                        <Typography variant='body2' component='li'>
+                          An end date.
+                        </Typography>
+                        <Typography variant='body2' component='li'>
+                          A P2 post URL of the experiment documented and reviewed.
+                        </Typography>
+                      </ul>
                       <Typography variant='body2' gutterBottom>
                         <strong> When you are ready, click the Submit button below.</strong>
                       </Typography>

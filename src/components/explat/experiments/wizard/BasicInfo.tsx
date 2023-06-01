@@ -6,6 +6,7 @@ import { TextField } from 'formik-material-ui'
 import React from 'react'
 
 import AbacusAutocomplete, { autocompleteInputProps } from 'src/components/general/Autocomplete'
+import PrivateLink from 'src/components/general/PrivateLink'
 
 import { ExperimentFormCompletionBag } from './ExperimentForm'
 
@@ -52,7 +53,20 @@ const BasicInfo = ({
   return (
     <div className={classes.root}>
       <Typography variant='h4' gutterBottom>
-        Basic Info
+        Start designing your experiment
+      </Typography>
+
+      <Typography variant='body2'>
+        Our{' '}
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-Hs4' target='_blank'>
+          FieldGuide
+        </PrivateLink>{' '}
+        is a great place to start, it will instruct you on how to{' '}
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-FqB' target='_blank'>
+          design your experiment.
+        </PrivateLink>
+        <br />
+        <br />
       </Typography>
 
       <div className={classes.row}>
@@ -124,6 +138,30 @@ const BasicInfo = ({
           )}
         />
       </div>
+
+      <div className={classes.row}>
+        <Field
+          component={TextField}
+          id='experiment.p2Url'
+          name='experiment.p2Url'
+          placeholder='https://a8cexperiments.wordpress.com/your-experiment-url'
+          label='Your a8cexperiments P2 post URL'
+          helperText='Optional for now, but a URL is required for experiment launch.'
+          variant='outlined'
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </div>
+      <Alert severity='info'>
+        After submitting your experiment, Abacus will provide a pre-filled P2 experiment template in the Setup tab to
+        get you started on{' '}
+        <PrivateLink underline='always' href='https://wp.me/PCYsg-Gek' target='_blank'>
+          experiment documentation
+        </PrivateLink>
+        .
+      </Alert>
     </div>
   )
 }

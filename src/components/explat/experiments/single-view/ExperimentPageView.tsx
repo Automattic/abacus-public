@@ -8,8 +8,8 @@ import ExperimentsApi from 'src/api/explat/ExperimentsApi'
 import MetricsApi from 'src/api/explat/MetricsApi'
 import SegmentsApi from 'src/api/explat/SegmentsApi'
 import TagsApi from 'src/api/explat/TagsApi'
-import ExperimentCodeSetup from 'src/components/explat/experiments/single-view/ExperimentCodeSetup'
 import ExperimentDisableButton from 'src/components/explat/experiments/single-view/ExperimentDisableButton'
+import ExperimentSetup from 'src/components/explat/experiments/single-view/ExperimentSetup'
 import ExperimentDetails from 'src/components/explat/experiments/single-view/overview/ExperimentDetails'
 import PageTitleWithSlug from 'src/components/general/PageTitleWithSlug'
 import Layout from 'src/components/page-parts/Layout'
@@ -51,7 +51,7 @@ export enum ExperimentView {
   Overview = 'overview',
   Results = 'results',
   Debug = 'debug',
-  CodeSetup = 'code-setup',
+  Setup = 'setup',
 }
 
 export default function ExperimentPageView({
@@ -135,14 +135,14 @@ export default function ExperimentPageView({
               label='Overview'
               value={ExperimentView.Overview}
               component={Link}
-              to={`/experiments/${experimentIdSlug}/overview`}
+              to={`/experiments/${experimentIdSlug}/${ExperimentView.Overview}`}
             />
             <Tab
               className={classes.topBarTab}
               label='Results'
               value={ExperimentView.Results}
               component={Link}
-              to={`/experiments/${experimentIdSlug}/results`}
+              to={`/experiments/${experimentIdSlug}/${ExperimentView.Results}`}
             />
             {debugMode && (
               <Tab
@@ -150,15 +150,15 @@ export default function ExperimentPageView({
                 label='Debug'
                 value={ExperimentView.Debug}
                 component={Link}
-                to={`/experiments/${experimentIdSlug}/debug`}
+                to={`/experiments/${experimentIdSlug}/${ExperimentView.Results}`}
               />
             )}
             <Tab
               className={classes.topBarTab}
-              label='Code Setup'
-              value={ExperimentView.CodeSetup}
+              label='Setup'
+              value={ExperimentView.Setup}
               component={Link}
-              to={`/experiments/${experimentIdSlug}/code-setup`}
+              to={`/experiments/${experimentIdSlug}/${ExperimentView.Setup}`}
             />
           </Tabs>
           <div className={classes.topBarActions}>
@@ -190,7 +190,7 @@ export default function ExperimentPageView({
               <ExperimentDetails {...{ experiment, metrics, segments, tags, experimentReloadRef }} />
             )}
             {view === ExperimentView.Results && <ExperimentResults {...{ experiment, metrics, analyses, debugMode }} />}
-            {view === ExperimentView.CodeSetup && <ExperimentCodeSetup />}
+            {view === ExperimentView.Setup && <ExperimentSetup {...{ experiment, metrics }} />}
           </>
         )}
       </>

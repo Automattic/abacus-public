@@ -83,8 +83,8 @@ test('experiment page view renders results without crashing', async () => {
   await renderExperimentPageView({}, ExperimentView.Results)
 })
 
-test('experiment page view renders code-setup without crashing', async () => {
-  await renderExperimentPageView({}, ExperimentView.CodeSetup)
+test('experiment page view renders setup without crashing', async () => {
+  await renderExperimentPageView({}, ExperimentView.Setup)
 })
 
 test('experiment pages view renders debug view', async () => {

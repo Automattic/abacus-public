@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     pre: {
       overflow: 'scroll',
       maxHeight: '10rem',
-      background: '#f5f5f5',
+      background: theme.palette.background.pre,
       padding: theme.spacing(2),
     },
     dialogContent: {

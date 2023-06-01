@@ -9,6 +9,7 @@ declare module '@material-ui/core/styles/createPalette' {
     neutral: React.CSSProperties['color']
     inactionableYellow: React.CSSProperties['color']
     actionableGreen: React.CSSProperties['color']
+    pre: React.CSSProperties['color']
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Palette {
@@ -113,6 +114,7 @@ const theme = createTheme({
       inactionableYellow: '#fcb900',
       actionableGreen: '#00d084',
       neutral: grey[200],
+      pre: '#f5f5f5',
     },
     primary: {
       main: '#194661',

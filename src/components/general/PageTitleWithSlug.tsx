@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
     titleNameSkeleton: {
       display: 'inline-block',
     },
+    copyButton: {
+      marginLeft: theme.spacing(2),
+      padding: theme.spacing(1, 2),
+    },
   }),
 )
 
@@ -54,8 +58,7 @@ export default function PageTitleWithSlug({
             <Tooltip title={slug}>
               <span className={classes.titleName}>{slug}</span>
             </Tooltip>
-
-            <ClipboardButton text={slug} targetName={`${label} name`} />
+            <ClipboardButton text={slug} targetName={`${label} name`} className={classes.copyButton} />
           </>
         )}
       </Typography>

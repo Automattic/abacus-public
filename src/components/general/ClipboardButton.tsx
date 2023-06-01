@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import { Button, ButtonProps } from '@material-ui/core'
 import { Assignment, AssignmentTurnedIn } from '@material-ui/icons'
 import { useSnackbar } from 'notistack'
 import React, { useState } from 'react'
@@ -6,10 +6,13 @@ import React, { useState } from 'react'
 export default function ClipboardButton({
   text = '',
   targetName = 'Text',
+  label = 'Copy',
+  ...props
 }: {
   text?: string
   targetName?: string
-}): JSX.Element {
+  label?: string
+} & ButtonProps): JSX.Element {
   const [wasTextCopied, setWasTextCopied] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
 
@@ -28,9 +31,8 @@ export default function ClipboardButton({
   }
 
   return (
-    <Button onClick={setClipboard}>
-      {wasTextCopied ? <AssignmentTurnedIn /> : <Assignment />}
-      Copy
+    <Button startIcon={wasTextCopied ? <AssignmentTurnedIn /> : <Assignment />} onClick={setClipboard} {...props}>
+      {label}
     </Button>
   )
 }

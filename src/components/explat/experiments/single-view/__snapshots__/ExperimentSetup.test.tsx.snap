@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected 1`] = `
+<div>
+  <div
+    class="MuiPaper-root makeStyles-p2DesignPaper-1 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h3
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-colorTextPrimary MuiTypography-gutterBottom"
+    >
+      P2 Design Post
+    </h3>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      We think one of the best ways to prevent a failed experiment is by documenting what you hope to learn. This will also help future experiments as your documented design and results may get featured in an upcoming Experiments Learnings Library.
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      Here is the P2 experiment design post starter which
+       
+      <strong>
+        includes all the details of your experiment.
+      </strong>
+    </p>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-clipboardButton-3"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        <span
+          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+            />
+          </svg>
+        </span>
+        Copy experiment design
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <ol
+      class="makeStyles-setupSteps-4"
+    >
+      <li
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        Click the button above to copy the P2 post content in your clipboard.
+      </li>
+      <li
+        class="MuiTypography-root MuiTypography-body1"
+      >
+         
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Start a new a8cexperiments P2 post
+        </a>
+        , paste the content and you are ready to go!
+      </li>
+    </ol>
+  </div>
+  <div
+    class="MuiPaper-root makeStyles-codeSetupPaper-2 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h3
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-colorTextPrimary"
+    >
+      Code Setup
+    </h3>
+    <br />
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      See
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        the wiki
+      </a>
+       
+      for platform-specific instructions.
+    </p>
+    <br />
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      When testing manually, note that 
+      <strong>
+        changes may take up to ten minutes to propagate
+      </strong>
+       due to
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        the file system assignment cache
+      </a>
+      . As specified in the FieldGuide, you will need to run 
+      <code
+        class="MuiTypography-root makeStyles-root-5 MuiTypography-body1"
+      >
+        svn up
+      </code>
+       to update your sandbox copy of the cache to reflect the latest changes.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders as expected with no audience targeting 1`] = `
+<div>
+  <div
+    class="MuiPaper-root makeStyles-p2DesignPaper-6 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h3
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-colorTextPrimary MuiTypography-gutterBottom"
+    >
+      P2 Design Post
+    </h3>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      We think one of the best ways to prevent a failed experiment is by documenting what you hope to learn. This will also help future experiments as your documented design and results may get featured in an upcoming Experiments Learnings Library.
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      Here is the P2 experiment design post starter which
+       
+      <strong>
+        includes all the details of your experiment.
+      </strong>
+    </p>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-clipboardButton-8"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        <span
+          class="MuiButton-startIcon MuiButton-iconSizeMedium"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+            />
+          </svg>
+        </span>
+        Copy experiment design
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <ol
+      class="makeStyles-setupSteps-9"
+    >
+      <li
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        Click the button above to copy the P2 post content in your clipboard.
+      </li>
+      <li
+        class="MuiTypography-root MuiTypography-body1"
+      >
+         
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Start a new a8cexperiments P2 post
+        </a>
+        , paste the content and you are ready to go!
+      </li>
+    </ol>
+  </div>
+  <div
+    class="MuiPaper-root makeStyles-codeSetupPaper-7 MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <h3
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-colorTextPrimary"
+    >
+      Code Setup
+    </h3>
+    <br />
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      See
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        the wiki
+      </a>
+       
+      for platform-specific instructions.
+    </p>
+    <br />
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      When testing manually, note that 
+      <strong>
+        changes may take up to ten minutes to propagate
+      </strong>
+       due to
+       
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        the file system assignment cache
+      </a>
+      . As specified in the FieldGuide, you will need to run 
+      <code
+        class="MuiTypography-root makeStyles-root-10 MuiTypography-body1"
+      >
+        svn up
+      </code>
+       to update your sandbox copy of the cache to reflect the latest changes.
+    </p>
+  </div>
+</div>
+`;

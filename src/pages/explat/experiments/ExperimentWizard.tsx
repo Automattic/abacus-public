@@ -10,6 +10,7 @@ import ExperimentsApi from 'src/api/explat/ExperimentsApi'
 import MetricsApi from 'src/api/explat/MetricsApi'
 import SegmentsApi from 'src/api/explat/SegmentsApi'
 import TagsApi from 'src/api/explat/TagsApi'
+import { ExperimentView } from 'src/components/explat/experiments/single-view/ExperimentPageView'
 import ExperimentForm from 'src/components/explat/experiments/wizard/ExperimentForm'
 import Layout from 'src/components/page-parts/Layout'
 import { experimentToFormData } from 'src/lib/explat/form-data'
@@ -105,7 +106,7 @@ export default function WizardEdit({
         const { experiment } = formData as { experiment: ExperimentFullNew }
         const receivedExperiment = await ExperimentsApi.create(experiment)
         enqueueSnackbar('Experiment Created!', { variant: 'success' })
-        history.push(`/experiments/${receivedExperiment.experimentId}/code-setup`)
+        history.push(`/experiments/${receivedExperiment.experimentId}/${ExperimentView.Setup}`)
       } catch (error) {
         setFormSubmissionError(error as Error)
         enqueueSnackbar('Failed to create experiment 😨', { variant: 'error' })
@@ -118,7 +119,7 @@ export default function WizardEdit({
         const { experiment } = formData as { experiment: ExperimentFullNew }
         const receivedExperiment = await ExperimentsApi.create(experiment)
         enqueueSnackbar('Experiment cloned!', { variant: 'success' })
-        history.push(`/experiments/${receivedExperiment.experimentId}/code-setup`)
+        history.push(`/experiments/${receivedExperiment.experimentId}/${ExperimentView.Setup}`)
       } catch (error) {
         setFormSubmissionError(error as Error)
         enqueueSnackbar('Failed to clone experiment 😨', { variant: 'error' })

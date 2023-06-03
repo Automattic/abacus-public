@@ -63,7 +63,8 @@ export default function ExperimentSetup({
     experiment.metricAssignments.find((metricAssignment) => metricAssignment.isPrimary),
   )
 
-  const metricAssignments = experiment.metricAssignments
+  const secondaryMetrics = experiment.metricAssignments
+    .filter((metricAssignment) => !metricAssignment.isPrimary)
     .map((metricAssignment) => `${getMetricEntryByMetricAssignment(metricAssignment)}<br>`)
     .join('')
 
@@ -182,7 +183,7 @@ export default function ExperimentSetup({
   <!-- /wp:paragraph -->
 
   <!-- wp:paragraph -->
-  <p>${metricAssignments}</p>
+  <p>${secondaryMetrics}</p>
   <!-- /wp:paragraph -->
   
   <!-- wp:heading {"className":"wp-block-heading","anchor":"audience"} -->

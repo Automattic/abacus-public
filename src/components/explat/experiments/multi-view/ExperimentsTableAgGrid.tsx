@@ -20,11 +20,12 @@ import { createIdSlug } from 'src/utils/general'
 import ExperimentStatus from '../ExperimentStatus'
 
 const statusOrder = {
-  [Status.Completed]: 0,
-  [Status.Running]: 1,
+  [Status.Running]: 0,
+  [Status.Completed]: 1,
   [Status.Staging]: 2,
   [Status.Disabled]: 3,
 }
+
 const statusComparator = (statusA: Status, statusB: Status) => {
   return statusOrder[statusA] - statusOrder[statusB]
 }

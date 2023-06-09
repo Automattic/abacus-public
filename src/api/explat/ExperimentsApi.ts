@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import qs from 'querystring'
 import * as tinyCase from 'tiny-case'
 import * as yup from 'yup'
 
@@ -126,12 +127,12 @@ async function assignMetric(
  *
  * @throws UnauthorizedError
  */
-async function findAll(): Promise<ExperimentSummary[]> {
+async function findAll(shouldIncludeAnalyses = false): Promise<ExperimentSummary[]> {
+  const query = qs.stringify({ include_analyses: String(shouldIncludeAnalyses), debug: String(isDebugMode()) })
   // istanbul ignore next; debug only
-  const { experiments } = await experimentSummaryResponse.validate(
-    await fetchApi('GET', isDebugMode() ? '/experiments?debug=true' : '/experiments'),
-    { abortEarly: false },
-  )
+  const { experiments } = await experimentSummaryResponse.validate(await fetchApi('GET', `/experiments?${query}`), {
+    abortEarly: false,
+  })
   return experiments
 }
 

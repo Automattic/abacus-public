@@ -4,6 +4,7 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 import { Button, createStyles, fade, InputBase, Link, makeStyles, Theme, Typography, useTheme } from '@material-ui/core'
 import { Search as SearchIcon } from '@material-ui/icons'
+import { Skeleton } from '@material-ui/lab'
 import { ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community'
 import { AgGridReact } from 'ag-grid-react'
 import clsx from 'clsx'
@@ -84,13 +85,23 @@ const useStyles = makeStyles((theme: Theme) =>
         width: '20ch',
       },
     },
+    cellSkeleton: {
+      marginRight: theme.spacing(1),
+      marginLeft: 'auto',
+    },
   }),
 )
 
 /**
  * Renders a table of "bare" experiment information.
  */
-const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] }): JSX.Element => {
+const ExperimentsTable = ({
+  experiments,
+  isLoadingAnalyses,
+}: {
+  experiments: ExperimentSummary[]
+  isLoadingAnalyses?: boolean
+}): JSX.Element => {
   const theme = useTheme()
   const classes = useStyles()
 
@@ -100,8 +111,6 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
   const onGridReady = (event: GridReadyEvent) => {
     gridApiRef.current = event.api
     gridColumnApiRef.current = gridColumnApiRef.current = event.columnApi
-
-    event.api.sizeColumnsToFit()
 
     searchQuery && setSearchState(searchQuery)
   }
@@ -129,7 +138,6 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
     if (!gridApiRef.current) {
       return
     }
-
     gridApiRef.current?.setQuickFilter(searchState)
   }, [searchState])
 
@@ -139,7 +147,6 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
       return
     }
 
-    gridColumnApiRef.current.autoSizeAllColumns()
     gridColumnApiRef.current.resetColumnState()
     gridApiRef.current.setFilterModel(null)
     gridColumnApiRef.current.applyColumnState({
@@ -206,7 +213,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: true,
               resizable: true,
-              width: 520,
+              width: 430,
             },
             {
               headerName: 'Status',
@@ -216,6 +223,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: true,
               resizable: true,
+              width: 125,
             },
             {
               headerName: 'Platform',
@@ -226,6 +234,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: true,
               resizable: true,
+              width: 125,
             },
             {
               headerName: 'Owner',
@@ -236,6 +245,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: true,
               resizable: true,
+              width: 150,
             },
             {
               headerName: 'Start',
@@ -246,6 +256,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: 'agDateColumnFilter',
               resizable: true,
+              width: 125,
             },
             {
               headerName: 'End',
@@ -256,6 +267,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               sortable: true,
               filter: 'agDateColumnFilter',
               resizable: true,
+              width: 125,
             },
             {
               field: 'description',
@@ -266,12 +278,17 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
               valueGetter: (params: { data: { analyses: Analysis[] } }) =>
                 params.data.analyses[0]?.participantStats.total || 0,
               cellRendererFramework: ({ value: participants }: { value: number }) => {
-                return <MetricValue value={participants} unit={{ unitType: UnitType.Count }} displayUnit={false} />
+                return isLoadingAnalyses ? (
+                  <Skeleton className={classes.cellSkeleton} variant='text' width={50} role='placeholder' />
+                ) : (
+                  <MetricValue value={participants} unit={{ unitType: UnitType.Count }} displayUnit={false} />
+                )
               },
               sortable: true,
               filter: 'agNumberColumnFilter',
               resizable: true,
               type: 'rightAligned',
+              width: 150,
             },
           ]}
           rowData={experiments}
@@ -279,6 +296,7 @@ const ExperimentsTable = ({ experiments }: { experiments: ExperimentSummary[] })
           onFirstDataRendered={onNewDataRender}
           onGridReady={onGridReady}
           onGridSizeChanged={onGridResize}
+          overlayNoRowsTemplate='Loading experiments...'
         />
       </div>
     </div>

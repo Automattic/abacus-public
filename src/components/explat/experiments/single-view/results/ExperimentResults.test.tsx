@@ -1,11 +1,15 @@
 import { act, fireEvent, getAllByText, getByText, screen, waitFor } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
 import MockDate from 'mockdate'
+import * as notistack from 'notistack'
 import React from 'react'
 import Plot from 'react-plotly.js'
+import { Router } from 'react-router-dom'
 
 import ExperimentResults, {
   METRIC_DETAILS_AUTO_EXPAND_DELAY,
 } from 'src/components/explat/experiments/single-view/results/ExperimentResults'
+import { AnalysisStrategyToHuman } from 'src/lib/explat/analyses'
 import { AnalysisStrategy, MetricParameterType, Platform, Status } from 'src/lib/explat/schemas'
 import Fixtures from 'src/test-helpers/fixtures'
 import { changeAnalysisStrategy, changeEstimatedImpactInterval, render } from 'src/test-helpers/test-utils'
@@ -28,6 +32,9 @@ const experiment = Fixtures.createExperimentFull({
 })
 const metrics = Fixtures.createMetrics()
 const analyses = Fixtures.createAnalyses()
+
+jest.mock('notistack')
+const mockedNotistack = notistack as jest.Mocked<typeof notistack>
 
 test('renders an appropriate message with no analyses', async () => {
   const { container } = render(<ExperimentResults analyses={[]} experiment={experiment} metrics={metrics} />)
@@ -450,23 +457,81 @@ test('renders the condensed table with some analyses in non-debug mode for a Rev
   expect(mockedPlot).toMatchSnapshot()
 })
 
-test('allows you to change analysis strategy', async () => {
+test('pre-selects analysis strategy correctly and allows you to change it', async () => {
+  const history = createMemoryHistory({
+    initialEntries: [`/home?analysis-method=${AnalysisStrategy.MittNoSpammersNoCrossovers}`],
+  })
+
+  const mockedEnqueueSnackbar = jest.fn()
+  mockedNotistack.useSnackbar.mockImplementation(() => ({
+    enqueueSnackbar: mockedEnqueueSnackbar,
+    closeSnackbar: jest.fn(),
+  }))
+
   const { container } = render(
-    <ExperimentResults
-      analyses={[
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
-        Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
-      ]}
-      experiment={{ ...experiment, exposureEvents: null }}
-      metrics={metrics}
-    />,
+    <Router history={history}>
+      <ExperimentResults
+        analyses={[
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
+        ]}
+        experiment={{ ...experiment, exposureEvents: null }}
+        metrics={metrics}
+      />
+    </Router>,
   )
 
-  await changeAnalysisStrategy()
+  expect(mockedEnqueueSnackbar.mock.calls[0]).toEqual([
+    `'${AnalysisStrategyToHuman[AnalysisStrategy.MittNoSpammersNoCrossovers]}' analysis is selected!`,
+    { variant: 'success' },
+  ])
+
+  const selectedAnalysisStrategy = screen.getByLabelText('Analysis Strategy:')
+  expect(selectedAnalysisStrategy).toHaveTextContent(
+    AnalysisStrategyToHuman[AnalysisStrategy.MittNoSpammersNoCrossovers],
+  )
+
+  await changeAnalysisStrategy(AnalysisStrategy.IttPure)
+  expect(selectedAnalysisStrategy).toHaveTextContent(AnalysisStrategyToHuman[AnalysisStrategy.IttPure])
 
   expect(container).toMatchSnapshot()
+
+  expect(history.location.search).toEqual(`?analysis-method=${AnalysisStrategy.IttPure}`)
+})
+
+test('fails with incorrect analysis strategy in the URL', async () => {
+  const incorrectAnalysisStrategyValue = 'not-an-analysis-strategy'
+  const history = createMemoryHistory({
+    initialEntries: [`/home?analysis-method=${incorrectAnalysisStrategyValue}`],
+  })
+
+  const mockedEnqueueSnackbar = jest.fn()
+  mockedNotistack.useSnackbar.mockImplementation(() => ({
+    enqueueSnackbar: mockedEnqueueSnackbar,
+    closeSnackbar: jest.fn(),
+  }))
+
+  render(
+    <Router history={history}>
+      <ExperimentResults
+        analyses={[
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.IttPure }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoCrossovers }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammers }),
+          Fixtures.createAnalysis({ analysisStrategy: AnalysisStrategy.MittNoSpammersNoCrossovers }),
+        ]}
+        experiment={{ ...experiment, exposureEvents: null }}
+        metrics={metrics}
+      />
+    </Router>,
+  )
+
+  expect(mockedEnqueueSnackbar.mock.calls[0]).toEqual([
+    `Selecting '${incorrectAnalysisStrategyValue}' analysis from query parameter failed!`,
+    { variant: 'error' },
+  ])
 })
 
 test('opens the primary metric DetailPanel automatically after a predefined delay', async () => {

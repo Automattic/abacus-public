@@ -22,10 +22,12 @@ import { Alert } from '@material-ui/lab'
 import clsx from 'clsx'
 import _ from 'lodash'
 import MaterialTable, { MTableBody } from 'material-table'
+import { useSnackbar } from 'notistack'
 import { PlotData } from 'plotly.js'
 import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import Plot from 'react-plotly.js'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
+import * as yup from 'yup'
 
 import Attribute from 'src/components/general/Attribute'
 import MetricValue from 'src/components/general/MetricValue'
@@ -235,9 +237,37 @@ export default function ExperimentResults({
   if (experiment.exposureEvents) {
     availableAnalysisStrategies.push(AnalysisStrategy.PpNaive)
   }
-  const [strategy, setStrategy] = useState<AnalysisStrategy>(() => Experiments.getDefaultAnalysisStrategy(experiment))
+
+  const history = useHistory()
+  const { pathname, search } = useLocation()
+  const { enqueueSnackbar } = useSnackbar()
+
+  const initialStrategyFromUrl = Object.fromEntries(new URLSearchParams(search).entries())?.['analysis-method']
+
+  const [strategy, setStrategy] = useState<AnalysisStrategy>(() => {
+    if (initialStrategyFromUrl) {
+      try {
+        const initialStrategy = yup
+          .string()
+          .oneOf(Object.values(AnalysisStrategy))
+          .defined()
+          .validateSync(initialStrategyFromUrl)
+        enqueueSnackbar(`'${Analyses.AnalysisStrategyToHuman[initialStrategy]}' analysis is selected!`, {
+          variant: 'success',
+        })
+        return initialStrategy
+      } catch (e) {
+        enqueueSnackbar(`Selecting '${initialStrategyFromUrl}' analysis from query parameter failed!`, {
+          variant: 'error',
+        })
+      }
+    }
+    return Experiments.getDefaultAnalysisStrategy(experiment)
+  })
   const onStrategyChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setStrategy(event.target.value as AnalysisStrategy)
+    const newStrategy = event.target.value as AnalysisStrategy
+    setStrategy(newStrategy)
+    history.replace(`${pathname}?analysis-method=${newStrategy}`)
   }
 
   // For A/B/n baseline and change to compare

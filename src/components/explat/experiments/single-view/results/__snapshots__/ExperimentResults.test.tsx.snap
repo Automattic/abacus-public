@@ -3818,7 +3818,7 @@ inner join wpcom.experiment_variations using (experiment_variation_id)
 </div>
 `;
 
-exports[`allows you to change analysis strategy 1`] = `
+exports[`pre-selects analysis strategy correctly and allows you to change it 1`] = `
 <div>
   <div
     class="analysis-latest-results"

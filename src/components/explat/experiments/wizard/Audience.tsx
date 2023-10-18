@@ -188,8 +188,6 @@ const Audience = ({
               Select a Platform
             </MenuItem>
             {Object.values(Platform)
-              //Temporary remove LOHP. See https://github.com/Automattic/experimentation-platform/issues/814
-              .filter((platform) => platform !== Platform.Lohp)
               .map((platform) => (
                 <MenuItem key={platform} value={platform}>
                   {platform}: {PlatformToHuman[platform]}

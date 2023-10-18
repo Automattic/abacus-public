@@ -187,12 +187,11 @@ const Audience = ({
             <MenuItem value='' disabled>
               Select a Platform
             </MenuItem>
-            {Object.values(Platform)
-              .map((platform) => (
-                <MenuItem key={platform} value={platform}>
-                  {platform}: {PlatformToHuman[platform]}
-                </MenuItem>
-              ))}
+            {Object.values(Platform).map((platform) => (
+              <MenuItem key={platform} value={platform}>
+                {platform}: {PlatformToHuman[platform]}
+              </MenuItem>
+            ))}
           </Field>
           <FormHelperText error={!!platformError}>
             {_.isString(platformError) ? platformError : undefined}

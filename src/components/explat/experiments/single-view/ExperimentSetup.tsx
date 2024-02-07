@@ -7,7 +7,7 @@ import { metricValueFormatData } from 'src/components/general/MetricValue'
 import PrivateLink from 'src/components/general/PrivateLink'
 import { PlatformToHuman } from 'src/lib/explat/experiments'
 import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignments'
-import { getUnitInfo, UnitDerivationType } from 'src/lib/explat/metrics'
+import { getUnitInfo, UnitDerivationType, UnitType } from 'src/lib/explat/metrics'
 import { ExperimentFull, Metric, MetricAssignment } from 'src/lib/explat/schemas'
 import { formatBoolean } from 'src/utils/formatters'
 import { createIdSlug } from 'src/utils/general'
@@ -43,20 +43,34 @@ export default function ExperimentSetup({
     experiment.name,
   )}`
 
+  function scaleAndRound(num: number, scale: number) {
+    const originalNumDecimals = num.toString().split('.')[1]?.length || 0
+    const scaledNum = num * scale
+    const scaledNumDecimals = scaledNum.toString().split('.')[1]?.length || 0
+    const newNumDecimals = Math.max(0, Math.min(scaledNumDecimals, originalNumDecimals - Math.floor(Math.log10(scale))))
+    return Number(scaledNum.toFixed(newNumDecimals))
+  }
+
   function getMetricEntryByMetricAssignment(metricAssignment?: MetricAssignment): string {
     const metric = metrics.find((metric) => metric.metricId === metricAssignment?.metricId)
     // istanbul ignore next; shouldn't occur
     if (!metricAssignment || !metric) return ''
 
-    const unitType = getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference]).unitType
+    const unitInfo = getUnitInfo(metric, [UnitDerivationType.AbsoluteDifference])
+    const unitType = unitInfo.unitType
     const unit = metricValueFormatData[unitType].unit
+    let minDifference = metricAssignment.minDifference
+
+    if (unitType === UnitType.RatioPoints) {
+      minDifference = scaleAndRound(Number(minDifference), 100)
+    }
 
     return `<a href="${window.location.origin}/metrics/${createIdSlug(
       metric.metricId,
       metric.name,
     )}" target="_blank" rel="noreferrer noopener">${metric.name}</a>, ${
       AttributionWindowSecondsToHuman[metricAssignment?.attributionWindowSeconds]
-    }, ${String(metricAssignment.minDifference)} ${String(unit)}`
+    }, ${String(minDifference)} ${String(unit)}`
   }
 
   const primaryMetric = getMetricEntryByMetricAssignment(

@@ -583,6 +583,37 @@ describe('getExperimentHealthIndicators', () => {
       ]
     `)
   })
+
+  it('should work correctly when an experiment does not have a startDateTime', () => {
+    expect(
+      Analyses.getExperimentHealthIndicators(
+        Fixtures.createExperimentFull({
+          startDatetime: null,
+          endDatetime: null,
+          status: Status.Disabled,
+          variations: [
+            { variationId: 1, allocatedPercentage: 50, isDefault: true, name: 'variation_name_1' },
+            { variationId: 2, allocatedPercentage: 50, isDefault: false, name: 'variation_name_2' },
+          ],
+        }),
+      ),
+    ).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "indication": Object {
+            "code": "very low",
+            "reason": "−∞ < x ≤ 3",
+            "recommendation": "Experiments should generally run for at least a week before drawing conclusions.",
+            "severity": "Warning",
+          },
+          "link": "https://wp.me/PCYsg-Fqh/#experiment-run-time",
+          "name": "Experiment run time",
+          "unit": "days",
+          "value": 0,
+        },
+      ]
+    `)
+  })
 })
 
 describe('getAnalysisRunHours', () => {

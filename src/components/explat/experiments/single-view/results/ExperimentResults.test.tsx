@@ -617,3 +617,15 @@ test('renders correctly a one time experiment', async () => {
   expect(screen.queryByRole('row', { name: /over one year/ })).toBeNull()
   expect(screen.queryAllByRole('row', { name: /on the entire targeted audience/ }).length).toBeGreaterThanOrEqual(1)
 })
+
+test('renders correctly with a disabled and empty start date experiment', async () => {
+  const experiment = Fixtures.createExperimentFull({
+    platform: Platform.Email,
+    startDatetime: null,
+    status: Status.Disabled,
+  })
+  render(<ExperimentResults analyses={analyses} experiment={experiment} metrics={metrics} />)
+
+  expect(screen.queryByRole('row', { name: /over one year/ })).toBeNull()
+  expect(screen.queryAllByRole('row', { name: /on the entire targeted audience/ }).length).toBeGreaterThanOrEqual(1)
+})

@@ -39,7 +39,7 @@ import { AttributionWindowSecondsToHuman } from 'src/lib/explat/metric-assignmen
 import { getUnitInfo, UnitDerivationType, UnitType } from 'src/lib/explat/metrics'
 import { indexMetrics } from 'src/lib/explat/normalizers'
 import * as Recommendations from 'src/lib/explat/recommendations'
-import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment } from 'src/lib/explat/schemas'
+import { Analysis, AnalysisStrategy, ExperimentFull, Metric, MetricAssignment, Status } from 'src/lib/explat/schemas'
 import * as Visualizations from 'src/lib/explat/visualizations'
 import { useDecorationStyles } from 'src/styles/styles'
 import { abbreviateNumber } from 'src/utils/formatters'
@@ -394,10 +394,14 @@ export default function ExperimentResults({
     experiment,
     primaryMetricLatestAnalysesByStrategy,
   )
-  const experimentHealthIndicators = [
-    ...Analyses.getExperimentParticipantHealthIndicators(experiment, experimentParticipantStats),
-    ...Analyses.getExperimentHealthIndicators(experiment),
-  ]
+
+  const experimentHealthIndicators =
+    experiment.status === Status.Disabled && !experiment.startDatetime
+      ? []
+      : [
+          ...Analyses.getExperimentParticipantHealthIndicators(experiment, experimentParticipantStats),
+          ...Analyses.getExperimentHealthIndicators(experiment),
+        ]
 
   const maxIndicationSeverity = experimentHealthIndicators
     .map(({ indication: { severity } }) => severity)

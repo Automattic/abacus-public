@@ -99,6 +99,16 @@ describe('lib/experiments.ts module', () => {
           }),
         ),
       ).toBe(96)
+
+      expect(
+        Experiments.getExperimentRunHours(
+          Fixtures.createExperimentFull({
+            status: Status.Disabled,
+            startDatetime: null,
+            endDatetime: null,
+          }),
+        ),
+      ).toBe(0)
     })
   })
 
